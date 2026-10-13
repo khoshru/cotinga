@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+  <a href="{% url 'tracker:dashboard' %}" class="back-link">{% include 'icon.html' with name='chevron-left' %}Back to your day</a>
+  <div class="form-intro"><span class="eyebrow">YOUR JOURNAL, YOUR PACE</span><h1>{{ title }}<span class="heading-dot">.</span></h1><p class="subtitle">{{ description }}</p></div>
+  <form method="post" class="entry-form {% if targets_form %}targets-form{% endif %}">
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+    <div class="form-grid">{% for field in form %}<div class="field {% if field.name == 'description' %}field-wide{% endif %}"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<div class="field-errors" role="alert">{{ field.errors }}</div>{% endif %}{% if field.help_text %}<p class="help-text">{{ field.help_text }}</p>{% endif %}</div>{% endfor %}</div>
+    <div class="form-actions"><button class="button primary" type="submit">{% include 'icon.html' with name='check' %}{{ submit_label }}</button><a class="quiet-button" href="{% url 'tracker:dashboard' %}">Cancel</a></div>
+  </form>
+{% endblock %}

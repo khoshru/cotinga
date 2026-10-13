@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0d1916">
+    <meta name="description" content="A little clarity for your day. Track meals and see calories and nutrients against your own daily targets.">
+    <title>{% block title %}Daily summary{% endblock %} · Cotinga</title>
+    <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <script src="{% static 'js/app.js' %}" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="{% url 'tracker:dashboard' %}" aria-label="Cotinga home">
+        <span class="brand-mark">{% include 'icon.html' with name='leaf' %}</span>
+        cotinga<span class="brand-dot">.</span>
+      </a>
+      <span class="header-note">Small steps. A little more you.</span>
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}" class="account-action">{% csrf_token %}<button class="quiet-button" type="submit">Sign out {% include 'icon.html' with name='arrow-right' %}</button></form>
+      {% else %}
+        <a class="header-login" href="{% url 'login' %}">Sign in {% include 'icon.html' with name='arrow-right' %}</a>
+      {% endif %}
+    </header>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <p class="nav-label">YOUR SPACE</p>
+        <nav aria-label="Main navigation">
+          <a class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'tracker:dashboard' %}" {% if request.resolver_match.url_name == 'dashboard' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='grid' %}Daily summary</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'targets-edit' %}active{% endif %}" href="{% url 'tracker:targets-edit' %}" {% if request.resolver_match.url_name == 'targets-edit' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='target' %}My targets</a>
+        </nav>
+        <div class="sidebar-bottom"><span class="tiny-leaf">{% include 'icon.html' with name='leaf' %}</span><p>One day at a time.</p><span>Progress has a pace of its own.</span></div>
+      </aside>
+      <main id="main" class="main-content">
+        {% if messages %}<div class="messages" aria-live="polite">{% for message in messages %}<p class="message">{% include 'icon.html' with name='check' %}{{ message }}</p>{% endfor %}</div>{% endif %}
+        {% block content %}{% endblock %}
+        <footer class="page-footer"><span>Made for the everyday.</span><span>Cotinga · A personal project</span></footer>
+      </main>
+    </div>
+  </body>
+</html>
