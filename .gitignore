@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments and tooling
+.venv/
+.coverage
+.coverage.*
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+
+# Django
+*.sqlite3
+*.sqlite3-*
+data/
+backups/
+config/settings/local.py
+media/
+staticfiles/
+
+# Environment and editor files
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Local deployment configuration and screenshots
+deploy/*.local.json
+deploy/*.local.env
+artifacts/

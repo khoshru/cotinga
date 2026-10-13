@@ -1,0 +1,85 @@
+[project]
+name = "cotinga"
+version = "0.1.0"
+description = "A personal meal and nutrition tracker"
+requires-python = ">=3.14"
+dependencies = [
+    "Django>=6.1.2,<6.2",
+    "gunicorn>=23,<26",
+    "whitenoise>=6.9,<7",
+]
+
+[dependency-groups]
+dev = [
+    "bandit[toml]>=1.9.4,<2",
+    "django-stubs[compatible-mypy]>=6.1,<6.2",
+    "mypy>=2.3.1,<2.4",
+    "pre-commit>=4.6.2,<5",
+    "pytest>=9.1.1,<10",
+    "pytest-cov>=7.1,<8",
+    "pytest-django>=4.14,<5",
+    "ruff>=0.16.6,<0.17",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+extend-exclude = ["*/migrations/*.py"]
+
+[tool.ruff.lint]
+select = [
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "DJ",  # flake8-django
+    "E",   # pycodestyle errors
+    "F",   # Pyflakes
+    "I",   # import sorting
+    "PIE", # flake8-pie
+    "SIM", # flake8-simplify
+    "UP",  # pyupgrade
+]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.14"
+plugins = ["mypy_django_plugin.main"]
+strict = true
+warn_unreachable = true
+exclude = ["(^|/)migrations/", '^\.venv/']
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"
+
+[tool.bandit]
+exclude_dirs = [".venv", "migrations", "tests"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+addopts = "-ra --strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+source = ["."]
+omit = [
+    ".venv/*",
+    "*/migrations/*",
+    "config/asgi.py",
+    "config/settings/*.py",
+    "accounts/admin.py",
+    "accounts/apps.py",
+    "tracker/admin.py",
+    "tracker/apps.py",
+    "config/wsgi.py",
+    "manage.py",
+    "tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true
