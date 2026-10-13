@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import gettext
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
@@ -47,7 +48,7 @@ def statistics_export(request: HttpRequest) -> HttpResponse:
     form = StatisticsForm(request.GET or {"period": "30"})
     if not form.is_valid():
         return HttpResponse(
-            "Choose a valid date range.", status=400, content_type="text/plain"
+            gettext("Choose a valid date range."), status=400, content_type="text/plain"
         )
     start, end = _period(form)
     response = HttpResponse(content_type="text/csv; charset=utf-8")
@@ -99,7 +100,9 @@ def weight_view(request: HttpRequest) -> HttpResponse:
         )
         messages.success(
             request,
-            "Your weigh-in has been saved. An existing entry for that day is updated.",
+            gettext(
+                "Your weigh-in has been saved. An existing entry for that day is updated."
+            ),
         )
         return redirect("tracker:weight")
     goal, _ = WeightGoal.objects.get_or_create(user=user)
@@ -120,7 +123,7 @@ def weight_view(request: HttpRequest) -> HttpResponse:
 def weight_delete(request: HttpRequest, pk: int) -> HttpResponse:
     entry = get_object_or_404(WeightEntry, pk=pk, user=request.user)
     entry.delete()
-    messages.success(request, "Weigh-in removed.")
+    messages.success(request, gettext("Weigh-in removed."))
     return redirect("tracker:weight")
 
 
@@ -131,7 +134,7 @@ def weight_goal(request: HttpRequest) -> HttpResponse:
     form = WeightGoalForm(request.POST, instance=goal)
     if form.is_valid():
         form.save()
-        messages.success(request, "Your weight goal has been saved.")
+        messages.success(request, gettext("Your weight goal has been saved."))
         return redirect("tracker:weight")
     return render(
         request,

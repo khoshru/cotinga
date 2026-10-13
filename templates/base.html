@@ -1,47 +1,58 @@
-{% load static %}
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 <!doctype html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0d1916">
-    <meta name="description" content="A little clarity for your day. Track meals and see calories and nutrients against your own daily targets.">
-    <title>{% block title %}Daily summary{% endblock %} · Cotinga</title>
+    <meta name="description" content="{% translate 'A little clarity for your day. Track meals and see calories and nutrients against your own daily targets.' %}">
+    <title>{% block title %}{% translate "Daily summary" %}{% endblock %} {% translate "· Cotinga" %}</title>
     <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    {% if LANGUAGE_CODE == 'fa' %}<link rel="preload" href="{% static 'fonts/Vazirmatn.woff2' %}" as="font" type="font/woff2" crossorigin>{% endif %}
+    <script src="{% url 'javascript-catalog' %}" defer></script>
     <script src="{% static 'js/app.js' %}" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{% translate "Skip to content" %}</a>
     <header class="site-header">
-      <a class="brand" href="{% url 'tracker:dashboard' %}" aria-label="Cotinga home">
+      <a class="brand" href="{% url 'tracker:dashboard' %}" aria-label="{% translate "Cotinga home" %}">
         <span class="brand-mark">{% include 'icon.html' with name='leaf' %}</span>
         cotinga<span class="brand-dot">.</span>
       </a>
-      <span class="header-note">Small steps. A little more you.</span>
+      <span class="header-note">{% translate "Small steps. A little more you." %}</span>
+      <div class="header-controls">
+      <form method="post" action="{% url 'set_language' %}" class="language-switch" aria-label="{% translate 'Language' %}">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANGUAGE_CODE == 'en' %}true{% else %}false{% endif %}">EN</button>
+        <button type="submit" name="language" value="fa" lang="fa" aria-pressed="{% if LANGUAGE_CODE == 'fa' %}true{% else %}false{% endif %}">فارسی</button>
+      </form>
       {% if user.is_authenticated %}
-        <form method="post" action="{% url 'logout' %}" class="account-action">{% csrf_token %}<button class="quiet-button" type="submit">Sign out {% include 'icon.html' with name='arrow-right' %}</button></form>
+        <form method="post" action="{% url 'logout' %}" class="account-action">{% csrf_token %}<button class="quiet-button" type="submit">{% translate "Sign out" %} {% include 'icon.html' with name='arrow-right' %}</button></form>
       {% else %}
-        <a class="header-login" href="{% url 'login' %}">Sign in {% include 'icon.html' with name='arrow-right' %}</a>
+        <a class="header-login" href="{% url 'login' %}">{% translate "Sign in" %} {% include 'icon.html' with name='arrow-right' %}</a>
       {% endif %}
+      </div>
     </header>
     <div class="app-shell">
       <aside class="sidebar">
-        <p class="nav-label">YOUR SPACE</p>
-        <nav aria-label="Main navigation">
-          <a class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'tracker:dashboard' %}" {% if request.resolver_match.url_name == 'dashboard' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='grid' %}Daily summary</a>
-          <a class="nav-item {% if request.resolver_match.url_name == 'targets-edit' %}active{% endif %}" href="{% url 'tracker:targets-edit' %}" {% if request.resolver_match.url_name == 'targets-edit' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='target' %}My targets</a>
-          <a class="nav-item {% if request.resolver_match.url_name == 'statistics' %}active{% endif %}" href="{% url 'tracker:statistics' %}">{% include 'icon.html' with name='chart' %}Statistics</a>
-          <a class="nav-item {% if request.resolver_match.url_name == 'weight' %}active{% endif %}" href="{% url 'tracker:weight' %}">{% include 'icon.html' with name='weight' %}Weight journal</a>
-          <a class="nav-item {% if request.resolver_match.url_name == 'ai-estimate' or request.resolver_match.url_name == 'ai-review' %}active{% endif %}" href="{% url 'tracker:ai-estimate' %}">{% include 'icon.html' with name='sparkles' %}Describe my day</a>
-          <a class="nav-item {% if request.resolver_match.url_name == 'ai-settings' %}active{% endif %}" href="{% url 'tracker:ai-settings' %}">{% include 'icon.html' with name='settings' %}AI settings</a>
+        <p class="nav-label">{% translate "YOUR SPACE" %}</p>
+        <nav aria-label="{% translate "Main navigation" %}">
+          <a class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'tracker:dashboard' %}" {% if request.resolver_match.url_name == 'dashboard' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='grid' %}{% translate "Daily summary" %}</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'targets-edit' or request.resolver_match.url_name == 'ai-targets' or request.resolver_match.url_name == 'ai-targets-review' %}active{% endif %}" href="{% url 'tracker:targets-edit' %}" {% if request.resolver_match.url_name == 'targets-edit' or request.resolver_match.url_name == 'ai-targets' or request.resolver_match.url_name == 'ai-targets-review' %}aria-current="page"{% endif %}>{% include 'icon.html' with name='target' %}{% translate "My targets" %}</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'statistics' %}active{% endif %}" href="{% url 'tracker:statistics' %}">{% include 'icon.html' with name='chart' %}{% translate "Statistics" %}</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'weight' %}active{% endif %}" href="{% url 'tracker:weight' %}">{% include 'icon.html' with name='weight' %}{% translate "Weight journal" %}</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'ai-estimate' or request.resolver_match.url_name == 'ai-review' %}active{% endif %}" href="{% url 'tracker:ai-estimate' %}">{% include 'icon.html' with name='sparkles' %}{% translate "Describe my day" %}</a>
+          <a class="nav-item {% if request.resolver_match.url_name == 'ai-settings' %}active{% endif %}" href="{% url 'tracker:ai-settings' %}">{% include 'icon.html' with name='settings' %}{% translate "AI settings" %}</a>
         </nav>
-        <div class="sidebar-bottom"><span class="tiny-leaf">{% include 'icon.html' with name='leaf' %}</span><p>One day at a time.</p><span>Progress has a pace of its own.</span></div>
+        <div class="sidebar-bottom"><span class="tiny-leaf">{% include 'icon.html' with name='leaf' %}</span><p>{% translate "One day at a time." %}</p><span>{% translate "Progress has a pace of its own." %}</span></div>
       </aside>
       <main id="main" class="main-content">
         {% if messages %}<div class="messages" aria-live="polite">{% for message in messages %}<p class="message">{% include 'icon.html' with name='check' %}{{ message }}</p>{% endfor %}</div>{% endif %}
         {% block content %}{% endblock %}
-        <footer class="page-footer"><span>Made for the everyday.</span><span>Cotinga · A personal project</span></footer>
+        <footer class="page-footer"><span>{% translate "Made for the everyday." %}</span><span>{% translate "Cotinga · A personal project" %}</span></footer>
       </main>
     </div>
   </body>

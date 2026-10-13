@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Please try again later{% endblock %}
+{% load i18n l10n %}
+{% block title %}{% translate "Please try again later" %}{% endblock %}
 {% block content %}
   <div class="login-wrap">
-    <span class="eyebrow">YOUR PERSONAL SPACE</span>
-    <h1>A little pause<span class="heading-dot">.</span></h1>
-    <p class="subtitle" role="alert">Too many sign-in attempts. Please wait 15 minutes before trying again.</p>
-    <a href="{% url 'login' %}" class="button primary">Back to sign in</a>
+    <span class="eyebrow">{% translate "YOUR PERSONAL SPACE" %}</span>
+    <h1>{% translate "A little pause" %}<span class="heading-dot">.</span></h1>
+    <p class="subtitle" role="alert">{% translate "Too many sign-in attempts. Please wait 15 minutes before trying again." %}</p>
+    <a href="{% url 'login' %}" class="button primary">{% translate "Back to sign in" %}</a>
   </div>
 {% endblock %}

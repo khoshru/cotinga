@@ -10,6 +10,7 @@ from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 from django.views.decorators.http import require_GET, require_http_methods
@@ -18,8 +19,22 @@ from accounts.models import User
 
 from . import openrouter
 from .credentials import CredentialError, decrypt_key, encrypt_key
-from .forms import EstimateForm, MealForm, OpenRouterForm
-from .models import Meal, MealEstimate, OpenRouterSettings
+from .forms import (
+    EstimateForm,
+    MealForm,
+    OpenRouterForm,
+    TargetEstimateForm,
+    TargetForm,
+)
+from .localization import localized_result
+from .models import (
+    DailyTarget,
+    Meal,
+    MealEstimate,
+    OpenRouterSettings,
+    TargetEstimate,
+    WeightEntry,
+)
 from .views import selected_date
 
 
@@ -72,7 +87,7 @@ def settings_view(request: HttpRequest) -> HttpResponse:
                 settings.encrypted_api_key = ""
             settings.model = model
             settings.save()
-            messages.success(request, "Your AI settings have been saved.")
+            messages.success(request, gettext("Your AI settings have been saved."))
             return redirect("tracker:ai-settings")
         except openrouter.OpenRouterError as exc:
             form.add_error(None, str(exc))
@@ -91,6 +106,9 @@ def settings_view(request: HttpRequest) -> HttpResponse:
             "preferences": settings,
             "models": choices,
             "current_model": current,
+            "selected_model": next(
+                (model for model in available if model.id == current), None
+            ),
             "catalog_error": catalog_error,
             "query": query,
             "current_missing": bool(
@@ -127,19 +145,125 @@ def model_search(request: HttpRequest) -> JsonResponse:
         return JsonResponse({"error": str(exc)}, status=503)
 
 
-def _create_estimate(user: User, data: dict[str, Any], model: str) -> MealEstimate:
+def _check_estimate_limits(user: User) -> None:
     now = timezone.now()
+    recent = [
+        MealEstimate.objects.filter(user=user),
+        TargetEstimate.objects.filter(user=user),
+    ]
+    if any(
+        query.filter(created_at__gte=now - timedelta(seconds=20)).exists()
+        for query in recent
+    ):
+        raise openrouter.OpenRouterError(
+            gettext("Please wait 20 seconds before making another estimate.")
+        )
+    if (
+        sum(
+            query.filter(created_at__date=timezone.localdate()).count()
+            for query in recent
+        )
+        >= 50
+    ):
+        raise openrouter.OpenRouterError(
+            gettext(
+                "You have reached today's 50-estimate limit. You can still log meals and edit targets manually."
+            )
+        )
+
+
+def _create_estimate(user: User, data: dict[str, Any], model: str) -> MealEstimate:
     with transaction.atomic():
-        recent = MealEstimate.objects.filter(user=user)
-        if recent.filter(created_at__gte=now - timedelta(seconds=20)).exists():
-            raise openrouter.OpenRouterError(
-                "Please wait 20 seconds before making another estimate."
-            )
-        if recent.filter(created_at__date=timezone.localdate()).count() >= 50:
-            raise openrouter.OpenRouterError(
-                "You have reached today's 50-estimate limit. You can still log meals manually."
-            )
+        _check_estimate_limits(user)
         return MealEstimate.objects.create(user=user, date=data["date"], model=model)
+
+
+@login_required
+@never_cache
+@sensitive_post_parameters("age", "height", "weight", "sex", "notes")
+@sensitive_variables()
+@require_http_methods(["GET", "POST"])
+def targets_estimate_view(request: HttpRequest) -> HttpResponse:
+    user = cast(User, request.user)
+    preferences = OpenRouterSettings.objects.filter(user=user).first()
+    if preferences is None or not preferences.has_key or not preferences.model:
+        messages.info(
+            request,
+            gettext("Connect OpenRouter in AI settings to get target suggestions."),
+        )
+        return redirect("tracker:ai-settings")
+    latest = WeightEntry.objects.filter(user=user).first()
+    form = TargetEstimateForm(
+        request.POST if request.method == "POST" else None,
+        initial={
+            "weight": latest.weight if latest else None,
+            "goal": "lose",
+            "activity": "light",
+        },
+    )
+    if request.method == "POST" and form.is_valid():
+        batch = None
+        try:
+            key = decrypt_key(preferences.encrypted_api_key)
+            model = openrouter.find_model(preferences.model)
+            with transaction.atomic():
+                _check_estimate_limits(user)
+                batch = TargetEstimate.objects.create(user=user, model=model.id)
+            result = openrouter.estimate_targets(key, model, form.cleaned_data)
+            batch.result = result
+            batch.status = MealEstimate.Status.READY
+            batch.save(update_fields=["result", "status"])
+            return redirect("tracker:ai-targets-review", pk=batch.pk)
+        except (openrouter.OpenRouterError, CredentialError) as exc:
+            if batch is not None:
+                batch.status = MealEstimate.Status.FAILED
+                batch.save(update_fields=["status"])
+            form.add_error(None, str(exc))
+    return render(
+        request,
+        "tracker/target_estimate.html",
+        {"form": form, "preferences": preferences},
+    )
+
+
+@login_required
+@never_cache
+@require_http_methods(["GET", "POST"])
+def targets_review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
+    batch = get_object_or_404(TargetEstimate, pk=pk, user=request.user)
+    if batch.status == MealEstimate.Status.SAVED:
+        messages.info(request, gettext("These targets have already been applied."))
+        return redirect("tracker:targets-edit")
+    if batch.status != MealEstimate.Status.READY:
+        return redirect("tracker:ai-targets")
+    form = TargetForm(
+        request.POST if request.method == "POST" else None,
+        initial=batch.result["targets"],
+    )
+    if request.method == "POST" and form.is_valid():
+        with transaction.atomic():
+            claimed = TargetEstimate.objects.filter(
+                pk=batch.pk,
+                user=cast(User, request.user),
+                status=MealEstimate.Status.READY,
+            ).update(status=MealEstimate.Status.SAVED, saved_at=timezone.now())
+            if claimed:
+                DailyTarget.objects.update_or_create(
+                    user=cast(User, request.user),
+                    defaults={
+                        field: form.cleaned_data[field]
+                        for field in openrouter.TARGET_FIELDS
+                    },
+                )
+        messages.success(
+            request, gettext("Your reviewed daily targets have been applied.")
+        )
+        return redirect("tracker:dashboard")
+    return render(
+        request,
+        "tracker/target_review.html",
+        {"form": form, "batch": batch, "result": localized_result(batch.result)},
+    )
 
 
 @login_required
@@ -152,7 +276,8 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
     preferences = OpenRouterSettings.objects.filter(user=user).first()
     if preferences is None or not preferences.has_key or not preferences.model:
         messages.info(
-            request, "Save your OpenRouter key and choose a model to estimate meals."
+            request,
+            gettext("Save your OpenRouter key and choose a model to estimate meals."),
         )
         return redirect("tracker:ai-settings")
     form = EstimateForm(
@@ -188,12 +313,14 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
 def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
     batch = get_object_or_404(MealEstimate, pk=pk, user=request.user)
     if batch.status == MealEstimate.Status.SAVED:
-        messages.info(request, "These meals are already in your journal.")
+        messages.info(request, gettext("These meals are already in your journal."))
         return redirect(f"{reverse('tracker:dashboard')}?date={batch.date.isoformat()}")
     if batch.status != MealEstimate.Status.READY:
         messages.info(
             request,
-            "This estimate is not ready. Please try estimating your meals again.",
+            gettext(
+                "This estimate is not ready. Please try estimating your meals again."
+            ),
         )
         return redirect("tracker:ai-estimate")
     formset = ReviewFormSet(
@@ -222,9 +349,13 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                 Meal.objects.bulk_create(meals)
         messages.success(
             request,
-            "The reviewed meals were added to your day."
+            gettext("The reviewed meals were added to your day.")
             if claimed
-            else "These meals are already in your journal.",
+            else gettext("These meals are already in your journal."),
         )
         return redirect(f"{reverse('tracker:dashboard')}?date={batch.date.isoformat()}")
-    return render(request, "tracker/review.html", {"batch": batch, "formset": formset})
+    return render(
+        request,
+        "tracker/review.html",
+        {"batch": batch, "formset": formset, "result": localized_result(batch.result)},
+    )

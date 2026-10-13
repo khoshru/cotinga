@@ -10,6 +10,7 @@ from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 
 from accounts.models import User
@@ -59,16 +60,20 @@ def meal_create(request: HttpRequest) -> HttpResponse:
         meal = form.save(commit=False)
         meal.user = cast(User, request.user)
         meal.save()
-        messages.success(request, "Meal added. Your daily summary is up to date.")
+        messages.success(
+            request, gettext("Meal added. Your daily summary is up to date.")
+        )
         return redirect(f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}")
     return render(
         request,
         "tracker/form.html",
         {
             "form": form,
-            "title": "Log a meal",
-            "description": "A quick note about what you ate. Estimates are welcome.",
-            "submit_label": "Save meal",
+            "title": gettext("Log a meal"),
+            "description": gettext(
+                "A quick note about what you ate. Estimates are welcome."
+            ),
+            "submit_label": gettext("Save meal"),
         },
     )
 
@@ -79,7 +84,7 @@ def meal_delete(request: HttpRequest, pk: int) -> HttpResponse:
     meal = get_object_or_404(Meal, pk=pk, user=request.user)
     day = meal.date
     meal.delete()
-    messages.success(request, "Meal removed.")
+    messages.success(request, gettext("Meal removed."))
     return redirect(f"{reverse('tracker:dashboard')}?date={day.isoformat()}")
 
 
@@ -90,16 +95,18 @@ def meal_edit(request: HttpRequest, pk: int) -> HttpResponse:
     form = MealForm(request.POST if request.method == "POST" else None, instance=meal)
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, "Meal updated.")
+        messages.success(request, gettext("Meal updated."))
         return redirect(f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}")
     return render(
         request,
         "tracker/form.html",
         {
             "form": form,
-            "title": "Edit meal",
-            "description": "Adjust the food, portion, time, or nutrition values for this entry.",
-            "submit_label": "Save changes",
+            "title": gettext("Edit meal"),
+            "description": gettext(
+                "Adjust the food, portion, time, or nutrition values for this entry."
+            ),
+            "submit_label": gettext("Save changes"),
         },
     )
 
@@ -113,16 +120,18 @@ def targets_edit(request: HttpRequest) -> HttpResponse:
     )
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, "Your daily targets have been saved.")
+        messages.success(request, gettext("Your daily targets have been saved."))
         return redirect("tracker:dashboard")
     return render(
         request,
         "tracker/form.html",
         {
             "form": form,
-            "title": "Your daily targets",
-            "description": "Set the daily calorie and nutrient ranges that work for you.",
-            "submit_label": "Save targets",
+            "title": gettext("Your daily targets"),
+            "description": gettext(
+                "Set the daily calorie and nutrient ranges that work for you."
+            ),
+            "submit_label": gettext("Save targets"),
             "targets_form": True,
         },
     )

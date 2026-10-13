@@ -20,6 +20,8 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install 3.14
+      - name: Install translation tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gettext
       - name: Install dependencies
         run: uv sync --locked --all-groups --preview-features malware-check
       - name: Audit dependencies
@@ -37,4 +39,6 @@ jobs:
           DJANGO_SQLITE_PATH: /tmp/cotinga-ci.sqlite3
         run: uv run python manage.py check --deploy --settings=config.settings.production --fail-level WARNING
       - name: Run tests
-        run: uv run pytest --cov
+        run: |
+          uv run python manage.py compilemessages -l fa --ignore=.venv --settings=config.settings.test --verbosity 0
+          uv run pytest --cov

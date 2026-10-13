@@ -13,6 +13,10 @@ urlpatterns = [
     path("ai/settings/", ai_views.settings_view, name="ai-settings"),
     path("ai/models/", ai_views.model_search, name="ai-models"),
     path("ai/review/<uuid:pk>/", ai_views.review_view, name="ai-review"),
+    path("ai/targets/", ai_views.targets_estimate_view, name="ai-targets"),
+    path(
+        "ai/targets/<uuid:pk>/", ai_views.targets_review_view, name="ai-targets-review"
+    ),
     path("statistics/", progress_views.statistics_view, name="statistics"),
     path(
         "statistics/export/", progress_views.statistics_export, name="statistics-export"

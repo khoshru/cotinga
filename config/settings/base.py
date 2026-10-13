@@ -20,6 +20,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -39,6 +40,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",
             ],
         },
     },
@@ -83,7 +85,10 @@ LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "tracker:dashboard"
 LOGOUT_REDIRECT_URL = "tracker:dashboard"
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
+LANGUAGES = [("en", "English"), ("fa", "فارسی")]
+LOCALE_PATHS = [BASE_DIR / "locale"]
+LANGUAGE_COOKIE_SAMESITE = "Lax"
 TIME_ZONE = os.environ.get("DJANGO_TIME_ZONE", "Asia/Tbilisi")
 USE_I18N = True
 USE_TZ = True

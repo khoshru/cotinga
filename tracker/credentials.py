@@ -6,6 +6,7 @@ from cryptography.fernet import Fernet, InvalidToken, MultiFernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from django.conf import settings
+from django.utils.translation import gettext
 from django.views.decorators.debug import sensitive_variables
 
 
@@ -39,5 +40,5 @@ def decrypt_key(encrypted: str) -> str:
         return _cipher().decrypt(encrypted.encode()).decode()
     except InvalidToken, UnicodeError, ValueError:
         raise CredentialError(
-            "Your saved key could not be read. Save your OpenRouter key again."
+            gettext("Your saved key could not be read. Save your OpenRouter key again.")
         ) from None

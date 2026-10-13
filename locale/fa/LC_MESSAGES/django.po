@@ -1,0 +1,1251 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-14 02:45+0400\n"
+"PO-Revision-Date: 2026-10-14 00:00+0400\n"
+"Last-Translator: Cotinga\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid ""
+"A little clarity for your day. Track meals and see calories and nutrients "
+"against your own daily targets."
+msgstr ""
+"تصویری روشن‌تر از روزتان. وعده‌ها، کالری و مواد مغذی را در کنار هدف‌های روزانهٔ "
+"خود ببینید."
+
+msgid "Daily summary"
+msgstr "خلاصهٔ روز"
+
+msgid "· Cotinga"
+msgstr "· کوتینگا"
+
+msgid "Skip to content"
+msgstr "رفتن به محتوای اصلی"
+
+msgid "Cotinga home"
+msgstr "خانهٔ کوتینگا"
+
+msgid "Small steps. A little more you."
+msgstr "قدم‌های کوچک، حالِ بهتر."
+
+msgid "Language"
+msgstr "زبان"
+
+msgid "Sign out"
+msgstr "خروج"
+
+msgid "Sign in"
+msgstr "ورود"
+
+msgid "YOUR SPACE"
+msgstr "فضای شما"
+
+msgid "Main navigation"
+msgstr "منوی اصلی"
+
+msgid "My targets"
+msgstr "هدف‌های من"
+
+msgid "Statistics"
+msgstr "آمار و روندها"
+
+msgid "Weight journal"
+msgstr "ثبت وزن"
+
+msgid "Describe my day"
+msgstr "شرح خوراک روز"
+
+msgid "AI settings"
+msgstr "تنظیمات هوش مصنوعی"
+
+msgid "One day at a time."
+msgstr "هر بار، یک روز."
+
+msgid "Progress has a pace of its own."
+msgstr "پیشرفت، ریتم خودش را دارد."
+
+msgid "Made for the everyday."
+msgstr "برای زندگیِ هر روز."
+
+msgid "Cotinga · A personal project"
+msgstr "کوتینگا · یک پروژهٔ شخصی"
+
+msgid "Please try again later"
+msgstr "کمی بعد دوباره تلاش کنید"
+
+msgid "YOUR PERSONAL SPACE"
+msgstr "فضای شخصی شما"
+
+msgid "A little pause"
+msgstr "یک مکث کوتاه"
+
+msgid "Too many sign-in attempts. Please wait 15 minutes before trying again."
+msgstr ""
+"تعداد تلاش‌های ورود زیاد شده است. لطفاً ۱۵ دقیقه صبر کنید و دوباره تلاش کنید."
+
+msgid "Back to sign in"
+msgstr "بازگشت به ورود"
+
+msgid "A SPACE FOR YOUR EVERYDAY"
+msgstr "فضایی برای روزهای شما"
+
+msgid "Welcome back"
+msgstr "خوش برگشتید"
+
+msgid "Your journal is right where you left it."
+msgstr "دفتر شما، درست همان‌جاست که رهایش کردید."
+
+msgid "That email and password didn’t match. Please try again."
+msgstr "ایمیل یا رمز عبور درست نیست. لطفاً دوباره تلاش کنید."
+
+msgid "Email address"
+msgstr "آدرس ایمیل"
+
+msgid "Password"
+msgstr "رمز عبور"
+
+msgid "Show"
+msgstr "نمایش"
+
+msgid "A personal space. Accounts are created by the owner."
+msgstr "یک فضای شخصی. حساب‌ها را صاحب سایت ایجاد می‌کند."
+
+msgid "YOUR ASSISTANT, YOUR CHOICE"
+msgstr "دستیار شما، انتخاب شما"
+
+msgid ""
+"Connect your account and choose a model for your meals and daily targets."
+msgstr ""
+"حساب خود را وصل کنید و مدل دلخواهتان را برای وعده‌ها و هدف‌های روزانه انتخاب "
+"کنید."
+
+msgid "YOUR CONNECTION"
+msgstr "اتصال شما"
+
+msgid "Key saved"
+msgstr "کلید ذخیره شده"
+
+msgid "Not connected"
+msgstr "متصل نیست"
+
+msgid "Your saved key stays hidden. Leave this blank to keep it."
+msgstr ""
+"کلید ذخیره‌شده نمایش داده نمی‌شود. برای حفظ آن، این قسمت را خالی بگذارید."
+
+msgid "Create a key in your OpenRouter account, then paste it here."
+msgstr "در حساب OpenRouter خود یک کلید بسازید و اینجا وارد کنید."
+
+msgid "Model"
+msgstr "مدل"
+
+msgid "Search and choose a model…"
+msgstr "مدل را جست‌وجو و انتخاب کنید…"
+
+msgid "Browse models"
+msgstr "دیدن مدل‌ها"
+
+msgid "Available models"
+msgstr "مدل‌های موجود"
+
+msgid "Choose a model"
+msgstr "یک مدل انتخاب کنید"
+
+msgid "Saved model"
+msgstr "مدل ذخیره‌شده"
+
+msgid "Free models only"
+msgstr "فقط مدل‌های رایگان"
+
+msgid "Type directly in the model field to search. Prices are in USD."
+msgstr ""
+"برای جست‌وجو، مستقیم در قسمت مدل تایپ کنید. قیمت‌ها به دلار آمریکا هستند."
+
+msgid "Save AI settings"
+msgstr "ذخیرهٔ تنظیمات"
+
+msgid "A little help with the numbers."
+msgstr "کمی کمک با عددها."
+
+msgid ""
+"Describe your meals or share your routine and goal. Review the suggestions "
+"before saving them."
+msgstr ""
+"وعده‌هایتان را شرح دهید یا از برنامه و هدفتان بگویید. پیش از ذخیره، پیشنهادها "
+"را بررسی کنید."
+
+msgid "Your key is encrypted before it is saved."
+msgstr "کلید شما پیش از ذخیره رمزگذاری می‌شود."
+
+msgid "Model requests use your own OpenRouter balance."
+msgstr "هزینهٔ درخواست‌ها از موجودی حساب OpenRouter شما کسر می‌شود."
+
+msgid "Only the information you submit for a suggestion is sent to OpenRouter."
+msgstr ""
+"فقط اطلاعاتی که برای دریافت پیشنهاد وارد می‌کنید به OpenRouter فرستاده می‌شود."
+
+msgid "Your saved model is used for both meals and target suggestions."
+msgstr "مدل انتخابی شما هم برای وعده‌ها و هم برای پیشنهاد هدف‌ها استفاده می‌شود."
+
+msgid "Manage OpenRouter keys"
+msgstr "مدیریت کلیدهای OpenRouter"
+
+msgid "A LITTLE CLARITY FOR YOUR DAY"
+msgstr "تصویری روشن‌تر از روزتان"
+
+msgid "Your journal"
+msgstr "دفتر شما"
+
+msgid "So far today"
+msgstr "امروز تا اینجا"
+
+msgid "On this day"
+msgstr "در این روز"
+
+msgid "and"
+msgstr "و"
+
+msgid "A fresh page. Start with your first meal."
+msgstr "یک صفحهٔ تازه. از اولین وعده‌تان شروع کنید."
+
+msgid "Log a meal"
+msgstr "ثبت وعده"
+
+msgid "Today"
+msgstr "امروز"
+
+msgid "Previous day"
+msgstr "روز قبل"
+
+msgid "Choose a day"
+msgstr "انتخاب روز"
+
+msgid "Go"
+msgstr "برو"
+
+msgid "Next day"
+msgstr "روز بعد"
+
+msgid "EATEN VS TARGET"
+msgstr "مصرف شما در کنار هدف"
+
+msgid "Edit targets"
+msgstr "ویرایش هدف‌ها"
+
+msgid "Target"
+msgstr "هدف"
+
+#, python-format
+msgid "%(v0)s: %(v1)s %(v2)s eaten; target %(v3)s to %(v4)s %(v5)s"
+msgstr "%(v0)s: مصرف %(v1)s %(v2)s؛ هدف %(v3)s تا %(v4)s %(v5)s"
+
+msgid "Eaten"
+msgstr "مصرف‌شده"
+
+msgid "Your target range"
+msgstr "بازهٔ هدف شما"
+
+msgid ""
+"Your entries are estimates. A useful picture doesn’t need to be perfect."
+msgstr "مقدارهای ثبت‌شده تقریبی‌اند. یک تصویر مفید، لازم نیست بی‌نقص باشد."
+
+msgid "ON THE MENU"
+msgstr "وعده‌های روز"
+
+#, python-format
+msgid "%(count)s meal"
+msgid_plural "%(count)s meals"
+msgstr[0] "%(count)s وعده"
+msgstr[1] "%(count)s وعده"
+
+#, python-format
+msgid "Edit %(v0)s"
+msgstr "ویرایش %(v0)s"
+
+msgid "Remove this meal from your journal?"
+msgstr "این وعده از دفترتان حذف شود؟"
+
+#, python-format
+msgid "Remove %(v0)s: %(v1)s"
+msgstr "حذف %(v0)s: %(v1)s"
+
+msgid "AI estimate"
+msgstr "برآورد هوش مصنوعی"
+
+msgid "kcal"
+msgstr "کیلوکالری"
+
+msgid "g"
+msgstr "گرم"
+
+msgid "protein"
+msgstr "پروتئین"
+
+msgid "carbs"
+msgstr "کربوهیدرات"
+
+msgid "fat"
+msgstr "چربی"
+
+msgid "Nothing logged yet"
+msgstr "هنوز چیزی ثبت نشده"
+
+msgid "Your meals will find a home here."
+msgstr "وعده‌هایتان اینجا جای می‌گیرند."
+
+msgid "Add your next meal"
+msgstr "ثبت وعدهٔ بعدی"
+
+msgid "A little awareness."
+msgstr "کمی آگاهی."
+
+msgid "A little consistency."
+msgstr "کمی استمرار."
+
+msgid "There’s room for real life."
+msgstr "زندگیِ واقعی هم جای خودش را دارد."
+
+msgid "LESS TYPING, MORE CLARITY"
+msgstr "نوشتن کمتر، تصویر روشن‌تر"
+
+msgid "Meal estimates"
+msgstr "برآورد وعده‌ها"
+
+msgid "Describe your day"
+msgstr "خوراک روزتان را شرح دهید"
+
+msgid "One meal or the whole day. Write it in your own words."
+msgstr "یک وعده یا تمام روز؛ با زبان خودتان بنویسید."
+
+msgid "Day to log"
+msgstr "روز مورد نظر"
+
+msgid ""
+"Include quantities and clock times when you know them. Missing portions are "
+"estimated and explained; unknown times stay blank."
+msgstr ""
+"اگر مقدار و زمان را می‌دانید، بنویسید. مقدارهای نامشخص برآورد و توضیح داده "
+"می‌شوند؛ زمان نامشخص خالی می‌ماند."
+
+msgid "Change model"
+msgstr "تغییر مدل"
+
+msgid ""
+"Your description is sent to OpenRouter. This request uses the selected model "
+"and your OpenRouter balance."
+msgstr ""
+"توضیحات شما به OpenRouter فرستاده می‌شود. درخواست با مدل انتخابی و موجودی "
+"حساب شما انجام می‌شود."
+
+msgid "Estimating your meals…"
+msgstr "در حال برآورد وعده‌ها…"
+
+msgid "Estimate my meals"
+msgstr "برآورد وعده‌هایم"
+
+msgid "Log manually"
+msgstr "ثبت دستی"
+
+msgid "Start with what you remember."
+msgstr "از چیزی که یادتان مانده شروع کنید."
+
+msgid "The food"
+msgstr "خوراک"
+
+msgid "Name the dishes, snacks, drinks, and ingredients."
+msgstr "نام غذاها، میان‌وعده‌ها، نوشیدنی‌ها و مواد تشکیل‌دهنده را بنویسید."
+
+msgid "The portion"
+msgstr "مقدار"
+
+msgid "Grams, cups, pieces, or a rough plate size all help."
+msgstr "گرم، پیمانه، تعداد یا حتی اندازهٔ تقریبی بشقاب کمک می‌کند."
+
+msgid "The time"
+msgstr "زمان"
+
+msgid "Mention a clock time or meal name to organize the day."
+msgstr "برای مرتب شدن روز، زمان یا نام وعده را بنویسید."
+
+msgid "Your review"
+msgstr "بررسی شما"
+
+msgid "Adjust the estimates and add the meals together."
+msgstr "برآوردها را اصلاح کنید و وعده‌ها را با هم ثبت کنید."
+
+msgid ""
+"Estimates can be inaccurate. They are a starting point for your journal."
+msgstr "برآوردها ممکن است دقیق نباشند؛ آن‌ها نقطهٔ شروعی برای دفتر شما هستند."
+
+msgid "Back to your day"
+msgstr "بازگشت به روز شما"
+
+msgid "YOUR JOURNAL, YOUR PACE"
+msgstr "دفتر شما، با ریتم شما"
+
+msgid "Let AI find a starting point"
+msgstr "با هوش مصنوعی از یک نقطهٔ مناسب شروع کنید"
+
+msgid ""
+"Share your routine and goal. Review your suggested targets before applying "
+"them."
+msgstr ""
+"از برنامه و هدفتان بگویید. پیش از اعمال، هدف‌های پیشنهادی را بررسی کنید."
+
+msgid "Cancel"
+msgstr "انصراف"
+
+msgid "Review estimates"
+msgstr "بررسی برآوردها"
+
+msgid "A QUICK LOOK BEFORE YOU SAVE"
+msgstr "یک نگاه پیش از ذخیره"
+
+msgid "Review your meals"
+msgstr "وعده‌هایتان را بررسی کنید"
+
+msgid ""
+"Check portions, times, and nutrients. These are estimates you can adjust."
+msgstr "مقدار، زمان و مواد مغذی را بررسی کنید. این برآوردها قابل ویرایش‌اند."
+
+msgid "What the model assumed"
+msgstr "فرض‌های مدل"
+
+msgid "MEAL"
+msgstr "وعده"
+
+msgid "Skip this meal"
+msgstr "این وعده ثبت نشود"
+
+msgid "Add this day to your journal."
+msgstr "این روز را در دفترتان ثبت کنید."
+
+msgid "Meals will be added to"
+msgstr "وعده‌ها به این روز اضافه می‌شوند:"
+
+msgid "alongside any existing entries."
+msgstr "در کنار اطلاعاتی که قبلاً ثبت شده است."
+
+msgid "Adding meals…"
+msgstr "در حال ثبت وعده‌ها…"
+
+msgid "Add reviewed meals"
+msgstr "ثبت وعده‌های بررسی‌شده"
+
+msgid "Start a new estimate"
+msgstr "شروع برآورد تازه"
+
+msgid "THE PATTERN BEHIND YOUR DAYS"
+msgstr "روندی که روزها نشان می‌دهند"
+
+msgid "Your progress"
+msgstr "روند پیشرفت شما"
+
+msgid "Meals, weight, and the habits taking shape over time."
+msgstr "وعده‌ها، وزن و عادت‌هایی که با گذر زمان شکل می‌گیرند."
+
+msgid "Export CSV"
+msgstr "دریافت CSV"
+
+msgid "Period"
+msgstr "بازهٔ زمانی"
+
+msgid "Custom start"
+msgstr "از تاریخ"
+
+msgid "Custom end"
+msgstr "تا تاریخ"
+
+msgid "Apply"
+msgstr "اعمال"
+
+msgid "Average intake"
+msgstr "میانگین مصرف"
+
+msgid "Per logged day ·"
+msgstr "به‌ازای هر روز ثبت‌شده ·"
+
+#, python-format
+msgid "%(count)s day"
+msgid_plural "%(count)s days"
+msgstr[0] "%(count)s روز"
+msgstr[1] "%(count)s روز"
+
+msgid "Latest weight"
+msgstr "آخرین وزن"
+
+msgid "kg"
+msgstr "کیلوگرم"
+
+msgid "Recorded"
+msgstr "ثبت‌شده در"
+
+msgid "Add your first weigh-in"
+msgstr "اولین وزن خود را ثبت کنید"
+
+msgid "Weight change"
+msgstr "تغییر وزن"
+
+msgid "In this period ·"
+msgstr "در این بازه ·"
+
+#, python-format
+msgid "%(count)s weigh-in"
+msgid_plural "%(count)s weigh-ins"
+msgstr[0] "%(count)s ثبت وزن"
+msgstr[1] "%(count)s ثبت وزن"
+
+msgid "Days logged"
+msgstr "روزهای ثبت‌شده"
+
+msgid "recorded"
+msgstr "ثبت‌شده"
+
+msgid "WEIGHT OVER TIME"
+msgstr "روند وزن در گذر زمان"
+
+msgid "Log weight"
+msgstr "ثبت وزن"
+
+msgid "Recorded weight and seven-day average"
+msgstr "وزن‌های ثبت‌شده و میانگین هفت‌روزه"
+
+msgid "Your recorded weight and seven-day average"
+msgstr "وزن ثبت‌شدهٔ شما و میانگین هفت‌روزه"
+
+msgid "kg; seven-day average"
+msgstr "کیلوگرم؛ میانگین هفت‌روزه"
+
+msgid "Weigh-ins"
+msgstr "وزن‌های ثبت‌شده"
+
+msgid "7-day average"
+msgstr "میانگین هفت‌روزه"
+
+msgid ""
+"The average uses available weigh-ins from the previous seven calendar days."
+msgstr ""
+"این میانگین بر اساس وزن‌های ثبت‌شده در هفت روز تقویمی گذشته محاسبه می‌شود."
+
+msgid "A trend starts with a weigh-in."
+msgstr "روند، از یک ثبت وزن شروع می‌شود."
+
+msgid "Daily and weekly entries both work. Add a reading to see it here."
+msgstr "ثبت روزانه یا هفتگی هر دو مناسب‌اند. یک وزن ثبت کنید تا اینجا دیده شود."
+
+msgid "Log your weight"
+msgstr "وزن خود را ثبت کنید"
+
+msgid "WEEKLY AVERAGE INTAKE"
+msgstr "میانگین مصرف هفتگی"
+
+msgid "DAILY INTAKE"
+msgstr "مصرف روزانه"
+
+msgid "Calories"
+msgstr "کالری"
+
+msgid "Logged calorie intake with your current target range"
+msgstr "کالری ثبت‌شده در کنار بازهٔ هدف فعلی شما"
+
+msgid "Logged calorie intake and your current target range"
+msgstr "کالری ثبت‌شده و بازهٔ هدف فعلی شما"
+
+msgid "per logged day,"
+msgstr "به‌ازای هر روز ثبت‌شده،"
+
+msgid "days recorded"
+msgstr "روز ثبت‌شده"
+
+msgid "Logged intake"
+msgstr "مصرف ثبت‌شده"
+
+msgid "Current target"
+msgstr "هدف فعلی"
+
+msgid ""
+"Unlogged days are gaps. Longer periods show averages across logged days in "
+"each seven-day group."
+msgstr ""
+"روزهای بدون ثبت، خالی می‌مانند. در بازه‌های طولانی‌تر، میانگین روزهای ثبت‌شده در "
+"هر گروه هفت‌روزه نمایش داده می‌شود."
+
+msgid "Your meals make the picture."
+msgstr "وعده‌هایتان این تصویر را می‌سازند."
+
+msgid "Log a meal or describe a day to start tracking intake."
+msgstr "برای دیدن روند مصرف، یک وعده ثبت کنید یا خوراک یک روز را شرح دهید."
+
+msgid "Open your journal"
+msgstr "باز کردن دفتر"
+
+msgid "AVERAGE NUTRIENTS"
+msgstr "میانگین مواد مغذی"
+
+msgid "Per logged day"
+msgstr "به‌ازای هر روز ثبت‌شده"
+
+msgid "Protein"
+msgstr "پروتئین"
+
+msgid "Carbs"
+msgstr "کربوهیدرات"
+
+msgid "Fat"
+msgstr "چربی"
+
+msgid "YOUR CONSISTENCY"
+msgstr "استمرار شما"
+
+msgid "Logged days"
+msgstr "روزهای ثبت‌شده"
+
+msgid "day within your current calorie range"
+msgid_plural "days within your current calorie range"
+msgstr[0] "روز در بازهٔ کالری هدف فعلی شما"
+msgstr[1] "روز در بازهٔ کالری هدف فعلی شما"
+
+msgid "of"
+msgstr "از"
+
+#, python-format
+msgid "%(count)s logged day"
+msgid_plural "%(count)s logged days"
+msgstr[0] "%(count)s روز ثبت‌شده"
+msgstr[1] "%(count)s روز ثبت‌شده"
+
+msgid ""
+"This uses your current targets and whatever meals you recorded. It does not "
+"assume each day is complete."
+msgstr ""
+"این آمار بر اساس هدف‌های فعلی و وعده‌های ثبت‌شده است و کامل بودن اطلاعات هر روز "
+"را فرض نمی‌کند."
+
+msgid "YOUR WEIGHT GOAL"
+msgstr "هدف وزن شما"
+
+msgid "kg between your latest reading and your goal."
+msgstr "کیلوگرم فاصلهٔ آخرین وزن ثبت‌شده تا هدف شما."
+
+msgid "Log a weigh-in to compare your progress."
+msgstr "برای مقایسهٔ پیشرفت خود، یک وزن ثبت کنید."
+
+msgid "Edit goal"
+msgstr "ویرایش هدف"
+
+msgid "RECENT RECORDED DAYS"
+msgstr "روزهای ثبت‌شدهٔ اخیر"
+
+msgid "In this period"
+msgstr "در این بازه"
+
+msgid "Day"
+msgstr "روز"
+
+msgid "Weight"
+msgstr "وزن"
+
+msgid "No entries in this period yet."
+msgstr "هنوز چیزی در این بازه ثبت نشده است."
+
+msgid "Find my daily targets"
+msgstr "پیشنهاد هدف‌های روزانه"
+
+msgid "Back to my targets"
+msgstr "بازگشت به هدف‌های من"
+
+msgid "A STARTING POINT THAT FITS YOU"
+msgstr "نقطهٔ شروعی مناسب شما"
+
+msgid "AI target assistant"
+msgstr "دستیار هدف‌های روزانه"
+
+msgid ""
+"Tell us a little about yourself. Your model will suggest daily calorie and "
+"nutrient ranges."
+msgstr ""
+"کمی از خودتان بگویید. مدل شما بازهٔ روزانهٔ کالری و مواد مغذی را پیشنهاد می‌دهد."
+
+msgid ""
+"The details in this form are sent to OpenRouter only when you request a "
+"suggestion."
+msgstr "اطلاعات این فرم فقط هنگام درخواست پیشنهاد به OpenRouter فرستاده می‌شود."
+
+msgid "Finding your targets…"
+msgstr "در حال یافتن هدف‌های شما…"
+
+msgid "Suggest my targets"
+msgstr "پیشنهاد هدف‌هایم"
+
+msgid "Your starting point, your decision."
+msgstr "نقطهٔ شروع شما، تصمیم شما."
+
+msgid ""
+"Your age, measurements, usual activity, and goal help the model make a more "
+"useful estimate."
+msgstr ""
+"سن، اندازه‌های بدن، میزان فعالیت و هدفتان به مدل کمک می‌کنند برآورد مفیدتری "
+"ارائه دهد."
+
+msgid "Share your details and any useful context."
+msgstr "اطلاعات خود و نکته‌های مرتبط را بنویسید."
+
+msgid "Read the explanation and adjust the suggested ranges."
+msgstr "توضیح را بخوانید و بازه‌های پیشنهادی را اصلاح کنید."
+
+msgid "Apply them to your daily summary when you are ready."
+msgstr "وقتی آماده بودید، آن‌ها را در خلاصهٔ روزانه اعمال کنید."
+
+msgid ""
+"For general adult nutrition. Suggestions are estimates, not a medical meal "
+"plan."
+msgstr ""
+"برای تغذیهٔ عمومی بزرگسالان. پیشنهادها تقریبی‌اند و برنامهٔ غذایی پزشکی نیستند."
+
+msgid "Using"
+msgstr "مدل انتخابی"
+
+msgid "Review daily targets"
+msgstr "بررسی هدف‌های روزانه"
+
+msgid "A PLAN YOU CAN MAKE YOUR OWN"
+msgstr "برنامه‌ای که می‌توانید از آنِ خود کنید"
+
+msgid "AI suggestion"
+msgstr "پیشنهاد هوش مصنوعی"
+
+msgid "Your suggested targets"
+msgstr "هدف‌های پیشنهادی شما"
+
+msgid "Review the reasoning, adjust any range, and apply your daily targets."
+msgstr ""
+"توضیح را بررسی کنید، بازه‌ها را به دلخواه اصلاح کنید و هدف‌های روزانه را اعمال "
+"کنید."
+
+msgid "Why these ranges?"
+msgstr "چرا این بازه‌ها؟"
+
+msgid "Applying targets…"
+msgstr "در حال اعمال هدف‌ها…"
+
+msgid "Apply daily targets"
+msgstr "اعمال هدف‌های روزانه"
+
+msgid "Start again"
+msgstr "شروع دوباره"
+
+msgid "THE BIGGER PICTURE TAKES TIME"
+msgstr "دیدن تصویر کامل، زمان می‌خواهد"
+
+msgid "Your weigh-ins"
+msgstr "وزن‌های ثبت‌شدهٔ شما"
+
+msgid "Log daily, weekly, or whenever you weigh yourself."
+msgstr "روزانه، هفتگی یا هر زمان که خود را وزن می‌کنید، ثبت کنید."
+
+msgid "See my progress"
+msgstr "دیدن روند پیشرفت"
+
+msgid "LOG A WEIGH-IN"
+msgstr "ثبت یک وزن"
+
+msgid "Kilograms"
+msgstr "کیلوگرم"
+
+msgid "Saving the same date updates that day's entry."
+msgstr "ثبت دوبارهٔ یک تاریخ، اطلاعات همان روز را به‌روز می‌کند."
+
+msgid "Save weigh-in"
+msgstr "ذخیرهٔ وزن"
+
+msgid "YOUR GOAL"
+msgstr "هدف شما"
+
+msgid "An optional reference for your own progress."
+msgstr "یک معیار اختیاری برای پیگیری پیشرفت خودتان."
+
+msgid "Leave it blank to remove your goal."
+msgstr "برای حذف هدف، این قسمت را خالی بگذارید."
+
+msgid "Save goal"
+msgstr "ذخیرهٔ هدف"
+
+msgid ""
+"Look for a pattern across weigh-ins. A single reading can vary for many "
+"reasons."
+msgstr "به روند ثبت‌ها توجه کنید. یک عدد وزن ممکن است به دلایل مختلف تغییر کند."
+
+msgid "WEIGH-IN HISTORY"
+msgstr "تاریخچهٔ وزن"
+
+msgid "Most recent entries"
+msgstr "آخرین ثبت‌ها"
+
+msgid "Date"
+msgstr "تاریخ"
+
+msgid "Note"
+msgstr "یادداشت"
+
+msgid "Actions"
+msgstr "عملیات"
+
+msgid "Remove this weigh-in?"
+msgstr "این ثبت وزن حذف شود؟"
+
+#, python-format
+msgid "Remove weigh-in for %(v0)s"
+msgstr "حذف وزن ثبت‌شده در %(v0)s"
+
+msgid "Your first weigh-in starts the story."
+msgstr "داستان، از اولین ثبت وزن شروع می‌شود."
+
+msgid "Record it above; your trend will appear as you add more entries."
+msgstr ""
+"وزن را در بالا ثبت کنید؛ با اضافه شدن ثبت‌های بیشتر، روندتان نمایش داده می‌شود."
+
+msgid "Your AI settings have been saved."
+msgstr "تنظیمات هوش مصنوعی شما ذخیره شد."
+
+msgid "Please wait 20 seconds before making another estimate."
+msgstr "پیش از درخواست برآورد بعدی، ۲۰ ثانیه صبر کنید."
+
+msgid ""
+"You have reached today's 50-estimate limit. You can still log meals and edit "
+"targets manually."
+msgstr ""
+"به سقف ۵۰ برآورد امروز رسیده‌اید. همچنان می‌توانید وعده‌ها و هدف‌ها را دستی ثبت "
+"و ویرایش کنید."
+
+msgid "Connect OpenRouter in AI settings to get target suggestions."
+msgstr ""
+"برای دریافت پیشنهاد هدف‌ها، در تنظیمات هوش مصنوعی به OpenRouter متصل شوید."
+
+msgid "These targets have already been applied."
+msgstr "این هدف‌ها قبلاً اعمال شده‌اند."
+
+msgid "Your reviewed daily targets have been applied."
+msgstr "هدف‌های روزانهٔ بررسی‌شدهٔ شما اعمال شد."
+
+msgid "Save your OpenRouter key and choose a model to estimate meals."
+msgstr "برای برآورد وعده‌ها، کلید OpenRouter را ذخیره و یک مدل انتخاب کنید."
+
+msgid "These meals are already in your journal."
+msgstr "این وعده‌ها قبلاً در دفترتان ثبت شده‌اند."
+
+msgid "This estimate is not ready. Please try estimating your meals again."
+msgstr "این برآورد آماده نیست. لطفاً دوباره برآورد وعده‌ها را درخواست کنید."
+
+msgid "The reviewed meals were added to your day."
+msgstr "وعده‌های بررسی‌شده به روز شما اضافه شد."
+
+msgid "Your saved key could not be read. Save your OpenRouter key again."
+msgstr ""
+"خواندن کلید ذخیره‌شده ممکن نشد. کلید OpenRouter خود را دوباره ذخیره کنید."
+
+msgid "What did you have?"
+msgstr "چه چیزی خوردید؟"
+
+msgid "Meal"
+msgstr "وعده"
+
+msgid "What you ate"
+msgstr "خوراک شما"
+
+msgid "Time (optional)"
+msgstr "زمان (اختیاری)"
+
+msgid "Portion (optional)"
+msgstr "مقدار (اختیاری)"
+
+#| msgid "Note (optional)"
+msgid "What you ate (Farsi, optional)"
+msgstr "آنچه خوردید (فارسی، اختیاری)"
+
+#| msgid "Portion (optional)"
+msgid "Portion (Farsi, optional)"
+msgstr "اندازهٔ وعده (فارسی، اختیاری)"
+
+msgid "Calories (kcal)"
+msgstr "کالری (کیلوکالری)"
+
+msgid "Protein (g)"
+msgstr "پروتئین (گرم)"
+
+msgid "Carbs (g)"
+msgstr "کربوهیدرات (گرم)"
+
+msgid "Fat (g)"
+msgstr "چربی (گرم)"
+
+#| msgid "What you ate"
+msgid "What you ate (English)"
+msgstr "آنچه خوردید (انگلیسی)"
+
+#| msgid "Portion (optional)"
+msgid "Portion (English, optional)"
+msgstr "اندازهٔ وعده (انگلیسی، اختیاری)"
+
+msgid ""
+"English is saved as the original. Add a Farsi translation below, or use AI "
+"to generate both."
+msgstr ""
+"متن انگلیسی به‌عنوان نسخهٔ اصلی ذخیره می‌شود. ترجمهٔ فارسی را در زیر اضافه کنید "
+"یا از هوش مصنوعی برای ساخت هر دو نسخه کمک بگیرید."
+
+msgid ""
+"Use English here. You can add Farsi in the translation field or let AI "
+"generate both versions."
+msgstr ""
+"اینجا به انگلیسی بنویسید. متن فارسی را در بخش ترجمه وارد کنید یا از هوش "
+"مصنوعی برای ساخت هر دو نسخه کمک بگیرید."
+
+msgid "Calories minimum (kcal)"
+msgstr "حداقل کالری (کیلوکالری)"
+
+msgid "Calories maximum (kcal)"
+msgstr "حداکثر کالری (کیلوکالری)"
+
+msgid "Protein minimum (g)"
+msgstr "حداقل پروتئین (گرم)"
+
+msgid "Protein maximum (g)"
+msgstr "حداکثر پروتئین (گرم)"
+
+msgid "Carbs minimum (g)"
+msgstr "حداقل کربوهیدرات (گرم)"
+
+msgid "Carbs maximum (g)"
+msgstr "حداکثر کربوهیدرات (گرم)"
+
+msgid "Fat minimum (g)"
+msgstr "حداقل چربی (گرم)"
+
+msgid "Fat maximum (g)"
+msgstr "حداکثر چربی (گرم)"
+
+msgid "Maximum must be at least the minimum."
+msgstr "حداکثر باید برابر یا بیشتر از حداقل باشد."
+
+msgid "What did you eat?"
+msgstr "چه چیزی خوردید؟"
+
+msgid ""
+"Describe one meal or your whole day, including times and portions you "
+"remember."
+msgstr ""
+"یک وعده یا خوراک تمام روز را، همراه با زمان و مقدارهایی که یادتان مانده، شرح "
+"دهید."
+
+msgid "OpenRouter API key"
+msgstr "کلید API در OpenRouter"
+
+msgid "Leave this blank to keep your saved key."
+msgstr "برای حفظ کلید ذخیره‌شده، این قسمت را خالی بگذارید."
+
+msgid "Remove my saved key"
+msgstr "حذف کلید ذخیره‌شده"
+
+msgid "Enter a valid OpenRouter API key."
+msgstr "یک کلید API معتبر OpenRouter وارد کنید."
+
+msgid "Choose either a new key or removal of the saved key."
+msgstr "یکی را انتخاب کنید: کلید جدید یا حذف کلید ذخیره‌شده."
+
+msgid "Weight (kg)"
+msgstr "وزن (کیلوگرم)"
+
+msgid "Note (optional)"
+msgstr "یادداشت (اختیاری)"
+
+msgid "Choose today or a past date for a weigh-in."
+msgstr "برای ثبت وزن، امروز یا یک تاریخ گذشته را انتخاب کنید."
+
+msgid "Goal weight (kg, optional)"
+msgstr "وزن هدف (کیلوگرم، اختیاری)"
+
+msgid "Last 7 days"
+msgstr "۷ روز گذشته"
+
+msgid "Last 30 days"
+msgstr "۳۰ روز گذشته"
+
+msgid "Last 90 days"
+msgstr "۹۰ روز گذشته"
+
+msgid "Last year"
+msgstr "سال گذشته"
+
+msgid "Custom dates"
+msgstr "تاریخ دلخواه"
+
+msgid "Choose both dates for a custom period."
+msgstr "برای بازهٔ دلخواه، هر دو تاریخ را انتخاب کنید."
+
+msgid "Choose an ordered date range of up to one year."
+msgstr "بازه‌ای با ترتیب درست و حداکثر یک سال انتخاب کنید."
+
+msgid "Statistics can end today or on a past date."
+msgstr "تاریخ پایان آمار باید امروز یا در گذشته باشد."
+
+msgid "Age"
+msgstr "سن"
+
+msgid "Height (cm)"
+msgstr "قد (سانتی‌متر)"
+
+msgid "Current weight (kg)"
+msgstr "وزن فعلی (کیلوگرم)"
+
+msgid "Sex for the energy estimate"
+msgstr "جنسیت برای برآورد انرژی"
+
+msgid "Choose an option"
+msgstr "یک گزینه انتخاب کنید"
+
+msgid "Female"
+msgstr "زن"
+
+msgid "Male"
+msgstr "مرد"
+
+msgid "Prefer not to say"
+msgstr "ترجیح می‌دهم نگویم"
+
+msgid "Usual activity"
+msgstr "فعالیت معمول"
+
+msgid "Mostly sitting"
+msgstr "بیشتر نشسته"
+
+msgid "Lightly active"
+msgstr "فعالیت کم"
+
+msgid "Moderately active"
+msgstr "فعالیت متوسط"
+
+msgid "Very active"
+msgstr "فعالیت زیاد"
+
+msgid "Your goal"
+msgstr "هدف شما"
+
+msgid "Gradual fat loss"
+msgstr "کاهش تدریجی چربی"
+
+msgid "Maintain weight"
+msgstr "حفظ وزن"
+
+msgid "Gradual weight gain"
+msgstr "افزایش تدریجی وزن"
+
+msgid "Anything else to consider?"
+msgstr "نکتهٔ دیگری هست؟"
+
+msgid "Your routine, food preferences, training, or other useful context."
+msgstr "برنامهٔ روزانه، ترجیح‌های غذایی، تمرین‌ها یا هر نکتهٔ مرتبط دیگر."
+
+msgid "Breakfast"
+msgstr "صبحانه"
+
+msgid "Lunch"
+msgstr "ناهار"
+
+msgid "Dinner"
+msgstr "شام"
+
+msgid "Snack"
+msgstr "میان‌وعده"
+
+msgid "Free"
+msgstr "رایگان"
+
+#, python-format
+msgid "$%(input)s input / $%(output)s output per 1M tokens"
+msgstr "ورودی %(input)s دلار / خروجی %(output)s دلار به‌ازای یک میلیون توکن"
+
+msgid "OpenRouter did not accept your key. Check it in your AI settings."
+msgstr ""
+"OpenRouter کلید شما را نپذیرفت. آن را در تنظیمات هوش مصنوعی بررسی کنید."
+
+msgid ""
+"Your OpenRouter key cannot access this request. Check your provider settings."
+msgstr ""
+"کلید OpenRouter شما به این درخواست دسترسی ندارد. تنظیمات ارائه‌دهنده را بررسی "
+"کنید."
+
+msgid "Your OpenRouter balance is insufficient for this model."
+msgstr "موجودی OpenRouter شما برای این مدل کافی نیست."
+
+msgid "OpenRouter is busy or your request limit was reached. Try again later."
+msgstr ""
+"OpenRouter شلوغ است یا به سقف درخواست‌ها رسیده‌اید. کمی بعد دوباره تلاش کنید."
+
+msgid ""
+"This model or provider could not accept structured meal estimates. Choose "
+"another model."
+msgstr ""
+"این مدل یا ارائه‌دهنده، برآورد ساختاریافته را نپذیرفت. مدل دیگری انتخاب کنید."
+
+msgid "OpenRouter is temporarily unavailable. Please try again later."
+msgstr "OpenRouter موقتاً در دسترس نیست. کمی بعد دوباره تلاش کنید."
+
+msgid "OpenRouter returned an oversized response."
+msgstr "پاسخ OpenRouter بیش از اندازه بزرگ بود."
+
+msgid ""
+"OpenRouter could not complete the request. Try another model or try again "
+"later."
+msgstr ""
+"OpenRouter نتوانست درخواست را کامل کند. مدل دیگری انتخاب کنید یا کمی بعد "
+"دوباره تلاش کنید."
+
+msgid ""
+"Could not reach OpenRouter or read its response. Please try again later."
+msgstr ""
+"اتصال به OpenRouter یا خواندن پاسخ آن ممکن نشد. کمی بعد دوباره تلاش کنید."
+
+msgid "OpenRouter's model catalog is unavailable."
+msgstr "فهرست مدل‌های OpenRouter در دسترس نیست."
+
+msgid "No compatible text models are available. Please try again later."
+msgstr "مدل متنی سازگاری در دسترس نیست. کمی بعد دوباره تلاش کنید."
+
+msgid "Choose a currently available text model from the model search."
+msgstr "یک مدل متنی موجود را از فهرست مدل‌ها انتخاب کنید."
+
+msgid ""
+"The model did not return 1–20 usable meals. Describe the foods and portions "
+"more clearly."
+msgstr ""
+"مدل، ۱ تا ۲۰ وعدهٔ قابل استفاده برنگرداند. خوراک و مقدارها را روشن‌تر شرح دهید."
+
+msgid ""
+"The model returned invalid nutrition values. Try again with more detail."
+msgstr ""
+"مقدارهای مواد مغذی در پاسخ مدل معتبر نیست. با جزئیات بیشتر دوباره تلاش کنید."
+
+msgid "The model returned invalid food descriptions."
+msgstr "شرح خوراک در پاسخ مدل معتبر نیست."
+
+msgid "The model returned an invalid meal time."
+msgstr "زمان وعده در پاسخ مدل معتبر نیست."
+
+#| msgid "The model returned unusable targets. Please try again."
+msgid "The model returned incomplete translations. Please try again."
+msgstr "ترجمهٔ مدل کامل نبود. لطفاً دوباره تلاش کنید."
+
+msgid ""
+"The model's meal estimates could not be validated. Try another model or "
+"describe smaller portions."
+msgstr ""
+"برآورد وعده‌های مدل قابل تأیید نیست. مدل دیگری انتخاب کنید یا مقدارهای "
+"کوچک‌تری شرح دهید."
+
+msgid "The model returned invalid estimation notes."
+msgstr "توضیح‌های برآورد مدل معتبر نیست."
+
+msgid ""
+"The model could not finish the estimates. Try a shorter description or "
+"another model."
+msgstr ""
+"مدل نتوانست برآورد را کامل کند. توضیح کوتاه‌تر یا مدل دیگری امتحان کنید."
+
+msgid ""
+"The model did not return a usable meal estimate. Please try another model."
+msgstr "مدل، برآورد قابل استفاده‌ای برنگرداند. مدل دیگری امتحان کنید."
+
+#| msgid "The model returned unusable targets. Please try again."
+msgid "The model did not return the English original. Please try again."
+msgstr "مدل نسخهٔ اصلی انگلیسی را برنگرداند. لطفاً دوباره تلاش کنید."
+
+msgid "The model returned unusable targets. Please try again."
+msgstr "هدف‌های پیشنهادی مدل قابل استفاده نیست. لطفاً دوباره تلاش کنید."
+
+msgid "The model could not finish the target suggestion. Please try again."
+msgstr "مدل نتوانست پیشنهاد هدف‌ها را کامل کند. لطفاً دوباره تلاش کنید."
+
+msgid "Choose a valid date range."
+msgstr "یک بازهٔ زمانی معتبر انتخاب کنید."
+
+msgid ""
+"Your weigh-in has been saved. An existing entry for that day is updated."
+msgstr ""
+"وزن شما ذخیره شد. اگر این روز قبلاً ثبت شده باشد، اطلاعات آن به‌روز می‌شود."
+
+msgid "Weigh-in removed."
+msgstr "ثبت وزن حذف شد."
+
+msgid "Your weight goal has been saved."
+msgstr "هدف وزن شما ذخیره شد."
+
+#, python-format
+msgid "%(amount)s %(unit)s over range"
+msgstr "%(amount)s %(unit)s بالاتر از بازه"
+
+msgid "Within your range"
+msgstr "در بازهٔ هدف شما"
+
+#, python-format
+msgid "On track, %(amount)s %(unit)s left"
+msgstr "در مسیر هدف؛ %(amount)s %(unit)s باقی مانده"
+
+#, python-format
+msgid "%(amount)s %(unit)s left"
+msgstr "%(amount)s %(unit)s باقی مانده"
+
+msgid "Meal added. Your daily summary is up to date."
+msgstr "وعده ثبت شد. خلاصهٔ روز شما به‌روز است."
+
+msgid "A quick note about what you ate. Estimates are welcome."
+msgstr "یادداشتی کوتاه از خوراک شما. مقدارهای تقریبی هم خوب‌اند."
+
+msgid "Save meal"
+msgstr "ذخیرهٔ وعده"
+
+msgid "Meal removed."
+msgstr "وعده حذف شد."
+
+msgid "Meal updated."
+msgstr "وعده به‌روز شد."
+
+msgid "Edit meal"
+msgstr "ویرایش وعده"
+
+msgid "Adjust the food, portion, time, or nutrition values for this entry."
+msgstr "خوراک، مقدار، زمان یا مواد مغذی این وعده را اصلاح کنید."
+
+msgid "Save changes"
+msgstr "ذخیرهٔ تغییرها"
+
+msgid "Your daily targets have been saved."
+msgstr "هدف‌های روزانهٔ شما ذخیره شد."
+
+msgid "Your daily targets"
+msgstr "هدف‌های روزانهٔ شما"
+
+msgid "Set the daily calorie and nutrient ranges that work for you."
+msgstr "بازهٔ روزانهٔ کالری و مواد مغذی مناسب خودتان را تعیین کنید."
+
+msgid "Save targets"
+msgstr "ذخیرهٔ هدف‌ها"
+
+#~ msgid "24-hour local time HH:MM when mentioned; null if unknown"
+#~ msgstr ""
+#~ "زمان محلی با قالب ۲۴ساعتهٔ HH:MM در صورت ذکر شدن؛ در غیر این صورت null"
+
+#~ msgid "Food actually mentioned by the user"
+#~ msgstr "خوراکی که کاربر واقعاً ذکر کرده است"
+
+#~ msgid "Portions used in the estimate, with units"
+#~ msgstr "مقدارهای استفاده‌شده در برآورد، همراه با واحد"

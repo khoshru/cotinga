@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Review daily targets' %}{% endblock %}
+{% block content %}
+  <div class="page-topline"><span class="eyebrow">{% translate 'A PLAN YOU CAN MAKE YOUR OWN' %}</span><span class="journal-label">{% translate 'AI suggestion' %}</span></div>
+  <div class="page-heading"><div><h1>{% translate 'Your suggested targets' %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate 'Review the reasoning, adjust any range, and apply your daily targets.' %}</p></div></div>
+  <section class="assumption-note target-explanation"><h2>{% include 'icon.html' with name='sparkles' %}{% translate 'Why these ranges?' %}</h2><p dir="auto">{{ result.explanation }}</p>{% if result.assumptions %}<ul>{% for note in result.assumptions %}<li dir="auto">{{ note }}</li>{% endfor %}</ul>{% endif %}</section>
+  <form method="post" class="entry-form targets-form" data-busy-form>{% csrf_token %}{{ form.non_field_errors }}<div class="form-grid">{% for field in form %}<div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{{ field.errors }}{% if field.help_text %}<p class="help-text">{{ field.help_text }}</p>{% endif %}</div>{% endfor %}</div><div class="form-actions"><button class="button primary" type="submit" data-busy-label="{% translate 'Applying targets…' %}">{% include 'icon.html' with name='check' %}{% translate 'Apply daily targets' %}</button><a class="quiet-button" href="{% url 'tracker:ai-targets' %}">{% translate 'Start again' %}</a></div></form>
+{% endblock %}

@@ -4,8 +4,12 @@ from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy
+
+from .localization import localized_text
 
 NUTRIENTS = ("calories", "protein", "carbs", "fat")
+DEFAULT_AI_MODEL = "google/gemini-4-argon"
 
 
 class DailyTarget(models.Model):
@@ -52,17 +56,19 @@ class DailyTarget(models.Model):
 
 class Meal(models.Model):
     class Kind(models.TextChoices):
-        BREAKFAST = "breakfast", "Breakfast"
-        LUNCH = "lunch", "Lunch"
-        DINNER = "dinner", "Dinner"
-        SNACK = "snack", "Snack"
+        BREAKFAST = "breakfast", gettext_lazy("Breakfast")
+        LUNCH = "lunch", gettext_lazy("Lunch")
+        DINNER = "dinner", gettext_lazy("Dinner")
+        SNACK = "snack", gettext_lazy("Snack")
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.localdate, db_index=True)
     kind = models.CharField(max_length=12, choices=Kind.choices)
     description = models.CharField(max_length=240)
+    description_fa = models.CharField(max_length=240, blank=True)
     time = models.TimeField(null=True, blank=True)
     portion = models.CharField(max_length=160, blank=True)
+    portion_fa = models.CharField(max_length=160, blank=True)
     estimated = models.BooleanField(default=False)
     estimate_model = models.CharField(max_length=200, blank=True)
     calories = models.PositiveIntegerField(validators=[MaxValueValidator(10000)])
@@ -80,11 +86,19 @@ class Meal(models.Model):
     def __str__(self) -> str:
         return f"{self.get_kind_display()}: {self.description}"
 
+    @property
+    def display_description(self) -> str:
+        return localized_text(self.description, self.description_fa)
+
+    @property
+    def display_portion(self) -> str:
+        return localized_text(self.portion, self.portion_fa)
+
 
 class OpenRouterSettings(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     encrypted_api_key = models.TextField(blank=True, editable=False)
-    model = models.CharField(max_length=200, blank=True)
+    model = models.CharField(max_length=200, blank=True, default=DEFAULT_AI_MODEL)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
@@ -154,3 +168,25 @@ class WeightGoal(models.Model):
 
     def __str__(self) -> str:
         return f"Weight goal for {self.user}"
+
+
+class TargetEstimate(models.Model):
+    """A validated target suggestion awaiting the user's review."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    model = models.CharField(max_length=200)
+    result = models.JSONField(default=dict)
+    status = models.CharField(
+        max_length=12,
+        choices=MealEstimate.Status.choices,
+        default=MealEstimate.Status.PROCESSING,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    saved_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        indexes = [models.Index(fields=["user", "created_at"])]
+
+    def __str__(self) -> str:
+        return f"Target estimate ({self.get_status_display()})"

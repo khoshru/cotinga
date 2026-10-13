@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+*.mo
 *.egg-info/
 
 # Virtual environments and tooling
