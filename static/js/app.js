@@ -10,45 +10,100 @@ document.querySelectorAll('[data-password-toggle]').forEach((button) => {
     const input = document.getElementById(button.dataset.passwordToggle);
     const show = input.type === 'password';
     input.type = show ? 'text' : 'password';
-    button.textContent = show ? 'Hide' : 'Show';
+    button.textContent = show ? gettext('Hide') : gettext('Show');
     button.setAttribute('aria-pressed', String(show));
   });
 });
 
 document.querySelectorAll('[data-model-picker]').forEach((picker) => {
-  const query = picker.querySelector('[data-model-query]');
-  const free = picker.querySelector('[data-model-free]');
+  const input = picker.querySelector('[data-model-input]');
   const select = picker.querySelector('[data-model-select]');
+  const list = picker.querySelector('[data-model-options]');
+  const free = picker.querySelector('[data-model-free]');
   const status = picker.querySelector('[data-model-status]');
-  let timer;
-  let pending;
-  const search = async () => {
-    if (pending) pending.abort();
-    pending = new AbortController();
-    const url = new URL(picker.dataset.modelUrl, window.location.origin);
-    url.searchParams.set('q', query.value);
-    if (free.checked) url.searchParams.set('free', '1');
-    status.textContent = 'Searching OpenRouter models…';
-    try {
-      const response = await fetch(url, { signal: pending.signal, headers: { Accept: 'application/json' } });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Model search is unavailable. Please try again.');
-      const current = select.value;
-      const currentLabel = select.selectedOptions[0]?.textContent;
-      const options = [new Option('Choose a model', '')];
-      if (current && !result.models.some((model) => model.id === current)) {
-        options.push(new Option(currentLabel || current, current));
-      }
-      result.models.forEach((model) => options.push(new Option(`${model.name} · ${model.pricing}`, model.id)));
-      select.replaceChildren(...options);
-      select.value = current;
-      status.textContent = result.total ? `${result.total} matching models${result.total > result.models.length ? '; narrow your search to see more' : ''}. Prices are USD per million tokens.` : 'No matching models. Try a different search.';
-    } catch (error) {
-      if (error.name !== 'AbortError') status.textContent = error.message;
-    }
+  const caption = picker.querySelector('[data-model-chosen]');
+  const models = [...select.options].filter((option) => option.value).map((option) => ({
+    id: option.value, name: option.dataset.name || option.value,
+    pricing: option.dataset.price || '', free: option.dataset.free === 'true',
+  }));
+  let shown = [];
+  let active = -1;
+  let query = '';
+  const selected = () => models.find((model) => model.id === select.value);
+  const close = () => {
+    list.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    input.removeAttribute('aria-activedescendant');
+    input.value = selected()?.name || '';
   };
-  query.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(search, 250); });
-  free.addEventListener('change', search);
+  const highlight = (index) => {
+    if (!shown.length) return;
+    active = (index + shown.length) % shown.length;
+    [...list.children].forEach((option, i) => option.classList.toggle('highlighted', i === active));
+    input.setAttribute('aria-activedescendant', `model-option-${active}`);
+    list.children[active].scrollIntoView({ block: 'nearest' });
+  };
+  const choose = (model) => {
+    select.value = model.id;
+    caption.textContent = model.pricing;
+    status.textContent = gettext('Model selected. Save your settings to use it.');
+    input.focus();
+    close();
+  };
+  const render = (value = '') => {
+    query = value;
+    const term = value.trim().toLowerCase().replace(/[۰-۹]/g, (digit) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit))).replace(/گوگل/g, 'google').replace(/جمینای|جمنای/g, 'gemini').replace(/آرگون/g, 'argon');
+    const matching = models.filter((model) => (!free.checked || model.free) && `${model.name} ${model.id}`.toLowerCase().includes(term));
+    matching.sort((a, b) => Number(b.id === select.value) - Number(a.id === select.value));
+    shown = matching.slice(0, 60);
+    list.replaceChildren(...shown.map((model, index) => {
+      const option = document.createElement('button');
+      option.type = 'button'; option.role = 'option'; option.tabIndex = -1;
+      option.id = `model-option-${index}`;
+      option.setAttribute('aria-selected', String(model.id === select.value));
+      const name = document.createElement('strong'); name.textContent = model.name; name.dir = 'auto';
+      const price = document.createElement('span'); price.textContent = model.pricing; price.dir = 'auto';
+      option.append(name, price);
+      option.addEventListener('click', () => choose(model));
+      return option;
+    }));
+    if (!shown.length) {
+      const empty = document.createElement('p');
+      empty.className = 'model-empty'; empty.textContent = gettext('No matching models. Try a different search.');
+      list.append(empty);
+    }
+    list.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
+    active = -1;
+    input.removeAttribute('aria-activedescendant');
+    status.textContent = matching.length ? interpolate(gettext('%s matching models. Use arrow keys and Enter to select.'), [matching.length]) : gettext('No matching models. Try a different search.');
+  };
+  picker.querySelector('[data-model-combobox]').hidden = false;
+  picker.querySelector('[data-model-label]').htmlFor = input.id;
+  select.hidden = true;
+  input.value = selected()?.name || '';
+  input.addEventListener('focus', () => { input.select(); render(); });
+  input.addEventListener('click', () => { if (list.hidden) { input.select(); render(); } });
+  input.addEventListener('input', () => render(input.value));
+  input.addEventListener('keydown', (event) => {
+    if (event.isComposing) return;
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (list.hidden) render();
+      highlight(active < 0 ? (event.key === 'ArrowDown' ? 0 : shown.length - 1) : active + (event.key === 'ArrowDown' ? 1 : -1));
+    } else if (event.key === 'Enter' && !list.hidden) {
+      event.preventDefault();
+      if (shown.length) choose(shown[Math.max(active, 0)]);
+    } else if (event.key === 'Escape') {
+      event.preventDefault(); close();
+    }
+  });
+  picker.querySelector('[data-model-open]').addEventListener('click', () => {
+    if (list.hidden) { input.focus(); input.select(); render(); } else close();
+  });
+  free.addEventListener('change', () => render(query));
+  picker.addEventListener('focusout', () => setTimeout(() => { if (!picker.contains(document.activeElement)) close(); }, 0));
+  document.addEventListener('click', (event) => { if (!picker.contains(event.target)) close(); });
 });
 
 document.querySelectorAll('[data-busy-form]').forEach((form) => {
@@ -58,7 +113,7 @@ document.querySelectorAll('[data-busy-form]').forEach((form) => {
     button.disabled = true;
     button.textContent = button.dataset.busyLabel;
     const status = form.querySelector('[data-busy-status]');
-    if (status) status.textContent = 'This can take a little while. Your meals will be ready to review when the model finishes.';
+    if (status) status.textContent = gettext('This can take a little while. Your suggestion will be ready to review when the model finishes.');
   });
   window.addEventListener('pageshow', () => {
     button.disabled = false;
