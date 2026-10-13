@@ -1,4 +1,8 @@
 # syntax=docker/dockerfile:1
+FROM caddy:2.11.7-builder-alpine AS caddy-builder
+RUN CGO_ENABLED=0 xcaddy build v2.11.7 --output /usr/bin/caddy \
+    --with github.com/mholt/caddy-ratelimit@5625512f24f6f59d6f64fb3aafe5eecff0b286db
+
 FROM python:3.14-slim AS builder
 COPY --from=ghcr.io/astral-sh/uv:0.12.10 /uv /usr/local/bin/uv
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=never
@@ -16,6 +20,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     DJANGO_SQLITE_PATH=/data/db.sqlite3 \
     PATH="/app/.venv/bin:$PATH"
 WORKDIR /app
+COPY --from=caddy-builder /usr/bin/caddy /usr/local/bin/caddy
 RUN groupadd --gid 10001 app && useradd --uid 10001 --gid app app \
     && mkdir /data && chown app:app /data
 COPY --from=builder --chown=app:app /app /app

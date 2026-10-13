@@ -2,7 +2,35 @@
 	email {$COTINGA_TLS_EMAIL}
 }
 
+(request_limits) {
+	rate_limit {
+		zone general {
+			key {remote_host}
+			events 30
+			window 1s
+		}
+		zone login {
+			match {
+				path /accounts/login /accounts/login/* /admin/login /admin/login/*
+			}
+			key {remote_host}
+			events 5
+			window 1s
+		}
+	}
+}
+
 {$COTINGA_DOMAIN} {
-	encode zstd gzip
-	reverse_proxy web:8000
+	route {
+		import request_limits
+		encode zstd gzip
+		reverse_proxy web:8000
+	}
+}
+
+http://{$COTINGA_DOMAIN} {
+	route {
+		import request_limits
+		redir https://{$COTINGA_DOMAIN}{uri} 308
+	}
 }

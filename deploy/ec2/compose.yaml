@@ -32,7 +32,10 @@ services:
         max-size: 10m
         max-file: "3"
   caddy:
-    image: caddy:2-alpine
+    image: ${COTINGA_IMAGE:?Set COTINGA_IMAGE to the application image}
+    entrypoint: [caddy]
+    command: [run, --config, /etc/caddy/Caddyfile, --adapter, caddyfile]
+    user: "0:0"
     restart: unless-stopped
     ports:
       - "80:80"
@@ -40,10 +43,18 @@ services:
     environment:
       COTINGA_DOMAIN: ${COTINGA_DOMAIN}
       COTINGA_TLS_EMAIL: ${COTINGA_TLS_EMAIL:?Set your TLS contact email}
+      XDG_CONFIG_HOME: /config
+      XDG_DATA_HOME: /data
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
     depends_on:
       web:
         condition: service_healthy

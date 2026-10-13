@@ -41,7 +41,8 @@ jobs:
             sh -c 'python manage.py prepare_deployment && python manage.py check --deploy --fail-level WARNING'
           docker run --rm --env COTINGA_DOMAIN=example.com --env COTINGA_TLS_EMAIL=ci@example.com \
             --volume "$PWD/deploy/ec2/Caddyfile:/etc/caddy/Caddyfile:ro" \
-            caddy:2-alpine caddy validate --config /etc/caddy/Caddyfile
+            --entrypoint caddy "$image:$GITHUB_SHA" validate --config /etc/caddy/Caddyfile
+          python3 tests/check_caddy_limits.py "$image:$GITHUB_SHA"
           echo "COTINGA_IMAGE=$image" >> "$GITHUB_ENV"
       - name: Publish the tested image
         env:
