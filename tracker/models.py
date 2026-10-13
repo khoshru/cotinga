@@ -1,3 +1,5 @@
+import uuid
+
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
@@ -59,6 +61,10 @@ class Meal(models.Model):
     date = models.DateField(default=timezone.localdate, db_index=True)
     kind = models.CharField(max_length=12, choices=Kind.choices)
     description = models.CharField(max_length=240)
+    time = models.TimeField(null=True, blank=True)
+    portion = models.CharField(max_length=160, blank=True)
+    estimated = models.BooleanField(default=False)
+    estimate_model = models.CharField(max_length=200, blank=True)
     calories = models.PositiveIntegerField(validators=[MaxValueValidator(10000)])
     protein = models.PositiveIntegerField(
         default=0, validators=[MaxValueValidator(1000)]
@@ -73,3 +79,78 @@ class Meal(models.Model):
 
     def __str__(self) -> str:
         return f"{self.get_kind_display()}: {self.description}"
+
+
+class OpenRouterSettings(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    encrypted_api_key = models.TextField(blank=True, editable=False)
+    model = models.CharField(max_length=200, blank=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"OpenRouter settings for {self.user}"
+
+    @property
+    def has_key(self) -> bool:
+        return bool(self.encrypted_api_key)
+
+
+class MealEstimate(models.Model):
+    class Status(models.TextChoices):
+        PROCESSING = "processing", "Processing"
+        READY = "ready", "Ready"
+        FAILED = "failed", "Failed"
+        SAVED = "saved", "Saved"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date = models.DateField()
+    model = models.CharField(max_length=200)
+    result = models.JSONField(default=dict)
+    status = models.CharField(
+        max_length=12, choices=Status.choices, default=Status.PROCESSING
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    saved_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        indexes = [models.Index(fields=["user", "created_at"])]
+
+    def __str__(self) -> str:
+        return f"Meal estimate for {self.date} ({self.get_status_display()})"
+
+
+class WeightEntry(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    date = models.DateField(default=timezone.localdate)
+    weight = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        validators=[MinValueValidator(1), MaxValueValidator(500)],
+    )
+    notes = models.CharField(max_length=240, blank=True)
+
+    class Meta:
+        ordering = ["-date", "-pk"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "date"], name="weight_user_date_unique"
+            )
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.date}: {self.weight} kg"
+
+
+class WeightGoal(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    weight = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(1), MaxValueValidator(500)],
+    )
+
+    def __str__(self) -> str:
+        return f"Weight goal for {self.user}"

@@ -34,6 +34,7 @@ repos:
           - Django==6.1.2
           - django-stubs[compatible-mypy]==6.1.0
           - django-axes==8.3.1
+          - cryptography==50.0.2
           - pytest==9.1.1
           - pytest-django==4.14.0
         args: [--config-file=pyproject.toml]
