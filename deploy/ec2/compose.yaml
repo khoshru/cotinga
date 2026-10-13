@@ -1,6 +1,6 @@
 services:
   web:
-    image: ${COTINGA_IMAGE:?Set COTINGA_IMAGE to the ECR image digest}
+    image: ${COTINGA_IMAGE:?Set COTINGA_IMAGE to the application image}
     restart: unless-stopped
     env_file: .env
     environment:

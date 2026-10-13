@@ -2,14 +2,24 @@
 set -euo pipefail
 umask 077
 
-if [[ $# != 2 ]]; then
-    echo "Usage: deploy.sh ECR_IMAGE_DIGEST AWS_REGION" >&2
-    exit 1
-fi
-image=$1
-region=$2
-if [[ ! "$image" =~ ^[0-9]{12}\.dkr\.ecr\.([a-z0-9-]+)\.amazonaws\.com/[a-z0-9._/-]+@sha256:[a-f0-9]{64}$ ]] || [[ "${BASH_REMATCH[1]}" != "$region" ]]; then
-    echo "Provide an ECR SHA-256 image digest in the specified AWS region." >&2
+source_dir=""
+if [[ $# == 1 && -d "$1" ]]; then
+    source_dir=$(realpath "$1")
+    if [[ ! -f "$source_dir/Dockerfile" || ! -f "$source_dir/uv.lock" ]]; then
+        echo "Provide the Cotinga source checkout directory." >&2
+        exit 1
+    fi
+    revision=$(git -c safe.directory="$source_dir" -C "$source_dir" rev-parse --verify HEAD)
+    image="cotinga:${revision}"
+elif [[ $# == 2 ]]; then
+    image=$1
+    region=$2
+    if [[ ! "$image" =~ ^[0-9]{12}\.dkr\.ecr\.([a-z0-9-]+)\.amazonaws\.com/[a-z0-9._/-]+@sha256:[a-f0-9]{64}$ ]] || [[ "${BASH_REMATCH[1]}" != "$region" ]]; then
+        echo "Provide an ECR SHA-256 image digest in the specified AWS region." >&2
+        exit 1
+    fi
+else
+    echo "Usage: deploy.sh SOURCE_DIRECTORY | ECR_IMAGE_DIGEST AWS_REGION" >&2
     exit 1
 fi
 
@@ -30,10 +40,15 @@ compose() {
     docker compose --project-name cotinga --env-file .env --env-file image.env -f compose.yaml "$@"
 }
 
-# Pull before stopping the current app. Credentials come from the EC2 IAM role.
-registry=${image%%/*}
-aws ecr get-login-password --region "$region" | docker login --username AWS --password-stdin "$registry"
-docker pull "$image"
+# Build or pull before stopping the current app.
+if [[ -n "$source_dir" ]]; then
+    docker build --tag "$image" "$source_dir"
+    image=$(docker image inspect --format '{{.Id}}' "$image")
+else
+    registry=${image%%/*}
+    aws ecr get-login-password --region "$region" | docker login --username AWS --password-stdin "$registry"
+    docker pull "$image"
+fi
 
 stamp=$(date -u +%Y%m%dT%H%M%S)-$$
 if [[ -f image.env ]]; then
