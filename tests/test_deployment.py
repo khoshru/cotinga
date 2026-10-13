@@ -15,10 +15,20 @@ from accounts.models import User
 
 @pytest.mark.django_db
 def test_health_checks_database(client: Client) -> None:
-    assert client.get("/health/").json() == {"status": "ok"}
+    with patch.dict("os.environ", {"COTINGA_REVISION": ""}):
+        assert client.get("/health/").json() == {"status": "ok"}
     with patch("tracker.views.connection.cursor", side_effect=OperationalError):
         assert client.get("/health/").status_code == 503
     assert client.post("/health/").status_code == 405
+
+
+@pytest.mark.django_db
+def test_health_identifies_the_running_release(
+    client: Client, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    revision = "a" * 40
+    monkeypatch.setenv("COTINGA_REVISION", revision)
+    assert client.get("/health/").json() == {"status": "ok", "revision": revision}
 
 
 def configure_production(monkeypatch: pytest.MonkeyPatch) -> None:

@@ -9,7 +9,9 @@ COPY . .
 RUN .venv/bin/python manage.py collectstatic --noinput --settings=config.settings.build
 
 FROM python:3.14-slim AS runtime
+ARG COTINGA_REVISION=""
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
+    COTINGA_REVISION=${COTINGA_REVISION} \
     DJANGO_SETTINGS_MODULE=config.settings.production \
     DJANGO_SQLITE_PATH=/data/db.sqlite3 \
     PATH="/app/.venv/bin:$PATH"

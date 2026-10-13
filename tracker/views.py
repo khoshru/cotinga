@@ -1,3 +1,4 @@
+import os
 from datetime import date, timedelta
 from typing import cast
 
@@ -135,4 +136,7 @@ def health(request: HttpRequest) -> JsonResponse:
             cursor.execute("SELECT 1")
     except OperationalError:
         return JsonResponse({"status": "unavailable"}, status=503)
-    return JsonResponse({"status": "ok"})
+    result = {"status": "ok"}
+    if revision := os.environ.get("COTINGA_REVISION", ""):
+        result["revision"] = revision
+    return JsonResponse(result)
