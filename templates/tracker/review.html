@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Review estimates{% endblock %}
+{% block content %}
+  <div class="page-topline"><span class="eyebrow">A QUICK LOOK BEFORE YOU SAVE</span><span class="journal-label"><span></span>{{ batch.date|date:'j F Y' }}</span></div>
+  <div class="page-heading"><div><h1>Review your meals<span class="heading-dot">.</span></h1><p class="subtitle">Check portions, times, and nutrients. These are estimates you can adjust.</p></div></div>
+  {% if batch.result.assumptions %}<section class="assumption-note"><h2>{% include 'icon.html' with name='info' %}What the model assumed</h2><ul>{% for note in batch.result.assumptions %}<li>{{ note }}</li>{% endfor %}</ul></section>{% endif %}
+  <form method="post" class="review-form" data-busy-form>{% csrf_token %}{{ formset.management_form }}{% if formset.non_form_errors %}<div class="form-errors" role="alert">{{ formset.non_form_errors }}</div>{% endif %}
+    <div class="review-meals">{% for form in formset %}<section class="panel review-meal"><div class="section-heading"><h2>MEAL {{ forloop.counter }}</h2><span class="status-pill mint">AI estimate</span></div>{{ form.non_field_errors }}<div class="form-grid">{% for field in form %}<div class="field {% if field.name == 'description' or field.name == 'portion' %}field-wide{% endif %} {% if field.name == 'DELETE' %}delete-estimate{% endif %}">{% if field.name == 'DELETE' %}<label class="check-label">{{ field }}Skip this meal</label>{% else %}<label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% endif %}{{ field.errors }}</div>{% endfor %}</div></section>{% endfor %}</div>
+    <div class="review-save panel"><div><h2>Add this day to your journal.</h2><p>Meals will be added to {{ batch.date|date:'j F Y' }} alongside any existing entries.</p></div><button type="submit" class="button primary" data-busy-label="Adding meals…">{% include 'icon.html' with name='check' %}Add reviewed meals</button></div><a href="{% url 'tracker:ai-estimate' %}?date={{ batch.date|date:'Y-m-d' }}" class="quiet-button">Start a new estimate</a>
+  </form>
+{% endblock %}

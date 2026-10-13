@@ -85,6 +85,27 @@ def meal_delete(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 @require_http_methods(["GET", "POST"])
+def meal_edit(request: HttpRequest, pk: int) -> HttpResponse:
+    meal = get_object_or_404(Meal, pk=pk, user=request.user)
+    form = MealForm(request.POST if request.method == "POST" else None, instance=meal)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Meal updated.")
+        return redirect(f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}")
+    return render(
+        request,
+        "tracker/form.html",
+        {
+            "form": form,
+            "title": "Edit meal",
+            "description": "Adjust the food, portion, time, or nutrition values for this entry.",
+            "submit_label": "Save changes",
+        },
+    )
+
+
+@login_required
+@require_http_methods(["GET", "POST"])
 def targets_edit(request: HttpRequest) -> HttpResponse:
     target, _ = DailyTarget.objects.get_or_create(user=cast(User, request.user))
     form = TargetForm(
