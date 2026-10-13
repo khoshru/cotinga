@@ -6,6 +6,8 @@
 .venv
 .env
 .env.*
+**/.env
+**/.env.*
 __pycache__
 **/__pycache__
 *.py[cod]
@@ -16,6 +18,8 @@ data
 backups
 deploy/*.local.env
 deploy/*.local.json
+**/*.local.env
+**/*.local.json
 config/settings/local.py
 staticfiles
 tests
