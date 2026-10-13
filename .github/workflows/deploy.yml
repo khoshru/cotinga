@@ -1,112 +1,59 @@
-name: Deploy to AWS
+name: Publish production image
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      mode:
-        description: Deploy, or print the OIDC subject needed for initial IAM setup
-        type: choice
-        options: [deploy, show-identity]
-        default: deploy
 
 permissions:
   contents: read
 
 concurrency:
-  group: cotinga-production
+  group: cotinga-production-image
   cancel-in-progress: false
 
 jobs:
-  identity:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'show-identity' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    environment: production
-    permissions:
-      id-token: write
-    steps:
-      - name: Show only the OIDC subject and audience
-        run: |
-          python3 - <<'PY'
-          import base64
-          import json
-          import os
-          import urllib.request
-          url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=sts.amazonaws.com'
-          request = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
-          with urllib.request.urlopen(request) as response:
-              token = json.load(response)['value']
-          payload = token.split('.')[1]
-          claims = json.loads(base64.urlsafe_b64decode(payload + '=' * (-len(payload) % 4)))
-          print('OIDC subject:', claims['sub'])
-          print('OIDC audience:', claims['aud'])
-          PY
   checks:
-    if: github.event_name == 'push' || inputs.mode == 'deploy'
     uses: ./.github/workflows/ci.yml
-  deploy:
+  publish:
     needs: checks
-    if: vars.AWS_DEPLOY_ENABLED == 'true' && github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment: production
     permissions:
       contents: read
-      id-token: write
-    env:
-      AWS_REGION: ${{ vars.AWS_REGION }}
-      ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
-      EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID }}
+      packages: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Validate deployment variables
+      - name: Build and check the production image
         run: |
-          test -n "$AWS_REGION"
-          [[ "$ECR_REPOSITORY" =~ ^[a-z0-9._/-]+$ ]]
-          [[ "$EC2_INSTANCE_ID" =~ ^i-([a-f0-9]{8}|[a-f0-9]{17})$ ]]
-      - name: Authenticate to AWS with OIDC
-        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
-        with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: ${{ vars.AWS_REGION }}
-          role-session-name: cotinga-${{ github.run_id }}
-      - name: Build or reuse the commit image and push to ECR
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          docker build --platform linux/amd64 --build-arg "COTINGA_REVISION=$GITHUB_SHA" \
+            --label "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
+            --label "org.opencontainers.image.revision=$GITHUB_SHA" \
+            --tag "$image:$GITHUB_SHA" .
+          docker run --rm --read-only --tmpfs /tmp --tmpfs /data:uid=10001,gid=10001 \
+            --env DJANGO_SECRET_KEY=ci-image-check-only-with-length-and-variety-9284-no-runtime-use \
+            --env DJANGO_ALLOWED_HOSTS=example.com "$image:$GITHUB_SHA" \
+            sh -c 'python manage.py prepare_deployment && python manage.py check --deploy --fail-level WARNING'
+          docker run --rm --env COTINGA_DOMAIN=example.com --env COTINGA_TLS_EMAIL=ci@example.com \
+            --volume "$PWD/deploy/ec2/Caddyfile:/etc/caddy/Caddyfile:ro" \
+            caddy:2-alpine caddy validate --config /etc/caddy/Caddyfile
+          echo "COTINGA_IMAGE=$image" >> "$GITHUB_ENV"
+      - name: Publish the tested image
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          repository_uri=$(aws ecr describe-repositories --repository-names "$ECR_REPOSITORY" --query 'repositories[0].repositoryUri' --output text)
-          if ! digest=$(aws ecr describe-images --repository-name "$ECR_REPOSITORY" --image-ids "imageTag=$GITHUB_SHA" --query 'imageDetails[0].imageDigest' --output text 2>/dev/null); then
-            registry=${repository_uri%%/*}
-            aws ecr get-login-password | docker login --username AWS --password-stdin "$registry"
-            docker build --platform linux/amd64 -t "$repository_uri:$GITHUB_SHA" .
-            docker push "$repository_uri:$GITHUB_SHA"
-            digest=$(aws ecr describe-images --repository-name "$ECR_REPOSITORY" --image-ids "imageTag=$GITHUB_SHA" --query 'imageDetails[0].imageDigest' --output text)
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          docker push "$COTINGA_IMAGE:$GITHUB_SHA"
+          latest=$(git ls-remote "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git" refs/heads/main | cut -f1)
+          if [[ "$latest" != "$GITHUB_SHA" ]]; then
+            echo 'A newer commit exists; leaving the production tag unchanged.'
+            exit 0
           fi
-          echo "COTINGA_IMAGE=$repository_uri@$digest" >> "$GITHUB_ENV"
-      - name: Deploy the exact image to EC2 through Systems Manager
-        run: |
-          python3 - <<'PY'
-          import json
-          import os
-          import shlex
-          from pathlib import Path
-          command = '/opt/cotinga/deploy.sh ' + shlex.quote(os.environ['COTINGA_IMAGE']) + ' ' + shlex.quote(os.environ['AWS_REGION'])
-          payload = {'commands': [command], 'executionTimeout': ['600']}
-          Path(os.environ['RUNNER_TEMP'], 'ssm-deploy.json').write_text(json.dumps(payload))
-          PY
-          command_id=$(aws ssm send-command --instance-ids "$EC2_INSTANCE_ID" --document-name AWS-RunShellScript --timeout-seconds 60 --parameters "file://$RUNNER_TEMP/ssm-deploy.json" --query 'Command.CommandId' --output text)
-          for ((attempt = 0; attempt < 120; attempt++)); do
-            status=$(aws ssm get-command-invocation --command-id "$command_id" --instance-id "$EC2_INSTANCE_ID" --query Status --output text 2>/dev/null || echo Pending)
-            case "$status" in
-              Success)
-                aws ssm get-command-invocation --command-id "$command_id" --instance-id "$EC2_INSTANCE_ID" --query StandardOutputContent --output text
-                exit 0 ;;
-              Failed|TimedOut|Cancelled|Cancelling)
-                aws ssm get-command-invocation --command-id "$command_id" --instance-id "$EC2_INSTANCE_ID" --query '{Status:Status,Output:StandardOutputContent,Error:StandardErrorContent}'
-                exit 1 ;;
-            esac
-            sleep 5
-          done
-          echo 'Deployment command did not finish within ten minutes.' >&2
-          exit 1
+          docker tag "$COTINGA_IMAGE:$GITHUB_SHA" "$COTINGA_IMAGE:production"
+          docker push "$COTINGA_IMAGE:production"
+          printf 'Published %s:production from %s.\n' "$COTINGA_IMAGE" "$GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
