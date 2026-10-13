@@ -5,6 +5,7 @@ description = "A personal meal and nutrition tracker"
 requires-python = ">=3.14"
 dependencies = [
     "Django>=6.1.2,<6.2",
+    "django-axes>=8.3.1,<9",
     "gunicorn>=23,<26",
     "whitenoise>=6.9,<7",
 ]
@@ -49,6 +50,11 @@ plugins = ["mypy_django_plugin.main"]
 strict = true
 warn_unreachable = true
 exclude = ["(^|/)migrations/", '^\.venv/']
+
+[[tool.mypy.overrides]]
+# Axes does not publish library stubs or a py.typed marker.
+module = ["axes.*"]
+ignore_missing_imports = true
 
 [tool.django-stubs]
 django_settings_module = "config.settings.test"

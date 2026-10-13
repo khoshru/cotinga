@@ -1,7 +1,7 @@
 import pytest
 from django.contrib.auth import authenticate, get_user_model
 from django.db import IntegrityError, connection, transaction
-from django.test import Client
+from django.test import Client, RequestFactory
 
 User = get_user_model()
 
@@ -104,19 +104,31 @@ class TestCaseInsensitiveLogin:
     def test_authenticate_with_mixed_case_email(self) -> None:
         """Verify authenticate() succeeds with different email casing."""
         User.objects.create_user(email="user@example.com", password="s3cret-pw!")
-        user = authenticate(username="User@Example.Com", password="s3cret-pw!")
+        user = authenticate(
+            request=RequestFactory().post("/accounts/login/"),
+            username="User@Example.Com",
+            password="s3cret-pw!",
+        )
         assert user is not None
         assert user.email == "user@example.com"
 
     def test_authenticate_with_wrong_password_fails(self) -> None:
         """Verify mixed-case login still requires the correct password."""
         User.objects.create_user(email="user@example.com", password="s3cret-pw!")
-        user = authenticate(username="User@Example.Com", password="wrong-pw-12")
+        user = authenticate(
+            request=RequestFactory().post("/accounts/login/"),
+            username="User@Example.Com",
+            password="wrong-pw-12",
+        )
         assert user is None
 
     def test_authenticate_with_unknown_email_fails(self) -> None:
         """Verify authenticate() returns None for unknown mixed-case emails."""
-        user = authenticate(username="Nobody@Example.Com", password="s3cret-pw")
+        user = authenticate(
+            request=RequestFactory().post("/accounts/login/"),
+            username="Nobody@Example.Com",
+            password="s3cret-pw",
+        )
         assert user is None
 
 

@@ -46,6 +46,7 @@ CSRF_TRUSTED_ORIGINS = [
 # Caddy terminates HTTPS and supplies a trusted X-Forwarded-Proto header.
 # Production Compose exposes Gunicorn only to Caddy's internal Docker network.
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+COTINGA_TRUST_CADDY_HEADERS = True
 SECURE_SSL_REDIRECT = True
 SECURE_REDIRECT_EXEMPT = [r"^health/$"]
 SECURE_HSTS_SECONDS = 31_536_000

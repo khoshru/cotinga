@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Please try again later{% endblock %}
+{% block content %}
+  <div class="login-wrap">
+    <span class="eyebrow">YOUR PERSONAL SPACE</span>
+    <h1>A little pause<span class="heading-dot">.</span></h1>
+    <p class="subtitle" role="alert">Too many sign-in attempts. Please wait 15 minutes before trying again.</p>
+    <a href="{% url 'tracker:dashboard' %}" class="button secondary">Back to the summary</a>
+  </div>
+{% endblock %}
