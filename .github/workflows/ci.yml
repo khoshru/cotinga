@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    env:
+      UV_MALWARE_CHECK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7.6.0
+        with:
+          version: "0.12.10"
+          enable-cache: true
+      - name: Install Python
+        run: uv python install 3.14
+      - name: Install dependencies
+        run: uv sync --locked --all-groups --preview-features malware-check
+      - name: Audit dependencies
+        run: uv audit --locked --preview-features audit-command
+      - name: Run pre-commit
+        run: uv run pre-commit run --all-files
+      - name: Run Django checks
+        run: uv run python manage.py check --settings=config.settings.test
+      - name: Check migrations
+        run: uv run python manage.py makemigrations --check --dry-run --settings=config.settings.test
+      - name: Check deployment settings
+        env:
+          DJANGO_SECRET_KEY: ci-check-only-with-enough-length-and-variety-9284-no-runtime-use
+          DJANGO_ALLOWED_HOSTS: example.com
+          DJANGO_SQLITE_PATH: /tmp/cotinga-ci.sqlite3
+        run: uv run python manage.py check --deploy --settings=config.settings.production --fail-level WARNING
+      - name: Run tests
+        run: uv run pytest --cov
