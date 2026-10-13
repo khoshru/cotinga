@@ -1,0 +1,20 @@
+[Unit]
+Description=Apply tested Cotinga releases from GitHub
+Wants=network-online.target
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/cotinga
+EnvironmentFile=/opt/cotinga/auto.env
+Environment=DOCKER_CONFIG=/opt/cotinga/docker-config
+ExecStart=/usr/bin/python3 /opt/cotinga/auto_update.py
+TimeoutStartSec=900
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cotinga
