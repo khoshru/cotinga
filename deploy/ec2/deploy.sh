@@ -27,16 +27,8 @@ elif [[ $# == 1 && "$1" =~ ^ghcr\.io/[a-z0-9][a-z0-9-]*/[a-z0-9][a-z0-9._-]*@sha
         echo "Only the configured GitHub image repository may be deployed." >&2
         exit 1
     fi
-elif [[ $# == 2 ]]; then
-    image_type=ecr
-    image=$1
-    region=$2
-    if [[ ! "$image" =~ ^[0-9]{12}\.dkr\.ecr\.([a-z0-9-]+)\.amazonaws\.com/[a-z0-9._/-]+@sha256:[a-f0-9]{64}$ ]] || [[ "${BASH_REMATCH[1]}" != "$region" ]]; then
-        echo "Provide an ECR SHA-256 image digest in the specified AWS region." >&2
-        exit 1
-    fi
 else
-    echo "Usage: deploy.sh SOURCE_DIRECTORY | GHCR_IMAGE_DIGEST | ECR_IMAGE_DIGEST AWS_REGION" >&2
+    echo "Usage: deploy.sh SOURCE_DIRECTORY | GHCR_IMAGE_DIGEST" >&2
     exit 1
 fi
 
@@ -131,10 +123,6 @@ print(revision)
     python3 -m py_compile "$stage/auto_update.py" "$stage/backup_sqlite.py"
     COTINGA_IMAGE="$image" docker compose --project-name cotinga --project-directory "$app_root" --env-file .env -f "$stage/compose.yaml" config --quiet
     if ! cmp -s "$stage/Caddyfile" Caddyfile; then caddy_changed=true; fi
-else
-    registry=${image%%/*}
-    aws ecr get-login-password --region "$region" | docker login --username AWS --password-stdin "$registry"
-    docker pull "$image"
 fi
 
 stamp=$(date -u +%Y%m%dT%H%M%S)-$$

@@ -10,7 +10,6 @@ Caddy, and GitHub Actions configuration.
 
 ```bash
 uv sync --locked --all-groups
-cp config/settings/local_example.py config/settings/local.py
 uv run python manage.py migrate
 uv run python manage.py createsuperuser
 uv run python manage.py runserver

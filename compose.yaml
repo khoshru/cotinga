@@ -3,9 +3,11 @@ services:
     build: .
     ports:
       - "127.0.0.1:${COTINGA_PORT:-8000}:8000"
-    env_file: .env
+    env_file:
+      - path: .env
+        required: false
     environment:
-      DJANGO_SETTINGS_MODULE: config.settings.local_example
+      DJANGO_SETTINGS_MODULE: config.settings.development
       DJANGO_SQLITE_PATH: /data/db.sqlite3
     volumes:
       - cotinga_data:/data
