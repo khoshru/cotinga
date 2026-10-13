@@ -1,0 +1,57 @@
+services:
+  web:
+    image: ${COTINGA_IMAGE:?Set COTINGA_IMAGE to the ECR image digest}
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.production
+      DJANGO_SQLITE_PATH: /data/db.sqlite3
+      DJANGO_ALLOWED_HOSTS: ${COTINGA_DOMAIN:?Set your domain in .env}
+      DJANGO_CSRF_TRUSTED_ORIGINS: https://${COTINGA_DOMAIN}
+      WEB_CONCURRENCY: "1"
+    volumes:
+      - type: bind
+        source: ${COTINGA_ROOT:-/opt/cotinga}/data
+        target: /data
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os, urllib.request; r = urllib.request.Request('http://127.0.0.1:8000/health/', headers={'Host': os.environ['DJANGO_ALLOWED_HOSTS']}); urllib.request.urlopen(r)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 6
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      COTINGA_DOMAIN: ${COTINGA_DOMAIN}
+      COTINGA_TLS_EMAIL: ${COTINGA_TLS_EMAIL:?Set your TLS contact email}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      web:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+volumes:
+  caddy_data:
+  caddy_config:

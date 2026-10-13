@@ -1,0 +1,8 @@
+{
+	email {$COTINGA_TLS_EMAIL}
+}
+
+{$COTINGA_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy web:8000
+}
