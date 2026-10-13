@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="page-topline"><span class="eyebrow">A LITTLE CLARITY FOR YOUR DAY</span>{% if demo %}<span class="sample-label"><span></span>Sample day</span>{% else %}<span class="sample-label personal"><span></span>Your journal</span>{% endif %}</div>
+  <div class="page-topline"><span class="eyebrow">A LITTLE CLARITY FOR YOUR DAY</span><span class="journal-label"><span></span>Your journal</span></div>
   <div class="page-heading">
     <div><h1>Daily summary<span class="heading-dot">.</span></h1><p class="subtitle">{% if meals %}{% if day == today %}So far today{% else %}On this day{% endif %}: {% for meal in meals %}{{ meal.get_kind_display|lower }}{% if not forloop.last %}{% if forloop.revcounter == 2 %} and {% else %}, {% endif %}{% endif %}{% endfor %}{% else %}A fresh page. Start with your first meal.{% endif %}</p></div>
     <a class="button primary" href="{% url 'tracker:meal-create' %}?date={{ day|date:'Y-m-d' }}">{% include 'icon.html' with name='plus' %}Log a meal</a>
   </div>
   <div class="day-toolbar">
     <div class="date-control">{% include 'icon.html' with name='calendar' %}<span>{{ day|date:'l, j F' }}</span>{% if day == today %}<span class="today-pill">Today</span>{% endif %}</div>
-    {% if not demo %}<div class="day-navigation"><a class="icon-button" href="?date={{ previous_day|date:'Y-m-d' }}" aria-label="Previous day">{% include 'icon.html' with name='chevron-left' %}</a><form method="get"><label class="sr-only" for="journal-date">Choose a day</label><input type="date" id="journal-date" name="date" value="{{ day|date:'Y-m-d' }}"><button type="submit" class="quiet-button">Go</button></form><a class="icon-button" href="?date={{ next_day|date:'Y-m-d' }}" aria-label="Next day">{% include 'icon.html' with name='chevron-right' %}</a></div>{% endif %}
+    <div class="day-navigation"><a class="icon-button" href="?date={{ previous_day|date:'Y-m-d' }}" aria-label="Previous day">{% include 'icon.html' with name='chevron-left' %}</a><form method="get"><label class="sr-only" for="journal-date">Choose a day</label><input type="date" id="journal-date" name="date" value="{{ day|date:'Y-m-d' }}"><button type="submit" class="quiet-button">Go</button></form><a class="icon-button" href="?date={{ next_day|date:'Y-m-d' }}" aria-label="Next day">{% include 'icon.html' with name='chevron-right' %}</a></div>
   </div>
   <div class="meal-chips">{% for meal in meals %}<a href="#meal-log" class="meal-chip">{{ meal.get_kind_display }}: <span>{{ meal.description|lower }}</span></a>{% endfor %}</div>
   <div class="dashboard-grid">
@@ -17,24 +17,23 @@
         {% for nutrient in nutrients %}
           <article class="nutrient-card">
             <div class="nutrient-top"><h3>{{ nutrient.name }}</h3><span class="status-pill {{ nutrient.tone }}">{{ nutrient.status }}</span></div>
-            <div class="nutrient-values"><p class="eaten">{% if demo %}<span class="estimate">~</span>{% endif %}{{ nutrient.eaten }} <span>{{ nutrient.unit }}</span></p><p class="target">Target {{ nutrient.minimum }}–{{ nutrient.maximum }} {{ nutrient.unit }}</p></div>
+            <div class="nutrient-values"><p class="eaten">{{ nutrient.eaten }} <span>{{ nutrient.unit }}</span></p><p class="target">Target {{ nutrient.minimum }}–{{ nutrient.maximum }} {{ nutrient.unit }}</p></div>
             <div class="nutrient-bar" role="img" aria-label="{{ nutrient.name }}: {{ nutrient.eaten }} {{ nutrient.unit }} eaten; target {{ nutrient.minimum }} to {{ nutrient.maximum }} {{ nutrient.unit }}"><span class="target-range" style="--range-start: {{ nutrient.range_start }}%; --range-width: {{ nutrient.range_width }}%"></span><span class="bar-fill" style="--fill: {{ nutrient.fill }}%"></span></div>
           </article>
         {% endfor %}
       </div>
       <div class="bar-legend"><span><i class="legend-eaten"></i>Eaten</span><span><i class="legend-target"></i>Your target range</span></div>
-      <p class="estimates-note">{% include 'icon.html' with name='info' %}{{ demo|yesno:'Sample meals and targets for a first look.,Your entries are estimates. A useful picture doesn’t need to be perfect.' }}</p>
+      <p class="estimates-note">{% include 'icon.html' with name='info' %}Your entries are estimates. A useful picture doesn’t need to be perfect.</p>
     </section>
     <aside class="meal-section" id="meal-log" aria-labelledby="meals-heading">
       <div class="section-heading"><h2 id="meals-heading">ON THE MENU</h2><span class="count-label">{{ meals|length }} meal{{ meals|length|pluralize }}</span></div>
       <div class="meal-log-card">
         {% for meal in meals %}
-          <article class="meal-entry"><div class="meal-entry-header"><span class="meal-icon">{% if meal.kind == 'breakfast' %}{% include 'icon.html' with name='sun' %}{% else %}{% include 'icon.html' with name='bowl' %}{% endif %}</span><span class="meal-kind">{{ meal.get_kind_display }}</span>{% if not demo %}<form method="post" action="{% url 'tracker:meal-delete' meal.pk %}" data-confirm="Remove this meal from your journal?">{% csrf_token %}<button type="submit" class="icon-button delete-button" aria-label="Remove {{ meal.get_kind_display }}: {{ meal.description }}">{% include 'icon.html' with name='trash' %}</button></form>{% endif %}</div><h3>{{ meal.description }}</h3><p class="meal-calories">{{ meal.calories }} <span>kcal</span></p><div class="meal-macros"><span><b>{{ meal.protein }}g</b> protein</span><span><b>{{ meal.carbs }}g</b> carbs</span><span><b>{{ meal.fat }}g</b> fat</span></div></article>
+          <article class="meal-entry"><div class="meal-entry-header"><span class="meal-icon">{% if meal.kind == 'breakfast' %}{% include 'icon.html' with name='sun' %}{% else %}{% include 'icon.html' with name='bowl' %}{% endif %}</span><span class="meal-kind">{{ meal.get_kind_display }}</span><form method="post" action="{% url 'tracker:meal-delete' meal.pk %}" data-confirm="Remove this meal from your journal?">{% csrf_token %}<button type="submit" class="icon-button delete-button" aria-label="Remove {{ meal.get_kind_display }}: {{ meal.description }}">{% include 'icon.html' with name='trash' %}</button></form></div><h3>{{ meal.description }}</h3><p class="meal-calories">{{ meal.calories }} <span>kcal</span></p><div class="meal-macros"><span><b>{{ meal.protein }}g</b> protein</span><span><b>{{ meal.carbs }}g</b> carbs</span><span><b>{{ meal.fat }}g</b> fat</span></div></article>
         {% empty %}<div class="empty-meals"><span class="meal-icon">{% include 'icon.html' with name='bowl' %}</span><h3>Nothing logged yet</h3><p>Your meals will find a home here.</p></div>{% endfor %}
         <a href="{% url 'tracker:meal-create' %}?date={{ day|date:'Y-m-d' }}" class="add-meal-link">{% include 'icon.html' with name='plus' %}Add your next meal</a>
       </div>
       <div class="gentle-note"><span class="note-mark">{% include 'icon.html' with name='leaf' %}</span><p>A little awareness.<br>A little consistency.</p><span>There’s room for real life.</span></div>
     </aside>
   </div>
-  {% if demo %}<div class="demo-banner"><div><h2>Make this day yours.</h2><p>This is a sample. Sign in to keep your own meals and targets in one place.</p></div><a class="button secondary" href="{% url 'login' %}">Go to my journal {% include 'icon.html' with name='arrow-right' %}</a></div>{% endif %}
 {% endblock %}

@@ -7,7 +7,7 @@ NUTRIENTS = ("calories", "protein", "carbs", "fat")
 
 
 class DailyTarget(models.Model):
-    """User-entered ranges; the defaults are sample values, not recommendations."""
+    """User-editable daily calorie and nutrient ranges."""
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     calories_min = models.PositiveIntegerField(

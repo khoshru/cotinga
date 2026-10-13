@@ -25,20 +25,21 @@ def meal_data(day: date | None = None) -> dict[str, str | int]:
     }
 
 
-def test_demo_matches_reference_without_creating_personal_data(client: Client) -> None:
+def test_dashboard_requires_login_without_creating_personal_data(
+    client: Client,
+) -> None:
     response = client.get("/")
-    assert response.status_code == 200
-    assert response.context["demo"] is True
-    assert [n.eaten for n in response.context["nutrients"]] == [1075, 60, 135, 30]
-    assert b"Sample day" in response.content
+    assert response.status_code == 302
+    assert response.url == "/accounts/login/?next=/"  # type: ignore[attr-defined]
     assert Meal.objects.count() == DailyTarget.objects.count() == 0
 
 
 def test_private_dashboard_starts_empty(client: Client, owner: User) -> None:
     client.force_login(owner)
     response = client.get("/")
-    assert response.context["demo"] is False
+    assert response.status_code == 200
     assert response.context["meals"] == []
+    assert [n.eaten for n in response.context["nutrients"]] == [0, 0, 0, 0]
     assert DailyTarget.objects.get(user=owner).calories_max == 1850
 
 
@@ -184,8 +185,9 @@ def test_zero_macro_targets_do_not_divide_by_zero() -> None:
 
 @pytest.mark.parametrize("value", ["invalid", "0001-01-01", "9999-12-31"])
 def test_date_selection_handles_invalid_and_extreme_dates(
-    client: Client, value: str
+    client: Client, owner: User, value: str
 ) -> None:
+    client.force_login(owner)
     assert client.get("/", {"date": value}).status_code == 200
 
 
@@ -212,10 +214,10 @@ def test_sign_in_and_post_only_logout(client: Client, owner: User) -> None:
         {"username": "OWNER@EXAMPLE.COM", "password": "correct-horse-battery-staple"},
     )
     assert response.status_code == 302
-    assert client.get("/").context["demo"] is False
+    assert client.get("/").status_code == 200
     assert client.get("/accounts/logout/").status_code == 405
     assert client.post("/accounts/logout/").status_code == 302
-    assert client.get("/").context["demo"] is True
+    assert client.get("/").status_code == 302
 
 
 def test_login_does_not_redirect_to_external_site(client: Client, owner: User) -> None:

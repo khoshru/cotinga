@@ -26,40 +26,18 @@ def selected_date(request: HttpRequest) -> date:
         return timezone.localdate()
 
 
+@login_required
 @require_GET
 def dashboard(request: HttpRequest) -> HttpResponse:
     day = selected_date(request)
-    demo = not request.user.is_authenticated
-    if demo:
-        target = DailyTarget()
-        meals = [
-            Meal(
-                kind="breakfast",
-                description="Barley toast, honey, lentils, yogurt",
-                calories=425,
-                protein=25,
-                carbs=55,
-                fat=12,
-            ),
-            Meal(
-                kind="lunch",
-                description="Gheymeh, rice, doogh",
-                calories=650,
-                protein=35,
-                carbs=80,
-                fat=18,
-            ),
-        ]
-    else:
-        user = cast(User, request.user)
-        target, _ = DailyTarget.objects.get_or_create(user=user)
-        meals = list(Meal.objects.filter(user=user, date=day))
+    user = cast(User, request.user)
+    target, _ = DailyTarget.objects.get_or_create(user=user)
+    meals = list(Meal.objects.filter(user=user, date=day))
     totals = {n: sum(int(getattr(meal, n)) for meal in meals) for n in NUTRIENTS}
     return render(
         request,
         "tracker/dashboard.html",
         {
-            "demo": demo,
             "day": day,
             "today": timezone.localdate(),
             "previous_day": day - timedelta(days=1) if day > date.min else day,
@@ -122,7 +100,7 @@ def targets_edit(request: HttpRequest) -> HttpResponse:
         {
             "form": form,
             "title": "Your daily targets",
-            "description": "Set the ranges that work for you. Starting values are examples from the demo.",
+            "description": "Set the daily calorie and nutrient ranges that work for you.",
             "submit_label": "Save targets",
             "targets_form": True,
         },
