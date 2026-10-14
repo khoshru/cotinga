@@ -221,6 +221,8 @@ def test_unknown_meal_times_stay_blank_and_unsupported_temperature_is_omitted() 
     [
         {},
         {"choices": []},
+        {"choices": [None]},
+        {"choices": [1]},
         {"choices": [{"finish_reason": "length"}]},
         {"choices": [{"finish_reason": "stop", "message": {"content": None}}]},
         {"choices": [{"finish_reason": "stop", "message": {"content": "not JSON"}}]},

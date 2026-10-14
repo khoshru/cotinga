@@ -1,3 +1,4 @@
+import json
 from datetime import timedelta
 from decimal import Decimal
 from typing import Any
@@ -212,6 +213,47 @@ def test_failed_provider_requests_do_not_add_meals(
         b"saved key could not be read"
         in client.post("/ai/", {"date": "2026-10-12", "prompt": "Lunch"}).content
     )
+
+
+@pytest.mark.parametrize("repair_succeeds", [True, False])
+def test_meal_correction_uses_one_batch_and_only_saves_after_review(
+    client: Client, configured: OpenRouterSettings, owner: User, repair_succeeds: bool
+) -> None:
+    valid = estimate_result()
+    invalid = estimate_result()
+    invalid["meals"][0]["portion"] = "A verbose portion explanation. " * 8
+    responses = [invalid, valid if repair_succeeds else invalid]
+    with patch(
+        "tracker.openrouter._request",
+        side_effect=[
+            {
+                "choices": [
+                    {"finish_reason": "stop", "message": {"content": json.dumps(value)}}
+                ]
+            }
+            for value in responses
+        ],
+    ) as provider:
+        response = client.post(
+            "/ai/", {"date": "2026-10-12", "prompt": "Rice and lentils at 13:30"}
+        )
+    assert provider.call_count == 2
+    assert MealEstimate.objects.filter(user=owner).count() == 1
+    assert not Meal.objects.exists()
+    batch = MealEstimate.objects.get(user=owner)
+    if repair_succeeds:
+        assert response.status_code == 302 and batch.status == "ready"
+        data = review_data(batch.result)
+        path = f"/ai/review/{batch.pk}/"
+        assert client.post(path, data).status_code == 302
+        assert client.post(path, data).status_code == 302
+        assert Meal.objects.count() == 1
+        assert Meal.objects.get().calories == valid["meals"][0]["calories"]
+    else:
+        assert response.status_code == 200 and batch.status == "failed"
+        assert b"Rice and lentils at 13:30" in response.content
+        assert b"meal description is still here" in response.content
+        assert batch.result == {}
 
 
 def test_estimation_rate_limit_prevents_repeated_billable_requests(

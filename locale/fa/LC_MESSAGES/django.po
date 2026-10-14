@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 13:20+0400\n"
+"POT-Creation-Date: 2026-10-14 14:20+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -353,11 +353,11 @@ msgid "Change model"
 msgstr "تغییر مدل"
 
 msgid ""
-"Your description is sent to OpenRouter. This request uses the selected model "
-"and your OpenRouter balance."
+"Your description is sent to OpenRouter. The selected model uses your "
+"OpenRouter balance, including one automatic correction if needed."
 msgstr ""
-"توضیحات شما به OpenRouter فرستاده می‌شود. درخواست با مدل انتخابی و موجودی "
-"حساب شما انجام می‌شود."
+"توضیحات شما به OpenRouter فرستاده می‌شود. مدل انتخابی از موجودی حساب شما "
+"استفاده می‌کند؛ در صورت نیاز، یک اصلاح خودکار نیز از همین موجودی انجام می‌شود."
 
 msgid "Estimating your meals…"
 msgstr "در حال برآورد وعده‌ها…"
@@ -1715,6 +1715,13 @@ msgstr "کاهش وزن"
 msgid "Gain weight"
 msgstr "افزایش وزن"
 
+msgid ""
+"The AI response could not be prepared for review. Your meal description is "
+"still here; please try again shortly."
+msgstr ""
+"پاسخ هوش مصنوعی برای بازبینی آماده نشد. توضیح وعدهٔ شما هنوز اینجاست؛ لطفاً "
+"کمی بعد دوباره تلاش کنید."
+
 msgid "Free"
 msgstr "رایگان"
 
@@ -1779,30 +1786,6 @@ msgstr ""
 "مدل، ۱ تا ۲۰ وعدهٔ قابل استفاده برنگرداند. خوراک و مقدارها را روشن‌تر شرح دهید."
 
 msgid ""
-"The model returned invalid nutrition values. Try again with more detail."
-msgstr ""
-"مقدارهای مواد مغذی در پاسخ مدل معتبر نیست. با جزئیات بیشتر دوباره تلاش کنید."
-
-msgid "The model returned invalid food descriptions."
-msgstr "شرح خوراک در پاسخ مدل معتبر نیست."
-
-msgid "The model returned an invalid meal time."
-msgstr "زمان وعده در پاسخ مدل معتبر نیست."
-
-msgid "The model returned incomplete translations. Please try again."
-msgstr "ترجمهٔ مدل کامل نبود. لطفاً دوباره تلاش کنید."
-
-msgid ""
-"The model's meal estimates could not be validated. Try another model or "
-"describe smaller portions."
-msgstr ""
-"برآورد وعده‌های مدل قابل تأیید نیست. مدل دیگری انتخاب کنید یا مقدارهای "
-"کوچک‌تری شرح دهید."
-
-msgid "The model returned invalid estimation notes."
-msgstr "توضیح‌های برآورد مدل معتبر نیست."
-
-msgid ""
 "The model could not finish the estimates. Try a shorter description or "
 "another model."
 msgstr ""
@@ -1814,6 +1797,9 @@ msgstr "مدل، برآورد قابل استفاده‌ای برنگرداند.
 
 msgid "The model did not return the English original. Please try again."
 msgstr "مدل نسخهٔ اصلی انگلیسی را برنگرداند. لطفاً دوباره تلاش کنید."
+
+msgid "The model returned incomplete translations. Please try again."
+msgstr "ترجمهٔ مدل کامل نبود. لطفاً دوباره تلاش کنید."
 
 msgid "The model returned unusable targets. Please try again."
 msgstr "هدف‌های پیشنهادی مدل قابل استفاده نیست. لطفاً دوباره تلاش کنید."
