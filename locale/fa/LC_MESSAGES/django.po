@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 02:45+0400\n"
+"POT-Creation-Date: 2026-10-14 09:39+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -59,6 +59,9 @@ msgstr "هدف‌های من"
 
 msgid "Statistics"
 msgstr "آمار و روندها"
+
+msgid "Progress outlook"
+msgstr "چشم‌انداز پیشرفت"
 
 msgid "Weight journal"
 msgstr "ثبت وزن"
@@ -236,6 +239,12 @@ msgstr "برو"
 msgid "Next day"
 msgstr "روز بعد"
 
+msgid "Small steps add up. See your longer view."
+msgstr "قدم‌های کوچک جمع می‌شوند. مسیر پیش رو را ببینید."
+
+msgid "Weekly possibilities, based on your current targets."
+msgstr "سناریوهای هفتگی، بر اساس هدف‌های فعلی شما."
+
 msgid "EATEN VS TARGET"
 msgstr "مصرف شما در کنار هدف"
 
@@ -405,6 +414,437 @@ msgstr ""
 msgid "Cancel"
 msgstr "انصراف"
 
+msgid "A LITTLE CONSISTENCY. A LONGER VIEW."
+msgstr "کمی استمرار، نگاهی بلندتر."
+
+msgid "Your possibilities"
+msgstr "مسیرهای پیش روی شما"
+
+msgid "Where you could go"
+msgstr "مسیر پیش روی شما"
+
+msgid "Explore what your current targets could look like, one week at a time."
+msgstr "ببینید هدف‌های فعلی‌تان در هفته‌های پیش رو چه روندی می‌توانند بسازند."
+
+msgid "Adjust my plan"
+msgstr "ویرایش برنامهٔ من"
+
+#, python-format
+msgid ""
+"Your latest weigh-in is from %(day)s. Add a fresh reading for a more useful "
+"outlook."
+msgstr ""
+"آخرین وزن شما در %(day)s ثبت شده است. برای برآورد بهتر، وزن تازه‌ای ثبت کنید."
+
+msgid "Log weight"
+msgstr "ثبت وزن"
+
+msgid "LET'S FIND YOUR STARTING POINT"
+msgstr "نقطهٔ شروع شما را پیدا کنیم"
+
+msgid "kg"
+msgstr "کیلوگرم"
+
+msgid "Start with one weigh-in."
+msgstr "با ثبت یک وزن شروع کنید."
+
+msgid ""
+"Your outlook uses your own weight and targets. Add a reading, then come back "
+"to choose your direction."
+msgstr ""
+"این چشم‌انداز از وزن و هدف‌های خودتان استفاده می‌کند. یک وزن ثبت کنید، سپس جهت "
+"حرکت‌تان را انتخاب کنید."
+
+msgid "Log my weight"
+msgstr "ثبت وزن من"
+
+msgid "Your energy needs"
+msgstr "نیاز انرژی شما"
+
+msgid ""
+"We need an estimate of the energy that keeps your weight steady. Food logs "
+"alone cannot tell us that."
+msgstr ""
+"برای برآورد، باید بدانیم چه مقدار انرژی وزن‌تان را ثابت نگه می‌دارد. ثبت خوراک "
+"به‌تنهایی برای این محاسبه کافی نیست."
+
+msgid ""
+"These details stay in your account. The outlook is calculated here and does "
+"not use AI or send your details to a model."
+msgstr ""
+"این اطلاعات در حساب شما می‌مانند. محاسبات همین‌جا انجام می‌شوند و از هوش مصنوعی "
+"استفاده نمی‌کنند؛ اطلاعات شما به مدل ارسال نمی‌شود."
+
+msgid "Build my outlook"
+msgstr "ساخت چشم‌انداز من"
+
+msgid "PROGRESS HAS ROOM TO BREATHE"
+msgstr "پیشرفت، جای نفس کشیدن دارد"
+
+msgid "A direction, not a deadline."
+msgstr "یک مسیر، با فرصت کافی."
+
+msgid ""
+"A few steady habits can change the next few months. Compare possibilities, "
+"find a pace that fits your life, and revisit it as you go."
+msgstr ""
+"چند عادت پایدار می‌توانند ماه‌های پیش رو را تغییر دهند. مسیرهای ممکن را مقایسه "
+"کنید، ریتمی متناسب با زندگی‌تان پیدا کنید و در طول مسیر دوباره بررسی‌اش کنید."
+
+msgid "Start from your recent weight."
+msgstr "از وزن اخیرتان شروع کنید."
+
+msgid "Explore your current calorie range."
+msgstr "بازهٔ کالری فعلی‌تان را بررسی کنید."
+
+msgid "Watch your trend and adjust over time."
+msgstr "روندتان را دنبال کنید و به‌مرور تنظیمش کنید."
+
+msgid "Review my daily targets"
+msgstr "بررسی هدف‌های روزانهٔ من"
+
+msgid ""
+"This planner supports 20–350 kg, estimated maintenance of 1000–6000 kcal, "
+"and calorie targets of 1200–5000 kcal. Check your inputs and targets to "
+"build an outlook."
+msgstr ""
+"این ابزار از وزن ۲۰ تا ۳۵۰ کیلوگرم، انرژی حفظ وزن ۱۰۰۰ تا ۶۰۰۰ کیلوکالری و "
+"هدف کالری ۱۲۰۰ تا ۵۰۰۰ کیلوکالری پشتیبانی می‌کند. برای ساخت چشم‌انداز، اطلاعات "
+"و هدف‌های خود را بررسی کنید."
+
+msgid "Consistency is the goal."
+msgstr "هدف، استمرار است."
+
+msgid ""
+"Stay close to your chosen weight while leaving room for everyday "
+"fluctuations."
+msgstr "در نزدیکی وزن انتخابی‌تان بمانید و برای نوسان‌های روزمره هم جا بگذارید."
+
+msgid "You are at your goal. Let it settle."
+msgstr "به هدف‌تان رسیده‌اید. به آن فرصت تثبیت بدهید."
+
+msgid ""
+"Take a moment to notice your progress. A maintenance outlook can help with "
+"your next chapter."
+msgstr ""
+"لحظه‌ای پیشرفت‌تان را ببینید. چشم‌انداز حفظ وزن می‌تواند برای فصل بعدی مسیرتان "
+"مفید باشد."
+
+#, python-format
+msgid "A possible path in about %(count)s weeks."
+msgstr "یک مسیر ممکن، در حدود %(count)s هفته."
+
+#, python-format
+msgid ""
+"The midpoint scenario reaches your goal around %(month)s. Treat it as a "
+"possibility, not a finish-line promise."
+msgstr ""
+"سناریوی میانه حدود %(month)s به هدف شما می‌رسد. این یک امکان است؛ زمان رسیدن "
+"به هدف قطعی نیست."
+
+msgid "Your next step is clarity."
+msgstr "قدم بعدی، شناخت روشن‌تر مسیر است."
+
+#, python-format
+msgid ""
+"At the midpoint of your current targets, the goal is not reached within this "
+"model's two-year, 20%% weight-change limits. Review the scenarios before "
+"adjusting your plan."
+msgstr ""
+"در سناریوی میانهٔ هدف‌های فعلی، در محدودهٔ دوساله و تغییر ۲۰%% وزن این مدل به "
+"هدف نمی‌رسید. پیش از تغییر برنامه، سناریوها را بررسی کنید."
+
+msgid "Starting this outlook"
+msgstr "وزن شروع این برآورد"
+
+msgid "Weight to maintain"
+msgstr "وزنی که حفظ می‌کنید"
+
+msgid "Your goal"
+msgstr "هدف شما"
+
+msgid "Current calorie target"
+msgstr "هدف کالری فعلی"
+
+msgid "kcal / day"
+msgstr "کیلوکالری در روز"
+
+msgid "From your plan's starting weight"
+msgstr "از وزن شروع برنامهٔ شما"
+
+msgid "Small steps. Real momentum."
+msgstr "قدم‌های کوچک، حرکت پیوسته."
+
+#, python-format
+msgid ""
+"Starting weight uses %(count)s reading from the latest seven-day window."
+msgid_plural ""
+"Starting weight uses %(count)s readings from the latest seven-day window."
+msgstr[0] ""
+"وزن شروع از %(count)s اندازه‌گیری در آخرین بازهٔ هفت‌روزه محاسبه شده است."
+msgstr[1] ""
+"وزن شروع از %(count)s اندازه‌گیری در آخرین بازهٔ هفت‌روزه محاسبه شده است."
+
+msgid "Starting weight uses your latest weigh-in."
+msgstr "وزن شروع، آخرین وزن ثبت‌شدهٔ شماست."
+
+msgid "Update weight"
+msgstr "ثبت وزن تازه"
+
+msgid "YOUR NEXT CHAPTER"
+msgstr "فصل بعدی مسیر شما"
+
+msgid "Three ways your targets could unfold"
+msgstr "سه روند ممکن برای هدف‌های شما"
+
+msgid "Look ahead"
+msgstr "بازهٔ پیش رو"
+
+msgid "12 weeks"
+msgstr "۱۲ هفته"
+
+msgid "26 weeks"
+msgstr "۲۶ هفته"
+
+msgid "52 weeks"
+msgstr "۵۲ هفته"
+
+msgid "104 weeks"
+msgstr "۱۰۴ هفته"
+
+msgid ""
+"Each line uses one point in your calorie range every day, with activity held "
+"steady. They are possibilities, not three recommended diets."
+msgstr ""
+"هر خط بر اساس یک مقدار از بازهٔ کالری شما در همهٔ روزها، با فعالیت ثابت، "
+"محاسبه می‌شود. این‌ها سناریوهای ممکن‌اند، نه سه رژیم پیشنهادی."
+
+msgid "Weekly weight scenarios at your current calorie targets"
+msgstr "سناریوهای هفتگی وزن با هدف‌های کالری فعلی شما"
+
+#, python-format
+msgid "Week %(week)s: %(weight)s kg"
+msgstr "هفتهٔ %(week)s: %(weight)s کیلوگرم"
+
+msgid "Lower target"
+msgstr "حد پایین هدف"
+
+msgid "Midpoint target"
+msgstr "میانهٔ هدف"
+
+msgid "Upper target"
+msgstr "حد بالای هدف"
+
+msgid "Goal"
+msgstr "هدف"
+
+msgid "Sensitivity range"
+msgstr "بازهٔ حساسیت برآورد"
+
+msgid "Explore a week"
+msgstr "یک هفته را بررسی کنید"
+
+msgid "Week"
+msgstr "هفته"
+
+#, python-format
+msgid ""
+"The shaded range changes estimated maintenance by ±%(percent)s%%. It is a "
+"sensitivity check, not a probability or a guaranteed range."
+msgstr ""
+"بازهٔ سایه‌دار برآورد انرژی حفظ وزن را ±%(percent)s%% تغییر می‌دهد. این بررسی "
+"حساسیت محاسبه است، نه احتمال وقوع یا بازه‌ای تضمین‌شده."
+
+#, python-format
+msgid ""
+"Some curves stop at a 20%% weight change or the supported weight range. "
+"Update your readings and plan before projecting further."
+msgstr ""
+"بعضی منحنی‌ها در تغییر ۲۰%% وزن یا مرز بازهٔ پشتیبانی‌شده متوقف می‌شوند. پیش از "
+"برآورد دورتر، وزن و برنامه‌تان را به‌روز کنید."
+
+#, python-format
+msgid "At week %(count)s"
+msgstr "در هفتهٔ %(count)s"
+
+msgid "Goal reached"
+msgstr "رسیده به هدف"
+
+msgid "Estimated time to goal"
+msgstr "زمان تقریبی رسیدن به هدف"
+
+#, python-format
+msgid "~%(count)s weeks"
+msgstr "حدود %(count)s هفته"
+
+msgid "Around"
+msgstr "حدود"
+
+msgid "Not reached in this outlook"
+msgstr "در این برآورد به هدف نمی‌رسد"
+
+msgid ""
+"The curve may move away from the goal, level off early, or need more time "
+"than this model covers."
+msgstr ""
+"ممکن است منحنی از هدف دور شود، زودتر ثابت شود یا به زمانی بیشتر از محدودهٔ "
+"این مدل نیاز داشته باشد."
+
+msgid "First-week change"
+msgstr "تغییر در هفتهٔ اول"
+
+msgid "Your midpoint stays close to your chosen weight."
+msgstr "سناریوی میانه نزدیک به وزن انتخابی شما می‌ماند."
+
+msgid "Your midpoint drifts outside your maintenance band."
+msgstr "سناریوی میانه از بازهٔ حفظ وزن شما خارج می‌شود."
+
+#, python-format
+msgid ""
+"The reference band is ±%(band)s kg around your chosen weight. Everyday water "
+"fluctuations are not included."
+msgstr ""
+"بازهٔ مرجع، ±%(band)s کیلوگرم اطراف وزن انتخابی شماست. نوسان روزمرهٔ آب بدن در "
+"این محاسبه لحاظ نمی‌شود."
+
+#, python-format
+msgid "The midpoint is outside it by week %(week)s."
+msgstr "سناریوی میانه تا هفتهٔ %(week)s از این بازه خارج می‌شود."
+
+msgid "Leave room for the unexpected."
+msgstr "برای تغییرهای پیش‌بینی‌نشده هم جا بگذارید."
+
+#, python-format
+msgid ""
+"With the same midpoint intake but different energy needs, the goal could "
+"take about %(earliest)s–%(latest)s weeks."
+msgstr ""
+"با همین کالری میانه ولی نیاز انرژی متفاوت، رسیدن به هدف می‌تواند حدود "
+"%(earliest)s تا %(latest)s هفته طول بکشد."
+
+msgid ""
+"Changing estimated energy needs can change whether the midpoint reaches your "
+"goal at all. Use new weigh-ins to check the direction over time."
+msgstr ""
+"تغییر برآورد نیاز انرژی حتی می‌تواند رسیدن سناریوی میانه به هدف را تغییر دهد. "
+"با ثبت وزن تازه، جهت روندتان را در طول زمان بررسی کنید."
+
+msgid "SMALL WINS ALONG THE WAY"
+msgstr "موفقیت‌های کوچک در طول مسیر"
+
+msgid "Your own milestones"
+msgstr "نقطه‌های پیشرفت شما"
+
+msgid "Reached"
+msgstr "رسیده"
+
+msgid "Almost there"
+msgstr "خیلی نزدیک"
+
+#, python-format
+msgid "About %(count)s weeks away"
+msgstr "حدود %(count)s هفته تا این نقطه"
+
+msgid "A point to revisit"
+msgstr "نقطه‌ای برای بررسی دوباره"
+
+msgid ""
+"Milestones measure change from your plan's original starting weight. New "
+"outlooks start from your recent trend."
+msgstr ""
+"این نقطه‌ها تغییر از وزن شروع برنامهٔ شما را نشان می‌دهند. برآوردهای تازه از "
+"روند اخیرتان شروع می‌شوند."
+
+msgid "THE PART AFTER THE GOAL"
+msgstr "بخش پس از رسیدن به هدف"
+
+msgid "Think about staying there, too."
+msgstr "به ماندن در آن وزن هم فکر کنید."
+
+msgid ""
+"Energy needs change with weight. This is a rough maintenance estimate at "
+"your goal, with your activity unchanged."
+msgstr ""
+"نیاز انرژی با وزن تغییر می‌کند. این یک برآورد تقریبی برای حفظ وزن هدف، با "
+"فعالیت فعلی شماست."
+
+msgid "kcal / day at your goal"
+msgstr "کیلوکالری در روز، در وزن هدف"
+
+msgid "Revisit this estimate closer to your goal."
+msgstr "وقتی به هدف نزدیک‌تر شدید، این برآورد را دوباره بررسی کنید."
+
+msgid "Review targets"
+msgstr "بررسی هدف‌ها"
+
+msgid "Your week-by-week view"
+msgstr "نمای هفته‌به‌هفتهٔ شما"
+
+msgid "Starting"
+msgstr "شروع هفته"
+
+msgid "What goes into this outlook?"
+msgstr "این چشم‌انداز چطور محاسبه می‌شود؟"
+
+#, python-format
+msgid "Estimated maintenance today: %(energy)s kcal/day."
+msgstr "برآورد انرژی حفظ وزن امروز: %(energy)s کیلوکالری در روز."
+
+msgid ""
+"This starts from your own maintenance estimate, adjusted for weight changes "
+"since you entered it."
+msgstr ""
+"این محاسبه از برآورد خودتان برای انرژی حفظ وزن شروع می‌شود و بر اساس تغییر "
+"وزن از زمان ثبت آن تنظیم می‌شود."
+
+msgid ""
+"This starts from Mifflin–St Jeor resting energy and your selected activity "
+"multiplier."
+msgstr ""
+"این محاسبه از انرژی استراحت با فرمول میفلین–سن ژئور و ضریب فعالیت انتخابی "
+"شما شروع می‌شود."
+
+msgid ""
+"The curves use a simplified dynamic energy-balance model. As weight changes, "
+"energy needs respond and the curve gradually levels off. It is not the full "
+"NIH Body Weight Planner or a clinically validated individual forecast."
+msgstr ""
+"منحنی‌ها از یک مدل پویای ساده‌شدهٔ توازن انرژی استفاده می‌کنند. با تغییر وزن، "
+"نیاز انرژی هم تغییر می‌کند و منحنی به‌تدریج صاف‌تر می‌شود. این ابزار، مدل کامل "
+"برنامه‌ریز وزن NIH یا پیش‌بینی فردیِ تأییدشدهٔ بالینی نیست."
+
+#, python-format
+msgid ""
+"W is weight in kg, t is days, I is daily intake, and M is starting "
+"maintenance. Fixed planning assumptions: 22 kcal/kg/day long-term feedback, "
+"7700 kcal/kg effective energy, and 24%% feeding/adaptation response."
+msgstr ""
+"W وزن به کیلوگرم، t تعداد روزها، I کالری روزانه و M انرژی حفظ وزن در شروع "
+"است. فرض‌های ثابت مدل: بازخورد بلندمدت ۲۲ کیلوکالری به ازای هر کیلوگرم در "
+"روز، انرژی مؤثر ۷۷۰۰ کیلوکالری به ازای هر کیلوگرم و پاسخ تغذیه و سازگاری "
+"۲۴%%."
+
+msgid ""
+"For body-detail estimates, resting energy is 9.99 × weight + 6.25 × height − "
+"4.92 × age + 166 × sex − 161. Activity multipliers are 1.2, 1.375, 1.55, or "
+"1.725. Prefer not to say uses the midpoint of the two sex coefficients and a "
+"wider sensitivity range."
+msgstr ""
+"انرژی استراحت از فرمول 9.99 × وزن + 6.25 × قد − 4.92 × سن + 166 × ضریب جنسیت "
+"− 161 محاسبه می‌شود. ضریب فعالیت ۱٫۲، ۱٫۳۷۵، ۱٫۵۵ یا ۱٫۷۲۵ است. گزینهٔ «ترجیح "
+"می‌دهم نگویم» از میانهٔ دو ضریب جنسیت و بازهٔ حساسیت بزرگ‌تر استفاده می‌کند."
+
+msgid ""
+"This assumes steady intake and activity. It does not model fluid changes, "
+"muscle gain, illness, pregnancy, or breastfeeding. For general adult "
+"planning; actual results can differ. Your targets are never changed by this "
+"outlook."
+msgstr ""
+"فرض این محاسبه، کالری و فعالیت ثابت است. تغییر آب بدن، عضله‌سازی، بیماری، "
+"بارداری یا شیردهی در مدل لحاظ نمی‌شود. این ابزار برای برنامه‌ریزی عمومی "
+"بزرگسالان است و نتیجهٔ واقعی می‌تواند متفاوت باشد. این چشم‌انداز هدف‌های شما را "
+"تغییر نمی‌دهد."
+
 msgid "Review estimates"
 msgstr "بررسی برآوردها"
 
@@ -457,6 +897,15 @@ msgstr "وعده‌ها، وزن و عادت‌هایی که با گذر زما�
 msgid "Export CSV"
 msgstr "دریافت CSV"
 
+msgid "See where your current targets could take you."
+msgstr "ببینید هدف‌های فعلی‌تان شما را به کجا می‌توانند ببرند."
+
+msgid "Explore weekly scenarios, milestones, and your maintenance plan."
+msgstr "سناریوهای هفتگی، نقطه‌های پیشرفت و برنامهٔ حفظ وزن‌تان را بررسی کنید."
+
+msgid "Open outlook"
+msgstr "دیدن چشم‌انداز"
+
 msgid "Period"
 msgstr "بازهٔ زمانی"
 
@@ -484,9 +933,6 @@ msgstr[1] "%(count)s روز"
 msgid "Latest weight"
 msgstr "آخرین وزن"
 
-msgid "kg"
-msgstr "کیلوگرم"
-
 msgid "Recorded"
 msgstr "ثبت‌شده در"
 
@@ -513,9 +959,6 @@ msgstr "ثبت‌شده"
 
 msgid "WEIGHT OVER TIME"
 msgstr "روند وزن در گذر زمان"
-
-msgid "Log weight"
-msgstr "ثبت وزن"
 
 msgid "Recorded weight and seven-day average"
 msgstr "وزن‌های ثبت‌شده و میانگین هفت‌روزه"
@@ -868,11 +1311,9 @@ msgstr "زمان (اختیاری)"
 msgid "Portion (optional)"
 msgstr "مقدار (اختیاری)"
 
-#| msgid "Note (optional)"
 msgid "What you ate (Farsi, optional)"
 msgstr "آنچه خوردید (فارسی، اختیاری)"
 
-#| msgid "Portion (optional)"
 msgid "Portion (Farsi, optional)"
 msgstr "اندازهٔ وعده (فارسی، اختیاری)"
 
@@ -888,11 +1329,9 @@ msgstr "کربوهیدرات (گرم)"
 msgid "Fat (g)"
 msgstr "چربی (گرم)"
 
-#| msgid "What you ate"
 msgid "What you ate (English)"
 msgstr "آنچه خوردید (انگلیسی)"
 
-#| msgid "Portion (optional)"
 msgid "Portion (English, optional)"
 msgstr "اندازهٔ وعده (انگلیسی، اختیاری)"
 
@@ -1037,9 +1476,6 @@ msgstr "فعالیت متوسط"
 msgid "Very active"
 msgstr "فعالیت زیاد"
 
-msgid "Your goal"
-msgstr "هدف شما"
-
 msgid "Gradual fat loss"
 msgstr "کاهش تدریجی چربی"
 
@@ -1055,6 +1491,40 @@ msgstr "نکتهٔ دیگری هست؟"
 msgid "Your routine, food preferences, training, or other useful context."
 msgstr "برنامهٔ روزانه، ترجیح‌های غذایی، تمرین‌ها یا هر نکتهٔ مرتبط دیگر."
 
+msgid "Goal weight (kg)"
+msgstr "وزن هدف (کیلوگرم)"
+
+msgid "What are you working toward?"
+msgstr "به سوی چه هدفی پیش می‌روید؟"
+
+msgid "Known maintenance calories (optional)"
+msgstr "کالری حفظ وزن، اگر می‌دانید (اختیاری)"
+
+msgid ""
+"If you know the calories that keep your weight steady, enter them. "
+"Otherwise, add your body details below."
+msgstr ""
+"اگر می‌دانید چه مقدار کالری وزن شما را ثابت نگه می‌دارد، آن را وارد کنید. در "
+"غیر این صورت، اطلاعات بدن‌تان را در پایین بنویسید."
+
+msgid "Log a weigh-in before building your outlook."
+msgstr "پیش از ساخت چشم‌انداز، یک وزن ثبت کنید."
+
+msgid "This planner supports adult weights from 20 to 350 kg."
+msgstr "این ابزار از وزن ۲۰ تا ۳۵۰ کیلوگرم برای بزرگسالان پشتیبانی می‌کند."
+
+msgid "Add this detail, or enter known maintenance calories."
+msgstr "این اطلاعات را وارد کنید یا کالری حفظ وزنِ شناخته‌شدهٔ خود را بنویسید."
+
+msgid "Add a goal weight for a loss or gain outlook."
+msgstr "برای چشم‌انداز کاهش یا افزایش وزن، یک وزن هدف وارد کنید."
+
+msgid "Choose a goal below your current weight for a loss outlook."
+msgstr "برای کاهش وزن، هدفی کمتر از وزن فعلی‌تان انتخاب کنید."
+
+msgid "Choose a goal above your current weight for a gain outlook."
+msgstr "برای افزایش وزن، هدفی بیشتر از وزن فعلی‌تان انتخاب کنید."
+
 msgid "Breakfast"
 msgstr "صبحانه"
 
@@ -1066,6 +1536,12 @@ msgstr "شام"
 
 msgid "Snack"
 msgstr "میان‌وعده"
+
+msgid "Lose weight"
+msgstr "کاهش وزن"
+
+msgid "Gain weight"
+msgstr "افزایش وزن"
 
 msgid "Free"
 msgstr "رایگان"
@@ -1141,7 +1617,6 @@ msgstr "شرح خوراک در پاسخ مدل معتبر نیست."
 msgid "The model returned an invalid meal time."
 msgstr "زمان وعده در پاسخ مدل معتبر نیست."
 
-#| msgid "The model returned unusable targets. Please try again."
 msgid "The model returned incomplete translations. Please try again."
 msgstr "ترجمهٔ مدل کامل نبود. لطفاً دوباره تلاش کنید."
 
@@ -1165,7 +1640,6 @@ msgid ""
 "The model did not return a usable meal estimate. Please try another model."
 msgstr "مدل، برآورد قابل استفاده‌ای برنگرداند. مدل دیگری امتحان کنید."
 
-#| msgid "The model returned unusable targets. Please try again."
 msgid "The model did not return the English original. Please try again."
 msgstr "مدل نسخهٔ اصلی انگلیسی را برنگرداند. لطفاً دوباره تلاش کنید."
 
@@ -1174,6 +1648,9 @@ msgstr "هدف‌های پیشنهادی مدل قابل استفاده نیست
 
 msgid "The model could not finish the target suggestion. Please try again."
 msgstr "مدل نتوانست پیشنهاد هدف‌ها را کامل کند. لطفاً دوباره تلاش کنید."
+
+msgid "Your outlook is ready. Your calorie targets have not been changed."
+msgstr "چشم‌انداز شما آماده است. هدف‌های کالری شما تغییر نکرده‌اند."
 
 msgid "Choose a valid date range."
 msgstr "یک بازهٔ زمانی معتبر انتخاب کنید."

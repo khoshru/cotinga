@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import ai_views, progress_views, views
+from . import ai_views, outlook_views, progress_views, views
 
 app_name = "tracker"
 urlpatterns = [
@@ -17,6 +17,7 @@ urlpatterns = [
     path(
         "ai/targets/<uuid:pk>/", ai_views.targets_review_view, name="ai-targets-review"
     ),
+    path("outlook/", outlook_views.outlook_view, name="outlook"),
     path("statistics/", progress_views.statistics_view, name="statistics"),
     path(
         "statistics/export/", progress_views.statistics_export, name="statistics-export"

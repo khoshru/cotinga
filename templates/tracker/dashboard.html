@@ -11,6 +11,7 @@
     <div class="day-navigation"><a class="icon-button" href="?date={{ previous_day|date:'Y-m-d' }}" aria-label="{% translate "Previous day" %}">{% include 'icon.html' with name='chevron-left' %}</a><form method="get"><label class="sr-only" for="journal-date">{% translate "Choose a day" %}</label><input type="date" id="journal-date" name="date" value="{{ day|date:'Y-m-d' }}"><button type="submit" class="quiet-button">{% translate "Go" %}</button></form><a class="icon-button" href="?date={{ next_day|date:'Y-m-d' }}" aria-label="{% translate "Next day" %}">{% include 'icon.html' with name='chevron-right' %}</a></div>
   </div>
   <div class="meal-chips">{% for meal in meals %}<a href="#meal-log" class="meal-chip">{{ meal.get_kind_display }}: <span>{{ meal.display_description|lower }}</span></a>{% endfor %}</div>
+  <a class="outlook-invite compact" href="{% url 'tracker:outlook' %}"><span class="feature-mark">{% include 'icon.html' with name='route' %}</span><span><strong>{% translate "Small steps add up. See your longer view." %}</strong><small>{% translate "Weekly possibilities, based on your current targets." %}</small></span>{% include 'icon.html' with name='arrow-right' %}</a>
   <div class="dashboard-grid">
     <section aria-labelledby="nutrients-heading" class="nutrient-section">
       <div class="section-heading"><h2 id="nutrients-heading">{% translate "EATEN VS TARGET" %}</h2><a class="text-link" href="{% url 'tracker:targets-edit' %}">{% include 'icon.html' with name='edit' %}{% translate "Edit targets" %}</a></div>

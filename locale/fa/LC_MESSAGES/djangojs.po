@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 01:54+0400\n"
+"POT-Creation-Date: 2026-10-14 09:30+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -16,29 +16,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: static/js/app.js:13
-msgid "Hide"
-msgstr ""
 
-#: static/js/app.js:13
+msgid "Hide"
+msgstr "پنهان"
+
 msgid "Show"
 msgstr "نمایش"
 
-#: static/js/app.js:49
 msgid "Model selected. Save your settings to use it."
 msgstr "مدل انتخاب شد. برای استفاده، تنظیمات را ذخیره کنید."
 
-#: static/js/app.js:72 static/js/app.js:79
 msgid "No matching models. Try a different search."
 msgstr "مدلی پیدا نشد. عبارت دیگری جست‌وجو کنید."
 
-#: static/js/app.js:79
 #, javascript-format
 msgid "%s matching models. Use arrow keys and Enter to select."
 msgstr "%s مدل پیدا شد. برای انتخاب از کلیدهای جهت و Enter استفاده کنید."
 
-#: static/js/app.js:115
 msgid ""
 "This can take a little while. Your suggestion will be ready to review when "
 "the model finishes."
-msgstr "ممکن است کمی طول بکشد. پس از پایان کار مدل، پیشنهاد برای بررسی آماده می‌شود."
+msgstr ""
+"ممکن است کمی طول بکشد. پس از پایان کار مدل، پیشنهاد برای بررسی آماده می‌شود."
+
+msgid "Week"
+msgstr "هفته"

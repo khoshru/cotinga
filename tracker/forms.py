@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy
 
 from .localization import english_text, is_farsi
-from .models import NUTRIENTS, DailyTarget, Meal, WeightEntry, WeightGoal
+from .models import NUTRIENTS, DailyTarget, Meal, ProgressPlan, WeightEntry, WeightGoal
 
 
 class MealForm(forms.ModelForm):  # type: ignore[type-arg]
@@ -288,3 +288,99 @@ class TargetEstimateForm(forms.Form):
             }
         ),
     )
+
+
+class ProgressPlanForm(forms.ModelForm):  # type: ignore[type-arg]
+    goal_weight = forms.DecimalField(
+        label=gettext_lazy("Goal weight (kg)"),
+        required=False,
+        min_value=20,
+        max_value=350,
+        max_digits=6,
+        decimal_places=2,
+        widget=forms.NumberInput(attrs={"step": "0.1"}),
+    )
+
+    class Meta:
+        model = ProgressPlan
+        fields = (
+            "mode",
+            "goal_weight",
+            "maintenance_calories",
+            "age",
+            "height",
+            "sex",
+            "activity",
+        )
+        labels = {
+            "mode": gettext_lazy("What are you working toward?"),
+            "maintenance_calories": gettext_lazy(
+                "Known maintenance calories (optional)"
+            ),
+            "age": gettext_lazy("Age"),
+            "height": gettext_lazy("Height (cm)"),
+            "sex": gettext_lazy("Sex for the energy estimate"),
+            "activity": gettext_lazy("Usual activity"),
+        }
+        widgets = {"mode": forms.RadioSelect()}
+        help_texts = {
+            "maintenance_calories": gettext_lazy(
+                "If you know the calories that keep your weight steady, enter them. Otherwise, add your body details below."
+            )
+        }
+
+    def __init__(
+        self, *args: Any, current_weight: float | None = None, **kwargs: Any
+    ) -> None:
+        self.current_weight = current_weight
+        super().__init__(*args, **kwargs)
+
+    def clean(self) -> dict[str, Any]:
+        cleaned = super().clean() or {}
+        if self.current_weight is None:
+            self.add_error(
+                None, gettext_lazy("Log a weigh-in before building your outlook.")
+            )
+        elif not 20 <= self.current_weight <= 350:
+            self.add_error(
+                None,
+                gettext_lazy("This planner supports adult weights from 20 to 350 kg."),
+            )
+        if not cleaned.get("maintenance_calories"):
+            for field in ("age", "height"):
+                if not cleaned.get(field):
+                    self.add_error(
+                        field,
+                        gettext_lazy(
+                            "Add this detail, or enter known maintenance calories."
+                        ),
+                    )
+        goal = cleaned.get("goal_weight")
+        if cleaned.get("mode") != "maintain":
+            if goal is None:
+                self.add_error(
+                    "goal_weight",
+                    gettext_lazy("Add a goal weight for a loss or gain outlook."),
+                )
+            elif self.current_weight is not None:
+                if (
+                    cleaned.get("mode") == "lose"
+                    and float(goal) > self.current_weight + 0.25
+                ):
+                    self.add_error(
+                        "goal_weight",
+                        gettext_lazy(
+                            "Choose a goal below your current weight for a loss outlook."
+                        ),
+                    )
+                if (
+                    cleaned.get("mode") == "gain"
+                    and float(goal) < self.current_weight - 0.25
+                ):
+                    self.add_error(
+                        "goal_weight",
+                        gettext_lazy(
+                            "Choose a goal above your current weight for a gain outlook."
+                        ),
+                    )
+        return cleaned

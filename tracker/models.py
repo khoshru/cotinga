@@ -190,3 +190,54 @@ class TargetEstimate(models.Model):
 
     def __str__(self) -> str:
         return f"Target estimate ({self.get_status_display()})"
+
+
+class ProgressPlan(models.Model):
+    """Private inputs for deterministic weight outlooks; targets stay user-controlled."""
+
+    class Goal(models.TextChoices):
+        LOSE = "lose", gettext_lazy("Lose weight")
+        GAIN = "gain", gettext_lazy("Gain weight")
+        MAINTAIN = "maintain", gettext_lazy("Maintain weight")
+
+    class Sex(models.TextChoices):
+        FEMALE = "female", gettext_lazy("Female")
+        MALE = "male", gettext_lazy("Male")
+        UNSPECIFIED = "unspecified", gettext_lazy("Prefer not to say")
+
+    class Activity(models.TextChoices):
+        SEDENTARY = "sedentary", gettext_lazy("Mostly sitting")
+        LIGHT = "light", gettext_lazy("Lightly active")
+        MODERATE = "moderate", gettext_lazy("Moderately active")
+        VERY_ACTIVE = "very_active", gettext_lazy("Very active")
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    mode = models.CharField(max_length=8, choices=Goal.choices, default=Goal.LOSE)
+    age = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(18), MaxValueValidator(100)],
+    )
+    height = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(100), MaxValueValidator(250)],
+    )
+    sex = models.CharField(max_length=12, choices=Sex.choices, default=Sex.UNSPECIFIED)
+    activity = models.CharField(
+        max_length=12, choices=Activity.choices, default=Activity.LIGHT
+    )
+    maintenance_calories = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(1000), MaxValueValidator(6000)],
+    )
+    maintenance_weight = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
+    start_weight = models.DecimalField(max_digits=6, decimal_places=2)
+    started_on = models.DateField(default=timezone.localdate)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"Progress plan for {self.user}"

@@ -122,3 +122,48 @@ document.querySelectorAll('[data-busy-form]').forEach((form) => {
     if (status) status.textContent = '';
   });
 });
+
+document.querySelectorAll('[data-outlook-plan]').forEach((form) => {
+  const goal = form.querySelector('[data-outlook-goal]');
+  const updateGoal = () => {
+    const maintain = form.querySelector('input[name="mode"]:checked')?.value === 'maintain';
+    goal.hidden = maintain;
+    goal.querySelector('input').required = !maintain;
+    goal.querySelector('input').disabled = maintain;
+  };
+  form.querySelectorAll('input[name="mode"]').forEach((input) => input.addEventListener('change', updateGoal));
+  updateGoal();
+});
+
+document.querySelectorAll('[data-outlook-horizon]').forEach((select) => {
+  select.addEventListener('change', () => select.form.requestSubmit());
+});
+
+document.querySelectorAll('[data-outlook-chart]').forEach((chart) => {
+  const source = document.getElementById('outlook-week-data');
+  if (!source) return;
+  const rows = JSON.parse(source.textContent);
+  const input = chart.querySelector('[data-outlook-week]');
+  const cursor = chart.querySelector('[data-outlook-cursor]');
+  const weekLabel = chart.querySelector('[data-outlook-week-label]');
+  const dateLabel = chart.querySelector('[data-outlook-week-date]');
+  const numbers = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits:1, minimumFractionDigits:1});
+  const dates = new Intl.DateTimeFormat(document.documentElement.lang, {day:'numeric', month:'short', year:'numeric', calendar:'gregory'});
+  const update = () => {
+    const week = Number(input.value);
+    const row = rows[week];
+    cursor.setAttribute('x1', row.x);
+    cursor.setAttribute('x2', row.x);
+    weekLabel.textContent = `${gettext('Week')} ${new Intl.NumberFormat(document.documentElement.lang).format(week)}`;
+    dateLabel.textContent = dates.format(new Date(`${row.date}T12:00:00`));
+    chart.querySelectorAll('[data-outlook-week-value]').forEach((value) => {
+      const weight = row.values[Number(value.dataset.outlookWeekValue)];
+      value.textContent = weight === null ? '—' : numbers.format(weight);
+    });
+    input.setAttribute('aria-valuetext', `${weekLabel.textContent}, ${dateLabel.textContent}`);
+  };
+  chart.querySelector('[data-outlook-scrubber]').hidden = false;
+  input.value = Math.min(12, rows.length-1);
+  input.addEventListener('input', update);
+  update();
+});
