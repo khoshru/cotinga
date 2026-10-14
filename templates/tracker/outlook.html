@@ -27,9 +27,23 @@
 {% elif reached %}<h2>{% translate "You are at your goal. Let it settle." %}</h2><p>{% translate "Take a moment to notice your progress. A maintenance outlook can help with your next chapter." %}</p>
 {% elif center.weeks is not None %}<h2>{% blocktranslate with count=center.weeks %}A possible path in about {{ count }} weeks.{% endblocktranslate %}</h2><p>{% blocktranslate with month=center.month|date:'F Y' %}The midpoint scenario reaches your goal around {{ month }}. Treat it as a possibility, not a finish-line promise.{% endblocktranslate %}</p>
 {% else %}<h2>{% translate "Your next step is clarity." %}</h2><p>{% translate "At the midpoint of your current targets, the goal is not reached within this model's two-year, 20% weight-change limits. Review the scenarios before adjusting your plan." %}</p>{% endif %}
-<div class="outlook-stats"><div><span>{% translate "Starting this outlook" %}</span><strong>{{ start|floatformat:1 }}<small>{% translate "kg" %}</small></strong></div><span class="outlook-stat-arrow">{% include 'icon.html' with name='arrow-right' %}</span><div><span>{% if plan.mode == 'maintain' %}{% translate "Weight to maintain" %}{% else %}{% translate "Your goal" %}{% endif %}</span><strong>{{ goal|floatformat:1 }}<small>{% translate "kg" %}</small></strong></div><div><span>{% translate "Current calorie target" %}</span><strong><bdi>{{ target.calories_min }}–{{ target.calories_max }}</bdi><small>{% translate "kcal / day" %}</small></strong></div></div>
+<div class="outlook-stats">
+<div class="outlook-weight-summary">
+<div class="outlook-stat"><span>{% translate "Starting this outlook" %}</span><strong>{{ start|floatformat:1 }}<small>{% translate "kg" %}</small></strong></div>
+<span class="outlook-stat-arrow">{% include 'icon.html' with name='arrow-right' %}</span>
+<div class="outlook-stat"><span>{% if plan.mode == 'maintain' %}{% translate "Weight to maintain" %}{% else %}{% translate "Your goal" %}{% endif %}</span><strong>{{ goal|floatformat:1 }}<small>{% translate "kg" %}</small></strong></div>
+</div>
+<div class="outlook-stat outlook-target-stat"><span>{% translate "Current calorie target" %}</span><strong><bdi>{{ target.calories_min }}–{{ target.calories_max }}</bdi><small>{% translate "kcal / day" %}</small></strong></div>
+</div>
 {% if progress is not None %}<div class="outlook-progress"><div><span>{% translate "From your plan's starting weight" %}</span><strong>{{ progress }}%</strong></div><div class="outlook-progress-track"><span style="width:{{ progress|unlocalize }}%"></span></div></div>{% endif %}
-</div><div class="outlook-hero-art" aria-hidden="true"><svg viewBox="0 0 220 220"><circle cx="110" cy="110" r="87"/><circle cx="110" cy="110" r="64"/><path d="M40 155 Q75 160 100 123 T179 65"/><circle class="outlook-art-dot" cx="179" cy="65" r="7"/><path class="outlook-art-arrow" d="m163 67 16-2-2 16"/><circle class="outlook-art-start" cx="40" cy="155" r="4"/></svg><span>{% translate "Small steps. Real momentum." %}</span></div>
+</div><div class="outlook-hero-art" aria-hidden="true">
+<svg viewBox="0 0 220 220">
+<defs><marker id="outlook-direction" markerWidth="12" markerHeight="12" refX="10" refY="6" viewBox="0 0 12 12" orient="auto" markerUnits="userSpaceOnUse"><path class="outlook-art-arrow" d="M2 2 L10 6 L2 10"/></marker></defs>
+<circle class="outlook-art-ring" cx="110" cy="110" r="87"/><circle class="outlook-art-ring" cx="110" cy="110" r="64"/>
+<path class="outlook-art-route" d="M40 155 C82 155 90 112 119 96 S150 77 166 71" marker-end="url(#outlook-direction)"/>
+<circle class="outlook-art-dot" cx="182" cy="65" r="5"/><circle class="outlook-art-start" cx="40" cy="155" r="4"/>
+</svg>
+<span>{% translate "Small steps. Real momentum." %}</span></div>
 </section>
 <div class="outlook-context"><span>{% if weight.readings > 1 %}{% blocktranslate count count=weight.readings %}Starting weight uses {{ count }} reading from the latest seven-day window.{% plural %}Starting weight uses {{ count }} readings from the latest seven-day window.{% endblocktranslate %}{% else %}{% translate "Starting weight uses your latest weigh-in." %}{% endif %}</span><a href="{% url 'tracker:weight' %}" class="text-link">{% translate "Update weight" %}</a></div>
 <section class="panel outlook-chart-panel" data-outlook-chart>
