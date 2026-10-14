@@ -1,11 +1,19 @@
-from typing import Any
+from typing import Any, cast
 
 from django import forms
 from django.utils import timezone
 from django.utils.translation import gettext_lazy
 
 from .localization import english_text, is_farsi
-from .models import NUTRIENTS, DailyTarget, Meal, ProgressPlan, WeightEntry, WeightGoal
+from .models import (
+    NUTRIENTS,
+    BodyProfile,
+    DailyTarget,
+    Meal,
+    ProgressPlan,
+    WeightEntry,
+    WeightGoal,
+)
 
 
 class MealForm(forms.ModelForm):  # type: ignore[type-arg]
@@ -254,7 +262,6 @@ class TargetEstimateForm(forms.Form):
             ("", gettext_lazy("Choose an option")),
             ("female", gettext_lazy("Female")),
             ("male", gettext_lazy("Male")),
-            ("unspecified", gettext_lazy("Prefer not to say")),
         ],
     )
     activity = forms.ChoiceField(
@@ -307,25 +314,17 @@ class ProgressPlanForm(forms.ModelForm):  # type: ignore[type-arg]
             "mode",
             "goal_weight",
             "maintenance_calories",
-            "age",
-            "height",
-            "sex",
-            "activity",
         )
         labels = {
             "mode": gettext_lazy("What are you working toward?"),
             "maintenance_calories": gettext_lazy(
                 "Known maintenance calories (optional)"
             ),
-            "age": gettext_lazy("Age"),
-            "height": gettext_lazy("Height (cm)"),
-            "sex": gettext_lazy("Sex for the energy estimate"),
-            "activity": gettext_lazy("Usual activity"),
         }
         widgets = {"mode": forms.RadioSelect()}
         help_texts = {
             "maintenance_calories": gettext_lazy(
-                "If you know the calories that keep your weight steady, enter them. Otherwise, add your body details below."
+                "If you know the calories that keep your weight steady, enter them. Otherwise, your saved profile is used."
             )
         }
 
@@ -346,15 +345,6 @@ class ProgressPlanForm(forms.ModelForm):  # type: ignore[type-arg]
                 None,
                 gettext_lazy("This planner supports adult weights from 20 to 350 kg."),
             )
-        if not cleaned.get("maintenance_calories"):
-            for field in ("age", "height"):
-                if not cleaned.get(field):
-                    self.add_error(
-                        field,
-                        gettext_lazy(
-                            "Add this detail, or enter known maintenance calories."
-                        ),
-                    )
         goal = cleaned.get("goal_weight")
         if cleaned.get("mode") != "maintain":
             if goal is None:
@@ -384,3 +374,40 @@ class ProgressPlanForm(forms.ModelForm):  # type: ignore[type-arg]
                         ),
                     )
         return cleaned
+
+
+class BodyProfileForm(forms.ModelForm):  # type: ignore[type-arg]
+    weight = forms.DecimalField(
+        label=gettext_lazy("Current weight (kg)"),
+        min_value=1,
+        max_value=500,
+        max_digits=6,
+        decimal_places=2,
+        widget=forms.NumberInput(attrs={"step": "0.01"}),
+    )
+
+    class Meta:
+        model = BodyProfile
+        fields = ("age", "height", "sex", "activity", "weight", "goal", "notes")
+        labels = {
+            "age": gettext_lazy("Age"),
+            "height": gettext_lazy("Height (cm)"),
+            "sex": gettext_lazy("Sex for the energy estimate"),
+            "activity": gettext_lazy("Usual activity"),
+            "goal": gettext_lazy("Your goal"),
+            "notes": gettext_lazy("Anything else to consider?"),
+        }
+        widgets = {"notes": forms.Textarea(attrs={"rows": 3, "dir": "auto"})}
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        for name in ("age", "height", "sex", "activity"):
+            self.fields[name].required = True
+        for name, choices in (
+            ("sex", BodyProfile.Sex.choices),
+            ("activity", BodyProfile.Activity.choices),
+        ):
+            cast(forms.ChoiceField, self.fields[name]).choices = [
+                ("", gettext_lazy("Choose an option")),
+                *choices,
+            ]

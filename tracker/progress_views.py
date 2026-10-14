@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext
 from django.views.decorators.cache import never_cache
@@ -15,7 +16,9 @@ from accounts.models import User
 
 from .forms import StatisticsForm, WeightForm, WeightGoalForm
 from .models import WeightEntry, WeightGoal
+from .profiles import profile_context
 from .statistics import daily_records, progress_summary
+from .weekly_review import weekly_review
 
 
 def _period(form: StatisticsForm) -> tuple[date, date]:
@@ -37,6 +40,12 @@ def statistics_view(request: HttpRequest) -> HttpResponse:
         end = timezone.localdate()
         start = end - timedelta(days=29)
     context = progress_summary(cast(User, request.user), start, end)
+    context["weekly_review"] = weekly_review(cast(User, request.user))
+    context.update(
+        profile_context(
+            cast(User, request.user), reverse("tracker:statistics"), auto_open=False
+        )
+    )
     context.update({"filter_form": form, "export_query": request.GET.urlencode()})
     return render(request, "tracker/statistics.html", context)
 

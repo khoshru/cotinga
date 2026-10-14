@@ -200,33 +200,8 @@ class ProgressPlan(models.Model):
         GAIN = "gain", gettext_lazy("Gain weight")
         MAINTAIN = "maintain", gettext_lazy("Maintain weight")
 
-    class Sex(models.TextChoices):
-        FEMALE = "female", gettext_lazy("Female")
-        MALE = "male", gettext_lazy("Male")
-        UNSPECIFIED = "unspecified", gettext_lazy("Prefer not to say")
-
-    class Activity(models.TextChoices):
-        SEDENTARY = "sedentary", gettext_lazy("Mostly sitting")
-        LIGHT = "light", gettext_lazy("Lightly active")
-        MODERATE = "moderate", gettext_lazy("Moderately active")
-        VERY_ACTIVE = "very_active", gettext_lazy("Very active")
-
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     mode = models.CharField(max_length=8, choices=Goal.choices, default=Goal.LOSE)
-    age = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        validators=[MinValueValidator(18), MaxValueValidator(100)],
-    )
-    height = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        validators=[MinValueValidator(100), MaxValueValidator(250)],
-    )
-    sex = models.CharField(max_length=12, choices=Sex.choices, default=Sex.UNSPECIFIED)
-    activity = models.CharField(
-        max_length=12, choices=Activity.choices, default=Activity.LIGHT
-    )
     maintenance_calories = models.PositiveIntegerField(
         null=True,
         blank=True,
@@ -241,3 +216,62 @@ class ProgressPlan(models.Model):
 
     def __str__(self) -> str:
         return f"Progress plan for {self.user}"
+
+
+class BodyProfile(models.Model):
+    """One private source of body details for targets and weight calculations."""
+
+    class Sex(models.TextChoices):
+        FEMALE = "female", gettext_lazy("Female")
+        MALE = "male", gettext_lazy("Male")
+
+    class Activity(models.TextChoices):
+        SEDENTARY = "sedentary", gettext_lazy("Mostly sitting")
+        LIGHT = "light", gettext_lazy("Lightly active")
+        MODERATE = "moderate", gettext_lazy("Moderately active")
+        VERY_ACTIVE = "very_active", gettext_lazy("Very active")
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    age = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(18), MaxValueValidator(100)],
+    )
+    height = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        validators=[MinValueValidator(100), MaxValueValidator(250)],
+    )
+    sex = models.CharField(max_length=6, choices=Sex.choices, blank=True)
+    activity = models.CharField(max_length=12, choices=Activity.choices, blank=True)
+    goal = models.CharField(
+        max_length=8, choices=ProgressPlan.Goal.choices, default=ProgressPlan.Goal.LOSE
+    )
+    notes = models.TextField(blank=True, max_length=2000)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                condition=models.Q(sex__in=["", "female", "male"]),
+                name="profile_valid_sex",
+            ),
+            models.CheckConstraint(
+                condition=models.Q(
+                    activity__in=["", "sedentary", "light", "moderate", "very_active"]
+                ),
+                name="profile_valid_activity",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"Body profile for {self.user}"
+
+    @property
+    def complete(self) -> bool:
+        return bool(
+            self.age
+            and self.height
+            and self.sex in self.Sex.values
+            and self.activity in self.Activity.values
+        )

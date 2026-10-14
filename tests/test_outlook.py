@@ -9,7 +9,13 @@ from django.test import Client
 from django.utils import timezone, translation
 
 from accounts.models import User
-from tracker.models import DailyTarget, ProgressPlan, WeightEntry, WeightGoal
+from tracker.models import (
+    BodyProfile,
+    DailyTarget,
+    ProgressPlan,
+    WeightEntry,
+    WeightGoal,
+)
 from tracker.outlook import (
     FEEDBACK,
     TIME_CONSTANT,
@@ -32,6 +38,9 @@ def language() -> Iterator[None]:
 
 @pytest.fixture
 def plan(owner: User) -> ProgressPlan:
+    BodyProfile.objects.create(
+        user=owner, age=32, height=180, sex="male", activity="light"
+    )
     WeightEntry.objects.create(user=owner, weight="85", date=timezone.localdate())
     WeightGoal.objects.create(user=owner, weight="80")
     DailyTarget.objects.create(user=owner, calories_min=1950, calories_max=2050)
@@ -82,20 +91,17 @@ def test_goal_inversion_plateaus_wrong_direction_and_horizon() -> None:
 def test_mifflin_estimate_and_manual_weight_adjustment(plan: ProgressPlan) -> None:
     assert maintenance_energy(plan, 83) == 2456
     plan.maintenance_calories = None
-    plan.age = 32
-    plan.height = 180
-    plan.sex = "male"
-    plan.activity = "light"
-    assert maintenance_energy(plan, 85) == pytest.approx(
+    profile = BodyProfile.objects.get(user=plan.user)
+    assert maintenance_energy(plan, 85, profile) == pytest.approx(
         (9.99 * 85 + 6.25 * 180 - 4.92 * 32 + 5) * 1.375
     )
-    plan.sex = "unspecified"
-    assert maintenance_energy(plan, 85) == pytest.approx(
-        (9.99 * 85 + 6.25 * 180 - 4.92 * 32 - 78) * 1.375
+    profile.sex = "female"
+    assert maintenance_energy(plan, 85, profile) == pytest.approx(
+        (9.99 * 85 + 6.25 * 180 - 4.92 * 32 - 161) * 1.375
     )
-    plan.age = None
+    profile.age = None
     with pytest.raises(ValueError):
-        maintenance_energy(plan, 85)
+        maintenance_energy(plan, 85, profile)
 
 
 def test_recent_average_excludes_old_future_and_other_user(owner: User) -> None:
@@ -197,8 +203,6 @@ DATA = {
     "mode": "lose",
     "goal_weight": "80",
     "maintenance_calories": "2500",
-    "sex": "unspecified",
-    "activity": "light",
 }
 
 
@@ -211,6 +215,9 @@ def test_save_is_private_and_does_not_change_targets(
     assert client.post("/outlook/", DATA).status_code == 200
     assert not ProgressPlan.objects.exists()
     WeightEntry.objects.create(user=owner, weight=85)
+    BodyProfile.objects.create(
+        user=owner, age=32, height=180, sex="male", activity="light"
+    )
     before = DailyTarget.objects.get(user=owner).calories_min
     assert client.post("/outlook/", DATA).status_code == 302
     saved = ProgressPlan.objects.get(user=owner)
@@ -233,8 +240,8 @@ def test_save_is_private_and_does_not_change_targets(
         {"goal_weight": ""},
         {"goal_weight": "100"},
         {"maintenance_calories": "NaN"},
-        {"maintenance_calories": "", "age": "17", "height": "180"},
-        {"maintenance_calories": "", "age": "32", "height": ""},
+        {"maintenance_calories": "999"},
+        {"maintenance_calories": "6001"},
         {"mode": "gain", "goal_weight": "70"},
     ],
 )
@@ -243,6 +250,9 @@ def test_invalid_profile_is_not_saved(
 ) -> None:
     client.force_login(owner)
     WeightEntry.objects.create(user=owner, weight=85)
+    BodyProfile.objects.create(
+        user=owner, age=32, height=180, sex="male", activity="light"
+    )
     response = client.post("/outlook/", {**DATA, **change})
     assert response.status_code == 200 and response.context["form"].errors
     assert not ProgressPlan.objects.exists()

@@ -20,7 +20,7 @@ from django.utils.translation import gettext
 
 from accounts.models import User
 
-from .models import DailyTarget, ProgressPlan, WeightEntry, WeightGoal
+from .models import BodyProfile, DailyTarget, ProgressPlan, WeightEntry, WeightGoal
 
 ACTIVITY = {"sedentary": 1.2, "light": 1.375, "moderate": 1.55, "very_active": 1.725}
 ENERGY_DENSITY = 7700.0
@@ -55,15 +55,26 @@ def current_weight(user: User) -> dict[str, Any] | None:
     }
 
 
-def maintenance_energy(plan: ProgressPlan, weight: float) -> float:
-    if plan.maintenance_calories is not None:
+def maintenance_energy(
+    plan: ProgressPlan | None, weight: float, profile: BodyProfile | None = None
+) -> float:
+    if plan is not None and plan.maintenance_calories is not None:
         reference = float(plan.maintenance_weight or plan.start_weight)
         return float(plan.maintenance_calories) + FEEDBACK * (weight - reference)
-    if plan.age is None or plan.height is None:
+    if profile is None and plan is not None:
+        profile = BodyProfile.objects.filter(user_id=plan.user_id).first()
+    if (
+        profile is None
+        or not profile.complete
+        or profile.age is None
+        or profile.height is None
+    ):
         raise ValueError("Body details are incomplete.")
-    sex = {"male": 1.0, "female": 0.0, "unspecified": 0.5}[plan.sex]
-    resting = 9.99 * weight + 6.25 * plan.height - 4.92 * plan.age + 166 * sex - 161
-    return resting * ACTIVITY[plan.activity]
+    sex = {"male": 1.0, "female": 0.0}[profile.sex]
+    resting = (
+        9.99 * weight + 6.25 * profile.height - 4.92 * profile.age + 166 * sex - 161
+    )
+    return resting * ACTIVITY[profile.activity]
 
 
 def project_weight(
@@ -209,7 +220,11 @@ def build_outlook(user: User, weeks: int = 26) -> dict[str, Any]:
     if goal is None:
         result["needs_goal"] = True
         return result
-    maintenance = maintenance_energy(plan, start)
+    try:
+        maintenance = maintenance_energy(plan, start)
+    except ValueError:
+        result["needs_profile"] = True
+        return result
     if (
         not 20 <= goal <= 350
         or not 20 <= start <= 350
@@ -218,11 +233,7 @@ def build_outlook(user: User, weeks: int = 26) -> dict[str, Any]:
     ):
         result["unsupported"] = True
         return result
-    uncertainty = (
-        0.15
-        if plan.maintenance_calories is None and plan.sex == "unspecified"
-        else 0.10
-    )
+    uncertainty = 0.10
     intakes = [
         target.calories_min,
         (target.calories_min + target.calories_max) / 2,
@@ -259,6 +270,12 @@ def build_outlook(user: User, weeks: int = 26) -> dict[str, Any]:
                 "high": bounded(intakes[1], maintenance * (1 - uncertainty)),
             }
         )
+        rows[-1]["maintenance_values"] = [
+            round(maintenance + FEEDBACK * (value - start))
+            if value is not None
+            else None
+            for value in rows[-1]["values"]
+        ]
     scenarios: list[dict[str, Any]] = []
     for index, intake in enumerate(intakes):
         days = goal_days(start, goal, intake, maintenance)

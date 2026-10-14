@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% translate "My profile" %}{% endblock %}
+{% block content %}
+<div class="page-topline"><span class="eyebrow">{% translate "YOUR DETAILS, REMEMBERED" %}</span><span class="journal-label">{% translate "Private to your account" %}</span></div>
+<div class="page-heading"><div><h1>{% translate "My profile" %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate "Save your details once. Reuse them for targets, weekly estimates, and your outlook." %}</p></div></div>
+<section class="panel profile-panel"><form method="post">{% csrf_token %}<input type="hidden" name="next" value="{{ return_to }}">{% include 'tracker/profile_fields.html' %}<p class="help-text">{% translate "Keep your age and usual activity up to date. Changed weight is saved as a weigh-in for today." %}</p><div class="form-actions"><button class="button primary" type="submit">{% include 'icon.html' with name='check' %}{% translate "Save my details" %}</button><a class="quiet-button" href="{% url 'tracker:dashboard' %}">{% translate "Cancel" %}</a></div></form></section>
+{% endblock %}

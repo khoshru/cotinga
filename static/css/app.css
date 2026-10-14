@@ -520,3 +520,70 @@
   @media(max-width:380px) { .outlook-stats { --outlook-stat-size: 21px; --outlook-stat-gap: 10px; } .outlook-stat strong { gap: 5px; } .outlook-stat strong small { font-size: 10px; } }
   [dir=rtl] .outlook-hero h2, [dir=rtl] .outlook-setup-aside h2 { letter-spacing: 0; line-height: 1.6; }
 }
+
+@layer components {
+  .profile-panel { max-width: 740px; margin-top: 30px; }
+  .profile-summary { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 18px; margin: 22px 0; background: #18352b; border: 1px solid #2e5142; border-radius: 12px; font-size: 12px; }
+  .profile-summary > span { display: inline-flex; align-items: center; gap: 9px; color: var(--mint); }
+  .profile-summary .icon { width: 16px; height: 16px; }
+  .profile-dialog { color: var(--text); background: linear-gradient(145deg, #1b342b, #142720); border: 1px solid #3b6250; border-radius: 22px; padding: 30px; width: min(640px, calc(100% - 32px)); max-height: calc(100dvh - 40px); margin: auto; overflow: auto; box-shadow: 0 24px 90px #0006; }
+  .profile-dialog::backdrop { background: #06100bd9; backdrop-filter: blur(7px); }
+  .profile-dialog[open]:not(:modal) { position: static; max-height: none; margin-block: 28px; }
+  .profile-dialog-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .profile-dialog-heading .feature-mark { margin: 0; }
+  .profile-dialog-heading .icon-button { width: 40px; height: 40px; }
+  .profile-dialog-heading .icon-button .icon { width: 20px; height: 20px; }
+  .profile-dialog h2 { font-size: 26px; line-height: 1.5; margin: 9px 0; }
+  .profile-dialog .form-grid { gap: 18px; }
+  .profile-dialog textarea { min-height: 95px; }
+  .profile-extras { margin: 20px 0; font-size: 12px; color: var(--muted); }
+  .profile-extras summary { display: flex; align-items: center; gap: 9px; cursor: pointer; }
+  .profile-extras .icon { width: 15px; height: 15px; }
+  .profile-extras .form-grid { margin-top: 18px; }
+  body:has(.profile-dialog:modal) { overflow: hidden; }
+  .weekly-review { margin: 25px 0; padding: 28px; background: radial-gradient(ellipse at 100% 0, #24463755, transparent 65%), var(--surface); }
+  .weekly-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+  .weekly-heading h2 { font-size: 23px; line-height: 1.5; margin-top: 8px; }
+  .weekly-heading .journal-label { white-space: nowrap; }
+  .weekly-overview { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 30px; margin: 27px 0; }
+  .weekly-change > span, .weekly-numbers span { display: block; font-size: 11px; color: var(--muted); }
+  .weekly-change > strong { display: block; font-size: 38px; line-height: 1.4; color: var(--mint); margin: 8px 0; font-weight: 600; }
+  .weekly-change > strong > small { font-size: 17px; font-weight: 450; }
+  .weekly-change > p { font-size: 11px; color: var(--muted); }
+  .weekly-numbers { display: grid; gap: 18px; border-inline-start: 1px solid var(--border); padding-inline-start: 25px; }
+  .weekly-numbers strong { display: block; font-size: 23px; font-weight: 550; margin-top: 6px; }
+  .weekly-numbers strong small { font-size: 11px; font-weight: 400; color: var(--muted); }
+  .weekly-chart-label, .weekly-footnote { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 10px; color: var(--muted); }
+  .weekly-days { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: 14px; margin: 17px 0 23px; }
+  .weekly-days > div { display: grid; justify-items: center; gap: 7px; font-size: 11px; }
+  .weekly-days > div > span { color: var(--muted); }
+  .weekly-days > div > small { color: var(--faint); font-size: 9px; }
+  .weekly-days > div > strong { font-size: 12px; font-weight: 550; }
+  .weekly-bar-track { display: flex; align-items: flex-end; justify-content: center; width: 100%; height: 70px; border-bottom: 1px solid var(--border); }
+  .weekly-bar-track i { width: min(40px, 65%); border-radius: 5px 5px 0 0; background: linear-gradient(0deg, #34755e, var(--mint)); }
+  .weekly-bar-track i.surplus { background: linear-gradient(0deg, #8c6336, var(--amber)); }
+  .weekly-footnote { padding-top: 17px; border-top: 1px solid var(--border); line-height: 1.8; }
+  .weekly-method { margin-top: 14px; color: var(--muted); }
+  .weekly-method summary { display: flex; align-items: center; gap: 9px; cursor: pointer; font-size: 11px; }
+  .weekly-method .icon { width: 15px; height: 15px; }
+  .weekly-method p { font-size: 11px; line-height: 1.9; margin-top: 13px; max-width: 760px; }
+  .weekly-empty { display: flex; align-items: flex-start; gap: 18px; margin: 26px 0; }
+  .weekly-empty .feature-mark { width: 44px; height: 44px; margin: 0; }
+  .weekly-empty h3 { font-size: 17px; line-height: 1.6; }
+  .weekly-empty p { color: var(--muted); font-size: 12px; line-height: 1.8; margin: 8px 0 14px; }
+  .weekly-coverage { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 10px; margin: 20px 0; }
+  .weekly-coverage a { display: grid; justify-items: center; gap: 9px; color: var(--faint); background: #14261f; border: 1px dashed #365546; border-radius: 9px; padding: 12px 5px; font-size: 11px; }
+  .weekly-coverage a.logged { color: var(--mint); border-style: solid; background: #1b3b2e; }
+  .weekly-coverage a:hover { border-color: var(--mint); }
+  .weekly-coverage .icon { width: 16px; height: 16px; }
+  .weekly-coverage small { font-size: 10px; }
+  .maintenance-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .outlook-week-energy { display: block; font-size: 11px; color: var(--muted); margin: 8px 0 15px; }
+  .outlook-week-energy strong { color: var(--text); }
+}
+@layer responsive {
+  @media(max-width:1000px) { .outlook-maintenance { grid-template-columns: 1fr; } .maintenance-comparison { justify-items: start; } .maintenance-number { justify-items: start; } }
+  @media(max-width:600px) { .profile-dialog { padding: 22px; border-radius: 17px; } .profile-dialog h2 { font-size: 22px; } .profile-dialog .form-grid { gap: 15px; } .weekly-review { padding: 22px; } .weekly-heading h2 { font-size: 20px; } .weekly-overview { grid-template-columns: 1fr; gap: 22px; } .weekly-numbers { border-inline-start: 0; border-top: 1px solid var(--border); padding-inline-start: 0; padding-top: 18px; } .weekly-change > strong { font-size: 32px; } .weekly-days { gap: 6px; } .weekly-days > div > strong { font-size: 10px; } .weekly-coverage { gap: 6px; } .weekly-empty { gap: 13px; } .weekly-empty h3 { font-size: 15px; } .weekly-empty p { font-size: 11px; } .weekly-chart-label { font-size: 9px; } .maintenance-comparison { gap: 18px; } .maintenance-number strong { font-size: 32px; } }
+  @media(max-width:400px) { .profile-dialog .form-grid { grid-template-columns: 1fr; } .weekly-coverage { gap: 4px; } .weekly-coverage a { padding: 10px 3px; } .maintenance-comparison { grid-template-columns: 1fr; } }
+  @media(max-width:380px) { .weekly-days > div > small { display: none; } }
+}

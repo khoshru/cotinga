@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 09:39+0400\n"
+"POT-Creation-Date: 2026-10-14 13:20+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -68,6 +68,9 @@ msgstr "ثبت وزن"
 
 msgid "Describe my day"
 msgstr "شرح خوراک روز"
+
+msgid "My profile"
+msgstr "مشخصات من"
 
 msgid "AI settings"
 msgstr "تنظیمات هوش مصنوعی"
@@ -462,11 +465,17 @@ msgid "Your energy needs"
 msgstr "نیاز انرژی شما"
 
 msgid ""
-"We need an estimate of the energy that keeps your weight steady. Food logs "
-"alone cannot tell us that."
+"Your saved profile and recent weight estimate the calories that keep your "
+"weight steady. Add a known maintenance estimate below if you have one."
 msgstr ""
-"برای برآورد، باید بدانیم چه مقدار انرژی وزن‌تان را ثابت نگه می‌دارد. ثبت خوراک "
-"به‌تنهایی برای این محاسبه کافی نیست."
+"مشخصات ذخیره‌شده و وزن اخیر شما، کالری لازم برای ثابت ماندن وزن را برآورد "
+"می‌کنند. اگر کالری نگهدارندهٔ خود را می‌دانید، آن را در پایین وارد کنید."
+
+msgid "years"
+msgstr "سال"
+
+msgid "cm"
+msgstr "سانتی‌متر"
 
 msgid ""
 "These details stay in your account. The outlook is calculated here and does "
@@ -647,6 +656,9 @@ msgstr "یک هفته را بررسی کنید"
 msgid "Week"
 msgstr "هفته"
 
+msgid "Midpoint maintenance"
+msgstr "کالری نگهدارندهٔ سناریوی میانه"
+
 #, python-format
 msgid ""
 "The shaded range changes estimated maintenance by ±%(percent)s%%. It is a "
@@ -762,14 +774,16 @@ msgid "Think about staying there, too."
 msgstr "به ماندن در آن وزن هم فکر کنید."
 
 msgid ""
-"Energy needs change with weight. This is a rough maintenance estimate at "
-"your goal, with your activity unchanged."
+"Maintenance is recalculated from your recent weight whenever you return. The "
+"forecast also adjusts it week by week as modeled weight changes, with "
+"activity held steady."
 msgstr ""
-"نیاز انرژی با وزن تغییر می‌کند. این یک برآورد تقریبی برای حفظ وزن هدف، با "
-"فعالیت فعلی شماست."
+"هر بار که برمی‌گردید، کالری نگهدارنده با وزن اخیرتان دوباره محاسبه می‌شود. در "
+"پیش‌بینی هم با تغییر وزن، این مقدار هفته‌به‌هفته تنظیم می‌شود؛ فعالیت ثابت فرض "
+"می‌شود."
 
-msgid "kcal / day at your goal"
-msgstr "کیلوکالری در روز، در وزن هدف"
+msgid "At your goal"
+msgstr "در وزن هدف"
 
 msgid "Revisit this estimate closer to your goal."
 msgstr "وقتی به هدف نزدیک‌تر شدید، این برآورد را دوباره بررسی کنید."
@@ -827,12 +841,11 @@ msgstr ""
 msgid ""
 "For body-detail estimates, resting energy is 9.99 × weight + 6.25 × height − "
 "4.92 × age + 166 × sex − 161. Activity multipliers are 1.2, 1.375, 1.55, or "
-"1.725. Prefer not to say uses the midpoint of the two sex coefficients and a "
-"wider sensitivity range."
+"1.725."
 msgstr ""
-"انرژی استراحت از فرمول 9.99 × وزن + 6.25 × قد − 4.92 × سن + 166 × ضریب جنسیت "
-"− 161 محاسبه می‌شود. ضریب فعالیت ۱٫۲، ۱٫۳۷۵، ۱٫۵۵ یا ۱٫۷۲۵ است. گزینهٔ «ترجیح "
-"می‌دهم نگویم» از میانهٔ دو ضریب جنسیت و بازهٔ حساسیت بزرگ‌تر استفاده می‌کند."
+"برای برآورد از مشخصات بدن، انرژی استراحت از فرمول 9.99 × وزن + 6.25 × قد − "
+"4.92 × سن + 166 × ضریب جنسیت − 161 محاسبه می‌شود. ضریب جنسیت برای زن صفر و "
+"برای مرد یک است. ضریب فعالیت ۱٫۲، ۱٫۳۷۵، ۱٫۵۵ یا ۱٫۷۲۵ است."
 
 msgid ""
 "This assumes steady intake and activity. It does not model fluid changes, "
@@ -844,6 +857,60 @@ msgstr ""
 "بارداری یا شیردهی در مدل لحاظ نمی‌شود. این ابزار برای برنامه‌ریزی عمومی "
 "بزرگسالان است و نتیجهٔ واقعی می‌تواند متفاوت باشد. این چشم‌انداز هدف‌های شما را "
 "تغییر نمی‌دهد."
+
+msgid "YOUR DETAILS, REMEMBERED"
+msgstr "اطلاعات شما، برای دفعات بعد"
+
+msgid "Private to your account"
+msgstr "خصوصی در حساب شما"
+
+msgid ""
+"Save your details once. Reuse them for targets, weekly estimates, and your "
+"outlook."
+msgstr ""
+"اطلاعاتتان را یک بار ذخیره کنید؛ برای هدف‌ها، برآورد هفتگی و چشم‌انداز پیشرفت "
+"دوباره استفاده می‌شوند."
+
+msgid ""
+"Keep your age and usual activity up to date. Changed weight is saved as a "
+"weigh-in for today."
+msgstr ""
+"سن و فعالیت معمولتان را به‌روز نگه دارید. اگر وزن را تغییر دهید، به‌عنوان وزن "
+"امروز ثبت می‌شود."
+
+msgid "Save my details"
+msgstr "ذخیرهٔ مشخصات من"
+
+msgid "Your goal and extra context"
+msgstr "هدف شما و توضیحات بیشتر"
+
+msgid "Cancel and return to your journal"
+msgstr "انصراف و بازگشت به دفتر شما"
+
+msgid "A LITTLE ABOUT YOU"
+msgstr "کمی دربارهٔ شما"
+
+msgid "Let's save your starting details."
+msgstr "بیایید اطلاعات پایه‌تان را ذخیره کنیم."
+
+msgid ""
+"We need these details before calculating your energy needs. They stay in "
+"your account and will be filled in next time."
+msgstr ""
+"پیش از محاسبهٔ نیاز انرژی، این اطلاعات لازم است. در حساب شما می‌مانند و دفعهٔ "
+"بعد خودکار پر می‌شوند."
+
+msgid "Nothing is sent to AI when you save this profile."
+msgstr "با ذخیرهٔ این مشخصات، هیچ اطلاعاتی برای هوش مصنوعی فرستاده نمی‌شود."
+
+msgid "Save and continue"
+msgstr "ذخیره و ادامه"
+
+msgid "Your saved details are filled in."
+msgstr "اطلاعات ذخیره‌شدهٔ شما پر شده‌اند."
+
+msgid "Edit my profile"
+msgstr "ویرایش مشخصات من"
 
 msgid "Review estimates"
 msgstr "بررسی برآوردها"
@@ -1119,6 +1186,11 @@ msgid ""
 msgstr ""
 "کمی از خودتان بگویید. مدل شما بازهٔ روزانهٔ کالری و مواد مغذی را پیشنهاد می‌دهد."
 
+msgid "Your details are saved for next time, even if the AI request fails."
+msgstr ""
+"اطلاعات شما برای دفعهٔ بعد ذخیره می‌شود، حتی اگر درخواست هوش مصنوعی ناموفق "
+"باشد."
+
 msgid ""
 "The details in this form are sent to OpenRouter only when you request a "
 "suggestion."
@@ -1186,6 +1258,112 @@ msgstr "اعمال هدف‌های روزانه"
 
 msgid "Start again"
 msgstr "شروع دوباره"
+
+msgid "THE WEEK BEHIND YOU"
+msgstr "هفته‌ای که گذشت"
+
+msgid "What your food logs suggest"
+msgstr "ثبت خوراک شما چه نشان می‌دهد؟"
+
+msgid "Estimated energy-balance change"
+msgstr "تغییر برآوردشده از تراز انرژی"
+
+msgid "Around steady"
+msgstr "تقریباً ثابت"
+
+msgid "loss"
+msgstr "کاهش"
+
+msgid "gain"
+msgstr "افزایش"
+
+msgid "If your logs include everything you ate."
+msgstr "اگر تمام خوراک مصرفی‌تان را ثبت کرده باشید."
+
+msgid "Average logged intake"
+msgstr "میانگین مصرف ثبت‌شده"
+
+msgid "Starting maintenance estimate"
+msgstr "برآورد نگهدارنده در شروع هفته"
+
+msgid "Logged calories, day by day"
+msgstr "کالری ثبت‌شده، روز به روز"
+
+msgid "Mint: below maintenance · Amber: above"
+msgstr "سبز: کمتر از نگهدارنده · کهربایی: بیشتر"
+
+#, python-format
+msgid "Reference: %(weight)s kg, recorded %(day)s."
+msgstr "مبنای وزن: %(weight)s کیلوگرم، ثبت‌شده در %(day)s."
+
+#, python-format
+msgid "Using your recent %(weight)s kg weight as an approximate reference."
+msgstr "وزن اخیر %(weight)s کیلوگرمی شما، مبنای تقریبی این برآورد است."
+
+msgid "Recorded scale change"
+msgstr "تغییر ثبت‌شده روی ترازو"
+
+msgid "How to read this estimate"
+msgstr "این برآورد را چطور بخوانیم؟"
+
+msgid ""
+"This follows each day's logged calories and adjusts maintenance as the "
+"modeled weight changes. It assumes complete food logs and steady activity. "
+"Water, digestion, and muscle changes can make the scale move differently; "
+"this is not measured fat loss."
+msgstr ""
+"این برآورد کالری ثبت‌شدهٔ هر روز را دنبال می‌کند و با تغییر وزنِ محاسبه‌شده، "
+"کالری نگهدارنده را تنظیم می‌کند. ثبت کامل خوراک و فعالیت ثابت فرض می‌شود. آب "
+"بدن، گوارش و تغییر عضله می‌توانند عدد ترازو را متفاوت کنند؛ این اندازه‌گیریِ "
+"چربی ازدست‌رفته نیست."
+
+#, python-format
+msgid "Changing estimated maintenance by ±10%% gives a sensitivity range of"
+msgstr "با تغییر ±۱۰٪ در کالری نگهدارندهٔ برآوردشده، بازهٔ حساسیت برابر است با"
+
+msgid "to"
+msgstr "تا"
+
+msgid "kg. This is not a confidence interval."
+msgstr "کیلوگرم. این بازهٔ اطمینان نیست."
+
+msgid "Your details make this personal."
+msgstr "مشخصات شما، این برآورد را شخصی می‌کند."
+
+msgid ""
+"Save your body details and a weigh-in to estimate what a week of food logs "
+"could mean."
+msgstr ""
+"مشخصات بدن و یک وزن‌کشی را ذخیره کنید تا نتیجهٔ احتمالی یک هفته ثبت خوراک "
+"برآورد شود."
+
+msgid "Add my details"
+msgstr "افزودن مشخصات من"
+
+msgid "Let's check the inputs first."
+msgstr "اول داده‌های ورودی را بررسی کنیم."
+
+msgid ""
+"Your weight, maintenance, or food logs fall outside this estimate's "
+"supported range. Review your entries before using an estimate."
+msgstr ""
+"وزن، کالری نگهدارنده یا خوراک ثبت‌شدهٔ شما خارج از محدودهٔ پشتیبانی‌شده است. پیش "
+"از استفاده از برآورد، داده‌ها را بررسی کنید."
+
+#, python-format
+msgid "%(count)s of 7 days have food logs."
+msgstr "از ۷ روز، خوراکِ %(count)s روز ثبت شده است."
+
+msgid ""
+"Add the missing days for a weekly estimate. Unlogged days are unknown, never "
+"zero calories."
+msgstr ""
+"روزهای جاافتاده را برای برآورد هفتگی ثبت کنید. روزهای ثبت‌نشده نامعلوم‌اند، نه "
+"روزهایی با صفر کالری."
+
+msgid ""
+"The last seven finished calendar days. Today's food is still taking shape."
+msgstr "هفت روز تقویمیِ گذشته که تمام شده‌اند؛ خوراک امروز هنوز کامل نشده است."
 
 msgid "THE BIGGER PICTURE TAKES TIME"
 msgstr "دیدن تصویر کامل، زمان می‌خواهد"
@@ -1458,9 +1636,6 @@ msgstr "زن"
 msgid "Male"
 msgstr "مرد"
 
-msgid "Prefer not to say"
-msgstr "ترجیح می‌دهم نگویم"
-
 msgid "Usual activity"
 msgstr "فعالیت معمول"
 
@@ -1502,19 +1677,16 @@ msgstr "کالری حفظ وزن، اگر می‌دانید (اختیاری)"
 
 msgid ""
 "If you know the calories that keep your weight steady, enter them. "
-"Otherwise, add your body details below."
+"Otherwise, your saved profile is used."
 msgstr ""
-"اگر می‌دانید چه مقدار کالری وزن شما را ثابت نگه می‌دارد، آن را وارد کنید. در "
-"غیر این صورت، اطلاعات بدن‌تان را در پایین بنویسید."
+"اگر کالری لازم برای ثابت ماندن وزنتان را می‌دانید، وارد کنید. در غیر این "
+"صورت، از مشخصات ذخیره‌شدهٔ شما استفاده می‌شود."
 
 msgid "Log a weigh-in before building your outlook."
 msgstr "پیش از ساخت چشم‌انداز، یک وزن ثبت کنید."
 
 msgid "This planner supports adult weights from 20 to 350 kg."
 msgstr "این ابزار از وزن ۲۰ تا ۳۵۰ کیلوگرم برای بزرگسالان پشتیبانی می‌کند."
-
-msgid "Add this detail, or enter known maintenance calories."
-msgstr "این اطلاعات را وارد کنید یا کالری حفظ وزنِ شناخته‌شدهٔ خود را بنویسید."
 
 msgid "Add a goal weight for a loss or gain outlook."
 msgstr "برای چشم‌انداز کاهش یا افزایش وزن، یک وزن هدف وارد کنید."
@@ -1652,6 +1824,9 @@ msgstr "مدل نتوانست پیشنهاد هدف‌ها را کامل کند.
 msgid "Your outlook is ready. Your calorie targets have not been changed."
 msgstr "چشم‌انداز شما آماده است. هدف‌های کالری شما تغییر نکرده‌اند."
 
+msgid "Your details are saved and ready to reuse."
+msgstr "اطلاعات شما ذخیره شد و برای استفادهٔ دوباره آماده است."
+
 msgid "Choose a valid date range."
 msgstr "یک بازهٔ زمانی معتبر انتخاب کنید."
 
@@ -1716,13 +1891,3 @@ msgstr "بازهٔ روزانهٔ کالری و مواد مغذی مناسب خ�
 
 msgid "Save targets"
 msgstr "ذخیرهٔ هدف‌ها"
-
-#~ msgid "24-hour local time HH:MM when mentioned; null if unknown"
-#~ msgstr ""
-#~ "زمان محلی با قالب ۲۴ساعتهٔ HH:MM در صورت ذکر شدن؛ در غیر این صورت null"
-
-#~ msgid "Food actually mentioned by the user"
-#~ msgstr "خوراکی که کاربر واقعاً ذکر کرده است"
-
-#~ msgid "Portions used in the estimate, with units"
-#~ msgstr "مقدارهای استفاده‌شده در برآورد، همراه با واحد"

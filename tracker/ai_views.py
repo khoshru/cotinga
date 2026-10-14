@@ -33,8 +33,8 @@ from .models import (
     MealEstimate,
     OpenRouterSettings,
     TargetEstimate,
-    WeightEntry,
 )
+from .profiles import profile_context, profile_initial, save_profile
 from .views import selected_date
 
 
@@ -192,16 +192,12 @@ def targets_estimate_view(request: HttpRequest) -> HttpResponse:
             gettext("Connect OpenRouter in AI settings to get target suggestions."),
         )
         return redirect("tracker:ai-settings")
-    latest = WeightEntry.objects.filter(user=user).first()
     form = TargetEstimateForm(
         request.POST if request.method == "POST" else None,
-        initial={
-            "weight": latest.weight if latest else None,
-            "goal": "lose",
-            "activity": "light",
-        },
+        initial=profile_initial(user),
     )
     if request.method == "POST" and form.is_valid():
+        save_profile(user, form.cleaned_data)
         batch = None
         try:
             key = decrypt_key(preferences.encrypted_api_key)
@@ -219,10 +215,14 @@ def targets_estimate_view(request: HttpRequest) -> HttpResponse:
                 batch.status = MealEstimate.Status.FAILED
                 batch.save(update_fields=["status"])
             form.add_error(None, str(exc))
+    context = profile_context(user, reverse("tracker:ai-targets"))
+    if form.is_bound:
+        context["profile_needed"] = False
+    context.update({"form": form, "preferences": preferences})
     return render(
         request,
         "tracker/target_estimate.html",
-        {"form": form, "preferences": preferences},
+        context,
     )
 
 

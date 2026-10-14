@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from .models import DailyTarget, Meal, WeightEntry, WeightGoal
+from .models import BodyProfile, DailyTarget, Meal, WeightEntry, WeightGoal
+
+
+@admin.register(BodyProfile)
+class BodyProfileAdmin(admin.ModelAdmin):  # type: ignore[type-arg]
+    list_display = ("user", "updated_at")
+    search_fields = ("user__email",)
 
 
 @admin.register(Meal)

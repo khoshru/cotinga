@@ -1,4 +1,27 @@
 // Optional enhancements. Navigation and forms also work without JavaScript.
+document.querySelectorAll('[data-profile-dialog]').forEach((dialog) => {
+  if (typeof dialog.showModal !== 'function') return;
+  const open = () => {
+    dialog.showModal();
+    [...dialog.querySelectorAll('[required]')].find((field) => !field.value)?.focus();
+  };
+  if (dialog.dataset.autoOpen === 'true') {
+    dialog.close();
+    open();
+  }
+  document.querySelectorAll('[data-open-profile]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      open();
+    });
+  });
+  dialog.addEventListener('cancel', (event) => {
+    if (dialog.dataset.autoOpen === 'true') {
+      event.preventDefault();
+      window.location.assign(dialog.dataset.cancelUrl);
+    }
+  });
+});
 document.querySelectorAll('[data-confirm]').forEach((form) => {
   form.addEventListener('submit', (event) => {
     if (!window.confirm(form.dataset.confirm)) event.preventDefault();
@@ -156,6 +179,8 @@ document.querySelectorAll('[data-outlook-chart]').forEach((chart) => {
     cursor.setAttribute('x2', row.x);
     weekLabel.textContent = `${gettext('Week')} ${new Intl.NumberFormat(document.documentElement.lang).format(week)}`;
     dateLabel.textContent = dates.format(new Date(`${row.date}T12:00:00`));
+    const maintenance = chart.querySelector('[data-outlook-week-maintenance]');
+    if (maintenance) maintenance.textContent = row.maintenance_values[1] === null ? '—' : new Intl.NumberFormat(document.documentElement.lang).format(row.maintenance_values[1]);
     chart.querySelectorAll('[data-outlook-week-value]').forEach((value) => {
       const weight = row.values[Number(value.dataset.outlookWeekValue)];
       value.textContent = weight === null ? '—' : numbers.format(weight);

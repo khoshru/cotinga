@@ -1,0 +1,6 @@
+{% load i18n %}
+{{ form.non_field_errors }}
+<div class="form-grid">
+{% for field in form %}{% if not compact_profile or field.name != 'goal' and field.name != 'notes' %}<div class="field {% if field.name == 'notes' %}field-wide{% endif %}"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{{ field.errors }}{% if field.help_text %}<p class="help-text">{{ field.help_text }}</p>{% endif %}</div>{% endif %}{% endfor %}
+</div>
+{% if compact_profile %}<details class="profile-extras"><summary>{% translate "Your goal and extra context" %}{% include 'icon.html' with name='chevron-down' %}</summary><div class="form-grid">{% for field in form %}{% if field.name == 'goal' or field.name == 'notes' %}<div class="field {% if field.name == 'notes' %}field-wide{% endif %}"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{{ field.errors }}</div>{% endif %}{% endfor %}</div></details>{% endif %}
