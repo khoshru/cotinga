@@ -10,6 +10,7 @@ def test_legacy_body_details_survive_migration_and_rollback(owner: User) -> None
     old = [("tracker", "0005_progressplan")]
     new = [("tracker", "0006_shared_body_profile")]
     executor = MigrationExecutor(connection)
+    latest = executor.loader.graph.leaf_nodes()
     try:
         executor.migrate(old)
         apps = executor.loader.project_state(old).apps
@@ -52,4 +53,4 @@ def test_legacy_body_details_survive_migration_and_rollback(owner: User) -> None
             "moderate",
         )
     finally:
-        MigrationExecutor(connection).migrate(new)
+        MigrationExecutor(connection).migrate(latest)

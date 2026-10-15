@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 14:20+0400\n"
+"POT-Creation-Date: 2026-10-15 14:07+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -928,26 +928,45 @@ msgstr "مقدار، زمان و مواد مغذی را بررسی کنید. ا�
 msgid "What the model assumed"
 msgstr "فرض‌های مدل"
 
+msgid "Open this day"
+msgstr "باز کردن این روز"
+
+msgid ""
+"One entry per meal type. Existing entries of the same type will be replaced "
+"after you confirm."
+msgstr ""
+"برای هر نوع وعده، یک ثبت. وعده‌های موجود از همان نوع پس از تأیید شما جایگزین "
+"می‌شوند."
+
+msgid "Already in your journal"
+msgstr "ثبت‌های فعلی دفتر شما"
+
+msgid "Will be replaced"
+msgstr "جایگزین می‌شود"
+
+msgid "Current day total"
+msgstr "مجموع فعلی روز"
+
+msgid "After saving"
+msgstr "پس از ذخیره"
+
 msgid "MEAL"
 msgstr "وعده"
 
 msgid "Skip this meal"
 msgstr "این وعده ثبت نشود"
 
-msgid "Add this day to your journal."
-msgstr "این روز را در دفترتان ثبت کنید."
+msgid "Other meal types and other days will stay as they are."
+msgstr "وعده‌های دیگر و روزهای دیگر بدون تغییر می‌مانند."
 
-msgid "Meals will be added to"
-msgstr "وعده‌ها به این روز اضافه می‌شوند:"
+msgid "Save meals for this day."
+msgstr "ذخیرهٔ وعده‌های این روز."
 
-msgid "alongside any existing entries."
-msgstr "در کنار اطلاعاتی که قبلاً ثبت شده است."
+msgid "Saving meals…"
+msgstr "در حال ذخیرهٔ وعده‌ها…"
 
-msgid "Adding meals…"
-msgstr "در حال ثبت وعده‌ها…"
-
-msgid "Add reviewed meals"
-msgstr "ثبت وعده‌های بررسی‌شده"
+msgid "Save reviewed meals"
+msgstr "ذخیرهٔ وعده‌های بررسی‌شده"
 
 msgid "Start a new estimate"
 msgstr "شروع برآورد تازه"
@@ -1435,6 +1454,12 @@ msgid "Record it above; your trend will appear as you add more entries."
 msgstr ""
 "وزن را در بالا ثبت کنید؛ با اضافه شدن ثبت‌های بیشتر، روندتان نمایش داده می‌شود."
 
+msgid ""
+"Keep one entry per meal type. Combine the foods, or skip the extra entry."
+msgstr ""
+"برای هر نوع وعده یک ثبت نگه دارید. خوراک‌ها را ترکیب کنید یا ثبت اضافی را "
+"کنار بگذارید."
+
 msgid "Your AI settings have been saved."
 msgstr "تنظیمات هوش مصنوعی شما ذخیره شد."
 
@@ -1464,11 +1489,24 @@ msgstr "برای برآورد وعده‌ها، کلید OpenRouter را ذخی�
 msgid "These meals are already in your journal."
 msgstr "این وعده‌ها قبلاً در دفترتان ثبت شده‌اند."
 
+msgid ""
+"This estimate is already processing. Please wait a moment before opening it "
+"again."
+msgstr ""
+"این برآورد در حال آماده‌سازی است. لطفاً پیش از باز کردن دوبارهٔ آن کمی صبر کنید."
+
 msgid "This estimate is not ready. Please try estimating your meals again."
 msgstr "این برآورد آماده نیست. لطفاً دوباره برآورد وعده‌ها را درخواست کنید."
 
-msgid "The reviewed meals were added to your day."
-msgstr "وعده‌های بررسی‌شده به روز شما اضافه شد."
+msgid ""
+"This day changed while you were reviewing. Check the current entries below "
+"and confirm again."
+msgstr ""
+"هنگام بررسی شما، ثبت‌های این روز تغییر کرد. موارد فعلی را در پایین بررسی کنید "
+"و دوباره تأیید کنید."
+
+msgid "Your reviewed meals have been saved for this day."
+msgstr "وعده‌های بررسی‌شدهٔ شما برای این روز ذخیره شد."
 
 msgid "Your saved key could not be read. Save your OpenRouter key again."
 msgstr ""
@@ -1563,6 +1601,9 @@ msgid ""
 msgstr ""
 "یک وعده یا خوراک تمام روز را، همراه با زمان و مقدارهایی که یادتان مانده، شرح "
 "دهید."
+
+msgid "Replace the existing entries for these meal types."
+msgstr "ثبت‌های فعلی این نوع وعده‌ها جایگزین شوند."
 
 msgid "OpenRouter API key"
 msgstr "کلید API در OpenRouter"
@@ -1708,6 +1749,13 @@ msgstr "شام"
 
 msgid "Snack"
 msgstr "میان‌وعده"
+
+msgid ""
+"This meal type is already logged for this day. Edit the existing entry, or "
+"use AI review to replace it."
+msgstr ""
+"این نوع وعده برای این روز ثبت شده است. ثبت فعلی را ویرایش کنید یا از بررسی "
+"هوش مصنوعی برای جایگزینی آن استفاده کنید."
 
 msgid "Lose weight"
 msgstr "کاهش وزن"

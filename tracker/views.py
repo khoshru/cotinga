@@ -4,7 +4,7 @@ from typing import cast
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db import connection
+from django.db import connection, transaction
 from django.db.utils import OperationalError
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -52,18 +52,23 @@ def dashboard(request: HttpRequest) -> HttpResponse:
 @login_required
 @require_http_methods(["GET", "POST"])
 def meal_create(request: HttpRequest) -> HttpResponse:
+    user = cast(User, request.user)
     form = MealForm(
         request.POST if request.method == "POST" else None,
         initial={"date": selected_date(request)},
+        instance=Meal(user=user),
     )
-    if request.method == "POST" and form.is_valid():
-        meal = form.save(commit=False)
-        meal.user = cast(User, request.user)
-        meal.save()
-        messages.success(
-            request, gettext("Meal added. Your daily summary is up to date.")
-        )
-        return redirect(f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}")
+    if request.method == "POST":
+        with transaction.atomic():
+            User.objects.select_for_update().only("pk").get(pk=user.pk)
+            if form.is_valid():
+                meal = form.save()
+                messages.success(
+                    request, gettext("Meal added. Your daily summary is up to date.")
+                )
+                return redirect(
+                    f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}"
+                )
     return render(
         request,
         "tracker/form.html",
@@ -91,12 +96,18 @@ def meal_delete(request: HttpRequest, pk: int) -> HttpResponse:
 @login_required
 @require_http_methods(["GET", "POST"])
 def meal_edit(request: HttpRequest, pk: int) -> HttpResponse:
+    user = cast(User, request.user)
     meal = get_object_or_404(Meal, pk=pk, user=request.user)
     form = MealForm(request.POST if request.method == "POST" else None, instance=meal)
-    if request.method == "POST" and form.is_valid():
-        form.save()
-        messages.success(request, gettext("Meal updated."))
-        return redirect(f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}")
+    if request.method == "POST":
+        with transaction.atomic():
+            User.objects.select_for_update().only("pk").get(pk=user.pk)
+            if form.is_valid():
+                form.save()
+                messages.success(request, gettext("Meal updated."))
+                return redirect(
+                    f"{reverse('tracker:dashboard')}?date={meal.date.isoformat()}"
+                )
     return render(
         request,
         "tracker/form.html",

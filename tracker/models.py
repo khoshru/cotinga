@@ -1,6 +1,7 @@
 import uuid
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
@@ -86,6 +87,26 @@ class Meal(models.Model):
     def __str__(self) -> str:
         return f"{self.get_kind_display()}: {self.description}"
 
+    def clean(self) -> None:
+        super().clean()
+        if (
+            self.user_id
+            and self.date
+            and self.kind
+            and Meal.objects.filter(
+                user_id=self.user_id, date=self.date, kind=self.kind
+            )
+            .exclude(pk=self.pk)
+            .exists()
+        ):
+            raise ValidationError(
+                {
+                    "kind": gettext_lazy(
+                        "This meal type is already logged for this day. Edit the existing entry, or use AI review to replace it."
+                    )
+                }
+            )
+
     @property
     def display_description(self) -> str:
         return localized_text(self.description, self.description_fa)
@@ -120,6 +141,9 @@ class MealEstimate(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField()
     model = models.CharField(max_length=200)
+    submission_key = models.CharField(
+        max_length=64, blank=True, default="", editable=False
+    )
     result = models.JSONField(default=dict)
     status = models.CharField(
         max_length=12, choices=Status.choices, default=Status.PROCESSING
@@ -129,6 +153,13 @@ class MealEstimate(models.Model):
 
     class Meta:
         indexes = [models.Index(fields=["user", "created_at"])]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "submission_key"],
+                condition=~models.Q(submission_key=""),
+                name="unique_meal_submission",
+            )
+        ]
 
     def __str__(self) -> str:
         return f"Meal estimate for {self.date} ({self.get_status_display()})"

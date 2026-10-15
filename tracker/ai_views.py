@@ -22,11 +22,13 @@ from .credentials import CredentialError, decrypt_key, encrypt_key
 from .forms import (
     EstimateForm,
     MealForm,
+    MealSaveForm,
     OpenRouterForm,
     TargetEstimateForm,
     TargetForm,
 )
 from .localization import localized_result
+from .meal_imports import journal_state, submission_key
 from .models import (
     DailyTarget,
     Meal,
@@ -43,8 +45,27 @@ class MealReviewForm(MealForm):
         fields = tuple(field for field in MealForm.Meta.fields if field != "date")
 
 
+class MealReviewFormSet(forms.BaseFormSet):  # type: ignore[type-arg]
+    def clean(self) -> None:
+        super().clean()
+        if any(self.errors):
+            return
+        kinds = [
+            form.cleaned_data["kind"]
+            for form in self.forms
+            if form.cleaned_data and not form.cleaned_data.get("DELETE")
+        ]
+        if len(kinds) != len(set(kinds)):
+            raise forms.ValidationError(
+                gettext(
+                    "Keep one entry per meal type. Combine the foods, or skip the extra entry."
+                )
+            )
+
+
 ReviewFormSet = forms.formset_factory(
     MealReviewForm,
+    formset=MealReviewFormSet,
     extra=0,
     can_delete=True,
     min_num=1,
@@ -172,10 +193,26 @@ def _check_estimate_limits(user: User) -> None:
         )
 
 
-def _create_estimate(user: User, data: dict[str, Any], model: str) -> MealEstimate:
+def _create_estimate(
+    user: User, data: dict[str, Any], model: str
+) -> tuple[MealEstimate, bool]:
+    key = submission_key(data)
     with transaction.atomic():
+        User.objects.select_for_update().only("pk").get(pk=user.pk)
+        existing = MealEstimate.objects.filter(user=user, submission_key=key).first()
+        if existing is not None:
+            if existing.status != MealEstimate.Status.FAILED and (
+                existing.status != MealEstimate.Status.PROCESSING
+                or existing.created_at > timezone.now() - timedelta(minutes=2)
+            ):
+                return existing, False
+            existing.submission_key = ""
+            existing.status = MealEstimate.Status.FAILED
+            existing.save(update_fields=["submission_key", "status"])
         _check_estimate_limits(user)
-        return MealEstimate.objects.create(user=user, date=data["date"], model=model)
+        return MealEstimate.objects.create(
+            user=user, date=data["date"], model=model, submission_key=key
+        ), True
 
 
 @login_required
@@ -289,7 +326,28 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
         try:
             key = decrypt_key(preferences.encrypted_api_key)
             model = openrouter.find_model(preferences.model)
-            batch = _create_estimate(user, form.cleaned_data, model.id)
+            batch, created = _create_estimate(user, form.cleaned_data, model.id)
+            if not created:
+                if batch.status == MealEstimate.Status.SAVED:
+                    messages.info(
+                        request, gettext("These meals are already in your journal.")
+                    )
+                    return redirect(
+                        f"{reverse('tracker:dashboard')}?date={batch.date.isoformat()}"
+                    )
+                if batch.status == MealEstimate.Status.READY:
+                    return redirect("tracker:ai-review", pk=batch.pk)
+                form.add_error(
+                    None,
+                    gettext(
+                        "This estimate is already processing. Please wait a moment before opening it again."
+                    ),
+                )
+                return render(
+                    request,
+                    "tracker/estimate.html",
+                    {"form": form, "preferences": preferences},
+                )
             result = openrouter.estimate_day(
                 key, model, form.cleaned_data["prompt"], batch.date
             )
@@ -311,6 +369,7 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
 @never_cache
 @require_http_methods(["GET", "POST"])
 def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
+    user = cast(User, request.user)
     batch = get_object_or_404(MealEstimate, pk=pk, user=request.user)
     if batch.status == MealEstimate.Status.SAVED:
         messages.info(request, gettext("These meals are already in your journal."))
@@ -328,14 +387,84 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
         initial=batch.result["meals"],
         prefix="meals",
     )
-    if request.method == "POST" and formset.is_valid():
-        with transaction.atomic():
+    with transaction.atomic():
+        if request.method == "POST":
+            User.objects.select_for_update().only("pk").get(pk=user.pk)
+        existing = list(Meal.objects.filter(user=user, date=batch.date))
+        state = journal_state(existing)
+        valid = formset.is_valid() if request.method == "POST" else False
+        selected_kinds = (
+            {
+                str(form.cleaned_data["kind"])
+                for form in formset
+                if valid and not form.cleaned_data.get("DELETE")
+            }
+            if request.method == "POST"
+            else {str(row["kind"]) for row in batch.result["meals"]}
+        )
+        replacements = [meal for meal in existing if meal.kind in selected_kinds]
+        save_data = request.POST.copy() if request.method == "POST" else None
+        stale = (
+            request.method == "POST" and request.POST.get("journal_state", "") != state
+        )
+        if stale:
+            refreshed = request.POST.copy()
+            refreshed["journal_state"] = state
+            refreshed.pop("confirm_replacement", None)
+            save_data = refreshed
+        save_form = MealSaveForm(save_data, initial={"journal_state": state})
+        save_form.fields["confirm_replacement"].required = bool(replacements)
+        save_valid = save_form.is_valid() if request.method == "POST" else False
+        if stale:
+            save_form.add_error(
+                None,
+                gettext(
+                    "This day changed while you were reviewing. Check the current entries below and confirm again."
+                ),
+            )
+        already_saved = MealEstimate.objects.filter(
+            pk=batch.pk, status=MealEstimate.Status.SAVED
+        ).exists()
+        if request.method == "POST" and (
+            already_saved or (valid and save_valid and not stale)
+        ):
             claimed = MealEstimate.objects.filter(
                 pk=batch.pk,
                 user=cast(User, request.user),
                 status=MealEstimate.Status.READY,
             ).update(status=MealEstimate.Status.SAVED, saved_at=timezone.now())
             if claimed:
+                # Keep the old values with the saved estimate for recovery. Only
+                # the explicitly reviewed meal types are replaced, on this day.
+                previous = list(
+                    Meal.objects.filter(
+                        pk__in=[meal.pk for meal in replacements]
+                    ).values(
+                        "id",
+                        "date",
+                        "kind",
+                        "time",
+                        "description",
+                        "description_fa",
+                        "portion",
+                        "portion_fa",
+                        "calories",
+                        "protein",
+                        "carbs",
+                        "fat",
+                        "estimated",
+                        "estimate_model",
+                    )
+                )
+                batch.result["replaced_meals"] = [
+                    {
+                        key: value.isoformat() if hasattr(value, "isoformat") else value
+                        for key, value in row.items()
+                    }
+                    for row in previous
+                ]
+                batch.save(update_fields=["result"])
+                Meal.objects.filter(pk__in=[meal.pk for meal in replacements]).delete()
                 meals = []
                 for form in formset:
                     if not form.cleaned_data.get("DELETE"):
@@ -345,17 +474,40 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                         meal.estimated = True
                         meal.estimate_model = batch.model
                         meals.append(meal)
-                # Form validation bounds every value; the transaction saves the whole day once.
                 Meal.objects.bulk_create(meals)
-        messages.success(
-            request,
-            gettext("The reviewed meals were added to your day.")
-            if claimed
-            else gettext("These meals are already in your journal."),
+            messages.success(
+                request,
+                gettext("Your reviewed meals have been saved for this day.")
+                if claimed
+                else gettext("These meals are already in your journal."),
+            )
+            return redirect(
+                f"{reverse('tracker:dashboard')}?date={batch.date.isoformat()}"
+            )
+    proposed = (
+        sum(
+            int(form.cleaned_data.get("calories", 0))
+            for form in formset
+            if valid and not form.cleaned_data.get("DELETE")
         )
-        return redirect(f"{reverse('tracker:dashboard')}?date={batch.date.isoformat()}")
+        if request.method == "POST"
+        else sum(int(row["calories"]) for row in batch.result["meals"])
+    )
+    current_total = sum(meal.calories for meal in existing)
+    replacement_total = sum(meal.calories for meal in replacements)
     return render(
         request,
         "tracker/review.html",
-        {"batch": batch, "formset": formset, "result": localized_result(batch.result)},
+        {
+            "batch": batch,
+            "formset": formset,
+            "result": localized_result(batch.result),
+            "save_form": save_form,
+            "existing_meals": existing,
+            "existing_kinds": ",".join(sorted({meal.kind for meal in existing})),
+            "replacements": replacements,
+            "current_total": current_total,
+            "proposed_total": proposed,
+            "updated_total": current_total - replacement_total + proposed,
+        },
     )

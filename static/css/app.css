@@ -216,6 +216,23 @@
   .review-save { margin: 24px 0 12px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   .review-save h2 { font-size: 18px; }
   .review-save p { color: var(--muted); font-size: 12px; margin-top: 7px; }
+  .review-day { margin-top: 26px; }
+  .review-day .section-heading { gap: 16px; flex-wrap: wrap; }
+  .review-day .section-heading h2 { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+  .review-existing-heading { margin-top: 24px; font-size: 13px; color: var(--muted); }
+  .review-existing article { display: flex; justify-content: space-between; gap: 20px; padding-block: 16px; border-bottom: 1px solid var(--border); }
+  .review-existing article > div { min-width: 0; }
+  .review-existing strong { font-size: 13px; }
+  .review-existing p { margin-block: 6px 10px; color: var(--muted); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+  .review-existing-energy { flex-shrink: 0; font-size: 13px; white-space: nowrap; }
+  .review-day-totals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+  .review-day-totals > div { padding-inline-start: 16px; border-inline-start: 2px solid var(--mint); }
+  .review-day-totals span { display: block; color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+  .review-day-totals strong { font-size: clamp(20px, 3vw, 28px); line-height: 1.3; }
+  .review-day-totals small { font-size: 12px; color: var(--muted); font-weight: 400; }
+  .review-replacement { margin-top: 24px; padding: 20px; border: 1px solid #5b4729; border-radius: 13px; background: #282516; }
+  .review-replacement .check-label { align-items: flex-start; line-height: 1.6; }
+  .review-replacement input { flex-shrink: 0; margin-top: 4px; }
   .meal-kind { margin-inline-end: auto; }
   .meal-kind small { display: block; margin-top: 3px; color: var(--faint); font-size: 10px; }
   .meal-entry-header > .icon-button { margin: 0; }

@@ -5,7 +5,7 @@
   <div class="page-topline"><span class="eyebrow">{% translate "LESS TYPING, MORE CLARITY" %}</span><span class="journal-label"><span></span>{% translate "Meal estimates" %}</span></div>
   <div class="page-heading"><div><h1>{% translate "Describe your day" %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate "One meal or the whole day. Write it in your own words." %}</p></div></div>
   <div class="estimate-layout"><form method="post" class="panel estimate-form" data-busy-form>
-    {% csrf_token %}{% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+    {% csrf_token %}{{ form.submission_id }}{% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
     <div class="field"><label for="{{ form.date.id_for_label }}">{% translate "Day to log" %}</label>{{ form.date }}{{ form.date.errors }}</div>
     <div class="field"><label for="{{ form.prompt.id_for_label }}">{{ form.prompt.label }}</label>{{ form.prompt }}{{ form.prompt.errors }}<p class="help-text">{% translate "Include quantities and clock times when you know them. Missing portions are estimated and explained; unknown times stay blank." %}</p></div>
     <div class="model-connection"><span>{% include 'icon.html' with name='sparkles' %}{{ preferences.model }}</span><a class="text-link" href="{% url 'tracker:ai-settings' %}">{% translate "Change model" %}</a></div>

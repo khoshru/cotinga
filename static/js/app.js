@@ -129,6 +129,41 @@ document.querySelectorAll('[data-model-picker]').forEach((picker) => {
   document.addEventListener('click', (event) => { if (!picker.contains(event.target)) close(); });
 });
 
+document.querySelectorAll('[data-meal-review]').forEach((form) => {
+  const cards = [...form.querySelectorAll('.review-meal')];
+  const existing = [...form.querySelectorAll('[data-existing-meal]')];
+  const confirmation = form.querySelector('[data-replacement-confirm]');
+  const checkbox = confirmation.querySelector('input[type="checkbox"]');
+  const number = new Intl.NumberFormat(document.documentElement.lang || 'en');
+  const update = () => {
+    const kinds = new Set();
+    let added = 0;
+    let valid = true;
+    cards.forEach((card) => {
+      if (card.querySelector('[name$="-DELETE"]').checked) return;
+      kinds.add(card.querySelector('[name$="-kind"]').value);
+      const calories = card.querySelector('[name$="-calories"]');
+      valid = valid && calories.value !== '' && calories.validity.valid;
+      added += Number(calories.value);
+    });
+    let removed = 0;
+    let replacing = false;
+    existing.forEach((meal) => {
+      const matches = kinds.has(meal.dataset.kind);
+      meal.querySelector('[data-replace-marker]').hidden = !matches;
+      if (matches) { removed += Number(meal.dataset.calories); replacing = true; }
+    });
+    confirmation.hidden = !replacing;
+    checkbox.required = replacing;
+    if (!replacing) checkbox.checked = false;
+    form.querySelector('[data-review-total]').textContent = valid
+      ? number.format(Number(form.dataset.existingCalories) - removed + added) : '—';
+  };
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  update();
+});
+
 document.querySelectorAll('[data-busy-form]').forEach((form) => {
   const button = form.querySelector('[data-busy-label]');
   const originalNodes = [...button.childNodes].map((node) => node.cloneNode(true));

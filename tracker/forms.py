@@ -1,3 +1,4 @@
+import uuid
 from typing import Any, cast
 
 from django import forms
@@ -123,6 +124,9 @@ class TargetForm(forms.ModelForm):  # type: ignore[type-arg]
 
 
 class EstimateForm(forms.Form):
+    submission_id = forms.UUIDField(
+        required=False, initial=uuid.uuid4, widget=forms.HiddenInput
+    )
     date = forms.DateField(
         initial=timezone.localdate, widget=forms.DateInput(attrs={"type": "date"})
     )
@@ -138,6 +142,14 @@ class EstimateForm(forms.Form):
                 ),
             }
         ),
+    )
+
+
+class MealSaveForm(forms.Form):
+    journal_state = forms.CharField(required=False, widget=forms.HiddenInput)
+    confirm_replacement = forms.BooleanField(
+        required=False,
+        label=gettext_lazy("Replace the existing entries for these meal types."),
     )
 
 
