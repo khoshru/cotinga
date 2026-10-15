@@ -6,7 +6,7 @@ from typing import Any, cast
 from unittest.mock import patch
 
 import pytest
-from django.db.models import CharField
+from django.db.models import TextField
 from django.utils import translation
 
 from tracker import openrouter
@@ -109,10 +109,9 @@ def test_response_schema_carries_storage_and_nutrition_limits(language: str) -> 
     row = properties["meals"]["items"]["properties"]
     assert properties["meals"]["maxItems"] == openrouter.MAX_MEALS
     for name in ("description", "portion"):
-        assert (
-            row[name]["maxLength"]
-            == cast("CharField[str, str]", Meal._meta.get_field(name)).max_length
-        )
+        assert row[name]["maxLength"] == openrouter.MEAL_TEXT_LIMITS[name]
+        maximum = cast("TextField[str, str]", Meal._meta.get_field(name)).max_length
+        assert maximum is not None and row[name]["maxLength"] <= maximum
         if language == "fa":
             assert row[f"{name}_fa"]["maxLength"] == row[name]["maxLength"]
     for name in NUTRIENTS:

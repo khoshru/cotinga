@@ -2,6 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cotinga\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 23:52+0400\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,6 +253,7 @@ msgstr "მიზნების შეცვლა"
 msgid "Target"
 msgstr "მიზანი"
 
+#, python-format
 msgid "%(v0)s: %(v1)s %(v2)s eaten; target %(v3)s to %(v4)s %(v5)s"
 msgstr "%(v0)s: მიღებულია %(v1)s %(v2)s; მიზანია %(v3)s–%(v4)s %(v5)s"
 
@@ -268,17 +271,20 @@ msgstr ""
 msgid "ON THE MENU"
 msgstr "დღის კვება"
 
+#, python-format
 msgid "%(count)s meal"
 msgid_plural "%(count)s meals"
 msgstr[0] "%(count)s კვება"
 msgstr[1] "%(count)s კვება"
 
+#, python-format
 msgid "Edit %(v0)s"
 msgstr "%(v0)s — შეცვლა"
 
 msgid "Remove this meal from your journal?"
 msgstr "წაიშალოს ეს კვება დღიურიდან?"
 
+#, python-format
 msgid "Remove %(v0)s: %(v1)s"
 msgstr "%(v0)s: %(v1)s — წაშლა"
 
@@ -287,6 +293,9 @@ msgstr "თავდაპირველი ტექსტი"
 
 msgid "AI estimate"
 msgstr "AI-ის შეფასება"
+
+msgid "Add food"
+msgstr "საკვების დამატება"
 
 msgid "kcal"
 msgstr "კკალ"
@@ -412,11 +421,36 @@ msgstr ""
 msgid "Cancel"
 msgstr "გაუქმება"
 
+msgid "Keep the current food and add the foods and nutrients below."
+msgstr ""
+"არსებული საკვები დარჩება და ქვემოთ მოცემული საკვები და საკვები ნივთიერებები "
+"დაემატება."
+
+msgid "Use only the foods and nutrients below. Confirmation is required."
+msgstr ""
+"მხოლოდ ქვემოთ მოცემული საკვები და საკვები ნივთიერებები შეინახება. საჭიროა "
+"დადასტურება."
+
+msgid "Meal total after saving"
+msgstr "კვების ჯამი შენახვის შემდეგ"
+
+msgid "Adding more? Describe only the extra food, so it is counted once."
+msgstr ""
+"კიდევ ამატებთ? აღწერეთ მხოლოდ დამატებითი საკვები, რომ ერთხელ ჩაითვალოს."
+
 msgid "YOUR OWN WORDS"
 msgstr "თქვენი სიტყვებით"
 
 msgid "Saved exactly as you submitted it."
 msgstr "შენახულია ზუსტად ისე, როგორც გაგზავნეთ."
+
+msgid "Every addition keeps its own original input, in the order you saved it."
+msgstr ""
+"ყოველი დამატების თავდაპირველი ტექსტი ცალკე ინახება, შენახვის თანმიმდევრობით."
+
+#, python-format
+msgid "Input %(number)s"
+msgstr "ჩანაწერი %(number)s"
 
 msgid "The original input was not saved for this older estimate."
 msgstr "ამ ძველი შეფასებისთვის თავდაპირველი ტექსტი არ შენახულა."
@@ -444,6 +478,7 @@ msgstr ""
 msgid "Adjust my plan"
 msgstr "ჩემი გეგმის შეცვლა"
 
+#, python-format
 msgid ""
 "Your latest weigh-in is from %(day)s. Add a fresh reading for a more useful "
 "outlook."
@@ -552,9 +587,11 @@ msgstr ""
 "შეამჩნიეთ საკუთარი პროგრესი. წონის შენარჩუნების პროგნოზი შემდეგ ეტაპზეც "
 "დაგეხმარებათ."
 
+#, python-format
 msgid "A possible path in about %(count)s weeks."
 msgstr "შესაძლო გზა დაახლოებით %(count)s კვირაში."
 
+#, python-format
 msgid ""
 "The midpoint scenario reaches your goal around %(month)s. Treat it as a "
 "possibility, not a finish-line promise."
@@ -565,6 +602,7 @@ msgstr ""
 msgid "Your next step is clarity."
 msgstr "შემდეგი ნაბიჯი — მეტი სიცხადე."
 
+#, python-format
 msgid ""
 "At the midpoint of your current targets, the goal is not reached within this "
 "model's two-year, 20%% weight-change limits. Review the scenarios before "
@@ -595,6 +633,7 @@ msgstr "გეგმის საწყისი წონიდან"
 msgid "Small steps. Real momentum."
 msgstr "პატარა ნაბიჯები. რეალური წინსვლა."
 
+#, python-format
 msgid ""
 "Starting weight uses %(count)s reading from the latest seven-day window."
 msgid_plural ""
@@ -641,6 +680,7 @@ msgid "Weekly weight scenarios at your current calorie targets"
 msgstr ""
 "წონის კვირეული სცენარები თქვენი ამჟამინდელი კალორიული მიზნების მიხედვით"
 
+#, python-format
 msgid "Week %(week)s: %(weight)s kg"
 msgstr "კვირა %(week)s: %(weight)s კგ"
 
@@ -668,6 +708,7 @@ msgstr "კვირა"
 msgid "Midpoint maintenance"
 msgstr "შუალედური შესანარჩუნებელი ენერგია"
 
+#, python-format
 msgid ""
 "The shaded range changes estimated maintenance by ±%(percent)s%%. It is a "
 "sensitivity check, not a probability or a guaranteed range."
@@ -675,6 +716,7 @@ msgstr ""
 "დაჩრდილული დიაპაზონი შესანარჩუნებელ ენერგიას ±%(percent)s%%-ით ცვლის. ეს "
 "მგრძნობელობის შემოწმებაა და არა ალბათობა ან გარანტირებული დიაპაზონი."
 
+#, python-format
 msgid ""
 "Some curves stop at a 20%% weight change or the supported weight range. "
 "Update your readings and plan before projecting further."
@@ -682,6 +724,7 @@ msgstr ""
 "ზოგი მრუდი წონის 20%%-იანი ცვლილებისას ან დაშვებული წონის ზღვარზე წყდება. "
 "შემდგომი პროგნოზისთვის განაახლეთ აწონვები და გეგმა."
 
+#, python-format
 msgid "At week %(count)s"
 msgstr "%(count)s კვირაზე"
 
@@ -691,6 +734,7 @@ msgstr "მიზანი მიღწეულია"
 msgid "Estimated time to goal"
 msgstr "მიზნამდე სავარაუდო დრო"
 
+#, python-format
 msgid "~%(count)s weeks"
 msgstr "დაახლოებით %(count)s კვირა"
 
@@ -716,6 +760,7 @@ msgstr "შუალედური სცენარი არჩეულ წ
 msgid "Your midpoint drifts outside your maintenance band."
 msgstr "შუალედური სცენარი შენარჩუნების დიაპაზონს სცდება."
 
+#, python-format
 msgid ""
 "The reference band is ±%(band)s kg around your chosen weight. Everyday water "
 "fluctuations are not included."
@@ -723,12 +768,14 @@ msgstr ""
 "საორიენტაციო დიაპაზონი არჩეული წონის გარშემო ±%(band)s კგ-ია. წყლის "
 "ყოველდღიური მერყეობა გათვალისწინებული არ არის."
 
+#, python-format
 msgid "The midpoint is outside it by week %(week)s."
 msgstr "შუალედური სცენარი ამ დიაპაზონს %(week)s კვირაზე სცდება."
 
 msgid "Leave room for the unexpected."
 msgstr "დატოვეთ ადგილი მოულოდნელობისთვის."
 
+#, python-format
 msgid ""
 "With the same midpoint intake but different energy needs, the goal could "
 "take about %(earliest)s–%(latest)s weeks."
@@ -755,6 +802,7 @@ msgstr "მიღწეულია"
 msgid "Almost there"
 msgstr "თითქმის მიაღწიეთ"
 
+#, python-format
 msgid "About %(count)s weeks away"
 msgstr "დაახლოებით %(count)s კვირაში"
 
@@ -801,6 +849,7 @@ msgstr "დასაწყისი"
 msgid "What goes into this outlook?"
 msgstr "რას ეფუძნება ეს პროგნოზი?"
 
+#, python-format
 msgid "Estimated maintenance today: %(energy)s kcal/day."
 msgstr "შესანარჩუნებელი ენერგიის დღევანდელი შეფასება: %(energy)s კკალ/დღე."
 
@@ -828,6 +877,7 @@ msgstr ""
 "სწორდება. ეს არ არის NIH-ის სრული დამგეგმავი ან კლინიკურად დადასტურებული "
 "ინდივიდუალური პროგნოზი."
 
+#, python-format
 msgid ""
 "W is weight in kg, t is days, I is daily intake, and M is starting "
 "maintenance. Fixed planning assumptions: 22 kcal/kg/day long-term feedback, "
@@ -934,17 +984,20 @@ msgid "Open this day"
 msgstr "ამ დღის გახსნა"
 
 msgid ""
-"One entry per meal type. Existing entries of the same type will be replaced "
-"after you confirm."
+"One entry per meal type. Add extra food to an existing meal, or choose to "
+"replace it."
 msgstr ""
-"თითო კვების ტიპზე — ერთი ჩანაწერი. იმავე ტიპის არსებული ჩანაწერები თქვენი "
-"დადასტურების შემდეგ ჩანაცვლდება."
+"თითოეული ტიპის კვება ერთ ჩანაწერად ინახება. დაამატეთ საკვები არსებულ კვებაზე "
+"ან აირჩიეთ მისი ჩანაცვლება."
 
 msgid "Already in your journal"
 msgstr "უკვე არის თქვენს დღიურში"
 
 msgid "Will be replaced"
 msgstr "ჩანაცვლდება"
+
+msgid "Extra food will be added"
+msgstr "დამატებითი საკვები დაემატება"
 
 msgid "Current day total"
 msgstr "დღის მიმდინარე ჯამი"
@@ -1012,6 +1065,7 @@ msgstr "საშუალო მიღება"
 msgid "Per logged day ·"
 msgstr "თითოეულ ჩაწერილ დღეზე ·"
 
+#, python-format
 msgid "%(count)s day"
 msgid_plural "%(count)s days"
 msgstr[0] "%(count)s დღე"
@@ -1032,6 +1086,7 @@ msgstr "წონის ცვლილება"
 msgid "In this period ·"
 msgstr "ამ პერიოდში ·"
 
+#, python-format
 msgid "%(count)s weigh-in"
 msgid_plural "%(count)s weigh-ins"
 msgstr[0] "%(count)s აწონვა"
@@ -1148,6 +1203,7 @@ msgstr[1] "დღე თქვენი ამჟამინდელი კა
 msgid "of"
 msgstr "სულ"
 
+#, python-format
 msgid "%(count)s logged day"
 msgid_plural "%(count)s logged days"
 msgstr[0] "%(count)s ჩაწერილი დღე"
@@ -1317,9 +1373,11 @@ msgstr "ჩაწერილი კალორიები დღეები�
 msgid "Mint: below maintenance · Amber: above"
 msgstr "მწვანე: შესანარჩუნებელზე ნაკლები · ქარვისფერი: მეტი"
 
+#, python-format
 msgid "Reference: %(weight)s kg, recorded %(day)s."
 msgstr "საორიენტაციო წონა: %(weight)s კგ, ჩაწერილია %(day)s."
 
+#, python-format
 msgid "Using your recent %(weight)s kg weight as an approximate reference."
 msgstr "მიახლოებით საწყის წონად გამოიყენება თქვენი ბოლო %(weight)s კგ."
 
@@ -1340,6 +1398,7 @@ msgstr ""
 "ჩანაწერები და უცვლელი აქტივობა. წყლის, მონელებისა და კუნთის ცვლილებებმა "
 "შეიძლება სასწორზე სხვა შედეგი აჩვენოს; ეს გაზომილი ცხიმის კლება არ არის."
 
+#, python-format
 msgid "Changing estimated maintenance by ±10%% gives a sensitivity range of"
 msgstr "შესანარჩუნებელი ენერგიის ±10%%-ით შეცვლისას მგრძნობელობის დიაპაზონია"
 
@@ -1372,6 +1431,7 @@ msgstr ""
 "წონა, შესანარჩუნებელი ენერგია ან კვების ჩანაწერები ამ შეფასების დაშვებულ "
 "ფარგლებს სცდება. შეფასების გამოყენებამდე გადახედეთ ჩანაწერებს."
 
+#, python-format
 msgid "%(count)s of 7 days have food logs."
 msgstr "კვების ჩანაწერები არის 7 დღიდან %(count)s დღეზე."
 
@@ -1448,6 +1508,7 @@ msgstr "მოქმედებები"
 msgid "Remove this weigh-in?"
 msgstr "წაიშალოს ეს აწონვა?"
 
+#, python-format
 msgid "Remove weigh-in for %(v0)s"
 msgstr "%(v0)s თარიღის აწონვის წაშლა"
 
@@ -1456,6 +1517,15 @@ msgstr "პირველი აწონვით იწყება თქვ
 
 msgid "Record it above; your trend will appear as you add more entries."
 msgstr "ჩაწერეთ ზემოთ; ახალი მონაცემების დამატებისას ტენდენცია აქ გამოჩნდება."
+
+msgid "How should this be saved?"
+msgstr "როგორ შევინახოთ?"
+
+msgid "Add to this meal"
+msgstr "ამ კვებაზე დამატება"
+
+msgid "Replace this meal"
+msgstr "ამ კვების ჩანაცვლება"
 
 msgid ""
 "Keep one entry per meal type. Combine the foods, or skip the extra entry."
@@ -1499,6 +1569,13 @@ msgstr "ეს შეფასება უკვე მზადდება. �
 
 msgid "This estimate is not ready. Please try estimating your meals again."
 msgstr "ეს შეფასება ჯერ მზად არ არის. სცადეთ კვების შეფასება ხელახლა."
+
+msgid ""
+"This addition would exceed the meal's limits. Check the amounts, or edit the "
+"existing meal."
+msgstr ""
+"ამ დამატებით კვების დასაშვები ზღვარი გადაიჭრება. შეამოწმეთ რაოდენობები ან "
+"შეასწორეთ არსებული კვება."
 
 msgid ""
 "This day changed while you were reviewing. Check the current entries below "
@@ -1785,6 +1862,7 @@ msgstr ""
 msgid "Free"
 msgstr "უფასო"
 
+#, python-format
 msgid "$%(input)s input / $%(output)s output per 1M tokens"
 msgstr "$%(input)s შეყვანა / $%(output)s პასუხი ყოველ 1 მლნ ტოკენზე"
 
@@ -1886,15 +1964,18 @@ msgstr "აწონვა წაიშალა."
 msgid "Your weight goal has been saved."
 msgstr "თქვენი მიზნობრივი წონა შენახულია."
 
+#, python-format
 msgid "%(amount)s %(unit)s over range"
 msgstr "დიაპაზონს აღემატება %(amount)s %(unit)s-ით"
 
 msgid "Within your range"
 msgstr "თქვენს დიაპაზონშია"
 
+#, python-format
 msgid "On track, %(amount)s %(unit)s left"
 msgstr "მიზნის ფარგლებშია, დარჩა %(amount)s %(unit)s"
 
+#, python-format
 msgid "%(amount)s %(unit)s left"
 msgstr "დარჩა %(amount)s %(unit)s"
 

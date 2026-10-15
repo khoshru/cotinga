@@ -1,0 +1,11 @@
+{% load i18n %}
+<fieldset class="meal-action" data-meal-action>
+  <legend>{{ form.action.label }}</legend>
+  <p class="help-text meal-action-current"><strong data-action-kind></strong><span data-action-existing></span></p>
+  <div class="meal-action-options">
+    {% for choice in form.action %}<label class="meal-action-option">{{ choice.tag }}<span><strong>{{ choice.choice_label }}</strong><small>{% if choice.data.value == 'add' %}{% translate "Keep the current food and add the foods and nutrients below." %}{% else %}{% translate "Use only the foods and nutrients below. Confirmation is required." %}{% endif %}</small></span></label>{% endfor %}
+  </div>
+  {{ form.action.errors }}
+  <div class="meal-action-total"><span>{% translate "Meal total after saving" %}</span><strong><bdi data-review-meal-total>—</bdi> {% translate "kcal" %}</strong></div>
+  <p class="help-text">{% translate "Adding more? Describe only the extra food, so it is counted once." %}</p>
+</fieldset>

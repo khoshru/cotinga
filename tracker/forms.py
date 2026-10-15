@@ -38,8 +38,13 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
         widgets = {
             "date": forms.DateInput(attrs={"type": "date"}),
             "time": forms.TimeInput(attrs={"type": "time"}, format="%H:%M"),
-            "description": forms.TextInput(
-                attrs={"placeholder": gettext_lazy("What did you have?"), "dir": "auto"}
+            "description": forms.Textarea(
+                attrs={
+                    "placeholder": gettext_lazy("What did you have?"),
+                    "dir": "auto",
+                    "rows": 2,
+                    "class": "meal-text",
+                }
             ),
         }
         labels = {
@@ -57,11 +62,21 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
             "carbs": gettext_lazy("Carbs (g)"),
             "fat": gettext_lazy("Fat (g)"),
         }
-        widgets["portion"] = forms.TextInput(attrs={"dir": "ltr"})
-        widgets["description_fa"] = forms.TextInput(attrs={"dir": "rtl"})
-        widgets["portion_fa"] = forms.TextInput(attrs={"dir": "rtl"})
-        widgets["description_ka"] = forms.TextInput(attrs={"dir": "ltr"})
-        widgets["portion_ka"] = forms.TextInput(attrs={"dir": "ltr"})
+        widgets["portion"] = forms.Textarea(
+            attrs={"dir": "ltr", "rows": 2, "class": "meal-text"}
+        )
+        widgets["description_fa"] = forms.Textarea(
+            attrs={"dir": "rtl", "rows": 2, "class": "meal-text"}
+        )
+        widgets["portion_fa"] = forms.Textarea(
+            attrs={"dir": "rtl", "rows": 2, "class": "meal-text"}
+        )
+        widgets["description_ka"] = forms.Textarea(
+            attrs={"dir": "ltr", "rows": 2, "class": "meal-text"}
+        )
+        widgets["portion_ka"] = forms.Textarea(
+            attrs={"dir": "ltr", "rows": 2, "class": "meal-text"}
+        )
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)

@@ -4,6 +4,7 @@
 {% block content %}
   <div class="page-topline"><span class="eyebrow">{% translate "YOUR OWN WORDS" %}</span><span class="journal-label">{{ batch.date|date:'j F Y' }}</span></div>
   <div class="page-heading"><div><h1>{% translate "Original input" %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate "Saved exactly as you submitted it." %}</p></div></div>
-  <section class="panel original-input">{% if batch.original_input %}<p dir="auto">{{ batch.original_input }}</p>{% else %}<p>{% translate "The original input was not saved for this older estimate." %}</p>{% endif %}</section>
+  {% if inputs|length > 1 %}<p class="help-text">{% translate "Every addition keeps its own original input, in the order you saved it." %}</p>{% endif %}
+  {% for entry in inputs %}<section class="panel original-input">{% if inputs|length > 1 %}<h2>{% blocktranslate with number=forloop.counter %}Input {{ number }}{% endblocktranslate %}</h2>{% endif %}{% if entry.original_input %}<p dir="auto">{{ entry.original_input }}</p>{% else %}<p>{% translate "The original input was not saved for this older estimate." %}</p>{% endif %}</section>{% endfor %}
   <a class="quiet-button" href="{% url 'tracker:dashboard' %}?date={{ batch.date|date:'Y-m-d' }}">{% include 'icon.html' with name='arrow-right' %}{% translate "Back to this day" %}</a>
 {% endblock %}

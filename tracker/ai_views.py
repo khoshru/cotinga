@@ -6,13 +6,14 @@ from uuid import UUID
 from django import forms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.translation import gettext
+from django.utils.translation import gettext, gettext_lazy
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 from django.views.decorators.http import require_GET, require_http_methods
@@ -30,7 +31,7 @@ from .forms import (
     TargetForm,
 )
 from .localization import localized_result
-from .meal_imports import journal_state, submission_key
+from .meal_imports import combine_meals, journal_state, submission_key
 from .models import (
     DailyTarget,
     Meal,
@@ -43,6 +44,22 @@ from .views import selected_date
 
 
 class MealReviewForm(MealForm):
+    action = forms.ChoiceField(
+        label=gettext_lazy("How should this be saved?"),
+        choices=[
+            ("add", gettext_lazy("Add to this meal")),
+            ("replace", gettext_lazy("Replace this meal")),
+        ],
+        initial="add",
+        required=False,
+        widget=forms.RadioSelect,
+    )
+
+    def clean_action(self) -> str:
+        # Old review tabs used only a replacement checkbox. Keep their explicit
+        # confirmation requirement instead of silently changing their meaning.
+        return str(self.cleaned_data.get("action") or "replace")
+
     class Meta(MealForm.Meta):
         fields = tuple(field for field in MealForm.Meta.fields if field != "date")
 
@@ -342,7 +359,12 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
         return redirect("tracker:ai-settings")
     form = EstimateForm(
         request.POST if request.method == "POST" else None,
-        initial={"date": selected_date(request)},
+        initial={
+            "date": selected_date(request),
+            "prompt": f"{dict(Meal.Kind.choices).get(request.GET.get('kind', ''), '')}: "
+            if request.GET.get("kind") in Meal.Kind.values
+            else "",
+        },
     )
     if request.method == "POST" and form.is_valid():
         batch = None
@@ -413,7 +435,11 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
     with transaction.atomic():
         if request.method == "POST":
             User.objects.select_for_update().only("pk").get(pk=user.pk)
-        existing = list(Meal.objects.filter(user=user, date=batch.date))
+        existing = list(
+            Meal.objects.filter(user=user, date=batch.date).prefetch_related(
+                "source_estimates"
+            )
+        )
         state = journal_state(existing)
         valid = formset.is_valid() if request.method == "POST" else False
         selected_kinds = (
@@ -425,7 +451,49 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
             if request.method == "POST"
             else {str(row["kind"]) for row in batch.result["meals"]}
         )
-        replacements = [meal for meal in existing if meal.kind in selected_kinds]
+        modes = (
+            {
+                str(form.cleaned_data["kind"]): str(form.cleaned_data["action"])
+                for form in formset
+                if valid and not form.cleaned_data.get("DELETE")
+            }
+            if request.method == "POST"
+            else {
+                str(form["kind"].value()): str(form["action"].value())
+                for form in formset
+            }
+        )
+        replacements = [
+            meal
+            for meal in existing
+            if meal.kind in selected_kinds and modes.get(meal.kind) == "replace"
+        ]
+        prepared: list[tuple[Meal, list[Meal], str]] = []
+        if valid:
+            for form in formset:
+                if form.cleaned_data.get("DELETE"):
+                    continue
+                meal = form.save(commit=False)
+                matches = [old for old in existing if old.kind == meal.kind]
+                action = str(form.cleaned_data["action"])
+                if action == "add" and matches:
+                    try:
+                        meal = combine_meals(matches, meal)
+                    except ValidationError:
+                        form.add_error(
+                            None,
+                            gettext(
+                                "This addition would exceed the meal's limits. Check the amounts, or edit the existing meal."
+                            ),
+                        )
+                        valid = False
+                        continue
+                meal.user = user
+                meal.date = batch.date
+                meal.estimated = True
+                meal.estimate_model = batch.model
+                meal.estimate = batch
+                prepared.append((meal, matches, action))
         save_data = request.POST.copy() if request.method == "POST" else None
         stale = (
             request.method == "POST" and request.POST.get("journal_state", "") != state
@@ -457,11 +525,12 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                 status=MealEstimate.Status.READY,
             ).update(status=MealEstimate.Status.SAVED, saved_at=timezone.now())
             if claimed:
-                # Keep the old values with the saved estimate for recovery. Only
-                # the explicitly reviewed meal types are replaced, on this day.
-                previous = list(
-                    Meal.objects.filter(
-                        pk__in=[meal.pk for meal in replacements]
+                # Snapshot before any mutation, including original-input links.
+                affected = [old for _, matches, _ in prepared for old in matches]
+                previous: list[dict[str, Any]] = [
+                    dict(row)
+                    for row in Meal.objects.filter(
+                        pk__in=[meal.pk for meal in affected]
                     ).values(
                         "id",
                         "date",
@@ -481,23 +550,49 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                         "estimated",
                         "estimate_model",
                     )
-                )
-                batch.result["replaced_meals"] = json.loads(
-                    json.dumps(previous, cls=DjangoJSONEncoder)
-                )
+                ]
+                for row in previous:
+                    old = next(meal for meal in affected if meal.pk == row["id"])
+                    row["source_estimate_ids"] = [
+                        str(source.pk) for source in old.source_estimates.all()
+                    ]
+                previous = json.loads(json.dumps(previous, cls=DjangoJSONEncoder))
+                batch.result["replaced_meals"] = [
+                    row for row in previous if modes[row["kind"]] == "replace"
+                ]
+                batch.result["amended_meals"] = [
+                    row for row in previous if modes[row["kind"]] == "add"
+                ]
+                batch.result["save_actions"] = modes
                 batch.save(update_fields=["result"])
-                Meal.objects.filter(pk__in=[meal.pk for meal in replacements]).delete()
-                meals = []
-                for form in formset:
-                    if not form.cleaned_data.get("DELETE"):
-                        meal = form.save(commit=False)
-                        meal.user = cast(User, request.user)
-                        meal.date = batch.date
-                        meal.estimated = True
-                        meal.estimate_model = batch.model
-                        meal.estimate = batch
-                        meals.append(meal)
-                Meal.objects.bulk_create(meals)
+                sources: dict[str, set[UUID]] = {}
+                for meal, matches, action in prepared:
+                    sources[meal.kind] = {batch.pk}
+                    if action == "add":
+                        for old in matches:
+                            sources[meal.kind].update(
+                                source.pk for source in old.source_estimates.all()
+                            )
+                            if old.estimate_id:
+                                sources[meal.kind].add(old.estimate_id)
+                remove_ids = [
+                    old.pk
+                    for meal, matches, _ in prepared
+                    for old in matches
+                    if old.pk != meal.pk
+                ]
+                Meal.objects.filter(pk__in=remove_ids).delete()
+                Meal.objects.bulk_create(
+                    [meal for meal, _, _ in prepared if meal.pk is None]
+                )
+                for meal, matches, action in prepared:
+                    if action == "add" and matches:
+                        meal.save()
+                    meal.source_estimates.set(
+                        MealEstimate.objects.filter(
+                            user=user, pk__in=sources[meal.kind]
+                        )
+                    )
             messages.success(
                 request,
                 gettext("Your reviewed meals have been saved for this day.")

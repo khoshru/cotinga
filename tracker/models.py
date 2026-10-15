@@ -1,4 +1,5 @@
 import uuid
+from typing import Any
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -65,13 +66,13 @@ class Meal(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.localdate, db_index=True)
     kind = models.CharField(max_length=12, choices=Kind.choices)
-    description = models.CharField(max_length=240)
-    description_fa = models.CharField(max_length=240, blank=True)
-    description_ka = models.CharField(max_length=240, blank=True)
+    description = models.TextField(max_length=6000)
+    description_fa = models.TextField(max_length=6000, blank=True)
+    description_ka = models.TextField(max_length=6000, blank=True)
     time = models.TimeField(null=True, blank=True)
-    portion = models.CharField(max_length=160, blank=True)
-    portion_fa = models.CharField(max_length=160, blank=True)
-    portion_ka = models.CharField(max_length=160, blank=True)
+    portion = models.TextField(max_length=6000, blank=True)
+    portion_fa = models.TextField(max_length=6000, blank=True)
+    portion_ka = models.TextField(max_length=6000, blank=True)
     estimate = models.ForeignKey(
         "MealEstimate",
         on_delete=models.SET_NULL,
@@ -79,6 +80,11 @@ class Meal(models.Model):
         blank=True,
         related_name="saved_meals",
         editable=False,
+    )
+    source_estimates: models.ManyToManyField[MealEstimate, Any] = (
+        models.ManyToManyField(
+            "MealEstimate", blank=True, related_name="contributed_meals", editable=False
+        )
     )
     estimated = models.BooleanField(default=False)
     estimate_model = models.CharField(max_length=200, blank=True)

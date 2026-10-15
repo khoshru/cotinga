@@ -317,7 +317,9 @@ def test_past_day_replacement_preview_is_localized_and_scoped_to_owner(
     with translation.override(language):
         response = client.get(f"/ai/review/{batch.pk}/", HTTP_ACCEPT_LANGUAGE=language)
     assert response.status_code == 200
-    assert response.context["replacements"] == [old]
+    assert response.context["existing_meals"] == [old]
+    assert response.context["replacements"] == []
+    assert response.context["updated_total"] == old.calories + ROW["calories"]
     assert b"Private food" not in response.content
 
 

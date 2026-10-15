@@ -5,8 +5,9 @@ from typing import cast
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import connection, transaction
+from django.db.models.functions import Coalesce
 from django.db.utils import OperationalError
-from django.http import HttpRequest, HttpResponse, JsonResponse
+from django.http import Http404, HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
@@ -31,7 +32,23 @@ def selected_date(request: HttpRequest) -> date:
 @require_GET
 def original_input(request: HttpRequest, pk: str) -> HttpResponse:
     batch = get_object_or_404(MealEstimate, pk=pk, user=request.user)
-    response = render(request, "tracker/original_input.html", {"batch": batch})
+    inputs = [batch]
+    if request.GET.get("meal"):
+        try:
+            meal_id = int(request.GET["meal"])
+        except ValueError:
+            raise Http404 from None
+        if not 0 < meal_id < 2**63:
+            raise Http404
+        meal = get_object_or_404(Meal, pk=meal_id, user=request.user, estimate=batch)
+        inputs = list(
+            meal.source_estimates.filter(user=request.user)
+            .annotate(input_order=Coalesce("saved_at", "created_at"))
+            .order_by("input_order", "created_at", "pk")
+        ) or [batch]
+    response = render(
+        request, "tracker/original_input.html", {"batch": batch, "inputs": inputs}
+    )
     response["Cache-Control"] = "private, no-store"
     return response
 

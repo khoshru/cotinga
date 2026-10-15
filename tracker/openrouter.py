@@ -12,21 +12,17 @@ from time import monotonic
 from typing import Any, cast
 
 from django.core.cache import cache
-from django.db.models import CharField
 from django.utils.translation import gettext
 from django.views.decorators.debug import sensitive_variables
 
 from .forms import MealForm, TargetForm
 from .localization import english_text, localized_result, translation_language
-from .models import NUTRIENTS, Meal
+from .models import NUTRIENTS
 
 CATALOG_CACHE = "openrouter:structured-text-models:v1"
 MAX_MEALS = 20
 MODEL_ID = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9._:/+-]{0,199}")
-MEAL_TEXT_LIMITS = {
-    name: cast(int, cast("CharField[str, str]", Meal._meta.get_field(name)).max_length)
-    for name in ("description", "portion")
-}
+MEAL_TEXT_LIMITS = {"description": 240, "portion": 160}
 MEAL_REQUEST_BUDGET = 45
 MAX_CORRECTION_CONTENT = 32_000
 logger = logging.getLogger(__name__)
@@ -319,6 +315,9 @@ def validate_estimate(value: Any, day: date) -> dict[str, Any]:
             row.get("portion"), str
         ):
             raise MealOutputError(f"{prefix}:description_and_portion_strings_required")
+        for name, limit in MEAL_TEXT_LIMITS.items():
+            if len(row[name]) > limit:
+                raise MealOutputError(f"{prefix}.{name}:max_length")
         meal_time = row.get("time")
         if meal_time is not None and (
             not isinstance(meal_time, str)

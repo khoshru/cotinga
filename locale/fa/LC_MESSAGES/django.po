@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 20:02+0400\n"
+"POT-Creation-Date: 2026-10-15 23:52+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -300,6 +300,9 @@ msgstr "متن اولیه"
 msgid "AI estimate"
 msgstr "برآورد هوش مصنوعی"
 
+msgid "Add food"
+msgstr "افزودن غذا"
+
 msgid "kcal"
 msgstr "کیلوکالری"
 
@@ -423,11 +426,30 @@ msgstr ""
 msgid "Cancel"
 msgstr "انصراف"
 
+msgid "Keep the current food and add the foods and nutrients below."
+msgstr "غذاهای فعلی حفظ می‌شوند و غذاها و مواد مغذی زیر به آن‌ها اضافه می‌شوند."
+
+msgid "Use only the foods and nutrients below. Confirmation is required."
+msgstr "فقط غذاها و مواد مغذی زیر ذخیره می‌شوند. تأیید شما لازم است."
+
+msgid "Meal total after saving"
+msgstr "مجموع این وعده پس از ذخیره"
+
+msgid "Adding more? Describe only the extra food, so it is counted once."
+msgstr "برای افزودن، فقط غذای اضافه را توضیح دهید تا دوبار شمرده نشود."
+
 msgid "YOUR OWN WORDS"
 msgstr "با کلمات خودتان"
 
 msgid "Saved exactly as you submitted it."
 msgstr "دقیقاً همان‌طور که فرستادید ذخیره شده است."
+
+msgid "Every addition keeps its own original input, in the order you saved it."
+msgstr "متن اصلی هر بار افزودن، به ترتیب ذخیره، جداگانه نگه داشته می‌شود."
+
+#, python-format
+msgid "Input %(number)s"
+msgstr "متن %(number)s"
 
 msgid "The original input was not saved for this older estimate."
 msgstr "متن اولیه برای این برآورد قدیمی ذخیره نشده است."
@@ -953,17 +975,20 @@ msgid "Open this day"
 msgstr "باز کردن این روز"
 
 msgid ""
-"One entry per meal type. Existing entries of the same type will be replaced "
-"after you confirm."
+"One entry per meal type. Add extra food to an existing meal, or choose to "
+"replace it."
 msgstr ""
-"برای هر نوع وعده، یک ثبت. وعده‌های موجود از همان نوع پس از تأیید شما جایگزین "
-"می‌شوند."
+"برای هر نوع وعده یک ثبت دارید. غذای اضافه را به وعدهٔ فعلی بیفزایید یا آن را "
+"جایگزین کنید."
 
 msgid "Already in your journal"
 msgstr "ثبت‌های فعلی دفتر شما"
 
 msgid "Will be replaced"
 msgstr "جایگزین می‌شود"
+
+msgid "Extra food will be added"
+msgstr "غذای اضافه افزوده می‌شود"
 
 msgid "Current day total"
 msgstr "مجموع فعلی روز"
@@ -1478,6 +1503,15 @@ msgid "Record it above; your trend will appear as you add more entries."
 msgstr ""
 "وزن را در بالا ثبت کنید؛ با اضافه شدن ثبت‌های بیشتر، روندتان نمایش داده می‌شود."
 
+msgid "How should this be saved?"
+msgstr "این مورد چطور ذخیره شود؟"
+
+msgid "Add to this meal"
+msgstr "به این وعده اضافه کن"
+
+msgid "Replace this meal"
+msgstr "جایگزین این وعده کن"
+
 msgid ""
 "Keep one entry per meal type. Combine the foods, or skip the extra entry."
 msgstr ""
@@ -1521,6 +1555,13 @@ msgstr ""
 
 msgid "This estimate is not ready. Please try estimating your meals again."
 msgstr "این برآورد آماده نیست. لطفاً دوباره برآورد وعده‌ها را درخواست کنید."
+
+msgid ""
+"This addition would exceed the meal's limits. Check the amounts, or edit the "
+"existing meal."
+msgstr ""
+"این مقدار از محدودهٔ مجاز وعده فراتر می‌رود. مقدارها را بررسی کنید یا وعدهٔ "
+"فعلی را ویرایش کنید."
 
 msgid ""
 "This day changed while you were reviewing. Check the current entries below "

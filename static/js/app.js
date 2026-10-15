@@ -147,22 +147,33 @@ document.querySelectorAll('[data-meal-review]').forEach((form) => {
   const checkbox = confirmation.querySelector('input[type="checkbox"]');
   const number = new Intl.NumberFormat(document.documentElement.lang || 'en');
   const update = () => {
-    const kinds = new Set();
+    const modes = new Map();
     let added = 0;
     let valid = true;
     cards.forEach((card) => {
       if (card.querySelector('[name$="-DELETE"]').checked) return;
-      kinds.add(card.querySelector('[name$="-kind"]').value);
+      const kindSelect = card.querySelector('[name$="-kind"]');
+      const kind = kindSelect.value;
+      card.querySelector('[data-action-kind]').textContent = kindSelect.selectedOptions[0]?.textContent || '';
+      const mode = card.querySelector('[name$="-action"]:checked')?.value || 'add';
+      modes.set(kind, mode);
       const calories = card.querySelector('[name$="-calories"]');
       valid = valid && calories.value !== '' && calories.validity.valid;
       added += Number(calories.value);
+      const matches = existing.filter((meal) => meal.dataset.kind === kind);
+      card.querySelector('[data-meal-action]').hidden = !matches.length;
+      card.querySelector('[data-action-existing]').textContent = matches.map((meal) => meal.querySelector('p').textContent).join('; ');
+      const before = matches.reduce((total, meal) => total + Number(meal.dataset.calories), 0);
+      card.querySelector('[data-review-meal-total]').textContent = calories.validity.valid && calories.value !== ''
+        ? number.format(Number(calories.value) + (mode === 'add' ? before : 0)) : '—';
     });
     let removed = 0;
     let replacing = false;
     existing.forEach((meal) => {
-      const matches = kinds.has(meal.dataset.kind);
-      meal.querySelector('[data-replace-marker]').hidden = !matches;
-      if (matches) { removed += Number(meal.dataset.calories); replacing = true; }
+      const mode = modes.get(meal.dataset.kind);
+      meal.querySelector('[data-replace-marker]').hidden = mode !== 'replace';
+      meal.querySelector('[data-add-marker]').hidden = mode !== 'add';
+      if (mode === 'replace') { removed += Number(meal.dataset.calories); replacing = true; }
     });
     confirmation.hidden = !replacing;
     checkbox.required = replacing;
