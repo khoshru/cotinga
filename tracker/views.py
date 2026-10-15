@@ -16,7 +16,7 @@ from django.views.decorators.http import require_GET, require_http_methods, requ
 from accounts.models import User
 
 from .forms import MealForm, TargetForm
-from .models import NUTRIENTS, DailyTarget, Meal
+from .models import NUTRIENTS, DailyTarget, Meal, MealEstimate
 from .summary import summarize
 
 
@@ -25,6 +25,15 @@ def selected_date(request: HttpRequest) -> date:
         return date.fromisoformat(request.GET.get("date", ""))
     except ValueError:
         return timezone.localdate()
+
+
+@login_required
+@require_GET
+def original_input(request: HttpRequest, pk: str) -> HttpResponse:
+    batch = get_object_or_404(MealEstimate, pk=pk, user=request.user)
+    response = render(request, "tracker/original_input.html", {"batch": batch})
+    response["Cache-Control"] = "private, no-store"
+    return response
 
 
 @login_required

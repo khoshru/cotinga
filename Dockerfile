@@ -12,7 +12,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev
 COPY . .
-RUN .venv/bin/python manage.py compilemessages -l fa --ignore=.venv --settings=config.settings.build --verbosity 0 \
+RUN .venv/bin/python manage.py compilemessages -l fa -l ka --ignore=.venv --settings=config.settings.build --verbosity 0 \
     && .venv/bin/python manage.py collectstatic --noinput --settings=config.settings.build
 
 FROM python:3.14-slim AS runtime

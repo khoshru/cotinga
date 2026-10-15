@@ -67,9 +67,19 @@ class Meal(models.Model):
     kind = models.CharField(max_length=12, choices=Kind.choices)
     description = models.CharField(max_length=240)
     description_fa = models.CharField(max_length=240, blank=True)
+    description_ka = models.CharField(max_length=240, blank=True)
     time = models.TimeField(null=True, blank=True)
     portion = models.CharField(max_length=160, blank=True)
     portion_fa = models.CharField(max_length=160, blank=True)
+    portion_ka = models.CharField(max_length=160, blank=True)
+    estimate = models.ForeignKey(
+        "MealEstimate",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="saved_meals",
+        editable=False,
+    )
     estimated = models.BooleanField(default=False)
     estimate_model = models.CharField(max_length=200, blank=True)
     calories = models.PositiveIntegerField(validators=[MaxValueValidator(10000)])
@@ -109,11 +119,13 @@ class Meal(models.Model):
 
     @property
     def display_description(self) -> str:
-        return localized_text(self.description, self.description_fa)
+        return localized_text(
+            self.description, self.description_fa, self.description_ka
+        )
 
     @property
     def display_portion(self) -> str:
-        return localized_text(self.portion, self.portion_fa)
+        return localized_text(self.portion, self.portion_fa, self.portion_ka)
 
 
 class OpenRouterSettings(models.Model):
@@ -141,6 +153,7 @@ class MealEstimate(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.DateField()
     model = models.CharField(max_length=200)
+    original_input = models.TextField(max_length=6000, blank=True, editable=False)
     submission_key = models.CharField(
         max_length=64, blank=True, default="", editable=False
     )
@@ -207,6 +220,7 @@ class TargetEstimate(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     model = models.CharField(max_length=200)
+    original_profile = models.JSONField(default=dict, blank=True, editable=False)
     result = models.JSONField(default=dict)
     status = models.CharField(
         max_length=12,

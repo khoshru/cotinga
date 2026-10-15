@@ -33,8 +33,10 @@ def journal_state(meals: list[Meal]) -> str:
         "time",
         "description",
         "description_fa",
+        "description_ka",
         "portion",
         "portion_fa",
+        "portion_ka",
         *NUTRIENTS,
     )
     value = json.dumps(

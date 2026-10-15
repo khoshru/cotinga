@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% translate "Original input" %}{% endblock %}
+{% block content %}
+  <div class="page-topline"><span class="eyebrow">{% translate "YOUR OWN WORDS" %}</span><span class="journal-label">{{ batch.date|date:'j F Y' }}</span></div>
+  <div class="page-heading"><div><h1>{% translate "Original input" %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate "Saved exactly as you submitted it." %}</p></div></div>
+  <section class="panel original-input">{% if batch.original_input %}<p dir="auto">{{ batch.original_input }}</p>{% else %}<p>{% translate "The original input was not saved for this older estimate." %}</p>{% endif %}</section>
+  <a class="quiet-button" href="{% url 'tracker:dashboard' %}?date={{ batch.date|date:'Y-m-d' }}">{% include 'icon.html' with name='arrow-right' %}{% translate "Back to this day" %}</a>
+{% endblock %}

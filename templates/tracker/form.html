@@ -8,7 +8,7 @@
   <form method="post" class="entry-form {% if targets_form %}targets-form{% endif %}">
     {% csrf_token %}
     {% if form.non_field_errors %}<div class="form-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
-    <div class="form-grid">{% for field in form %}<div class="field {% if field.name == 'description' or field.name == 'description_fa' or field.name == 'portion_fa' %}field-wide{% endif %}"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<div class="field-errors" role="alert">{{ field.errors }}</div>{% endif %}{% if field.help_text %}<p class="help-text">{{ field.help_text }}</p>{% endif %}</div>{% endfor %}</div>
+    <div class="form-grid">{% for field in form %}<div class="field {% if field.name == 'description' or field.name == 'description_fa' or field.name == 'description_ka' or field.name == 'portion_fa' or field.name == 'portion_ka' %}field-wide{% endif %}"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<div class="field-errors" role="alert">{{ field.errors }}</div>{% endif %}{% if field.help_text %}<p class="help-text">{{ field.help_text }}</p>{% endif %}</div>{% endfor %}</div>
     <div class="form-actions"><button class="button primary" type="submit">{% include 'icon.html' with name='check' %}{{ submit_label }}</button><a class="quiet-button" href="{% url 'tracker:dashboard' %}">{% translate "Cancel" %}</a></div>
   </form>
 {% endblock %}

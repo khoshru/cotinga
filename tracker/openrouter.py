@@ -17,7 +17,7 @@ from django.utils.translation import gettext
 from django.views.decorators.debug import sensitive_variables
 
 from .forms import MealForm, TargetForm
-from .localization import english_text, is_farsi, localized_result
+from .localization import english_text, localized_result, translation_language
 from .models import NUTRIENTS, Meal
 
 CATALOG_CACHE = "openrouter:structured-text-models:v1"
@@ -333,16 +333,19 @@ def validate_estimate(value: Any, day: date) -> dict[str, Any]:
             "portion": row["portion"],
             **{name: row[name] for name in NUTRIENTS},
         }
-        if is_farsi():
+        language = translation_language()
+        if language:
             for name, limit in MEAL_TEXT_LIMITS.items():
-                translated = row.get(f"{name}_fa")
+                translated = row.get(f"{name}_{language}")
                 if (
                     not isinstance(translated, str)
                     or len(translated) > limit
                     or (data[name] and not translated.strip())
                 ):
-                    raise MealOutputError(f"{prefix}.{name}_fa:translation_max_{limit}")
-                data[f"{name}_fa"] = translated
+                    raise MealOutputError(
+                        f"{prefix}.{name}_{language}:translation_max_{limit}"
+                    )
+                data[f"{name}_{language}"] = translated
         form = MealForm(data=data)
         if not form.is_valid():
             raise MealOutputError(
@@ -352,7 +355,14 @@ def validate_estimate(value: Any, day: date) -> dict[str, Any]:
                     for error in errors
                 )
             )
-        for name in ("description", "portion", "description_fa", "portion_fa"):
+        for name in (
+            "description",
+            "portion",
+            "description_fa",
+            "portion_fa",
+            "description_ka",
+            "portion_ka",
+        ):
             if name in form.cleaned_data:
                 data[name] = form.cleaned_data[name]
         meals.append(data)
@@ -370,12 +380,15 @@ def validate_estimate(value: Any, day: date) -> dict[str, Any]:
     except OpenRouterError:
         raise MealOutputError("assumptions:english_original_required") from None
     result = {"meals": meals, "assumptions": assumptions}
-    if is_farsi():
+    language = translation_language()
+    if language:
         try:
-            result["assumptions_fa"] = _translated_notes(value, assumptions, 20)
+            result[f"assumptions_{language}"] = _translated_notes(
+                value, assumptions, 20
+            )
         except OpenRouterError:
             raise MealOutputError(
-                "assumptions_fa:matching_translations_required"
+                f"assumptions_{language}:matching_translations_required"
             ) from None
     return result
 
@@ -387,7 +400,7 @@ def estimate_day(
     payload: dict[str, Any] = {
         "model": model.id,
         "stream": False,
-        "max_tokens": 6000 if is_farsi() else 3500,
+        "max_tokens": 6000 if translation_language() else 3500,
         "provider": {"require_parameters": True},
         "messages": [
             {
@@ -484,40 +497,43 @@ def _meal_content(response: dict[str, Any]) -> str:
 
 def _output_language() -> str:
     instruction = "English is the canonical default. Always write description, portion, explanation and assumptions in English, regardless of the input language. Transliterate non-English food names when necessary. Keep JSON keys, enum values, nutrition values and times unchanged. "
-    if is_farsi():
+    language = translation_language()
+    if language:
+        name = "Persian (Farsi)" if language == "fa" else "Georgian"
         return (
             instruction
-            + "Also provide equivalent Persian (Farsi) translations in the matching _fa fields. Translate the same meal and portion; do not estimate nutrition twice. Keep each assumptions_fa entry aligned with its English assumptions entry."
+            + f"Also provide equivalent {name} translations in the matching _{language} fields. Translate the same meal and portion; do not estimate nutrition twice. Keep each assumptions_{language} entry aligned with its English assumptions entry. Generate no other translations."
         )
     return (
         instruction
-        + "Generate English only. Do not include translations or _fa fields."
+        + "Generate English only. Do not include translations, _fa fields or _ka fields."
     )
 
 
 def _response_schema(base: dict[str, Any], *, meals: bool = False) -> dict[str, Any]:
     schema = deepcopy(base)
-    if is_farsi():
+    language = translation_language()
+    if language:
         properties = schema["properties"]
         translated: dict[str, Any] = {
-            "assumptions_fa": {"type": "array", "items": {"type": "string"}}
+            f"assumptions_{language}": {"type": "array", "items": {"type": "string"}}
         }
         if meals:
             item = properties["meals"]["items"]
             for name in ("description", "portion"):
-                item["properties"][f"{name}_fa"] = {
+                item["properties"][f"{name}_{language}"] = {
                     "type": "string",
                     "maxLength": MEAL_TEXT_LIMITS[name],
-                    "description": f"Compact Persian translation of the English {name}, at most {MEAL_TEXT_LIMITS[name]} characters",
+                    "description": f"Compact translation of the English {name} into {language}, at most {MEAL_TEXT_LIMITS[name]} characters",
                 }
-                item["required"].append(f"{name}_fa")
-            translated["assumptions_fa"] = {
+                item["required"].append(f"{name}_{language}")
+            translated[f"assumptions_{language}"] = {
                 "type": "array",
                 "maxItems": 20,
                 "items": {"type": "string", "maxLength": 500},
             }
         else:
-            translated["explanation_fa"] = {"type": "string"}
+            translated[f"explanation_{language}"] = {"type": "string"}
         properties.update(translated)
         schema["required"].extend(translated)
     return schema
@@ -534,7 +550,7 @@ def _validate_english_notes(notes: list[str]) -> None:
 
 
 def _translated_notes(value: dict[str, Any], notes: list[str], limit: int) -> list[str]:
-    translated = value.get("assumptions_fa")
+    translated = value.get(f"assumptions_{translation_language()}")
     if (
         not isinstance(translated, list)
         or len(translated) != len(notes)
@@ -586,15 +602,16 @@ def validate_targets(value: Any) -> dict[str, Any]:
         raise OpenRouterError(invalid)
     _validate_english_notes([explanation, *assumptions])
     translations = {}
-    if is_farsi():
-        translated = value.get("explanation_fa")
+    language = translation_language()
+    if language:
+        translated = value.get(f"explanation_{language}")
         if not isinstance(translated, str) or not 1 <= len(translated.strip()) <= 1500:
             raise OpenRouterError(
                 gettext("The model returned incomplete translations. Please try again.")
             )
         translations = {
-            "explanation_fa": translated,
-            "assumptions_fa": _translated_notes(value, assumptions, 10),
+            f"explanation_{language}": translated,
+            f"assumptions_{language}": _translated_notes(value, assumptions, 10),
         }
     if not value["can_suggest"]:
         raise OpenRouterError(
@@ -628,7 +645,7 @@ def estimate_targets(
     payload: dict[str, Any] = {
         "model": model.id,
         "stream": False,
-        "max_tokens": 6000 if is_farsi() else 3500,
+        "max_tokens": 6000 if translation_language() else 3500,
         "provider": {"require_parameters": True},
         "messages": [
             {

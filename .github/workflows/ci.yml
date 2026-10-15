@@ -40,5 +40,5 @@ jobs:
         run: uv run python manage.py check --deploy --settings=config.settings.production --fail-level WARNING
       - name: Run tests
         run: |
-          uv run python manage.py compilemessages -l fa --ignore=.venv --settings=config.settings.test --verbosity 0
+          uv run python manage.py compilemessages -l fa -l ka --ignore=.venv --settings=config.settings.test --verbosity 0
           uv run pytest --cov

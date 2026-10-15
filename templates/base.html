@@ -24,11 +24,13 @@
       </a>
       <span class="header-note">{% translate "Small steps. A little more you." %}</span>
       <div class="header-controls">
-      <form method="post" action="{% url 'set_language' %}" class="language-switch" aria-label="{% translate 'Language' %}">
-        {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <button type="submit" name="language" value="en" lang="en" aria-pressed="{% if LANGUAGE_CODE == 'en' %}true{% else %}false{% endif %}">EN</button>
-        <button type="submit" name="language" value="fa" lang="fa" aria-pressed="{% if LANGUAGE_CODE == 'fa' %}true{% else %}false{% endif %}">فارسی</button>
-      </form>
+      <details class="language-switch" data-language-menu>
+        <summary aria-label="{% translate 'Change language' %}">{% include 'icon.html' with name='globe' %}<span>{% if LANGUAGE_CODE == 'ka' %}ქართული{% elif LANGUAGE_CODE == 'fa' %}فارسی{% else %}English{% endif %}</span>{% include 'icon.html' with name='chevron-down' %}</summary>
+        <form method="post" action="{% url 'set_language' %}" class="language-options" aria-label="{% translate 'Language' %}">
+          {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+          {% get_available_languages as available_languages %}{% for code, name in available_languages %}<button type="submit" name="language" value="{{ code }}" lang="{{ code }}" {% if code == LANGUAGE_CODE %}aria-current="true"{% endif %}><span>{{ name }}</span>{% if code == LANGUAGE_CODE %}{% include 'icon.html' with name='check' %}{% endif %}</button>{% endfor %}
+        </form>
+      </details>
       {% if user.is_authenticated %}
         <form method="post" action="{% url 'logout' %}" class="account-action">{% csrf_token %}<button class="quiet-button" type="submit">{% translate "Sign out" %} {% include 'icon.html' with name='arrow-right' %}</button></form>
       {% else %}

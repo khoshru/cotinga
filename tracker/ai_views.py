@@ -211,7 +211,11 @@ def _create_estimate(
             existing.save(update_fields=["submission_key", "status"])
         _check_estimate_limits(user)
         return MealEstimate.objects.create(
-            user=user, date=data["date"], model=model, submission_key=key
+            user=user,
+            date=data["date"],
+            model=model,
+            submission_key=key,
+            original_input=data["prompt"],
         ), True
 
 
@@ -241,7 +245,14 @@ def targets_estimate_view(request: HttpRequest) -> HttpResponse:
             model = openrouter.find_model(preferences.model)
             with transaction.atomic():
                 _check_estimate_limits(user)
-                batch = TargetEstimate.objects.create(user=user, model=model.id)
+                batch = TargetEstimate.objects.create(
+                    user=user,
+                    model=model.id,
+                    original_profile={
+                        name: request.POST.get(name, "")
+                        for name in TargetEstimateForm.base_fields
+                    },
+                )
             result = openrouter.estimate_targets(key, model, form.cleaned_data)
             batch.result = result
             batch.status = MealEstimate.Status.READY
@@ -299,7 +310,17 @@ def targets_review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
     return render(
         request,
         "tracker/target_review.html",
-        {"form": form, "batch": batch, "result": localized_result(batch.result)},
+        {
+            "form": form,
+            "batch": batch,
+            "result": localized_result(batch.result),
+            "original_details": [
+                (field.label, batch.original_profile.get(name, ""))
+                for name, field in TargetEstimateForm.base_fields.items()
+            ]
+            if batch.original_profile
+            else [],
+        },
     )
 
 
@@ -446,8 +467,11 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                         "time",
                         "description",
                         "description_fa",
+                        "description_ka",
                         "portion",
                         "portion_fa",
+                        "portion_ka",
+                        "estimate_id",
                         "calories",
                         "protein",
                         "carbs",
@@ -473,6 +497,7 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                         meal.date = batch.date
                         meal.estimated = True
                         meal.estimate_model = batch.model
+                        meal.estimate = batch
                         meals.append(meal)
                 Meal.objects.bulk_create(meals)
             messages.success(

@@ -5,7 +5,7 @@ from django import forms
 from django.utils import timezone
 from django.utils.translation import gettext_lazy
 
-from .localization import english_text, is_farsi
+from .localization import english_text, translation_language
 from .models import (
     NUTRIENTS,
     BodyProfile,
@@ -26,8 +26,10 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
             "time",
             "description",
             "description_fa",
+            "description_ka",
             "portion",
             "portion_fa",
+            "portion_ka",
             "calories",
             "protein",
             "carbs",
@@ -48,6 +50,8 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
             "portion": gettext_lazy("Portion (optional)"),
             "description_fa": gettext_lazy("What you ate (Farsi, optional)"),
             "portion_fa": gettext_lazy("Portion (Farsi, optional)"),
+            "description_ka": gettext_lazy("What you ate (Georgian, optional)"),
+            "portion_ka": gettext_lazy("Portion (Georgian, optional)"),
             "calories": gettext_lazy("Calories (kcal)"),
             "protein": gettext_lazy("Protein (g)"),
             "carbs": gettext_lazy("Carbs (g)"),
@@ -56,6 +60,8 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
         widgets["portion"] = forms.TextInput(attrs={"dir": "ltr"})
         widgets["description_fa"] = forms.TextInput(attrs={"dir": "rtl"})
         widgets["portion_fa"] = forms.TextInput(attrs={"dir": "rtl"})
+        widgets["description_ka"] = forms.TextInput(attrs={"dir": "ltr"})
+        widgets["portion_ka"] = forms.TextInput(attrs={"dir": "ltr"})
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
@@ -63,17 +69,19 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
             name: self.initial.get(name, getattr(self.instance, name))
             for name in ("description", "portion")
         }
-        if is_farsi():
+        language = translation_language()
+        if language:
             self.fields["description"].label = gettext_lazy("What you ate (English)")
             self.fields["portion"].label = gettext_lazy("Portion (English, optional)")
             self.fields["description"].help_text = gettext_lazy(
-                "English is saved as the original. Add a Farsi translation below, or use AI to generate both."
+                "Keep the English version here. Add your translation below, or use AI to generate both."
             )
-        else:
-            for name in ("description_fa", "portion_fa"):
-                if name in self.initial:
-                    setattr(self.instance, name, self.initial[name])
-                self.fields.pop(name, None)
+        for code in ("fa", "ka"):
+            if code != language:
+                for name in (f"description_{code}", f"portion_{code}"):
+                    if name in self.initial:
+                        setattr(self.instance, name, self.initial[name])
+                    self.fields.pop(name, None)
 
     def clean(self) -> dict[str, Any]:
         cleaned = super().clean() or {}
@@ -86,13 +94,14 @@ class MealForm(forms.ModelForm):  # type: ignore[type-arg]
                 self.add_error(
                     name,
                     gettext_lazy(
-                        "Use English here. You can add Farsi in the translation field or let AI generate both versions."
+                        "Use English here. Add a translation in the separate field, or let AI generate both versions."
                     ),
                 )
                 continue
-            if not is_farsi() and cleaned[name] != self._source_text[name]:
-                # A changed source invalidates its old translation.
-                setattr(self.instance, f"{name}_fa", "")
+            if cleaned[name] != self._source_text[name]:
+                for code in ("fa", "ka"):
+                    if code != translation_language():
+                        setattr(self.instance, f"{name}_{code}", "")
         return cleaned
 
 
@@ -133,6 +142,7 @@ class EstimateForm(forms.Form):
     prompt = forms.CharField(
         label=gettext_lazy("What did you eat?"),
         max_length=6000,
+        strip=False,
         widget=forms.Textarea(
             attrs={
                 "rows": 7,
@@ -143,6 +153,12 @@ class EstimateForm(forms.Form):
             }
         ),
     )
+
+    def clean_prompt(self) -> str:
+        prompt = str(self.cleaned_data["prompt"])
+        if not prompt.strip():
+            raise forms.ValidationError(gettext_lazy("Describe what you ate."))
+        return prompt
 
 
 class MealSaveForm(forms.Form):

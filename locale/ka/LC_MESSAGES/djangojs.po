@@ -1,0 +1,30 @@
+# Georgian translations for Cotinga.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cotinga\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Hide"
+msgstr "დამალვა"
+
+msgid "Show"
+msgstr "ჩვენება"
+
+msgid "Model selected. Save your settings to use it."
+msgstr "მოდელი არჩეულია. მის გამოსაყენებლად შეინახეთ პარამეტრები."
+
+msgid "No matching models. Try a different search."
+msgstr "შესაბამისი მოდელი ვერ მოიძებნა. შეცვალეთ საძიებო ტექსტი."
+
+msgid "%s matching models. Use arrow keys and Enter to select."
+msgstr "მოიძებნა %s მოდელი. ასარჩევად გამოიყენეთ ისრები და Enter."
+
+msgid "This can take a little while. Your suggestion will be ready to review when the model finishes."
+msgstr "ამას შეიძლება ცოტა დრო დასჭირდეს. მოდელის დასრულების შემდეგ შემოთავაზებას შეამოწმებთ."
+
+msgid "Week"
+msgstr "კვირა"

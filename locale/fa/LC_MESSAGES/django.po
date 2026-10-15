@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 14:07+0400\n"
+"POT-Creation-Date: 2026-10-15 20:02+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -38,6 +38,9 @@ msgstr "خانهٔ کوتینگا"
 
 msgid "Small steps. A little more you."
 msgstr "قدم‌های کوچک، حالِ بهتر."
+
+msgid "Change language"
+msgstr "تغییر زبان"
 
 msgid "Language"
 msgstr "زبان"
@@ -291,6 +294,9 @@ msgstr "این وعده از دفترتان حذف شود؟"
 msgid "Remove %(v0)s: %(v1)s"
 msgstr "حذف %(v0)s: %(v1)s"
 
+msgid "Original input"
+msgstr "متن اولیه"
+
 msgid "AI estimate"
 msgstr "برآورد هوش مصنوعی"
 
@@ -416,6 +422,21 @@ msgstr ""
 
 msgid "Cancel"
 msgstr "انصراف"
+
+msgid "YOUR OWN WORDS"
+msgstr "با کلمات خودتان"
+
+msgid "Saved exactly as you submitted it."
+msgstr "دقیقاً همان‌طور که فرستادید ذخیره شده است."
+
+msgid "The original input was not saved for this older estimate."
+msgstr "متن اولیه برای این برآورد قدیمی ذخیره نشده است."
+
+msgid "Back to this day"
+msgstr "بازگشت به این روز"
+
+msgid "Your original input"
+msgstr "متن اولیهٔ شما"
 
 msgid "A LITTLE CONSISTENCY. A LONGER VIEW."
 msgstr "کمی استمرار، نگاهی بلندتر."
@@ -1269,6 +1290,9 @@ msgstr ""
 msgid "Why these ranges?"
 msgstr "چرا این بازه‌ها؟"
 
+msgid "Your original details"
+msgstr "اطلاعات اولیهٔ شما"
+
 msgid "Applying targets…"
 msgstr "در حال اعمال هدف‌ها…"
 
@@ -1533,6 +1557,12 @@ msgstr "آنچه خوردید (فارسی، اختیاری)"
 msgid "Portion (Farsi, optional)"
 msgstr "اندازهٔ وعده (فارسی، اختیاری)"
 
+msgid "What you ate (Georgian, optional)"
+msgstr "آنچه خوردید (گرجی، اختیاری)"
+
+msgid "Portion (Georgian, optional)"
+msgstr "اندازهٔ وعده (گرجی، اختیاری)"
+
 msgid "Calories (kcal)"
 msgstr "کالری (کیلوکالری)"
 
@@ -1552,18 +1582,18 @@ msgid "Portion (English, optional)"
 msgstr "اندازهٔ وعده (انگلیسی، اختیاری)"
 
 msgid ""
-"English is saved as the original. Add a Farsi translation below, or use AI "
-"to generate both."
+"Keep the English version here. Add your translation below, or use AI to "
+"generate both."
 msgstr ""
-"متن انگلیسی به‌عنوان نسخهٔ اصلی ذخیره می‌شود. ترجمهٔ فارسی را در زیر اضافه کنید "
-"یا از هوش مصنوعی برای ساخت هر دو نسخه کمک بگیرید."
+"نسخهٔ انگلیسی را اینجا نگه دارید. ترجمه را در پایین اضافه کنید یا از هوش "
+"مصنوعی برای ساخت هر دو نسخه کمک بگیرید."
 
 msgid ""
-"Use English here. You can add Farsi in the translation field or let AI "
+"Use English here. Add a translation in the separate field, or let AI "
 "generate both versions."
 msgstr ""
-"اینجا به انگلیسی بنویسید. متن فارسی را در بخش ترجمه وارد کنید یا از هوش "
-"مصنوعی برای ساخت هر دو نسخه کمک بگیرید."
+"اینجا انگلیسی بنویسید. ترجمه را در بخش جداگانه وارد کنید یا ساخت هر دو نسخه "
+"را به هوش مصنوعی بسپارید."
 
 msgid "Calories minimum (kcal)"
 msgstr "حداقل کالری (کیلوکالری)"
@@ -1601,6 +1631,9 @@ msgid ""
 msgstr ""
 "یک وعده یا خوراک تمام روز را، همراه با زمان و مقدارهایی که یادتان مانده، شرح "
 "دهید."
+
+msgid "Describe what you ate."
+msgstr "توضیح دهید چه چیزی خوردید."
 
 msgid "Replace the existing entries for these meal types."
 msgstr "ثبت‌های فعلی این نوع وعده‌ها جایگزین شوند."

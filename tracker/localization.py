@@ -1,4 +1,4 @@
-"""English source text with optional Farsi translations, never duplicate nutrition."""
+"""Canonical English with optional translations, never duplicate nutrition."""
 
 import unicodedata
 from typing import Any
@@ -12,6 +12,11 @@ def is_farsi() -> bool:
     return (get_language() or "en").startswith("fa")
 
 
+def translation_language() -> str:
+    language = (get_language() or "en").split("-")[0]
+    return language if language in ("fa", "ka") else ""
+
+
 def english_text(value: str) -> str:
     """Normalize digits and reject untranslated source text without guessing."""
     value = value.translate(_DIGITS).strip()
@@ -23,14 +28,15 @@ def english_text(value: str) -> str:
     return value
 
 
-def localized_text(english: str, farsi: str) -> str:
-    return farsi if is_farsi() and farsi else english
+def localized_text(english: str, farsi: str = "", georgian: str = "") -> str:
+    return {"fa": farsi, "ka": georgian}.get(translation_language()) or english
 
 
 def localized_result(result: dict[str, Any]) -> dict[str, Any]:
     displayed = result.copy()
-    if is_farsi():
+    language = translation_language()
+    if language:
         for field in ("explanation", "assumptions"):
-            if result.get(f"{field}_fa"):
-                displayed[field] = result[f"{field}_fa"]
+            if result.get(f"{field}_{language}"):
+                displayed[field] = result[f"{field}_{language}"]
     return displayed

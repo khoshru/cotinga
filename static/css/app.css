@@ -319,11 +319,28 @@
 }
 
 @layer components {
-  .language-switch { display: flex; direction: ltr; align-items: center; padding: 3px; border: 1px solid var(--border); background: #11231d; border-radius: 12px; gap: 3px; }
-  .language-switch button { min-width: 43px; min-height: 36px; padding: 4px 10px; border: 0; border-radius: 8px; color: var(--muted); background: transparent; font-size: 11px; font-weight: 600; transition: color .15s, background .15s; }
-  .language-switch button[lang=fa] { font-family: Vazirmatn, sans-serif; }
-  .language-switch button:hover { color: var(--text); background: var(--surface); }
-  .language-switch button[aria-pressed=true] { color: var(--mint); background: var(--mint-bg); box-shadow: 0 1px 5px #0002; }
+  .language-switch { position: relative; flex-shrink: 0; }
+  .language-switch summary { display: flex; align-items: center; gap: 9px; min-height: 42px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 12px; color: var(--text); background: #11231d; font-size: 12px; font-weight: 550; cursor: pointer; list-style: none; }
+  .language-switch summary::-webkit-details-marker { display: none; }
+  .language-switch summary > .icon { width: 17px; height: 17px; color: var(--mint); }
+  .language-switch summary > .icon:last-child { width: 14px; height: 14px; color: var(--muted); transition: transform .15s; }
+  .language-switch[open] summary { border-color: var(--mint); }
+  .language-switch[open] summary > .icon:last-child { transform: rotate(180deg); }
+  .language-options { position: absolute; top: calc(100% + 9px); inset-inline-end: 0; z-index: 40; width: 185px; padding: 6px; border: 1px solid var(--border); border-radius: 13px; background: #162b23; box-shadow: 0 12px 35px #0005; }
+  .language-options button { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; min-height: 43px; border: 0; border-radius: 8px; padding: 10px 12px; color: var(--text); background: transparent; font-size: 13px; text-align: start; }
+  .language-options button[lang=fa] { font-family: Vazirmatn, sans-serif; }
+  .language-options button:hover, .language-options button[aria-current=true] { color: var(--mint); background: var(--mint-bg); }
+  .language-options .icon { width: 17px; height: 17px; }
+  .original-input-note { margin-block: 24px; border: 1px solid var(--border); border-radius: 13px; padding: 17px 21px; background: #12251e; }
+  .original-input-note summary { display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--mint); font-size: 13px; }
+  .original-input-note p, .original-input > p { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.9; }
+  .original-input-note p { margin-top: 18px; }
+  .original-input-note small { display: block; color: var(--muted); margin-top: 12px; font-size: 11px; }
+  .original-input { max-width: 850px; margin-block: 25px; }
+  .original-input-link { display: inline-block; color: var(--mint); font-size: 11px; margin-inline-end: 10px; margin-block: 8px; }
+  .original-details > div { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2fr); gap: 20px; padding-block: 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .original-details dt { color: var(--muted); }
+  .original-details dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
   input[type=email], input[type=password], input[type=date], input[type=time], input[type=number] { direction: ltr; text-align: start; }
   .model-field { position: relative; }
   .model-combobox { position: relative; }
@@ -388,7 +405,8 @@
     .brand { font-size: 22px; }
     .brand-mark { width: 30px; height: 30px; margin-inline-end: 8px; }
     .header-controls { gap: 8px; }
-    .language-switch button { min-width: 36px; padding-inline: 6px; }
+    .language-switch summary { gap: 5px; padding-inline: 8px; font-size: 11px; }
+    .language-switch summary > .icon:first-child { display: none; }
     .header-controls .quiet-button, .header-controls .header-login { min-height: 40px; font-size: 10px; }
     .header-controls .icon { width: 16px; height: 16px; }
   }

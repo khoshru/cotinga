@@ -1,0 +1,2 @@
+{% load i18n %}
+{% if batch.original_input %}<details class="original-input-note"><summary>{% include 'icon.html' with name='edit' %}{% translate "Your original input" %}</summary><p dir="auto">{{ batch.original_input }}</p><small>{% translate "Saved exactly as you submitted it." %}</small></details>{% endif %}

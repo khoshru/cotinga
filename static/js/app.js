@@ -1,4 +1,15 @@
 // Optional enhancements. Navigation and forms also work without JavaScript.
+document.querySelectorAll('[data-language-menu]').forEach((menu) => {
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target)) menu.open = false;
+  });
+  menu.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    }
+  });
+});
 document.querySelectorAll('[data-profile-dialog]').forEach((dialog) => {
   if (typeof dialog.showModal !== 'function') return;
   const open = () => {

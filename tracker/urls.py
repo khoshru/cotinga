@@ -14,6 +14,7 @@ urlpatterns = [
     path("ai/settings/", ai_views.settings_view, name="ai-settings"),
     path("ai/models/", ai_views.model_search, name="ai-models"),
     path("ai/review/<uuid:pk>/", ai_views.review_view, name="ai-review"),
+    path("ai/source/<uuid:pk>/", views.original_input, name="ai-source"),
     path("ai/targets/", ai_views.targets_estimate_view, name="ai-targets"),
     path(
         "ai/targets/<uuid:pk>/", ai_views.targets_review_view, name="ai-targets-review"
