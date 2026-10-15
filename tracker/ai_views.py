@@ -1,3 +1,4 @@
+import json
 from datetime import timedelta
 from typing import Any, cast
 from uuid import UUID
@@ -5,6 +6,7 @@ from uuid import UUID
 from django import forms
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -480,13 +482,9 @@ def review_view(request: HttpRequest, pk: UUID) -> HttpResponse:
                         "estimate_model",
                     )
                 )
-                batch.result["replaced_meals"] = [
-                    {
-                        key: value.isoformat() if hasattr(value, "isoformat") else value
-                        for key, value in row.items()
-                    }
-                    for row in previous
-                ]
+                batch.result["replaced_meals"] = json.loads(
+                    json.dumps(previous, cls=DjangoJSONEncoder)
+                )
                 batch.save(update_fields=["result"])
                 Meal.objects.filter(pk__in=[meal.pk for meal in replacements]).delete()
                 meals = []

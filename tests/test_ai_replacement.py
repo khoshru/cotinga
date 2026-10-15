@@ -1,3 +1,4 @@
+import json
 from copy import deepcopy
 from datetime import date, timedelta
 from decimal import Decimal
@@ -6,6 +7,7 @@ from unittest.mock import patch
 from uuid import uuid4
 
 import pytest
+from django.conf import settings
 from django.db import IntegrityError, transaction
 from django.test import Client
 from django.utils import timezone, translation
@@ -195,6 +197,55 @@ def test_replacement_requires_confirmation_and_replaces_only_that_day_and_kind(
     assert Meal.objects.filter(user=owner, date=DAY, kind="breakfast").count() == 1
 
 
+@pytest.mark.parametrize("language", ["en", "ka", "fa"])
+def test_replacing_saved_ai_meals_preserves_each_original_input(
+    client: Client, owner: User, language: str
+) -> None:
+    client.cookies[settings.LANGUAGE_COOKIE_NAME] = language
+    value = result()
+    value["meals"][0].update(
+        description_fa="تخم‌مرغ و نان",
+        portion_fa="۲ تخم‌مرغ و یک برش نان",
+        description_ka="კვერცხი და პური",
+        portion_ka="2 კვერცხი და 1 ნაჭერი პური",
+    )
+    previous = draft(owner, deepcopy(value))
+    previous.original_input = "  Breakfast: eggs and toast\nOriginal portions.  "
+    previous.save(update_fields=["original_input"])
+    path, data = review(client, previous)
+    assert client.post(path, data).status_code == 302
+
+    for calories in (410, 500):
+        old = Meal.objects.get(user=owner, date=DAY, kind="breakfast")
+        assert old.estimate_id == previous.pk
+        value["meals"][0]["calories"] = calories
+        batch = draft(owner, deepcopy(value))
+        batch.original_input = f"Breakfast: eggs and toast\nCorrected to {calories}."
+        batch.save(update_fields=["original_input"])
+        path, data = review(client, batch)
+        data["confirm_replacement"] = "on"
+        assert client.post(path, data).status_code == 302
+        saved = Meal.objects.get(user=owner, date=DAY, kind="breakfast")
+        assert saved.calories == calories and saved.estimate_id == batch.pk
+        batch.refresh_from_db()
+        assert batch.status == "saved"
+        snapshot = batch.result["replaced_meals"]
+        assert len(snapshot) == 1
+        assert snapshot[0]["estimate_id"] == str(previous.pk)
+        assert snapshot[0]["date"] == DAY.isoformat()
+        assert snapshot[0]["time"] == "08:00:00"
+        assert snapshot[0]["description_ka"] == "კვერცხი და პური"
+        assert snapshot[0]["portion_fa"] == "۲ تخم‌مرغ و یک برش نان"
+        json.dumps(batch.result)
+        previous.refresh_from_db()
+        source = client.get(f"/ai/source/{previous.pk}/")
+        assert source.status_code == 200
+        assert previous.original_input in source.content.decode()
+        assert client.post(path, data).status_code == 302
+        assert Meal.objects.filter(user=owner, date=DAY, kind="breakfast").count() == 1
+        previous = batch
+
+
 def test_a_day_changed_in_another_tab_must_be_reviewed_again(
     client: Client, owner: User
 ) -> None:
@@ -297,10 +348,22 @@ def test_database_rejects_duplicate_submission_keys_but_accepts_legacy_rows(
     MealEstimate.objects.create(user=owner, date=DAY, model=MODEL.id)
 
 
+@pytest.mark.parametrize("linked_estimate", [False, True])
 def test_failed_save_rolls_back_replacements_and_keeps_draft_ready(
-    client: Client, owner: User
+    client: Client, owner: User, linked_estimate: bool
 ) -> None:
-    old = Meal.objects.create(user=owner, date=DAY, **ROW)
+    source = (
+        MealEstimate.objects.create(
+            user=owner,
+            date=DAY,
+            model=MODEL.id,
+            status="saved",
+            original_input="Original breakfast text",
+        )
+        if linked_estimate
+        else None
+    )
+    old = Meal.objects.create(user=owner, date=DAY, estimate=source, **ROW)
     batch = draft(owner)
     path, data = review(client, batch)
     data["confirm_replacement"] = "on"
@@ -313,6 +376,10 @@ def test_failed_save_rolls_back_replacements_and_keeps_draft_ready(
     ):
         client.post(path, data)
     assert Meal.objects.filter(pk=old.pk).exists()
+    if source:
+        source.refresh_from_db()
+        assert source.original_input == "Original breakfast text"
+        assert Meal.objects.get(pk=old.pk).estimate_id == source.pk
     batch.refresh_from_db()
     assert batch.status == "ready" and "replaced_meals" not in batch.result
 
