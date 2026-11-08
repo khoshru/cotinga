@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-14 09:30+0400\n"
+"POT-Creation-Date: 2026-11-08 22:51+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -41,3 +41,30 @@ msgstr ""
 
 msgid "Week"
 msgstr "هفته"
+
+msgid ""
+"Added to your description. Add another food, or estimate your meals."
+msgstr "به توضیحات اضافه شد. غذای دیگری اضافه کنید یا وعده‌ها را تخمین بزنید."
+
+msgid "Could not save this portion. Please try again."
+msgstr "ذخیرهٔ این مقدار ممکن نشد. لطفاً دوباره تلاش کنید."
+
+msgid "Removed from saved foods. Your diary has not changed."
+msgstr "از غذاهای ذخیره‌شده حذف شد. دفتر غذایی شما تغییری نکرده است."
+
+msgid "Saved food restored."
+msgstr "غذای ذخیره‌شده بازگردانده شد."
+
+msgid "Saved just for you. Reuse it next time without typing."
+msgstr "فقط برای شما ذخیره می‌شود. دفعهٔ بعد بدون تایپ دوباره استفاده کنید."
+
+msgid ""
+"Using your usual portion. Changes are just for today unless you remember "
+"them."
+msgstr ""
+"اندازهٔ همیشگی شما انتخاب شده است. تغییرات فقط برای این بار هستند، مگر اینکه "
+"ذخیره‌شان کنید."
+
+msgid "Your description is full. Shorten it before adding another portion."
+msgstr ""
+"توضیحات به حداکثر طول رسیده است. پیش از افزودن غذای دیگر، آن را کوتاه کنید."

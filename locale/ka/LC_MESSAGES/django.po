@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cotinga\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 23:52+0400\n"
+"POT-Creation-Date: 2026-11-08 22:51+0400\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2017,3 +2017,134 @@ msgstr ""
 
 msgid "Save targets"
 msgstr "მიზნების შენახვა"
+
+msgid "Add to description"
+msgstr "აღწერაში დამატება"
+
+msgid "Add to meal"
+msgstr "კვებაზე დამატება"
+
+msgid "Amount"
+msgstr "რაოდენობა"
+
+msgid "Bowls"
+msgstr "ჯამი"
+
+msgid "Build a portion"
+msgstr "ულუფის შედგენა"
+
+msgid "Choose a valid saved food action."
+msgstr "აირჩიეთ მოქმედება შენახული საკვებისთვის."
+
+msgid "Cups"
+msgstr "ჭიქა"
+
+msgid "Decrease amount"
+msgstr "რაოდენობის შემცირება"
+
+msgid "Double this amount"
+msgstr "რაოდენობის გაორმაგება"
+
+msgid "Food or saved food"
+msgstr "საკვები ან შენახული საკვები"
+
+msgid "Forget saved food"
+msgstr "შენახული საკვების დავიწყება"
+
+msgid "Grams"
+msgstr "გრამი"
+
+msgid "Halve this amount"
+msgstr "რაოდენობის განახევრება"
+
+msgid "Handfuls"
+msgstr "მუჭა"
+
+msgid "Increase amount"
+msgstr "რაოდენობის გაზრდა"
+
+msgid "Litres"
+msgstr "ლიტრი"
+
+msgid "Millilitres"
+msgstr "მილილიტრი"
+
+msgid "My usual"
+msgstr "ჩემი ჩვეული"
+
+msgid ""
+"Nothing is logged yet. Review your description below, then estimate your "
+"meals."
+msgstr ""
+"ჯერ არაფერი ჩაწერილა დღიურში. შეამოწმეთ აღწერა და შემდეგ შეაფასეთ კვება."
+
+msgid ""
+"Pick a saved food or name a new one. Set the amount, then add it to your "
+"description."
+msgstr ""
+"აირჩიეთ შენახული საკვები ან ჩაწერეთ ახალი. მიუთითეთ რაოდენობა და დაამატეთ "
+"აღწერაში."
+
+msgid "Pieces"
+msgstr "ცალი"
+
+msgid "Plates"
+msgstr "თეფში"
+
+msgid "Quick adjust"
+msgstr "სწრაფი ცვლილება"
+
+msgid "Recently used foods"
+msgstr "ბოლოს გამოყენებული საკვები"
+
+msgid "Remember this as my usual portion"
+msgstr "შეინახე, როგორც ჩემი ჩვეული ულუფა"
+
+msgid "Saved just for you. Reuse it next time without typing."
+msgstr ""
+"ინახება მხოლოდ თქვენთვის. შემდეგ ჯერზე გამოიყენეთ ხელახლა აკრეფის გარეშე."
+
+msgid "Servings"
+msgstr "ულუფა"
+
+msgid "Size or preparation details"
+msgstr "ზომა ან მომზადების წესი"
+
+msgid "Slices"
+msgstr "ნაჭერი"
+
+msgid "Tablespoons"
+msgstr "სუფრის კოვზი"
+
+msgid "Teaspoons"
+msgstr "ჩაის კოვზი"
+
+msgid "Type a food, or search your saved foods"
+msgstr "ჩაწერეთ საკვები ან მოძებნეთ შენახულებში"
+
+msgid "Undo"
+msgstr "გაუქმება"
+
+msgid "Unit"
+msgstr "ერთეული"
+
+msgid "Use the context in my description"
+msgstr "ჩემი აღწერის მიხედვით"
+
+msgid "What should the estimate know?"
+msgstr "რა უნდა გაითვალისწინოს შეფასებამ?"
+
+msgid "YOUR USUAL, IN A TAP"
+msgstr "ჩვეული ულუფა, ერთი შეხებით"
+
+msgid "You have 100 saved foods. Forget one before saving another."
+msgstr "უკვე 100 საკვები გაქვთ შენახული. ახლის შენახვამდე ერთი დაივიწყეთ."
+
+msgid "Your saved foods are full. Forget another food first."
+msgstr "შენახული საკვების სია სავსეა. ჯერ სხვა საკვები დაივიწყეთ."
+
+msgid "e.g. medium, boiled; or cooked weight"
+msgstr "მაგ. საშუალო, მოხარშული; ან წონა მომზადების შემდეგ"
+
+msgid "optional"
+msgstr "არასავალდებულო"

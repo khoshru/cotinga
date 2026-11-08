@@ -648,3 +648,69 @@
 }
 
 @layer components { .meal-text { min-height: 82px; } .meal-action-current { display: flex; flex-wrap: wrap; gap: 6px 12px; } .meal-action-current strong { color: var(--text); } }
+
+@layer components {
+  .estimate-guide { align-self: start; }
+  .portion-builder { border-color: #365c4c; background: linear-gradient(145deg, #1a352a, var(--surface) 65%); }
+  .portion-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .portion-heading h2 { font-size: 22px; letter-spacing: -.4px; margin-top: 5px; }
+  .portion-heading .eyebrow { font-size: 9px; color: var(--mint); }
+  .portion-mark { width: 46px; height: 46px; flex: none; display: grid; place-items: center; background: #214336; border: 1px solid #3a6050; border-radius: 13px; color: var(--mint); }
+  .portion-mark .icon { width: 23px; height: 23px; }
+  .portion-builder .panel-copy { margin-bottom: 17px; }
+  .portion-builder .field { margin-top: 18px; min-width: 0; }
+  .portion-builder input, .portion-builder select { width: 100%; min-width: 0; }
+  .portion-builder .check-label input { width: 16px; flex: none; }
+  .portion-saved { display: flex; flex-wrap: wrap; gap: 8px; }
+  .portion-chip { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; max-width: 100%; text-align: start; padding: 9px 12px; border-radius: 10px; border: 1px solid #3a5c4d; background: #1c392e; color: var(--text); font: inherit; font-size: 12px; cursor: pointer; overflow-wrap: anywhere; }
+  .portion-chip span { color: var(--mint); font-size: 10px; }
+  .portion-chip:hover { border-color: var(--mint); background: #254839; }
+  .portion-amount-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+  .portion-stepper { display: flex; align-items: stretch; min-height: 46px; border: 1px solid #345143; border-radius: 8px; background: #10211a; direction: ltr; }
+  .portion-stepper input { width: 0; flex: 1; border: 0; background: transparent; text-align: center; padding-inline: 0; appearance: textfield; }
+  .portion-stepper input::-webkit-inner-spin-button, .portion-stepper input::-webkit-outer-spin-button { appearance: none; margin: 0; }
+  .portion-stepper button { width: 40px; flex: none; font: inherit; font-size: 22px; background: transparent; border: 0; color: var(--mint); cursor: pointer; border-radius: 7px; }
+  .portion-stepper button:hover { background: #264737; }
+  .portion-stepper:focus-within { outline: 2px solid var(--mint); outline-offset: 2px; }
+  .portion-stepper input:focus-visible { outline: none; }
+  .portion-adjust { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 11px; font-size: 11px; color: var(--muted); }
+  .portion-adjust > span { margin-inline-end: auto; }
+  .portion-adjust button { color: var(--mint); border: 1px solid #345344; background: transparent; border-radius: 7px; min-height: 36px; padding-inline: 12px; cursor: pointer; font: inherit; }
+  .portion-details { margin-top: 20px; padding-block: 14px; border-block: 1px solid var(--border); }
+  .portion-details summary { cursor: pointer; color: var(--text); font-size: 12px; line-height: 1.7; }
+  .portion-details summary span { color: var(--muted); font-size: 10px; margin-inline-start: 5px; }
+  .portion-actions { flex-wrap: wrap; gap: 12px; margin-top: 19px; }
+  .portion-actions .quiet-button { font-size: 11px; }
+  .portion-feedback { display: flex; align-items: baseline; gap: 10px; }
+  .portion-feedback .help-text:empty { display: none; }
+  .portion-feedback .text-link { background: transparent; border: 0; font: inherit; font-size: 12px; padding: 0; cursor: pointer; }
+  .portion-error { color: #f5b49f; }
+  .portion-footnote { color: var(--muted); font-size: 11px; line-height: 1.8; border-top: 1px solid var(--border); padding-top: 15px; margin-top: 18px; }
+}
+@layer responsive {
+  @media (max-width: 700px) {
+    .portion-builder { padding: 20px; }
+    .portion-heading h2 { font-size: 20px; }
+    .portion-heading .eyebrow { font-size: 8px; letter-spacing: .8px; }
+    .portion-actions .button { width: 100%; justify-content: center; }
+    .portion-amount-row { gap: 10px; }
+    .portion-stepper button { width: 32px; }
+  }
+}
+
+@layer components {
+  .portion-layout:has(.portion-builder:not([hidden])) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); align-items: start; }
+  .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide > .feature-mark { display: none; }
+  .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide > h2, .portion-layout .estimate-guide > .help-text { grid-column: 1 / -1; }
+  .portion-layout:has(.portion-builder:not([hidden])) .guide-step { margin-top: 0; }
+}
+@layer responsive {
+  @media (max-width: 1000px) {
+    .portion-layout:has(.portion-builder:not([hidden])) { grid-template-columns: 1fr; }
+    .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 400px) {
+    .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide { grid-template-columns: 1fr; }
+  }
+}

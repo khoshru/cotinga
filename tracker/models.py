@@ -1,4 +1,6 @@
+import unicodedata
 import uuid
+from decimal import Decimal
 from typing import Any
 
 from django.conf import settings
@@ -12,6 +14,62 @@ from .localization import localized_text
 
 NUTRIENTS = ("calories", "protein", "carbs", "fat")
 DEFAULT_AI_MODEL = "google/gemini-4-argon"
+
+
+def food_name_key(name: str) -> str:
+    return " ".join(unicodedata.normalize("NFKC", name).casefold().split())
+
+
+class SavedPortion(models.Model):
+    """A user's reusable quantity, not a logged meal or nutrition estimate."""
+
+    class Unit(models.TextChoices):
+        GRAM = "g", gettext_lazy("Grams")
+        KILOGRAM = "kg", gettext_lazy("Kilograms")
+        MILLILITRE = "ml", gettext_lazy("Millilitres")
+        LITRE = "l", gettext_lazy("Litres")
+        PIECE = "piece", gettext_lazy("Pieces")
+        SLICE = "slice", gettext_lazy("Slices")
+        CUP = "cup", gettext_lazy("Cups")
+        TABLESPOON = "tbsp", gettext_lazy("Tablespoons")
+        TEASPOON = "tsp", gettext_lazy("Teaspoons")
+        BOWL = "bowl", gettext_lazy("Bowls")
+        PLATE = "plate", gettext_lazy("Plates")
+        SERVING = "serving", gettext_lazy("Servings")
+        HANDFUL = "handful", gettext_lazy("Handfuls")
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    normalized_name = models.CharField(max_length=300, editable=False)
+    quantity = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        validators=[MinValueValidator(Decimal("0.01")), MaxValueValidator(100000)],
+    )
+    unit = models.CharField(max_length=10, choices=Unit.choices)
+    note = models.CharField(max_length=140, blank=True)
+    is_active = models.BooleanField(default=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    last_used_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["-last_used_at", "-pk"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "normalized_name"], name="unique_user_saved_food"
+            ),
+            models.CheckConstraint(
+                condition=models.Q(quantity__gte=Decimal("0.01"), quantity__lte=100000),
+                name="saved_portion_quantity_range",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return self.name
+
+    def save(self, *args: Any, **kwargs: Any) -> None:
+        self.normalized_name = food_name_key(self.name)
+        super().save(*args, **kwargs)
 
 
 class DailyTarget(models.Model):

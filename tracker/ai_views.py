@@ -39,6 +39,7 @@ from .models import (
     OpenRouterSettings,
     TargetEstimate,
 )
+from .portions import portion_context
 from .profiles import profile_context, profile_initial, save_profile
 from .views import selected_date
 
@@ -366,6 +367,11 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
             else "",
         },
     )
+    context = {
+        "form": form,
+        "preferences": preferences,
+        **portion_context(user, request.GET.get("kind", "")),
+    }
     if request.method == "POST" and form.is_valid():
         batch = None
         try:
@@ -391,7 +397,7 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
                 return render(
                     request,
                     "tracker/estimate.html",
-                    {"form": form, "preferences": preferences},
+                    context,
                 )
             result = openrouter.estimate_day(
                 key, model, form.cleaned_data["prompt"], batch.date
@@ -405,9 +411,7 @@ def estimate_view(request: HttpRequest) -> HttpResponse:
                 batch.status = MealEstimate.Status.FAILED
                 batch.save(update_fields=["status"])
             form.add_error(None, str(exc))
-    return render(
-        request, "tracker/estimate.html", {"form": form, "preferences": preferences}
-    )
+    return render(request, "tracker/estimate.html", context)
 
 
 @login_required

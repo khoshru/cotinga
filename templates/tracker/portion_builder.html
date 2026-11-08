@@ -1,0 +1,23 @@
+{% load i18n %}
+<section class="panel portion-builder" data-portion-builder hidden aria-labelledby="portion-heading">
+  <div class="portion-heading"><span class="portion-mark">{% include 'icon.html' with name='bowl' %}</span><div><span class="eyebrow">{% translate "YOUR USUAL, IN A TAP" %}</span><h2 id="portion-heading">{% translate "Build a portion" %}</h2></div></div>
+  <p class="panel-copy">{% translate "Pick a saved food or name a new one. Set the amount, then add it to your description." %}</p>
+  <div class="portion-saved" data-portion-chips aria-label="{% translate "Recently used foods" %}"></div>
+  <form action="{% url 'tracker:portion-save' %}" method="post" data-portion-form>
+    {% csrf_token %}
+    <div class="field"><label for="portion-name">{% translate "Food or saved food" %}</label><input id="portion-name" name="name" list="portion-suggestions" maxlength="100" required dir="auto" autocomplete="off" placeholder="{% translate "Type a food, or search your saved foods" %}" aria-describedby="portion-default-note"><datalist id="portion-suggestions"></datalist></div>
+    <div class="portion-amount-row">
+      <div class="field"><label for="portion-quantity">{% translate "Amount" %}</label><div class="portion-stepper"><button type="button" data-portion-step="-1" aria-label="{% translate "Decrease amount" %}">−</button><input id="portion-quantity" name="quantity" type="number" value="1" min="0.01" max="100000" step="0.01" required inputmode="decimal" dir="ltr"><button type="button" data-portion-step="1" aria-label="{% translate "Increase amount" %}">+</button></div></div>
+      <div class="field"><label for="portion-unit">{% translate "Unit" %}</label><select id="portion-unit" name="unit">{% for value, label in portion_units %}<option value="{{ value }}" {% if value == 'serving' %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    </div>
+    <div class="portion-adjust"><span>{% translate "Quick adjust" %}</span><button type="button" data-portion-scale="0.5" aria-label="{% translate "Halve this amount" %}">½×</button><button type="button" data-portion-scale="2" aria-label="{% translate "Double this amount" %}">2×</button><button type="button" data-portion-usual hidden>{% translate "My usual" %}</button></div>
+    <details class="portion-details"><summary>{% translate "Size or preparation details" %} <span>{% translate "optional" %}</span></summary><div class="field"><label for="portion-note">{% translate "What should the estimate know?" %}</label><input id="portion-note" name="note" maxlength="140" dir="auto" placeholder="{% translate "e.g. medium, boiled; or cooked weight" %}"></div></details>
+    <div class="field"><label for="portion-kind">{% translate "Add to meal" %}</label><select id="portion-kind"><option value="">{% translate "Use the context in my description" %}</option>{% for value, label in portion_kinds %}<option value="{{ value }}" {% if value == portion_kind %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></div>
+    <label class="check-label"><input type="checkbox" data-portion-remember checked>{% translate "Remember this as my usual portion" %}</label>
+    <p class="help-text" id="portion-default-note" data-portion-default>{% translate "Saved just for you. Reuse it next time without typing." %}</p>
+    <div class="form-actions portion-actions"><button class="button subtle" type="submit">{% include 'icon.html' with name='plus' %}{% translate "Add to description" %}</button><button class="quiet-button" type="button" data-portion-forget hidden>{% translate "Forget saved food" %}</button></div>
+    <div class="portion-feedback" aria-live="polite" aria-atomic="true"><p class="help-text" data-portion-status></p><button type="button" class="text-link" data-portion-undo hidden>{% translate "Undo" %}</button></div>
+  </form>
+  <p class="portion-footnote">{% translate "Nothing is logged yet. Review your description, then estimate your meals." %}</p>
+</section>
+{{ saved_portions|json_script:"saved-portions" }}

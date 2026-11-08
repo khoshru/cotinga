@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 23:52+0400\n"
+"POT-Creation-Date: 2026-11-08 22:51+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -1999,3 +1999,133 @@ msgstr "بازهٔ روزانهٔ کالری و مواد مغذی مناسب خ�
 
 msgid "Save targets"
 msgstr "ذخیرهٔ هدف‌ها"
+
+msgid "Add to description"
+msgstr "اضافه کردن به توضیحات"
+
+msgid "Add to meal"
+msgstr "اضافه کردن به وعده"
+
+msgid "Amount"
+msgstr "مقدار"
+
+msgid "Bowls"
+msgstr "کاسه"
+
+msgid "Build a portion"
+msgstr "اندازهٔ وعده را مشخص کنید"
+
+msgid "Choose a valid saved food action."
+msgstr "یک عملیات معتبر برای غذای ذخیره‌شده انتخاب کنید."
+
+msgid "Cups"
+msgstr "پیمانه"
+
+msgid "Decrease amount"
+msgstr "کاهش مقدار"
+
+msgid "Double this amount"
+msgstr "دو برابر کردن مقدار"
+
+msgid "Food or saved food"
+msgstr "غذا یا غذای ذخیره‌شده"
+
+msgid "Forget saved food"
+msgstr "حذف از غذاهای ذخیره‌شده"
+
+msgid "Grams"
+msgstr "گرم"
+
+msgid "Halve this amount"
+msgstr "نصف کردن مقدار"
+
+msgid "Handfuls"
+msgstr "مشت"
+
+msgid "Increase amount"
+msgstr "افزایش مقدار"
+
+msgid "Litres"
+msgstr "لیتر"
+
+msgid "Millilitres"
+msgstr "میلی‌لیتر"
+
+msgid "My usual"
+msgstr "مقدار همیشگی من"
+
+msgid ""
+"Nothing is logged yet. Review your description below, then estimate your "
+"meals."
+msgstr ""
+"هنوز چیزی ثبت نشده است. توضیحاتتان را بررسی کنید، سپس وعده‌ها را تخمین بزنید."
+
+msgid ""
+"Pick a saved food or name a new one. Set the amount, then add it to your "
+"description."
+msgstr ""
+"غذای ذخیره‌شده را انتخاب کنید یا نام غذای جدیدی بنویسید. مقدار را مشخص کنید و "
+"به توضیحتان اضافه کنید."
+
+msgid "Pieces"
+msgstr "عدد"
+
+msgid "Plates"
+msgstr "بشقاب"
+
+msgid "Quick adjust"
+msgstr "تنظیم سریع"
+
+msgid "Recently used foods"
+msgstr "غذاهای اخیراً استفاده‌شده"
+
+msgid "Remember this as my usual portion"
+msgstr "این مقدار را به‌عنوان اندازهٔ همیشگی من ذخیره کن"
+
+msgid "Saved just for you. Reuse it next time without typing."
+msgstr "فقط برای شما ذخیره می‌شود. دفعهٔ بعد بدون تایپ دوباره استفاده کنید."
+
+msgid "Servings"
+msgstr "وعده"
+
+msgid "Size or preparation details"
+msgstr "جزئیات اندازه یا روش تهیه"
+
+msgid "Slices"
+msgstr "برش"
+
+msgid "Tablespoons"
+msgstr "قاشق غذاخوری"
+
+msgid "Teaspoons"
+msgstr "قاشق چای‌خوری"
+
+msgid "Type a food, or search your saved foods"
+msgstr "نام غذا را بنویسید یا در غذاهای ذخیره‌شده جست‌وجو کنید"
+
+msgid "Undo"
+msgstr "واگرد"
+
+msgid "Unit"
+msgstr "واحد"
+
+msgid "Use the context in my description"
+msgstr "با توجه به متن توضیحات من"
+
+msgid "What should the estimate know?"
+msgstr "چه جزئیاتی برای تخمین لازم است؟"
+
+msgid "YOUR USUAL, IN A TAP"
+msgstr "همیشگی شما، با یک لمس"
+
+msgid "You have 100 saved foods. Forget one before saving another."
+msgstr "۱۰۰ غذای ذخیره‌شده دارید. پیش از ذخیرهٔ غذای جدید، یکی را حذف کنید."
+
+msgid "Your saved foods are full. Forget another food first."
+msgstr "ظرفیت غذاهای ذخیره‌شده پر است. ابتدا غذای دیگری را حذف کنید."
+
+msgid "e.g. medium, boiled; or cooked weight"
+msgstr "مثلاً متوسط، آب‌پز؛ یا وزن پس از پخت"
+
+msgid "optional"
+msgstr "اختیاری"
