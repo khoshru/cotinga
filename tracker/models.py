@@ -192,10 +192,40 @@ class Meal(models.Model):
         return localized_text(self.portion, self.portion_fa, self.portion_ka)
 
 
+class AIModelDefaults(models.Model):
+    id = models.PositiveSmallIntegerField(primary_key=True, default=1, editable=False)
+    model = models.CharField(
+        gettext_lazy("Default AI model"),
+        max_length=200,
+        default=DEFAULT_AI_MODEL,
+        help_text=gettext_lazy("Used when a user first opens their AI settings."),
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = gettext_lazy("AI model defaults")
+        verbose_name_plural = gettext_lazy("AI model defaults")
+        constraints = [
+            models.CheckConstraint(
+                condition=models.Q(pk=1), name="one_ai_model_default"
+            )
+        ]
+
+    def __str__(self) -> str:
+        return str(self._meta.verbose_name)
+
+
+def default_ai_model() -> str:
+    return (
+        AIModelDefaults.objects.filter(pk=1).values_list("model", flat=True).first()
+        or DEFAULT_AI_MODEL
+    )
+
+
 class OpenRouterSettings(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     encrypted_api_key = models.TextField(blank=True, editable=False)
-    model = models.CharField(max_length=200, blank=True, default=DEFAULT_AI_MODEL)
+    model = models.CharField(max_length=200, blank=True, default=default_ai_model)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:

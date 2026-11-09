@@ -3381,3 +3381,36 @@ msgid ""
 "The model could not finish the suggestion. Your details are kept; try again "
 "or choose another model."
 msgstr "مدل نتوانست پیشنهاد را کامل کند. اطلاعات شما حفظ شده است؛ دوباره تلاش کنید یا مدل دیگری انتخاب کنید."
+
+msgid "Default AI model"
+msgstr "مدل پیش‌فرض هوش مصنوعی"
+
+msgid "Used when a user first opens their AI settings."
+msgstr "هنگامی استفاده می‌شود که کاربر برای اولین بار تنظیمات هوش مصنوعی خود را باز می‌کند."
+
+msgid "AI model defaults"
+msgstr "پیش‌فرض‌های مدل هوش مصنوعی"
+
+msgid "Search by model name or ID"
+msgstr "جست‌وجو با نام یا شناسهٔ مدل"
+
+msgid "Switch all existing users to this model"
+msgstr "تغییر مدل همهٔ کاربران فعلی به این مدل"
+
+msgid "Replaces every saved model choice, including custom selections. API keys and past results stay unchanged. Users can choose another model again later."
+msgstr "همهٔ مدل‌های انتخاب‌شده، از جمله انتخاب‌های شخصی، جایگزین می‌شوند. کلیدهای API و نتایج قبلی تغییر نمی‌کنند. کاربران می‌توانند بعداً دوباره مدل دیگری انتخاب کنند."
+
+msgid "Type in this field to search available OpenRouter models. Each user's own OpenRouter balance pays for requests."
+msgstr "برای جست‌وجوی مدل‌های موجود اوپن‌روتر در همین کادر تایپ کنید. هزینهٔ درخواست‌ها از اعتبار اوپن‌روتر هر کاربر پرداخت می‌شود."
+
+msgid "The model catalog is unavailable. No model changes will be applied; please try again shortly."
+msgstr "فهرست مدل‌ها در دسترس نیست. هیچ تغییری در مدل‌ها اعمال نمی‌شود؛ لطفاً کمی بعد دوباره تلاش کنید."
+
+msgid "The default was saved for new AI setups. Existing users kept their selected models."
+msgstr "پیش‌فرض برای تنظیمات جدید هوش مصنوعی ذخیره شد. مدل انتخابی کاربران فعلی حفظ شد."
+
+#, python-format
+msgid "The default was saved and %(count)s existing user was switched to %(model)s."
+msgid_plural "The default was saved and %(count)s existing users were switched to %(model)s."
+msgstr[0] "پیش‌فرض ذخیره شد و مدل %(count)s کاربر فعلی به %(model)s تغییر کرد."
+msgstr[1] "پیش‌فرض ذخیره شد و مدل %(count)s کاربر فعلی به %(model)s تغییر کرد."

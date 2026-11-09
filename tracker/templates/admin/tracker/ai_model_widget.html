@@ -1,0 +1,4 @@
+{% include "django/forms/widgets/text.html" %}
+<datalist id="ai-model-options">
+  {% for model in models %}<option value="{{ model.id }}">{{ model.name }} · {{ model.price_label }}</option>{% endfor %}
+</datalist>

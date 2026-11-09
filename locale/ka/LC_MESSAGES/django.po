@@ -3402,3 +3402,36 @@ msgid ""
 "The model could not finish the suggestion. Your details are kept; try again "
 "or choose another model."
 msgstr "მოდელმა შეთავაზება ვერ დაასრულა. მონაცემები შენახულია; სცადეთ ხელახლა ან აირჩიეთ სხვა მოდელი."
+
+msgid "Default AI model"
+msgstr "AI-ის ნაგულისხმევი მოდელი"
+
+msgid "Used when a user first opens their AI settings."
+msgstr "გამოიყენება, როცა მომხმარებელი პირველად ხსნის AI-ის პარამეტრებს."
+
+msgid "AI model defaults"
+msgstr "AI-ის მოდელის ნაგულისხმევი პარამეტრები"
+
+msgid "Search by model name or ID"
+msgstr "მოძებნეთ მოდელის სახელით ან ID-ით"
+
+msgid "Switch all existing users to this model"
+msgstr "ყველა არსებული მომხმარებლის ამ მოდელზე გადართვა"
+
+msgid "Replaces every saved model choice, including custom selections. API keys and past results stay unchanged. Users can choose another model again later."
+msgstr "შეცვლის ყველა შენახულ მოდელს, მათ შორის პირად არჩევანს. API-ის გასაღებები და წინა შედეგები უცვლელი დარჩება. მომხმარებლებს მოგვიანებით კვლავ შეეძლებათ სხვა მოდელის არჩევა."
+
+msgid "Type in this field to search available OpenRouter models. Each user's own OpenRouter balance pays for requests."
+msgstr "მოძებნეთ ხელმისაწვდომი OpenRouter-ის მოდელები ამავე ველში. მოთხოვნის საფასური თითოეული მომხმარებლის საკუთარი OpenRouter-ის ბალანსიდან ჩამოიჭრება."
+
+msgid "The model catalog is unavailable. No model changes will be applied; please try again shortly."
+msgstr "მოდელების კატალოგი მიუწვდომელია. მოდელები არ შეიცვლება; გთხოვთ, ცოტა ხანში სცადოთ ხელახლა."
+
+msgid "The default was saved for new AI setups. Existing users kept their selected models."
+msgstr "ნაგულისხმევი მოდელი შენახულია ახალი AI კავშირებისთვის. არსებული მომხმარებლების არჩეული მოდელები უცვლელია."
+
+#, python-format
+msgid "The default was saved and %(count)s existing user was switched to %(model)s."
+msgid_plural "The default was saved and %(count)s existing users were switched to %(model)s."
+msgstr[0] "ნაგულისხმევი მოდელი შენახულია და %(count)s არსებული მომხმარებელი გადართულია მოდელზე %(model)s."
+msgstr[1] "ნაგულისხმევი მოდელი შენახულია და %(count)s არსებული მომხმარებელი გადართულია მოდელზე %(model)s."
