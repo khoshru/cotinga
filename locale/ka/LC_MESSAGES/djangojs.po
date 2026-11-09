@@ -102,3 +102,32 @@ msgstr "აღდგენილი ცვლილებები მზად�
 
 msgid "Rest complete. Ready for your next set."
 msgstr "დასვენება დასრულდა. მზად ხართ შემდეგი სეტისთვის."
+
+msgid "exercises selected"
+msgstr "სავარჯიშო არჩეულია"
+
+msgid "Remove"
+msgstr "ამოშლა"
+
+msgid "Some changes need attention. Check the highlighted fields."
+msgstr "ზოგიერთ ცვლილებას ყურადღება სჭირდება. შეამოწმეთ მონიშნული ველები."
+
+msgid "Your latest sets will save before the workout finishes."
+msgstr "ბოლო სეტები ვარჯიშის დასრულებამდე შეინახება."
+
+msgid "sets complete"
+msgstr "სეტი შესრულებულია"
+
+msgid "Unfinished sets will be skipped. Your completed sets are kept."
+msgstr "დაუსრულებელი სეტები გამოტოვებული იქნება. შესრულებული სეტები შენარჩუნდება."
+
+msgid "Your workout is ready to save."
+msgstr "თქვენი ვარჯიში მზადაა შესანახად."
+
+msgid ""
+"Mark at least one set complete using its check button, then finish your "
+"workout."
+msgstr "მონიშნეთ სულ მცირე ერთი სეტი მისი ნიშნულით და შემდეგ დაასრულეთ ვარჯიში."
+
+msgid "Save or review your recovered set edits before finishing."
+msgstr "დასრულებამდე შეამოწმეთ ან შეინახეთ აღდგენილი ცვლილებები."

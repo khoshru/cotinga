@@ -293,9 +293,14 @@ def routine_page(
         "gym/routine.html",
         {
             "routine": routine,
-            "form": form or RoutineForm(instance=routine),
+            "form": form
+            or RoutineForm(instance=routine, user=cast(User, request.user)),
             "rows": rows,
             "today": timezone.localdate(),
+            "choices": exercises_for(cast(User, request.user)).filter(archived=False)
+            if not routine.pk
+            else [],
+            "selection": request.POST.getlist("exercises"),
         },
     )
 
@@ -310,7 +315,7 @@ def routine_edit(request: HttpRequest, pk: int | None = None) -> HttpResponse:
         safe_pk(pk)
     routine = get_object_or_404(Routine, pk=pk, user=user) if pk else Routine(user=user)
     form = RoutineForm(
-        request.POST if request.method == "POST" else None, instance=routine
+        request.POST if request.method == "POST" else None, instance=routine, user=user
     )
     if request.method == "POST" and form.is_valid():
         if (
@@ -321,9 +326,40 @@ def routine_edit(request: HttpRequest, pk: int | None = None) -> HttpResponse:
                 None, gettext("Archive a routine before creating more than 100.")
             )
         else:
-            form.save()
+            with transaction.atomic():
+                form.save()
+                if pk is None:
+                    # Preserve the order the user chose, rather than catalog ordering.
+                    chosen = {
+                        str(item.pk): item for item in form.cleaned_data["exercises"]
+                    }
+                    ordered = list(dict.fromkeys(request.POST.getlist("exercises")))
+                    RoutineExercise.objects.bulk_create(
+                        [
+                            RoutineExercise(
+                                routine=routine, exercise=chosen[key], position=index
+                            )
+                            for index, key in enumerate(ordered)
+                            if key in chosen
+                        ]
+                    )
             return redirect("gym:routine", pk=routine.pk)
     return routine_page(request, routine, form)
+
+
+@login_required
+@never_cache
+@require_http_methods(["GET", "POST"])
+def routine_delete(request: HttpRequest, pk: int) -> HttpResponse:
+    safe_pk(pk)
+    routine = get_object_or_404(Routine, pk=pk, user=request.user)
+    if request.method == "POST" and request.POST.get("confirm") == "on":
+        routine.delete()
+        messages.success(
+            request, gettext("Routine deleted. Your workout history is kept.")
+        )
+        return redirect("gym:home")
+    return render(request, "gym/routine_delete.html", {"routine": routine})
 
 
 @login_required
@@ -830,6 +866,7 @@ def workout_action(request: HttpRequest, pk: UUID) -> HttpResponse:
                 return JsonResponse(
                     {
                         "error": error,
+                        "fields": dict(bound.errors) if bound is not None else {},
                         "needs_weight": session.bodyweight is None
                         and isinstance(bound, SetForm)
                         and bound.instance.workout_exercise.mode

@@ -3046,3 +3046,92 @@ msgid ""
 "Nothing is logged yet. Review your description, then estimate your meals."
 msgstr ""
 "هنوز چیزی ثبت نشده است. توضیحاتتان را بررسی کنید، سپس وعده‌ها را تخمین بزنید."
+
+msgid "Routine deleted. Your workout history is kept."
+msgstr "برنامه حذف شد. سابقهٔ تمرین‌هایتان حفظ شده است."
+
+msgid "Exercise illustrations"
+msgstr "تصاویر حرکات"
+
+msgid "Reference variation"
+msgstr "نسخهٔ نمایش‌داده‌شده"
+
+msgid "MOVEMENT REFERENCE"
+msgstr "راهنمای تصویری حرکت"
+
+msgid "Start position"
+msgstr "وضعیت شروع"
+
+msgid "Movement position"
+msgstr "وضعیت اجرای حرکت"
+
+msgid "Delete routine"
+msgstr "حذف برنامه"
+
+msgid "Routine actions"
+msgstr "مدیریت برنامه"
+
+msgid "Sets, targets, and rest"
+msgstr "ست‌ها، هدف‌ها و استراحت"
+
+msgid "Select your movements now. Adjust sets, targets, and rest after saving."
+msgstr "حرکت‌ها را همین حالا انتخاب کنید. پس از ذخیره، ست‌ها، هدف‌ها و استراحت را تنظیم کنید."
+
+msgid "Search by exercise, muscle, or equipment"
+msgstr "جست‌وجوی حرکت، عضله یا وسیله"
+
+msgid "Select up to 40 exercises"
+msgstr "حداکثر ۴۰ حرکت انتخاب کنید"
+
+msgid "Selected only"
+msgstr "فقط انتخاب‌شده‌ها"
+
+msgid "No exercises match your search."
+msgstr "حرکتی مطابق جست‌وجوی شما پیدا نشد."
+
+msgid "Delete routine?"
+msgstr "برنامه حذف شود؟"
+
+msgid ""
+"This permanently deletes the routine and its planned exercises. Your "
+"recorded workouts and progress are kept."
+msgstr "این کار برنامه و حرکت‌های برنامه‌ریزی‌شدهٔ آن را برای همیشه حذف می‌کند. تمرین‌های ثبت‌شده و پیشرفت شما حفظ می‌شوند."
+
+msgid "Keep routine"
+msgstr "نگه داشتن برنامه"
+
+msgid "Log sets"
+msgstr "ثبت ست‌ها"
+
+msgid "How to enter weights"
+msgstr "نحوهٔ وارد کردن وزنه‌ها"
+
+msgid "View movement reference"
+msgstr "مشاهدهٔ راهنمای حرکت"
+
+msgid "Time"
+msgstr "زمان"
+
+msgid "Distance / time"
+msgstr "مسافت / زمان"
+
+msgid "Weight / reps"
+msgstr "وزنه / تکرار"
+
+msgid "Done"
+msgstr "انجام شد"
+
+msgid "Set options"
+msgstr "تنظیمات ست"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Finish workout?"
+msgstr "تمرین تمام شود؟"
+
+msgid "Keep training"
+msgstr "ادامهٔ تمرین"
+
+msgid "Save and finish"
+msgstr "ذخیره و پایان"

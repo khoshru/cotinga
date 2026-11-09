@@ -79,6 +79,57 @@
     search.addEventListener('submit', (event) => { event.preventDefault(); clearTimeout(debounce); searchExercises(); });
   }
 
+  const routinePicker = root.querySelector('[data-routine-picker]');
+  if (routinePicker) {
+    const query = routinePicker.querySelector('[data-routine-query]');
+    const onlySelected = routinePicker.querySelector('[data-selected-only]');
+    const choices = [...routinePicker.querySelectorAll('[data-choice]')];
+    const chosenOrder = [...routinePicker.querySelectorAll('input[name=exercises]:checked')].map((input) => input.value);
+    const normalize = (value) => value.toLocaleLowerCase().replace(/ي/g, 'ی').replace(/ك/g, 'ک');
+    function renderChoices() {
+      const words = normalize(query.value).trim().split(/\s+/).filter(Boolean);
+      let visible = 0;
+      choices.forEach((choice) => {
+        const input = choice.querySelector('input');
+        const matches = words.every((word) => normalize(choice.dataset.search).includes(word));
+        choice.hidden = !matches || (onlySelected.checked && !input.checked);
+        choice.classList.toggle('is-selected', input.checked);
+        if (!choice.hidden) visible++;
+      });
+      const selected = choices.map((choice) => choice.querySelector('input')).filter((input) => input.checked);
+      routinePicker.querySelector('[data-selection-count]').textContent = `${selected.length} / 40 · ${gettext('exercises selected')}`;
+      routinePicker.querySelector('[data-choice-empty]').hidden = visible > 0;
+      const chips = routinePicker.querySelector('[data-selected-chips]');
+      chips.replaceChildren();
+      chosenOrder.forEach((id) => {
+        const input = selected.find((item) => item.value === id);
+        if (!input) return;
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'gym-selected-chip';
+        button.textContent = `${input.dataset.name} ×`;
+        button.setAttribute('aria-label', `${gettext('Remove')}: ${input.dataset.name}`);
+        button.addEventListener('click', () => { input.checked = false; chosenOrder.splice(chosenOrder.indexOf(id), 1); renderChoices(); });
+        chips.append(button);
+      });
+    }
+    routinePicker.addEventListener('change', (event) => {
+      const input = event.target;
+      if (input.name === 'exercises') {
+        if (input.checked && chosenOrder.length >= 40) { input.checked = false; return; }
+        if (input.checked) chosenOrder.push(input.value);
+        else chosenOrder.splice(chosenOrder.indexOf(input.value), 1);
+      }
+      renderChoices();
+    });
+    query.addEventListener('input', renderChoices);
+    query.addEventListener('keydown', (event) => { if (event.key === 'Enter') event.preventDefault(); });
+    routinePicker.closest('form').addEventListener('formdata', (event) => {
+      event.formData.delete('exercises');
+      chosenOrder.forEach((id) => event.formData.append('exercises', id));
+    });
+    renderChoices();
+  }
+
   const workout = root.querySelector('[data-workout]');
   if (!workout) return;
   let state = JSON.parse(document.getElementById('gym-workout-state').textContent);
@@ -86,6 +137,7 @@
   const retry = workout.querySelector('[data-save-retry]');
   const dialog = workout.querySelector('[data-bodyweight-dialog]');
   let clockAnchor = Date.now();
+  let manualRestOpen = false;
   const queue = [];
   const invalid = new Map();
   let sending = false;
@@ -94,6 +146,9 @@
   let reloadAfterSave = false;
   let redirectAfterSave = '';
   let inFlight = null;
+  const finishDialog = workout.querySelector('[data-finish-dialog]');
+  const finishForm = workout.querySelector('[data-finish-form]');
+  let finishApproved = false;
   let unreviewedDrafts = {};
   try { unreviewedDrafts = JSON.parse(localStorage.getItem(`cotinga:gym:draft:${location.pathname}`) || '{}'); } catch { /* Storage is optional. */ }
   const storageKey = `cotinga:gym:draft:${location.pathname}`;
@@ -150,6 +205,20 @@
         try { result = await response.json(); } catch { throw new Error(gettext('Connection interrupted. Your edits are still here. Retry saving.')); }
         if (!response.ok) {
           const message = result.error || gettext('Could not save this change. Please try again.');
+          let error = job.form.querySelector('[data-set-error]');
+          if (!error) {
+            error = document.createElement('p'); error.className = 'gym-action-error';
+            error.dataset.setError = ''; error.setAttribute('role', 'alert'); job.form.append(error);
+          }
+          error.textContent = message;
+          job.form.classList.add('has-save-error');
+          if (result.fields) Object.entries(result.fields).forEach(([field]) => {
+            const input = job.form.querySelector(`[name="set-${job.form.dataset.setForm}-${field}"]`);
+            if (input) { input.setAttribute('aria-invalid', 'true'); input.closest('details')?.setAttribute('open', ''); }
+          });
+          if (job.form === finishForm && finishDialog?.open) {
+            finishDialog.querySelector('[data-finish-error]').textContent = message;
+          }
           if (response.status === 409) {
             conflicted = true;
             retry.textContent = gettext('Reload latest workout');
@@ -169,7 +238,8 @@
         }
         invalid.delete(job.form);
         if (job.form.dataset.setForm) delete unreviewedDrafts[job.form.dataset.setForm];
-        job.form.classList.remove('is-recovered');
+        job.form.classList.remove('is-recovered', 'has-save-error');
+        job.form.querySelectorAll('[aria-invalid]').forEach((input) => input.removeAttribute('aria-invalid'));
         job.form.classList.toggle('is-pending', queue.some((pending) => pending.form === job.form));
         const error = job.form.querySelector('[data-set-error]');
         if (error) error.textContent = '';
@@ -177,6 +247,7 @@
           const name = `set-${job.form.dataset.setForm}-completed`;
           job.form.closest('[data-set-wrapper]').classList.toggle('is-complete', job.data.get(name) === 'on');
         }
+        if (job.data.get('action') === 'timer' && job.data.get('command') === 'cancel') manualRestOpen = false;
         applyState(result.state);
         reloadAfterSave ||= result.reload;
         redirectAfterSave ||= result.redirect;
@@ -192,7 +263,11 @@
     }
     sending = false;
     if (!queue.length) {
-      if (invalid.size) say(gettext('Some changes need attention. Check the message beside your set.'), true);
+      if (invalid.size) {
+        const firstError = [...invalid.values()][0];
+        const message = firstError.form.querySelector('[data-set-error]')?.textContent;
+        say(message || gettext('Some changes need attention. Check the highlighted fields.'), true);
+      }
       else say(gettext('All changes saved'));
       if (redirectAfterSave || reloadAfterSave) {
         persistDrafts();
@@ -220,12 +295,44 @@
   workout.querySelectorAll('[data-gym-save]').forEach((form) => {
     form.addEventListener('submit', (event) => {
       if (event.defaultPrevented) return;
+      if (form === finishForm && finishDialog && !finishApproved) {
+        event.preventDefault(); openFinish(); return;
+      }
       event.preventDefault();
       if (form.reportValidity()) enqueue(form, event.submitter);
     });
     if (form.dataset.setForm) form.addEventListener('change', () => { if (form.reportValidity()) enqueue(form); });
   });
-  retry.addEventListener('click', () => { if (conflicted) { persistDrafts(); navigationAllowed = true; location.reload(); } else drain(); });
+  function openFinish() {
+    if (!finishDialog) return;
+    const pending = sending || queue.length;
+    const summary = finishDialog.querySelector('[data-finish-summary]');
+    summary.textContent = pending ? gettext('Your latest sets will save before the workout finishes.') :
+      `${state.totals.completed} ${gettext('sets complete')}. ${state.totals.remaining ? gettext('Unfinished sets will be skipped. Your completed sets are kept.') : gettext('Your workout is ready to save.')}`;
+    finishDialog.querySelector('[data-finish-error]').textContent = '';
+    finishDialog.querySelector('[data-confirm-finish]').hidden = !pending && !state.totals.completed;
+    if (!pending && !state.totals.completed) summary.textContent = gettext('Mark at least one set complete using its check button, then finish your workout.');
+    if (!finishDialog.open) finishDialog.showModal();
+  }
+  workout.querySelectorAll('[data-open-finish]').forEach((button) => button.addEventListener('click', openFinish));
+  finishDialog?.querySelectorAll('[data-finish-close]').forEach((button) => button.addEventListener('click', () => finishDialog.close()));
+  finishDialog?.querySelector('[data-confirm-finish]').addEventListener('click', () => {
+    if (workout.querySelector('.is-recovered')) {
+      finishDialog.querySelector('[data-finish-error]').textContent = gettext('Save or review your recovered set edits before finishing.'); return;
+    }
+    if (invalid.size) {
+      const failed = [...invalid.values()].find((job) => job.form.dataset.setForm);
+      if (failed) {
+        finishDialog.close(); failed.form.scrollIntoView({block:'center', behavior:'smooth'});
+        failed.form.querySelector('[aria-invalid], input:not([type=hidden])')?.focus(); return;
+      }
+    }
+    finishForm.elements.confirm_unfinished.checked = true;
+    finishApproved = true;
+    finishForm.requestSubmit(finishForm.querySelector('button[value=finish]'));
+    finishApproved = false;
+  });
+  retry.addEventListener('click' , () => { if (conflicted) { persistDrafts(); navigationAllowed = true; location.reload(); } else drain(); });
   addEventListener('online', () => { if (!conflicted) drain(); });
   addEventListener('beforeunload', (event) => {
     if (!navigationAllowed && (sending || queue.length || invalid.size || workout.querySelector('.is-recovered'))) { event.preventDefault(); event.returnValue = ''; }
@@ -262,6 +369,7 @@
     }
   } catch { /* A blocked storage API does not prevent server-backed logging. */ }
 
+  workout.querySelector('[data-open-rest]')?.addEventListener('click', () => { manualRestOpen = true; renderClocks(); });
   let hadRunningRest = Boolean(state.rest_ends_at && Date.parse(state.rest_ends_at) > Date.parse(state.server_time));
   const soundToggle = workout.querySelector('[data-timer-sound]');
   let audio;
@@ -287,6 +395,9 @@
     const timer = workout.querySelector('[data-rest-clock]');
     if (!timer) return;
     const remaining = state.rest_ends_at ? Math.max(0, Math.ceil((Date.parse(state.rest_ends_at) - Date.parse(state.server_time) - (Date.now() - clockAnchor)) / 1000)) : (state.rest_remaining || 0);
+    if (remaining) manualRestOpen = true;
+    const restPanel = workout.querySelector('[data-rest-panel]');
+    if (restPanel) restPanel.hidden = !manualRestOpen;
     timer.textContent = clock(remaining);
     const paused = !state.rest_ends_at && Boolean(state.rest_remaining);
     workout.querySelector('[data-timer-pause]').hidden = paused || !remaining;

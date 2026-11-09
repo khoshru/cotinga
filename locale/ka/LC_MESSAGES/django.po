@@ -3067,3 +3067,92 @@ msgid ""
 "Nothing is logged yet. Review your description, then estimate your meals."
 msgstr ""
 "ჯერ არაფერი ჩაწერილა დღიურში. შეამოწმეთ აღწერა და შემდეგ შეაფასეთ კვება."
+
+msgid "Routine deleted. Your workout history is kept."
+msgstr "პროგრამა წაიშალა. ვარჯიშების ისტორია შენარჩუნებულია."
+
+msgid "Exercise illustrations"
+msgstr "ვარჯიშების ილუსტრაციები"
+
+msgid "Reference variation"
+msgstr "ნაჩვენები ვარიანტი"
+
+msgid "MOVEMENT REFERENCE"
+msgstr "მოძრაობის მაგალითი"
+
+msgid "Start position"
+msgstr "საწყისი პოზიცია"
+
+msgid "Movement position"
+msgstr "მოძრაობის პოზიცია"
+
+msgid "Delete routine"
+msgstr "პროგრამის წაშლა"
+
+msgid "Routine actions"
+msgstr "პროგრამის მართვა"
+
+msgid "Sets, targets, and rest"
+msgstr "სეტები, მიზნები და დასვენება"
+
+msgid "Select your movements now. Adjust sets, targets, and rest after saving."
+msgstr "აირჩიეთ სავარჯიშოები. შენახვის შემდეგ დააყენეთ სეტები, მიზნები და დასვენება."
+
+msgid "Search by exercise, muscle, or equipment"
+msgstr "მოძებნეთ სავარჯიშო, კუნთი ან აღჭურვილობა"
+
+msgid "Select up to 40 exercises"
+msgstr "აირჩიეთ მაქსიმუმ 40 სავარჯიშო"
+
+msgid "Selected only"
+msgstr "მხოლოდ არჩეული"
+
+msgid "No exercises match your search."
+msgstr "ძიების შესაბამისი სავარჯიშო ვერ მოიძებნა."
+
+msgid "Delete routine?"
+msgstr "წავშალოთ პროგრამა?"
+
+msgid ""
+"This permanently deletes the routine and its planned exercises. Your "
+"recorded workouts and progress are kept."
+msgstr "პროგრამა და მისი დაგეგმილი სავარჯიშოები სამუდამოდ წაიშლება. ჩაწერილი ვარჯიშები და პროგრესი შენარჩუნდება."
+
+msgid "Keep routine"
+msgstr "პროგრამის დატოვება"
+
+msgid "Log sets"
+msgstr "სეტების ჩაწერა"
+
+msgid "How to enter weights"
+msgstr "როგორ ჩავწეროთ წონები"
+
+msgid "View movement reference"
+msgstr "მოძრაობის მაგალითის ნახვა"
+
+msgid "Time"
+msgstr "დრო"
+
+msgid "Distance / time"
+msgstr "მანძილი / დრო"
+
+msgid "Weight / reps"
+msgstr "წონა / გამეორებები"
+
+msgid "Done"
+msgstr "მზადაა"
+
+msgid "Set options"
+msgstr "სეტის პარამეტრები"
+
+msgid "Remove"
+msgstr "ამოშლა"
+
+msgid "Finish workout?"
+msgstr "დავასრულოთ ვარჯიში?"
+
+msgid "Keep training"
+msgstr "ვარჯიშის გაგრძელება"
+
+msgid "Save and finish"
+msgstr "შენახვა და დასრულება"

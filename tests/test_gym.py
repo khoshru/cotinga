@@ -859,3 +859,149 @@ def test_deleting_owner_removes_private_training_data_without_catalog_loss(
         and not Exercise.objects.filter(owner__isnull=False).exists()
     )
     assert Exercise.objects.filter(owner__isnull=True).count() == 273
+
+
+def test_routine_creation_selects_private_exercises_in_chosen_order(
+    client: Client, owner: User
+) -> None:
+    first = Exercise.objects.get(slug="barbell-bench-press")
+    second = Exercise.objects.get(slug="pull-up")
+    custom = Exercise.objects.create(
+        owner=owner, name="My movement", muscle="back", equipment="other"
+    )
+    response = client.post(
+        "/gym/routines/new/",
+        {"name": "Morning training", "exercises": [second.pk, custom.pk, first.pk]},
+    )
+    assert response.status_code == 302
+    routine = Routine.objects.get(name="Morning training")
+    assert list(routine.exercises.values_list("exercise_id", flat=True)) == [
+        second.pk,
+        custom.pk,
+        first.pk,
+    ]
+    page = client.get(response["Location"])
+    assert b"Delete routine" in page.content and b"Archive routine" in page.content
+
+
+def test_routine_creation_rejects_hidden_private_or_archived_choices(
+    client: Client, owner: User
+) -> None:
+    other = User.objects.create_user(
+        email="other-gym@example.com", password="test-only"
+    )
+    private = Exercise.objects.create(
+        owner=other, name="Private", muscle="back", equipment="other"
+    )
+    archived = Exercise.objects.create(
+        owner=owner, name="Archived", muscle="back", equipment="other", archived=True
+    )
+    for ids in (
+        [private.pk],
+        [archived.pk],
+        list(
+            Exercise.objects.filter(owner__isnull=True).values_list("pk", flat=True)[
+                :41
+            ]
+        ),
+    ):
+        response = client.post(
+            "/gym/routines/new/", {"name": "Must not save", "exercises": ids}
+        )
+        assert response.status_code == 200 and response.context["form"].errors
+        assert not Routine.objects.filter(name="Must not save").exists()
+
+
+def test_delete_routine_requires_confirmation_and_preserves_workouts(
+    client: Client, owner: User
+) -> None:
+    routine = Routine.objects.create(user=owner, name="Remove this plan")
+    RoutineExercise.objects.create(
+        routine=routine, exercise=Exercise.objects.get(slug="barbell-bench-press")
+    )
+    session = Workout.objects.create(
+        user=owner, routine=routine, name="History", status="finished"
+    )
+    url = f"/gym/routines/{routine.pk}/delete/"
+    assert client.get(url).status_code == 200
+    assert client.post(url).status_code == 200
+    assert Routine.objects.filter(pk=routine.pk).exists()
+    response = client.post(url, {"confirm": "on"})
+    assert response.status_code == 302
+    assert not Routine.objects.filter(pk=routine.pk).exists()
+    session.refresh_from_db()
+    assert session.routine_id is None and session.name == "History"
+    assert not RoutineExercise.objects.filter(routine_id=routine.pk).exists()
+    other = User.objects.create_user(
+        email="routine-owner@example.com", password="test-only"
+    )
+    foreign = Routine.objects.create(user=other, name="Private routine")
+    assert client.get(f"/gym/routines/{foreign.pk}/delete/").status_code == 404
+    assert (
+        client.post(
+            f"/gym/routines/{foreign.pk}/delete/", {"confirm": "on"}
+        ).status_code
+        == 404
+    )
+
+
+def test_minimal_browser_set_payload_and_finish(client: Client, owner: User) -> None:
+    session, row = session_for(owner)
+    entry = row.sets.first()
+    assert entry is not None
+    response = action(
+        client,
+        session,
+        "set",
+        set=entry.pk,
+        **{
+            f"set-{entry.pk}-kind": "working",
+            f"set-{entry.pk}-weight": "20.00",
+            f"set-{entry.pk}-reps": "1",
+            f"set-{entry.pk}-rpe": "",
+            f"set-{entry.pk}-completed": "on",
+        },
+    )
+    assert (
+        response.status_code == 200
+        and response.json()["state"]["totals"]["completed"] == 1
+    )
+    assert finish(client, session).status_code == 200 and session.status == "finished"
+
+
+def test_validation_errors_identify_fields_and_can_be_corrected(
+    client: Client, owner: User
+) -> None:
+    session, row = session_for(owner)
+    entry = row.sets.first()
+    assert entry is not None
+    response = complete(client, session, entry, reps="0", rpe="12")
+    assert response.status_code == 400
+    assert "reps" in response.json()["fields"] and "rpe" in response.json()["fields"]
+    assert complete(client, session, entry).status_code == 200
+    assert finish(client, session).status_code == 200
+
+
+def test_exercise_references_are_local_and_private_exercises_cannot_impersonate_catalog(
+    owner: User,
+) -> None:
+    from pathlib import Path
+
+    from gym.media import exercise_media
+
+    media = exercise_media()
+    assert len(media) >= 260
+    for item in media.values():
+        assert item["name"] and item["provider"] in {"repdb", "free-exercise-db"}
+        assert len(item["images"]) >= 1
+        for path in item["images"]:
+            assert path.startswith("gym/exercises/")
+            assert (Path(settings.BASE_DIR) / "static" / path).is_file()
+    custom = Exercise(
+        owner=owner,
+        slug="barbell-bench-press",
+        name="Custom",
+        muscle="chest",
+        equipment="other",
+    )
+    assert not custom.media

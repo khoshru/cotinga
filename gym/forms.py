@@ -1,6 +1,7 @@
 from typing import Any
 
 from django import forms
+from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -84,6 +85,27 @@ class ExerciseForm(forms.ModelForm):  # type: ignore[type-arg]
 
 
 class RoutineForm(forms.ModelForm):  # type: ignore[type-arg]
+    exercises = forms.ModelMultipleChoiceField(
+        queryset=Exercise.objects.none(),
+        required=False,
+        label=_("Choose exercises"),
+        widget=forms.CheckboxSelectMultiple,
+    )
+
+    def __init__(self, *args: Any, user: User, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        self.fields["exercises"].queryset = Exercise.objects.filter(  # type: ignore[attr-defined]
+            Q(owner__isnull=True) | Q(owner=user), archived=False
+        )
+        if self.instance.pk:
+            del self.fields["exercises"]
+
+    def clean_exercises(self) -> Any:
+        selected = self.cleaned_data["exercises"]
+        if len(selected) > 40:
+            raise forms.ValidationError(_("A routine can contain up to 40 exercises."))
+        return selected
+
     class Meta:
         model = Routine
         fields = ("name", "notes")

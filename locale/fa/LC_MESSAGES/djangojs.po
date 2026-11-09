@@ -115,3 +115,32 @@ msgstr ""
 
 msgid "Rest complete. Ready for your next set."
 msgstr "استراحت تمام شد. آمادهٔ ست بعدی هستید."
+
+msgid "exercises selected"
+msgstr "حرکت انتخاب شده"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Some changes need attention. Check the highlighted fields."
+msgstr "برخی تغییرات نیاز به بررسی دارند. قسمت‌های مشخص‌شده را بررسی کنید."
+
+msgid "Your latest sets will save before the workout finishes."
+msgstr "آخرین ست‌ها پیش از پایان تمرین ذخیره می‌شوند."
+
+msgid "sets complete"
+msgstr "ست انجام شده"
+
+msgid "Unfinished sets will be skipped. Your completed sets are kept."
+msgstr "ست‌های ناتمام کنار گذاشته می‌شوند. ست‌های انجام‌شده حفظ می‌شوند."
+
+msgid "Your workout is ready to save."
+msgstr "تمرین شما آمادهٔ ذخیره است."
+
+msgid ""
+"Mark at least one set complete using its check button, then finish your "
+"workout."
+msgstr "با دکمهٔ تیک، حداقل یک ست را انجام‌شده علامت بزنید؛ سپس تمرین را تمام کنید."
+
+msgid "Save or review your recovered set edits before finishing."
+msgstr "پیش از پایان، ویرایش‌های بازیابی‌شدهٔ ست‌ها را بررسی یا ذخیره کنید."

@@ -1,0 +1,3 @@
+{% extends 'gym/base.html' %}{% load i18n %}{% block gym_content %}
+<section class="panel gym-delete-confirm"><h1>{% translate "Delete routine?" %}</h1><p class="panel-copy"><bdi>{{ routine.name }}</bdi></p><p>{% translate "This permanently deletes the routine and its planned exercises. Your recorded workouts and progress are kept." %}</p><form method="post">{% csrf_token %}<input type="hidden" name="confirm" value="on"><div class="form-actions"><a class="button subtle" href="{% url 'gym:routine' routine.pk %}">{% translate "Keep routine" %}</a><button class="button gym-danger">{% include 'icon.html' with name='trash' %}{% translate "Delete routine" %}</button></div></form></section>
+{% endblock %}
