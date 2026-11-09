@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import ai_views, views
+from . import ai_views, record_views, views
 
 app_name = "gym"
 urlpatterns = [
@@ -22,5 +22,6 @@ urlpatterns = [
     path("workouts/<uuid:pk>/action/", views.workout_action, name="workout-action"),
     path("history/", views.history, name="history"),
     path("progress/", views.progress, name="progress"),
+    path("records/", record_views.records, name="records"),
     path("export/", views.export, name="export"),
 ]

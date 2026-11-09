@@ -1,0 +1,11 @@
+{% load i18n %}
+{% if workout_records %}
+<section class="panel gym-record-celebration" aria-label="{% translate 'Workout records' %}">
+  <div class="gym-record-heading"><span class="gym-record-icon">{% include 'icon.html' with name='trophy' %}</span><div><span class="eyebrow">{% if session.status == 'active' %}{% translate "A NEW HIGH, IN THE MAKING" %}{% else %}{% translate "LOOK WHAT YOU JUST DID" %}{% endif %}</span><h2>{% blocktranslate count counter=workout_records|length %}{{ counter }} personal record{% plural %}{{ counter }} personal records{% endblocktranslate %}</h2></div><a class="text-link" href="{% url 'gym:records' %}">{% translate "All records" %}</a></div>
+  {% if session.status == 'active' %}<p class="help-text">{% translate "Provisional until you finish this workout. Only completed working sets count." %}</p>{% endif %}
+  <details class="gym-record-more" {% if session.status != 'active' %}open{% endif %}><summary>{% translate "Compare old and new records" %}</summary><div class="gym-record-grid">{% for record in workout_records|slice:':6' %}{% include 'gym/record_card.html' %}{% endfor %}</div></details>
+  {% if workout_records|length > 6 %}<details class="gym-record-more"><summary>{% translate "See every record from this workout" %}</summary><div class="gym-record-grid">{% for record in workout_records|slice:'6:' %}{% include 'gym/record_card.html' %}{% endfor %}</div></details>{% endif %}
+</section>
+{% elif first_exercises %}
+<section class="panel gym-record-baseline"><span class="gym-record-icon">{% include 'icon.html' with name='chart' %}</span><div><h2>{% translate "Your next record starts here." %}</h2><p>{% if session.status == 'active' %}{% translate "Finish this workout to save your first benchmarks. Next time, you will see exactly what you beat." %}{% else %}{% translate "First benchmarks saved. Next time, you will see exactly what you beat." %}{% endif %}</p></div><a class="text-link" href="{% url 'gym:records' %}">{% translate "See your bests" %}</a></section>
+{% endif %}

@@ -9,6 +9,7 @@
     <a href="{% url 'gym:library' %}" {% if request.resolver_match.url_name == 'library' %}aria-current="page"{% endif %}>{% translate "Exercises" %}</a>
     <a href="{% url 'gym:history' %}" {% if request.resolver_match.url_name == 'history' %}aria-current="page"{% endif %}>{% translate "History" %}</a>
     <a href="{% url 'gym:progress' %}" {% if request.resolver_match.url_name == 'progress' %}aria-current="page"{% endif %}>{% translate "Progress" %}</a>
+    <a href="{% url 'gym:records' %}" {% if request.resolver_match.url_name == 'records' %}aria-current="page"{% endif %}>{% translate "Records" %}</a>
   </nav>
   {% block gym_content %}{% endblock %}
   <p class="gym-image-credit">{% translate "Exercise illustrations" %}: <a href="https://repdb.co" target="_blank" rel="noopener">Exercise data by RepDB (repdb.co)</a> · <a href="https://github.com/yuhonas/free-exercise-db" target="_blank" rel="noopener">Free Exercise DB</a></p>

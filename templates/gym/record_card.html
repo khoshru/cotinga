@@ -1,0 +1,10 @@
+{% load i18n %}
+<article class="gym-record-card">
+  <div class="gym-record-title"><span class="gym-record-icon">{% include 'icon.html' with name='trophy' %}</span><div><span class="eyebrow">{{ record.current.label }}</span><h3><bdi>{{ record.current.subject }}</bdi></h3></div></div>
+  <div class="gym-record-change">
+    <div><span>{% translate "Previous record" %}</span><strong dir="auto">{{ record.previous.result }}</strong></div>
+    <span class="gym-record-arrow" aria-hidden="true">{% include 'icon.html' with name='arrow-right' %}</span>
+    <div><span>{% translate "New record" %}</span><strong dir="auto">{{ record.current.result }}</strong></div>
+  </div>
+  <div class="gym-record-footer"><span class="gym-record-gain">{% if record.current.lower %}{% translate "Improved by" %}{% else %}+{% endif %} <bdi>{{ record.improvement }}</bdi></span><a href="{% url 'gym:workout' record.previous.workout.pk %}">{% translate "Previous" %} · {{ record.previous.workout.date|date:'j M Y' }}</a></div>
+</article>

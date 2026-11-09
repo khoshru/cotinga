@@ -3435,3 +3435,194 @@ msgid "The default was saved and %(count)s existing user was switched to %(model
 msgid_plural "The default was saved and %(count)s existing users were switched to %(model)s."
 msgstr[0] "ნაგულისხმევი მოდელი შენახულია და %(count)s არსებული მომხმარებელი გადართულია მოდელზე %(model)s."
 msgstr[1] "ნაგულისხმევი მოდელი შენახულია და %(count)s არსებული მომხმარებელი გადართულია მოდელზე %(model)s."
+
+msgid "A NEW HIGH, IN THE MAKING"
+msgstr "ახალი რეკორდისკენ"
+
+msgid "A starting point worth keeping."
+msgstr "საწყისი შედეგი, რომლის შენახვაც ღირს."
+
+msgid "All exercises"
+msgstr "ყველა ვარჯიში"
+
+msgid "All records"
+msgstr "ყველა რეკორდი"
+
+msgid "Best before this workout"
+msgstr "საუკეთესო შედეგი ამ სესიამდე"
+
+msgid "Built from your finished workouts"
+msgstr "თქვენი დასრულებული სესიების მიხედვით"
+
+msgid "CURRENT PERSONAL BESTS"
+msgstr "მიმდინარე პირადი რეკორდები"
+
+msgid "Choose an exercise to see all its bests"
+msgstr "აირჩიეთ ვარჯიში მისი ყველა საუკეთესო შედეგის სანახავად"
+
+msgid "Clear filters"
+msgstr "ფილტრების გასუფთავება"
+
+msgid "EXERCISES WITH BENCHMARKS"
+msgstr "ვარჯიშები საწყისი შედეგებით"
+
+msgid "Every small improvement has a story. Here is yours."
+msgstr "ყოველ მცირე გაუმჯობესებას თავისი ისტორია აქვს. ეს თქვენია."
+
+msgid "Exercise"
+msgstr "ვარჯიში"
+
+msgid "Exercise distance in one workout"
+msgstr "ვარჯიშის მანძილი ერთ სესიაში"
+
+msgid "Exercise reps in one workout"
+msgstr "ვარჯიშის გამეორებები ერთ სესიაში"
+
+msgid "Exercise volume in one workout"
+msgstr "ვარჯიშის მოცულობა ერთ სესიაში"
+
+msgid "Exercise, routine, or record"
+msgstr "ვარჯიში, რუტინა ან რეკორდი"
+
+#, python-format
+msgid "Fastest %(distance)s km"
+msgstr "უსწრაფესი %(distance)s კმ"
+
+msgid "Finish this workout to save your first benchmarks. Next time, you will see exactly what you beat."
+msgstr "დაასრულეთ სესია პირველი საწყისი შედეგების შესანახად. შემდეგ ჯერზე ზუსტად დაინახავთ, რომელ შედეგს აჯობეთ."
+
+msgid "First benchmarks saved. Next time, you will see exactly what you beat."
+msgstr "პირველი საწყისი შედეგები შენახულია. შემდეგ ჯერზე ზუსტად დაინახავთ, რომელ შედეგს აჯობეთ."
+
+msgid "Heaviest added weight"
+msgstr "ყველაზე დიდი დამატებული წონა"
+
+msgid "Heaviest weight"
+msgstr "ყველაზე მძიმე წონა"
+
+msgid "Improved by"
+msgstr "გაუმჯობესება"
+
+msgid "LOOK WHAT YOU JUST DID"
+msgstr "ნახეთ, რას მიაღწიეთ"
+
+msgid "Least assistance"
+msgstr "ყველაზე ნაკლები დახმარება"
+
+msgid "Longest distance in one set"
+msgstr "ყველაზე დიდი მანძილი ერთ სეტში"
+
+msgid "Longest timed set"
+msgstr "ყველაზე ხანგრძლივი სეტი"
+
+msgid "MOST VOLUME IN ONE WORKOUT"
+msgstr "ყველაზე დიდი მოცულობა ერთ სესიაში"
+
+#, python-format
+msgid "Most reps at %(load)s %(unit)s"
+msgstr "ყველაზე მეტი გამეორება %(load)s %(unit)s-ზე"
+
+msgid "Most reps in one set"
+msgstr "ყველაზე მეტი გამეორება ერთ სეტში"
+
+msgid "Most volume in one set"
+msgstr "ყველაზე დიდი მოცულობა ერთ სეტში"
+
+msgid "New record"
+msgstr "ახალი რეკორდი"
+
+msgid "Only completed non-warm-up sets in finished, unarchived workouts count. First attempts establish benchmarks; ties do not earn another record. Active-workout records are provisional."
+msgstr "ითვლება მხოლოდ დასრულებული, არასაარქივო სესიების შესრულებული სეტები, გახურების გარდა. პირველი მცდელობა ადგენს საწყის შედეგს; გამეორებული შედეგი ახალი რეკორდი არ არის. მიმდინარე სესიის რეკორდები წინასწარია."
+
+msgid "PROOF OF YOUR PROGRESS"
+msgstr "თქვენი პროგრესის მტკიცებულება"
+
+msgid "Personal bests and record history"
+msgstr "პირადი რეკორდები და მათი ისტორია"
+
+msgid "Previous record"
+msgstr "წინა რეკორდი"
+
+msgid "Provisional until you finish this workout. Only completed working sets count."
+msgstr "სესიის დასრულებამდე შედეგები წინასწარია. ითვლება მხოლოდ შესრულებული სამუშაო სეტები."
+
+msgid "RECORDS BROKEN"
+msgstr "გაუმჯობესებული რეკორდები"
+
+msgid "Records"
+msgstr "რეკორდები"
+
+msgid "Routine records"
+msgstr "რუტინის რეკორდები"
+
+msgid "Routine volume record"
+msgstr "რუტინის მოცულობის რეკორდი"
+
+msgid "Search records"
+msgstr "რეკორდების ძებნა"
+
+msgid "See every record from this workout"
+msgstr "ამ სესიის ყველა რეკორდის ნახვა"
+
+msgid "See your bests"
+msgstr "საუკეთესო შედეგების ნახვა"
+
+msgid "Set records"
+msgstr "სეტის რეკორდები"
+
+msgid "Show records"
+msgstr "რეკორდების ჩვენება"
+
+msgid "Strict improvements, not ties"
+msgstr "მხოლოდ უკეთესი შედეგები, გამეორებულის გარეშე"
+
+msgid "THE MOMENTS YOU BEAT YOURSELF"
+msgstr "მომენტები, როცა საკუთარ შედეგს აჯობეთ"
+
+msgid "Total workout volume"
+msgstr "სესიის სრული მოცულობა"
+
+msgid "View workout"
+msgstr "სესიის ნახვა"
+
+msgid "Volume is logged external kg × reps. Bodyweight and assisted sets are excluded; dumbbell weight is per dumbbell. Extra sets or exercises can increase volume without meaning you lifted a heavier weight."
+msgstr "მოცულობა არის ჩაწერილი გარე წონა კგ-ში × გამეორებები. საკუთარი წონით და დახმარებით შესრულებული სეტები არ ითვლება; ჰანტელის წონა თითო ჰანტელზეა. მეტი სეტი ან ვარჯიში ზრდის მოცულობას, თუმცა ეს უფრო მძიმე წონის აწევას არ ნიშნავს."
+
+msgid "Weight, reps at the same load, less assistance, hold duration, distance, and time at the same distance are compared separately. Different tracking modes never compete."
+msgstr "წონა, იმავე წონაზე გამეორებები, ნაკლები დახმარება, ხანგრძლივობა, მანძილი და იმავე მანძილზე დრო ცალ-ცალკე შედარდება. აღრიცხვის განსხვავებული რეჟიმები ერთმანეთს არ ედრება."
+
+msgid "What counts as a record?"
+msgstr "რა ითვლება რეკორდად?"
+
+msgid "Workout records"
+msgstr "სესიის რეკორდები"
+
+msgid "Your best at each weight or distance"
+msgstr "თქვენი საუკეთესო შედეგი თითოეულ წონაზე ან მანძილზე"
+
+msgid "Your first finished session sets a benchmark. Beat it in a later workout and the old and new records will appear here."
+msgstr "თქვენი პირველი დასრულებული სესია ადგენს საწყის შედეგს. აჯობეთ მას მომდევნო სესიაში და აქ გამოჩნდება ძველი და ახალი რეკორდები."
+
+msgid "Your next record starts here."
+msgstr "თქვენი შემდეგი რეკორდი აქ იწყება."
+
+msgid "Your personal records"
+msgstr "თქვენი პირადი რეკორდები"
+
+msgid "Your sets and workouts are saved. Records are rebuilt from that history, so corrections, backdated workouts, and archives update old and new comparisons automatically."
+msgstr "თქვენი სეტები და სესიები შენახულია. რეკორდები ამ ისტორიიდან ითვლება, ამიტომ შესწორებები, წინა თარიღით დამატებული სესიები და დაარქივება ძველ და ახალ შედარებებს ავტომატურად აახლებს."
+
+msgid "kg × reps"
+msgstr "კგ × გამეორებები"
+
+msgid "personal records"
+msgstr "პირადი რეკორდი"
+
+#, python-format
+msgid "%(counter)s personal record"
+msgid_plural "%(counter)s personal records"
+msgstr[0] "%(counter)s პირადი რეკორდი"
+msgstr[1] "%(counter)s პირადი რეკორდი"
+
+msgid "Compare old and new records"
+msgstr "ძველი და ახალი რეკორდების შედარება"

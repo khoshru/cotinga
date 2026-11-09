@@ -48,6 +48,8 @@ from .models import (
     WorkoutExercise,
     WorkoutSet,
 )
+from .record_views import record_fragments, workout_record_context
+from .records import record_book
 from .services import (
     MAX_EXERCISES,
     MAX_SETS,
@@ -503,15 +505,25 @@ def workout_page(
 ) -> HttpResponse:
     prefetch_related_objects([session], "exercises__exercise", "exercises__sets")
     rows = list(session.exercises.all())
+    record_context = workout_record_context(cast(User, request.user), session)
     previous = previous_exercises(
         cast(User, request.user), [row.exercise_id for row in rows], exclude=session
     )
     cards = []
     for row in rows:
         last = previous.get(row.exercise_id)
+        if last and last.mode != row.mode:
+            last = None
         last_sets = list(last.sets.all()) if last else []
         sets = []
-        for index, entry in enumerate(row.sets.all()):
+        working_index = 0
+        for entry in row.sets.all():
+            previous_entry = None
+            if entry.kind != WorkoutSet.Kind.WARMUP:
+                previous_entry = (
+                    last_sets[working_index] if working_index < len(last_sets) else None
+                )
+                working_index += 1
             sets.append(
                 {
                     "entry": entry,
@@ -519,7 +531,8 @@ def workout_page(
                     if isinstance(bound_form, SetForm)
                     and bound_form.instance.pk == entry.pk
                     else SetForm(instance=entry, prefix=f"set-{entry.pk}"),
-                    "previous": last_sets[index] if index < len(last_sets) else None,
+                    "previous": previous_entry,
+                    "record_feedback": record_context["record_feedback"].get(entry.pk),
                 }
             )
         cards.append(
@@ -536,6 +549,7 @@ def workout_page(
         "gym/workout.html",
         {
             "session": session,
+            **record_context,
             "cards": cards,
             "state": workout_state(session),
             "totals": workout_totals(session),
@@ -881,9 +895,11 @@ def workout_action(request: HttpRequest, pk: UUID) -> HttpResponse:
             messages.error(request, error)
             return workout_page(request, session, bound)
     if json_request(request):
+        feedback = record_fragments(request, session) if action == "set" else None
         return JsonResponse(
             {
                 "state": workout_state(session),
+                "records": feedback,
                 "reload": reload_page,
                 "redirect": destination,
             }
@@ -912,8 +928,19 @@ def history(request: HttpRequest) -> HttpResponse:
             "archived": archived,
             "query": query,
             "params": urlencode({"q": query, "archived": "1" if archived else "0"}),
+            "record_counts": _record_counts(cast(User, request.user))
+            if not archived
+            else {},
         },
     )
+
+
+def _record_counts(user: User) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for record in record_book(user).records:
+        key = str(record.current.workout.pk)
+        counts[key] = counts.get(key, 0) + 1
+    return counts
 
 
 @login_required

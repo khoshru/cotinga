@@ -181,6 +181,8 @@ class Workout(models.Model):
     routine = models.ForeignKey(
         Routine, on_delete=models.SET_NULL, null=True, blank=True
     )
+    # Preserve routine record comparisons after a routine is deleted.
+    routine_key = models.PositiveBigIntegerField(null=True, blank=True, editable=False)
     name = models.CharField(max_length=100)
     date = models.DateField(default=timezone.localdate)
     notes = models.TextField(max_length=2000, blank=True)

@@ -1,0 +1,3 @@
+{% load i18n %}
+{% if feedback.best %}<p class="gym-set-best"><span>{% translate "Best before this workout" %}</span> · {{ feedback.best.label }}: <b dir="auto">{{ feedback.best.result }}</b> <a href="{% url 'gym:workout' feedback.best.workout.pk %}">{{ feedback.best.workout.date|date:'j M Y' }}</a></p>{% endif %}
+{% if feedback.records %}<ul class="gym-set-records" aria-label="{% translate 'Set records' %}">{% for record in feedback.records %}<li>{% include 'icon.html' with name='trophy' %}<span>{{ record.current.label }}<small>{% translate "Previous" %}: <bdi>{{ record.previous.result }}</bdi></small></span></li>{% endfor %}</ul>{% endif %}

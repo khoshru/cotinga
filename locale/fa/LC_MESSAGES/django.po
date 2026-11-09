@@ -3414,3 +3414,194 @@ msgid "The default was saved and %(count)s existing user was switched to %(model
 msgid_plural "The default was saved and %(count)s existing users were switched to %(model)s."
 msgstr[0] "پیش‌فرض ذخیره شد و مدل %(count)s کاربر فعلی به %(model)s تغییر کرد."
 msgstr[1] "پیش‌فرض ذخیره شد و مدل %(count)s کاربر فعلی به %(model)s تغییر کرد."
+
+msgid "A NEW HIGH, IN THE MAKING"
+msgstr "در مسیر رکوردی تازه"
+
+msgid "A starting point worth keeping."
+msgstr "شروعی که ارزش ثبت‌کردن دارد."
+
+msgid "All exercises"
+msgstr "همهٔ حرکت‌ها"
+
+msgid "All records"
+msgstr "همهٔ رکوردها"
+
+msgid "Best before this workout"
+msgstr "بهترین نتیجه پیش از این جلسه"
+
+msgid "Built from your finished workouts"
+msgstr "بر اساس جلسه‌های تکمیل‌شدهٔ شما"
+
+msgid "CURRENT PERSONAL BESTS"
+msgstr "بهترین رکوردهای فعلی"
+
+msgid "Choose an exercise to see all its bests"
+msgstr "برای دیدن همهٔ رکوردهای یک حرکت، آن را انتخاب کنید"
+
+msgid "Clear filters"
+msgstr "حذف فیلترها"
+
+msgid "EXERCISES WITH BENCHMARKS"
+msgstr "حرکت‌های دارای نتیجهٔ پایه"
+
+msgid "Every small improvement has a story. Here is yours."
+msgstr "هر پیشرفت کوچکی داستانی دارد. این هم داستان شما."
+
+msgid "Exercise"
+msgstr "حرکت"
+
+msgid "Exercise distance in one workout"
+msgstr "مسافت این حرکت در یک جلسه"
+
+msgid "Exercise reps in one workout"
+msgstr "تکرارهای این حرکت در یک جلسه"
+
+msgid "Exercise volume in one workout"
+msgstr "حجم این حرکت در یک جلسه"
+
+msgid "Exercise, routine, or record"
+msgstr "حرکت، برنامه یا رکورد"
+
+#, python-format
+msgid "Fastest %(distance)s km"
+msgstr "سریع‌ترین زمان برای %(distance)s کیلومتر"
+
+msgid "Finish this workout to save your first benchmarks. Next time, you will see exactly what you beat."
+msgstr "این جلسه را تمام کنید تا نتیجه‌های پایهٔ شما ذخیره شوند. دفعهٔ بعد، دقیقاً می‌بینید از کدام نتیجه عبور کرده‌اید."
+
+msgid "First benchmarks saved. Next time, you will see exactly what you beat."
+msgstr "نتیجه‌های پایه ذخیره شدند. دفعهٔ بعد، دقیقاً می‌بینید از کدام نتیجه عبور کرده‌اید."
+
+msgid "Heaviest added weight"
+msgstr "بیشترین وزنهٔ اضافه"
+
+msgid "Heaviest weight"
+msgstr "سنگین‌ترین وزنه"
+
+msgid "Improved by"
+msgstr "میزان بهبود"
+
+msgid "LOOK WHAT YOU JUST DID"
+msgstr "ببینید چه پیشرفتی کردید"
+
+msgid "Least assistance"
+msgstr "کمترین کمک‌وزنه"
+
+msgid "Longest distance in one set"
+msgstr "بیشترین مسافت در یک ست"
+
+msgid "Longest timed set"
+msgstr "طولانی‌ترین ست زمان‌دار"
+
+msgid "MOST VOLUME IN ONE WORKOUT"
+msgstr "بیشترین حجم در یک جلسه"
+
+#, python-format
+msgid "Most reps at %(load)s %(unit)s"
+msgstr "بیشترین تکرار با %(load)s %(unit)s"
+
+msgid "Most reps in one set"
+msgstr "بیشترین تکرار در یک ست"
+
+msgid "Most volume in one set"
+msgstr "بیشترین حجم در یک ست"
+
+msgid "New record"
+msgstr "رکورد جدید"
+
+msgid "Only completed non-warm-up sets in finished, unarchived workouts count. First attempts establish benchmarks; ties do not earn another record. Active-workout records are provisional."
+msgstr "فقط ست‌های تکمیل‌شدهٔ غیرگرم‌کردنی در جلسه‌های تمام‌شده و بایگانی‌نشده محاسبه می‌شوند. اولین تلاش‌ها نتیجهٔ پایه می‌سازند؛ تکرار همان نتیجه رکورد جدید نیست. رکوردهای جلسهٔ جاری موقتی‌اند."
+
+msgid "PROOF OF YOUR PROGRESS"
+msgstr "پیشرفت شما، به روایت عددها"
+
+msgid "Personal bests and record history"
+msgstr "بهترین نتایج و تاریخچهٔ رکوردها"
+
+msgid "Previous record"
+msgstr "رکورد قبلی"
+
+msgid "Provisional until you finish this workout. Only completed working sets count."
+msgstr "تا پایان این جلسه موقتی است. فقط ست‌های کاری تکمیل‌شده محاسبه می‌شوند."
+
+msgid "RECORDS BROKEN"
+msgstr "رکوردهای شکسته‌شده"
+
+msgid "Records"
+msgstr "رکوردها"
+
+msgid "Routine records"
+msgstr "رکوردهای برنامه"
+
+msgid "Routine volume record"
+msgstr "رکورد حجم برنامه"
+
+msgid "Search records"
+msgstr "جست‌وجوی رکوردها"
+
+msgid "See every record from this workout"
+msgstr "دیدن همهٔ رکوردهای این جلسه"
+
+msgid "See your bests"
+msgstr "دیدن بهترین نتایج"
+
+msgid "Set records"
+msgstr "رکوردهای ست"
+
+msgid "Show records"
+msgstr "نمایش رکوردها"
+
+msgid "Strict improvements, not ties"
+msgstr "فقط پیشرفت واقعی، بدون نتیجه‌های مساوی"
+
+msgid "THE MOMENTS YOU BEAT YOURSELF"
+msgstr "لحظه‌هایی که از خودتان جلو زدید"
+
+msgid "Total workout volume"
+msgstr "حجم کل جلسه"
+
+msgid "View workout"
+msgstr "مشاهدهٔ جلسه"
+
+msgid "Volume is logged external kg × reps. Bodyweight and assisted sets are excluded; dumbbell weight is per dumbbell. Extra sets or exercises can increase volume without meaning you lifted a heavier weight."
+msgstr "حجم برابر است با وزنهٔ خارجی ثبت‌شده ضرب‌در تکرار. ست‌های وزن بدن و کمکی محاسبه نمی‌شوند؛ وزن دمبل برای هر دمبل است. ست یا حرکت بیشتر می‌تواند حجم را بالا ببرد، بدون اینکه وزنهٔ سنگین‌تری زده باشید."
+
+msgid "Weight, reps at the same load, less assistance, hold duration, distance, and time at the same distance are compared separately. Different tracking modes never compete."
+msgstr "وزنه، تکرار با وزنهٔ یکسان، کمک کمتر، زمان نگه‌داشتن، مسافت و زمان برای مسافت یکسان جداگانه مقایسه می‌شوند. حالت‌های ثبت متفاوت با هم مقایسه نمی‌شوند."
+
+msgid "What counts as a record?"
+msgstr "چه چیزی رکورد محسوب می‌شود؟"
+
+msgid "Workout records"
+msgstr "رکوردهای جلسه"
+
+msgid "Your best at each weight or distance"
+msgstr "بهترین نتیجهٔ شما برای هر وزنه یا مسافت"
+
+msgid "Your first finished session sets a benchmark. Beat it in a later workout and the old and new records will appear here."
+msgstr "اولین جلسهٔ تمام‌شدهٔ شما نتیجهٔ پایه را مشخص می‌کند. در جلسه‌ای بعدی از آن عبور کنید تا رکورد قبلی و جدید اینجا نمایش داده شوند."
+
+msgid "Your next record starts here."
+msgstr "رکورد بعدی شما از اینجا شروع می‌شود."
+
+msgid "Your personal records"
+msgstr "رکوردهای شخصی شما"
+
+msgid "Your sets and workouts are saved. Records are rebuilt from that history, so corrections, backdated workouts, and archives update old and new comparisons automatically."
+msgstr "ست‌ها و جلسه‌های شما ذخیره می‌شوند. رکوردها از همین تاریخچه محاسبه می‌شوند؛ بنابراین اصلاح‌ها، ثبت جلسه‌های روزهای قبل و بایگانی، مقایسهٔ رکوردهای قبلی و جدید را خودکار به‌روز می‌کنند."
+
+msgid "kg × reps"
+msgstr "کیلوگرم × تکرار"
+
+msgid "personal records"
+msgstr "رکورد شخصی"
+
+#, python-format
+msgid "%(counter)s personal record"
+msgid_plural "%(counter)s personal records"
+msgstr[0] "%(counter)s رکورد شخصی"
+msgstr[1] "%(counter)s رکورد شخصی"
+
+msgid "Compare old and new records"
+msgstr "مقایسهٔ رکوردهای قبلی و جدید"

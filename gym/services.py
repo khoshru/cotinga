@@ -61,7 +61,15 @@ def previous_exercises(
         ],
     )
     if exclude:
-        latest = latest.exclude(workout=exclude)
+        latest = latest.exclude(workout=exclude).filter(
+            Q(workout__date__lt=exclude.date)
+            | Q(workout__date=exclude.date, workout__started_at__lt=exclude.started_at)
+            | Q(
+                workout__date=exclude.date,
+                workout__started_at=exclude.started_at,
+                workout__pk__lt=exclude.pk,
+            )
+        )
     latest = latest.order_by("-workout__date", "-workout__started_at", "-pk")
     rows = WorkoutExercise.objects.filter(
         exercise_id__in=ids, pk=Subquery(latest.values("pk")[:1])
@@ -98,6 +106,8 @@ def add_exercise(
     previous = previous_exercises(workout.user, [exercise.pk], exclude=workout).get(
         exercise.pk
     )
+    if previous and previous.mode != exercise.mode:
+        previous = None
     last_sets = list(previous.sets.all()) if previous else []
     count = target.sets if target else (min(len(last_sets), 10) or 3)
     fields = ("weight", "reps", "seconds", "distance")
@@ -128,6 +138,7 @@ def start_workout(user: User, data: dict[str, Any]) -> Workout:
     workout = Workout.objects.create(
         user=user,
         routine=routine,
+        routine_key=routine.pk if routine else None,
         name=data.get("name") or (routine.name if routine else gettext("My workout")),
         date=data["date"],
         bodyweight=latest.weight if latest else None,

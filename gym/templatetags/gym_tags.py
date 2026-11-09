@@ -10,6 +10,11 @@ register = template.Library()
 
 
 @register.filter
+def record_count(counts: Any, pk: Any) -> int:
+    return int(counts.get(str(pk), 0)) if isinstance(counts, dict) else 0
+
+
+@register.filter
 def short_number(value: Any) -> str:
     if value is None:
         return "—"

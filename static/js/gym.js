@@ -258,6 +258,14 @@
         }
         if (job.data.get('action') === 'timer' && job.data.get('command') === 'cancel') manualRestOpen = false;
         applyState(result.state);
+        if (result.records) {
+          const summary = workout.querySelector('[data-workout-records]');
+          if (summary) summary.innerHTML = result.records.summary;
+          Object.entries(result.records.sets).forEach(([id, html]) => {
+            const target = workout.querySelector(`[data-set-records="${id}"]`);
+            if (target) target.innerHTML = html;
+          });
+        }
         reloadAfterSave ||= result.reload;
         redirectAfterSave ||= result.redirect;
       } catch (error) {

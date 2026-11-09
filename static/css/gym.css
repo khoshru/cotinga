@@ -1,4 +1,71 @@
 @layer components {
+  .gym-record-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .gym-record-celebration { padding: 24px; margin-block: 18px 24px; border-color: #65835a; background: linear-gradient(125deg, #233e2b, #172d24); }
+  .gym-record-heading, .gym-record-title, .gym-record-baseline { display: flex; align-items: center; gap: 13px; }
+  .gym-record-heading { margin-bottom: 18px; flex-wrap: wrap; }
+  .gym-record-heading > .text-link { margin-inline-start: auto; }
+  .gym-record-heading h2, .gym-record-baseline h2 { margin: 5px 0 0; font-size: 22px; }
+  .gym-record-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; color: #edcb8a; border: 1px solid #6e7147; border-radius: 12px; background: #394329; }
+  .gym-record-icon .icon { width: 22px; height: 22px; display: block; }
+  .gym-record-card { min-width: 0; padding: 18px; border: 1px solid #46604a; border-radius: 12px; background: #142a20; }
+  .gym-record-title { align-items: flex-start; gap: 10px; }
+  .gym-record-title .gym-record-icon { width: 30px; height: 30px; flex-basis: 30px; border-radius: 9px; }
+  .gym-record-title .icon { width: 17px; height: 17px; }
+  .gym-record-card .eyebrow, .gym-record-best .eyebrow { font-size: 9px; line-height: 1.6; letter-spacing: .7px; }
+  .gym-record-card h3 { margin: 3px 0 0; font-size: 15px; line-height: 1.5; }
+  .gym-record-change { display: grid; grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr); align-items: center; gap: 12px; margin-top: 19px; }
+  .gym-record-change > div { min-width: 0; }
+  .gym-record-change > div > span { display: block; color: var(--muted); font-size: 10px; margin-bottom: 5px; }
+  .gym-record-change strong { display: block; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
+  .gym-record-change > div:first-child strong { color: #a4baac; font-weight: 500; }
+  .gym-record-change > div:last-child strong { color: #d7f4db; }
+  .gym-record-arrow { display: grid; place-items: center; color: var(--mint); }
+  .gym-record-arrow .icon { width: 16px; height: 16px; display: block; }
+  [dir=rtl] .gym-record-arrow { transform: rotate(180deg); }
+  .gym-record-footer { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 16px; font-size: 10px; color: var(--muted); }
+  .gym-record-gain { color: #e8c981; }
+  .gym-record-more { margin-block: 18px; }
+  .gym-record-more summary, .gym-record-rules summary { cursor: pointer; color: #cae1d0; font-size: 13px; padding-block: 10px; }
+  .gym-record-more .gym-record-grid { margin-top: 14px; }
+  .gym-record-baseline { flex-wrap: wrap; margin-block: 18px 24px; padding: 22px; }
+  .gym-record-baseline h2 { font-size: 18px; }
+  .gym-record-baseline p { color: var(--muted); font-size: 12px; line-height: 1.7; margin-bottom: 0; }
+  .gym-record-baseline > div { flex: 1 1 200px; }
+  .gym-set-best { color: #a7c5b2; font-size: 10px; line-height: 1.8; margin: 9px 0 5px 42px; padding-inline-end: 8px; }
+  [dir=rtl] .gym-set-best { margin-inline: 42px 0; }
+  .gym-set-best a { text-decoration: underline; text-underline-offset: 3px; color: #b6d9c5; white-space: nowrap; }
+  .gym-set-records { display: flex; flex-wrap: wrap; gap: 7px; list-style: none; margin: 8px 0 9px; padding: 0; }
+  .gym-set-records li { display: flex; align-items: center; gap: 7px; color: #f3d494; border: 1px solid #656d44; border-radius: 8px; background: #303d27; padding: 7px 10px; font-size: 10px; }
+  .gym-set-records .icon { width: 15px; height: 15px; flex-shrink: 0; }
+  .gym-set-records small { display: block; color: #bec7a6; font-size: 9px; margin-top: 3px; }
+  .gym-record-pill { display: inline-flex; align-items: center; gap: 7px; color: #edcb8a; font-size: 11px; margin-block: 5px; }
+  .gym-record-pill .icon { width: 15px; height: 15px; }
+  .gym-stats.gym-record-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gym-record-filters { display: flex; gap: 16px; align-items: end; flex-wrap: wrap; padding: 20px; margin-block: 24px; }
+  .gym-record-filters .field { flex: 1 1 180px; margin: 0; min-width: 0; }
+  .gym-record-best { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 22px; }
+  .gym-record-best h3 { margin: 0; font-size: 16px; }
+  .gym-record-best > strong { font-size: 25px; line-height: 1.5; overflow-wrap: anywhere; }
+  .gym-record-best > .text-link { font-size: 11px; margin-top: auto; }
+  .gym-record-timeline { margin-bottom: 16px; padding: 20px; }
+  .gym-record-date { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 9px; font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .gym-record-timeline .gym-record-card { background: transparent; padding: 0; border: 0; }
+  .gym-record-timeline .gym-record-change { max-width: 600px; }
+  .gym-record-rules { padding: 20px; color: var(--muted); font-size: 12px; line-height: 1.9; }
+  .gym-record-exercise-link { margin-block: 0 22px; }
+  @media (max-width: 700px) {
+    .gym-space .gym-tabs { gap: 3px; }
+    .gym-space .gym-tabs a { min-width: 0; display: flex; align-items: center; justify-content: center; padding-inline: 4px; font-size: 10px; overflow-wrap: anywhere; }
+    .gym-record-grid { grid-template-columns: minmax(0, 1fr); }
+    .gym-record-celebration { padding: 17px; }
+    .gym-record-heading h2 { font-size: 19px; }
+    .gym-record-change { gap: 9px; }
+    .gym-record-change strong { font-size: 15px; }
+    .gym-stats.gym-record-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .gym-record-stats > article:last-child { grid-column: 1 / -1; }
+    .gym-record-filters { gap: 12px; }
+    .gym-set-best { margin-inline-start: 0; font-size: 10px; }
+  }
   .gym-space h1, .gym-space h2, .gym-space h3 { overflow-wrap: anywhere; }
   .gym-tabs { display: flex; gap: 7px; flex-wrap: wrap; margin: -2px 0 29px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
   .gym-tabs a { color: var(--muted); font-size: 12px; padding: 9px 15px; border-radius: 8px; }
