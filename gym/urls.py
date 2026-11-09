@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from . import ai_views, views
 
 app_name = "gym"
 urlpatterns = [
@@ -9,6 +9,8 @@ urlpatterns = [
     path("exercises/new/", views.exercise_edit, name="exercise-new"),
     path("exercises/<int:pk>/", views.exercise_progress, name="exercise"),
     path("exercises/<int:pk>/edit/", views.exercise_edit, name="exercise-edit"),
+    path("ai/", ai_views.generate, name="ai-generate"),
+    path("ai/<uuid:pk>/", ai_views.review, name="ai-review"),
     path("routines/new/", views.routine_edit, name="routine-new"),
     path("routines/<int:pk>/", views.routine_edit, name="routine"),
     path("routines/<int:pk>/delete/", views.routine_delete, name="routine-delete"),

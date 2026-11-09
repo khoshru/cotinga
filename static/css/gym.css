@@ -335,3 +335,58 @@
 @layer components {
   #gym-first-set { scroll-margin-top: 190px; }
 }
+
+@layer components {
+  .gym-ai-layout { display: grid; grid-template-columns: minmax(0,1.8fr) minmax(230px,1fr); gap: 24px; margin-top: 28px; align-items: start; }
+  .gym-ai-request textarea { min-height: 110px; }
+  .gym-ai-request-fields { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; margin-top: 22px; }
+  .gym-equipment-picker { border: 0; border-top: 1px solid #3c5a49; padding: 20px 0 0; margin-top: 24px; min-width: 0; }
+  .gym-equipment-picker legend { font-size: 14px; font-weight: 600; padding-inline-end: 10px; }
+  .gym-equipment-presets { display: flex; flex-wrap: wrap; gap: 8px; margin: 13px 0; }
+  .gym-equipment-presets .button { font-size: 11px; min-height: 35px; }
+  .gym-equipment-picker #id_equipment { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .gym-equipment-picker #id_equipment label { display: flex; align-items: center; gap: 9px; border: 1px solid #446b53; border-radius: 9px; min-height: 44px; padding: 10px; color: #c9e4d5; font-size: 12px; cursor: pointer; }
+  .gym-equipment-picker label:has(:checked) { background: #234c39; border-color: var(--mint); }
+  .gym-equipment-picker input { width: 17px; height: 17px; min-height: 17px; accent-color: var(--mint); }
+  .gym-ai-privacy { border-top: 1px solid #365844; padding-top: 17px; margin-top: 21px; }
+  .gym-ai-guide h2 { font-size: 22px; line-height: 1.5; }
+  .gym-ai-guide ol { padding-inline-start: 20px; color: #bdd6c9; line-height: 1.9; font-size: 13px; margin-block: 24px; }
+  .gym-ai-guide li { padding-inline-start: 7px; margin-bottom: 17px; }
+  .gym-ai-guide .button { margin-top: 22px; }
+  .gym-ai-connect { background: #244432; border: 1px solid #53765a; padding: 18px; border-radius: 10px; margin-top: 22px; }
+  .gym-ai-connect p { font-size: 13px; line-height: 1.8; margin-bottom: 14px; }
+  .gym-ai-summary { margin-top: 27px; }
+  .gym-ai-summary h2 { font-size: 22px; line-height: 1.5; }
+  .gym-ai-summary h3 { font-size: 14px; color: var(--mint); margin-top: 22px; }
+  .gym-ai-summary > p { color: #b8d0c2; font-size: 13px; line-height: 1.9; margin-top: 12px; }
+  .gym-ai-day { margin-top: 24px; }
+  .gym-ai-keep { background: #254535; border: 1px solid #4c765b; border-radius: 9px; padding: 12px; margin-block: 18px; color: #d0ecdb; }
+  .gym-ai-day > .form-grid { margin-top: 16px; }
+  .gym-ai-day textarea { min-height: 80px; }
+  .gym-ai-movement { padding-top: 18px; border-top: 1px solid #3d5948; margin-top: 23px; }
+  .gym-ai-movement .gym-row-heading h3 { font-size: 15px; }
+  .gym-ai-skip { margin: 0; color: #f1c9b9; }
+  .gym-ai-movement-note { font-size: 12px; color: #b9d0c1; line-height: 1.8; margin-block: 12px; }
+  .gym-ai-target-fields { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+  .gym-ai-target-fields .field label { font-size: 11px; }
+  .gym-ai-target-fields input { font-size: 16px; text-align: center; min-height: 40px; padding: 8px; }
+  .gym-ai-save { margin-top: 25px; border-color: #5f8869; }
+  .gym-ai-save > p { font-size: 13px; line-height: 1.8; color: #bfd8c8; margin-bottom: 17px; }
+  .gym-ai-source { font-size: 13px; margin-top: 24px; }
+  .gym-ai-source summary { color: #bfd9c8; cursor: pointer; }
+  .gym-ai-source p { line-height: 1.9; margin-top: 15px; }
+  .gym-ai-source dl { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-top: 20px; }
+  .gym-ai-source dt { color: #94b7a0; font-size: 11px; margin-bottom: 5px; }
+  .gym-ai-source dd { margin: 0; font-size: 13px; line-height: 1.7; }
+}
+@layer responsive {
+  @media(max-width:900px) { .gym-ai-layout { grid-template-columns: 1fr; } }
+  @media(max-width:700px) { .gym-ai-request-fields { grid-template-columns: 1fr 1fr; } .gym-ai-request-fields .field:last-child { grid-column: 1/-1; } .gym-ai-target-fields { grid-template-columns: 1fr 1fr; } .gym-ai-movement .gym-workout-photo img { width: 48px; height: 48px; } .gym-ai-movement .gym-row-heading h3 { font-size: 14px; } .gym-ai-skip { font-size: 11px; } .gym-ai-source dl { grid-template-columns: 1fr; } }
+}
+@layer components {
+  .gym-ai-day > summary { cursor: pointer; list-style: none; }
+  .gym-ai-day > summary::-webkit-details-marker { display: none; }
+  .gym-ai-day > summary::after { content: '+'; color: #b1dbc1; font-size: 24px; padding-inline: 7px; }
+  .gym-ai-day[open] > summary::after { content: '−'; }
+  .gym-ai-day > summary:focus-visible { outline: 2px solid var(--mint); outline-offset: 7px; border-radius: 7px; }
+}

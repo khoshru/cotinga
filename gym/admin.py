@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Exercise, Routine, Workout, WorkoutSet
+from .models import Exercise, Routine, RoutineSuggestion, Workout, WorkoutSet
 
 
 @admin.register(Exercise)
@@ -39,3 +39,24 @@ class WorkoutSetAdmin(admin.ModelAdmin):  # type: ignore[type-arg]
     list_filter = ("kind", "workout_exercise__mode")
     search_fields = ("workout_exercise__name", "workout_exercise__workout__user__email")
     list_select_related = ("workout_exercise__workout",)
+
+
+@admin.register(RoutineSuggestion)
+class RoutineSuggestionAdmin(admin.ModelAdmin):  # type: ignore[type-arg]
+    list_display = ("user", "status", "model", "created_at", "saved_at")
+    list_filter = ("status",)
+    readonly_fields = (
+        "user",
+        "submission",
+        "original_input",
+        "language",
+        "model",
+        "result",
+        "status",
+        "created_at",
+        "saved_at",
+    )
+    search_fields = ("user__email",)
+
+    def has_add_permission(self, request: object) -> bool:
+        return False

@@ -93,6 +93,17 @@ class GymPreferences(models.Model):
 
 
 class Routine(models.Model):
+    ai_suggestion = models.ForeignKey(
+        "RoutineSuggestion",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="routines",
+    )
+    name_fa = models.CharField(max_length=100, blank=True)
+    name_ka = models.CharField(max_length=100, blank=True)
+    notes_fa = models.TextField(max_length=1000, blank=True)
+    notes_ka = models.TextField(max_length=1000, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     notes = models.TextField(max_length=1000, blank=True)
@@ -104,6 +115,14 @@ class Routine(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def display_name(self) -> str:
+        return localized_text(self.name, self.name_fa, self.name_ka)
+
+    @property
+    def display_notes(self) -> str:
+        return localized_text(self.notes, self.notes_fa, self.notes_ka)
 
 
 class RoutineExercise(models.Model):
@@ -293,3 +312,36 @@ class WorkoutSet(models.Model):
 
     def __str__(self) -> str:
         return f"{self.workout_exercise}: set {self.position + 1}"
+
+
+class RoutineSuggestion(models.Model):
+    class Status(models.TextChoices):
+        PROCESSING = "processing", _("Preparing")
+        READY = "ready", _("Ready to review")
+        FAILED = "failed", _("Could not prepare")
+        SAVED = "saved", _("Saved")
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    submission = models.UUIDField(default=uuid.uuid4, editable=False)
+    original_input = models.JSONField(default=dict, editable=False)
+    language = models.CharField(max_length=2, default="en")
+    model = models.CharField(max_length=200)
+    result = models.JSONField(default=dict, blank=True)
+    status = models.CharField(
+        max_length=12, choices=Status.choices, default=Status.PROCESSING
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    saved_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "submission"], name="gym_unique_ai_submission"
+            )
+        ]
+        indexes = [models.Index(fields=["user", "created_at"])]
+
+    def __str__(self) -> str:
+        return f"Routine suggestion ({self.get_status_display()})"

@@ -3156,3 +3156,249 @@ msgstr "ვარჯიშის გაგრძელება"
 
 msgid "Save and finish"
 msgstr "შენახვა და დასრულება"
+
+msgid ""
+"The model did not return a usable plan for your days and equipment. Your "
+"description is kept; try again or choose another model."
+msgstr "მოდელმა თქვენი დღეებისა და აღჭურვილობისთვის გამოსადეგი გეგმა ვერ შექმნა. აღწერა შენახულია; სცადეთ ხელახლა ან აირჩიეთ სხვა მოდელი."
+
+msgid "Tell us what you want"
+msgstr "მოგვიყევით, რა გსურთ"
+
+msgid ""
+"For example: three days to build strength, with dumbbells and a bench. I "
+"prefer full-body workouts and dislike jumping."
+msgstr "მაგალითად: სამი დღე ძალის გასაზრდელად, ჰანტელებითა და სკამით. მირჩევნია მთელი სხეულის ვარჯიში, ხტომა არ მომწონს."
+
+msgid "Training days per week"
+msgstr "ვარჯიშის დღეები კვირაში"
+
+msgid "Minutes per workout"
+msgstr "წუთები თითო ვარჯიშზე"
+
+msgid "Training experience"
+msgstr "ვარჯიშის გამოცდილება"
+
+msgid "Beginner"
+msgstr "დამწყები"
+
+msgid "Intermediate"
+msgstr "საშუალო"
+
+msgid "Advanced"
+msgstr "გამოცდილი"
+
+msgid "Available equipment"
+msgstr "ხელმისაწვდომი აღჭურვილობა"
+
+msgid "Bench or sturdy seat"
+msgstr "სკამი ან მყარი დასაჯდომი"
+
+msgid "Pull-up bar"
+msgstr "ტურნიკი"
+
+msgid "Dip bars"
+msgstr "ორძელი"
+
+msgid "Step or exercise box"
+msgstr "საფეხური ან სავარჯიშო ყუთი"
+
+msgid "Squat rack"
+msgstr "ჩაჯდომის სადგამი"
+
+msgid "Include my custom exercises"
+msgstr "ჩემი დამატებული სავარჯიშოებიც გამოიყენე"
+
+msgid "Save this routine"
+msgstr "ამ პროგრამის შენახვა"
+
+msgid "Keep at most 48 sets in one suggested workout."
+msgstr "ერთ შეთავაზებულ ვარჯიშში დატოვეთ მაქსიმუმ 48 სეტი."
+
+msgid "A plan was just requested. Wait a moment before generating another."
+msgstr "გეგმა ახლახან მოითხოვეთ. ახალი გეგმის შექმნამდე ცოტა მოიცადეთ."
+
+msgid ""
+"You have reached today's 20-plan limit. You can still build and edit "
+"routines manually."
+msgstr "დღევანდელი 20 გეგმის ლიმიტი ამოწურულია. პროგრამების ხელით შექმნა და შეცვლა კვლავ შეგიძლიათ."
+
+msgid "Archive some routines before adding this weekly plan."
+msgstr "ამ კვირის გეგმის დამატებამდე რამდენიმე პროგრამა დააარქივეთ."
+
+msgid "Connect OpenRouter and choose a model in AI settings first."
+msgstr "ჯერ AI-ის პარამეტრებში დააკავშირეთ OpenRouter და აირჩიეთ მოდელი."
+
+msgid ""
+"No exercises match this equipment. Choose different equipment or add a "
+"custom exercise."
+msgstr "ამ აღჭურვილობისთვის სავარჯიშო ვერ მოიძებნა. აირჩიეთ სხვა აღჭურვილობა ან დაამატეთ საკუთარი სავარჯიშო."
+
+msgid ""
+"An exercise in this suggestion is no longer available. Generate a fresh plan "
+"with the current library."
+msgstr "ამ შეთავაზების ერთ-ერთი სავარჯიშო აღარ არის ხელმისაწვდომი. შექმენით ახალი გეგმა არსებული ბიბლიოთეკით."
+
+msgid "The suggestion changed. Reload it before saving."
+msgstr "შეთავაზება შეიცვალა. შენახვამდე გვერდი განაახლეთ."
+
+msgid "Choose at least one routine to save."
+msgstr "აირჩიეთ სულ მცირე ერთი პროგრამა შესანახად."
+
+msgid ""
+"Your routines are ready. Open any routine to start training or make changes."
+msgstr "თქვენი პროგრამები მზადაა. ვარჯიშის დასაწყებად ან შესაცვლელად გახსენით სასურველი პროგრამა."
+
+msgid "Preparing"
+msgstr "მზადდება"
+
+msgid "Ready to review"
+msgstr "მზადაა გადასახედად"
+
+msgid "Could not prepare"
+msgstr "მომზადება ვერ მოხერხდა"
+
+msgid "Saved"
+msgstr "შენახულია"
+
+msgid "YOUR WEEK. YOUR WAY."
+msgstr "თქვენი კვირა. თქვენი წესით."
+
+msgid "Build your training plan"
+msgstr "შექმენით თქვენი სავარჯიშო გეგმა"
+
+msgid ""
+"Tell us what fits your life. Get routines built from exercises you can "
+"actually do."
+msgstr "მოგვიყევით, რა ერგება თქვენს ცხოვრებას. მიიღეთ პროგრამები იმ სავარჯიშოებით, რომელთა შესრულებაც შეგიძლიათ."
+
+msgid "Build manually"
+msgstr "ხელით შექმნა"
+
+msgid ""
+"Bodyweight exercises are always included. Select everything else you have "
+"access to."
+msgstr "საკუთარი წონით სავარჯიშოები ყოველთვის განიხილება. მონიშნეთ სხვა ხელმისაწვდომი აღჭურვილობა."
+
+msgid "Full gym"
+msgstr "სრული დარბაზი"
+
+msgid "Bodyweight only"
+msgstr "მხოლოდ საკუთარი წონა"
+
+msgid ""
+"Your description, schedule, equipment, and matching exercise names are sent "
+"to OpenRouter when you generate a plan. This uses your saved AI key and "
+"selected model."
+msgstr "გეგმის შექმნისას აღწერა, განრიგი, აღჭურვილობა და შესაბამისი სავარჯიშოების სახელები იგზავნება OpenRouter-ში. გამოიყენება თქვენი შენახული გასაღები და არჩეული მოდელი."
+
+msgid "Building your plan…"
+msgstr "თქვენი გეგმა იქმნება…"
+
+msgid "Generate my plan"
+msgstr "ჩემი გეგმის შექმნა"
+
+msgid "Open AI settings"
+msgstr "AI-ის პარამეტრების გახსნა"
+
+msgid "A useful starting point."
+msgstr "გამოსადეგი საწყისი ნაბიჯი."
+
+msgid "Share your goal, training days, and available equipment."
+msgstr "მიუთითეთ მიზანი, ვარჯიშის დღეები და ხელმისაწვდომი აღჭურვილობა."
+
+msgid "Review exercise pictures, sets, reps, and rest times."
+msgstr "გადახედეთ სავარჯიშოების სურათებს, სეტებს, გამეორებებსა და დასვენების დროს."
+
+msgid "Adjust the suggestions and save the routines you want."
+msgstr "შეასწორეთ შეთავაზებები და შეინახეთ სასურველი პროგრამები."
+
+msgid ""
+"Nothing is added to your routines until you save. Starting weights stay "
+"blank so you can choose a comfortable load."
+msgstr "შენახვამდე პროგრამებს არაფერი დაემატება. საწყისი წონა ცარიელი რჩება, რათა შესაფერისი დატვირთვა თავად აირჩიოთ."
+
+msgid "View last suggestion"
+msgstr "ბოლო შეთავაზების ნახვა"
+
+msgid "MADE FOR YOUR WEEK"
+msgstr "თქვენი კვირისთვის შექმნილი"
+
+msgid "Make this plan yours"
+msgstr "მოარგეთ ეს გეგმა საკუთარ თავს"
+
+msgid "Check the movements and adjust the targets before saving."
+msgstr "შენახვამდე შეამოწმეთ სავარჯიშოები და შეასწორეთ მიზნები."
+
+msgid "Try a different plan"
+msgstr "სხვა გეგმის ცდა"
+
+msgid "The idea behind your plan"
+msgstr "თქვენი გეგმის იდეა"
+
+msgid "Your weekly rhythm"
+msgstr "თქვენი კვირის რიტმი"
+
+msgid ""
+"Only selected routines and exercises will be added. Your current routines "
+"stay as they are."
+msgstr "დაემატება მხოლოდ მონიშნული პროგრამები და სავარჯიშოები. არსებული პროგრამები უცვლელი დარჩება."
+
+msgid "Saving routines…"
+msgstr "პროგრამები ინახება…"
+
+msgid "Save selected routines"
+msgstr "არჩეული პროგრამების შენახვა"
+
+msgid "Original request and AI model"
+msgstr "საწყისი მოთხოვნა და AI-ის მოდელი"
+
+msgid "Your week is ready"
+msgstr "თქვენი კვირა მზადაა"
+
+msgid ""
+"Your saved routines are below. You can change exercises and targets any time."
+msgstr "შენახული პროგრამები ქვემოთაა. სავარჯიშოებისა და მიზნების შეცვლა ნებისმიერ დროს შეგიძლიათ."
+
+msgid "Open routine"
+msgstr "პროგრამის გახსნა"
+
+msgid "These routines have been deleted. You can generate another plan."
+msgstr "ეს პროგრამები წაშლილია. შეგიძლიათ ახალი გეგმა შექმნათ."
+
+msgid "Your plan is being prepared"
+msgstr "თქვენი გეგმა მზადდება"
+
+msgid "Your request is saved"
+msgstr "თქვენი მოთხოვნა შენახულია"
+
+msgid ""
+"The request is already running. Refresh this page in a moment to review it."
+msgstr "მოთხოვნა უკვე მუშავდება. ცოტა ხანში განაახლეთ გვერდი შედეგის სანახავად."
+
+msgid ""
+"The model could not prepare this plan. Your original details will be filled "
+"in when you try again."
+msgstr "მოდელმა გეგმა ვერ მოამზადა. ხელახლა ცდისას თქვენი საწყისი მონაცემები ავტომატურად შეივსება."
+
+msgid "Back to plan builder"
+msgstr "გეგმის შექმნაზე დაბრუნება"
+
+msgid "Build with AI"
+msgstr "შექმნა AI-ით"
+
+msgid "Want a starting point? Describe your week and build with AI."
+msgstr "საწყისი გეგმა გსურთ? აღწერეთ თქვენი კვირა და შექმენით გეგმა AI-ით."
+
+msgid "View AI plan and original request"
+msgstr "AI-ის გეგმისა და საწყისი მოთხოვნის ნახვა"
+
+msgid ""
+"This model or provider could not accept structured responses. Choose another "
+"model."
+msgstr "ამ მოდელმა ან პროვაიდერმა სტრუქტურირებული პასუხი ვერ მიიღო. აირჩიეთ სხვა მოდელი."
+
+msgid ""
+"The model could not finish the suggestion. Your details are kept; try again "
+"or choose another model."
+msgstr "მოდელმა შეთავაზება ვერ დაასრულა. მონაცემები შენახულია; სცადეთ ხელახლა ან აირჩიეთ სხვა მოდელი."

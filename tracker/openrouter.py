@@ -114,7 +114,7 @@ def _request(
                     "OpenRouter is busy or your request limit was reached. Try again later."
                 ),
                 400: gettext(
-                    "This model or provider could not accept structured meal estimates. Choose another model."
+                    "This model or provider could not accept structured responses. Choose another model."
                 ),
             }
             raise OpenRouterError(
@@ -680,5 +680,55 @@ def estimate_targets(
         raise OpenRouterError(
             gettext(
                 "The model could not finish the target suggestion. Please try again."
+            )
+        ) from None
+
+
+@sensitive_variables()
+def structured_response(
+    api_key: str,
+    model: ModelInfo,
+    *,
+    messages: list[dict[str, str]],
+    schema: dict[str, Any],
+    name: str,
+    max_tokens: int = 6000,
+    timeout: float = 35,
+) -> dict[str, Any]:
+    """Request bounded JSON from a configured structured-output model."""
+    payload: dict[str, Any] = {
+        "model": model.id,
+        "stream": False,
+        "max_tokens": max_tokens,
+        "provider": {"require_parameters": True},
+        "messages": messages,
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+                "name": name,
+                "strict": True,
+                "schema": schema,
+            },
+        },
+    }
+    if model.temperature:
+        payload["temperature"] = 0.2
+    if model.reasoning:
+        payload["reasoning"] = {"effort": "low", "exclude": True}
+    response = _request(
+        "/api/v1/chat/completions", api_key=api_key, payload=payload, timeout=timeout
+    )
+    try:
+        choice = response["choices"][0]
+        if not isinstance(choice, dict) or choice.get("finish_reason") != "stop":
+            raise ValueError
+        value = json.loads(choice["message"]["content"])
+        if not isinstance(value, dict):
+            raise ValueError
+        return value
+    except KeyError, IndexError, TypeError, ValueError:
+        raise OpenRouterError(
+            gettext(
+                "The model could not finish the suggestion. Your details are kept; try again or choose another model."
             )
         ) from None

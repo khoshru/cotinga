@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, cast
 
 from django import forms
 from django.db.models import Q
@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from accounts.models import User
+from tracker.localization import translation_language
 
 from .models import (
     Exercise,
@@ -97,14 +98,36 @@ class RoutineForm(forms.ModelForm):  # type: ignore[type-arg]
         self.fields["exercises"].queryset = Exercise.objects.filter(  # type: ignore[attr-defined]
             Q(owner__isnull=True) | Q(owner=user), archived=False
         )
+        self._canonical_text: dict[str, str] = {}
+        self._language = translation_language()
         if self.instance.pk:
             del self.fields["exercises"]
+            if self._language:
+                for name in ("name", "notes"):
+                    translated = getattr(self.instance, f"{name}_{self._language}", "")
+                    if translated:
+                        self._canonical_text[name] = str(getattr(self.instance, name))
+                        self.initial[name] = translated
 
     def clean_exercises(self) -> Any:
         selected = self.cleaned_data["exercises"]
         if len(selected) > 40:
             raise forms.ValidationError(_("A routine can contain up to 40 exercises."))
         return selected
+
+    def save(self, commit: bool = True) -> Routine:
+        instance = cast(Routine, super().save(commit=False))
+        for field in ("name", "notes"):
+            if field in self._canonical_text:
+                value = self.cleaned_data[field]
+                setattr(instance, field, self._canonical_text[field] if value else "")
+                setattr(instance, f"{field}_{self._language}", value)
+            elif field in self.changed_data:
+                setattr(instance, f"{field}_fa", "")
+                setattr(instance, f"{field}_ka", "")
+        if commit:
+            instance.save()
+        return instance
 
     class Meta:
         model = Routine

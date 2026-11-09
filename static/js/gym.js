@@ -130,6 +130,15 @@
     renderChoices();
   }
 
+  root.querySelectorAll('[data-equipment-preset]').forEach((button) => button.addEventListener('click', () => {
+    button.closest('[data-equipment-picker]').querySelectorAll('input[type=checkbox]').forEach((input) => { input.checked = button.dataset.equipmentPreset === 'all'; });
+  }));
+
+  root.addEventListener('invalid', (event) => {
+    let ancestor = event.target.closest('details');
+    while (ancestor) { ancestor.open = true; ancestor = ancestor.parentElement.closest('details'); }
+  }, true);
+
   const workout = root.querySelector('[data-workout]');
   if (!workout) return;
   let state = JSON.parse(document.getElementById('gym-workout-state').textContent);

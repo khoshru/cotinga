@@ -3135,3 +3135,249 @@ msgstr "ادامهٔ تمرین"
 
 msgid "Save and finish"
 msgstr "ذخیره و پایان"
+
+msgid ""
+"The model did not return a usable plan for your days and equipment. Your "
+"description is kept; try again or choose another model."
+msgstr "مدل، برنامهٔ مناسبی برای روزها و تجهیزات شما برنگرداند. توضیحات شما حفظ شده است؛ دوباره تلاش کنید یا مدل دیگری انتخاب کنید."
+
+msgid "Tell us what you want"
+msgstr "بگویید چه می‌خواهید"
+
+msgid ""
+"For example: three days to build strength, with dumbbells and a bench. I "
+"prefer full-body workouts and dislike jumping."
+msgstr "مثلاً: سه روز برای افزایش قدرت، با دمبل و نیمکت. تمرین تمام بدن را ترجیح می‌دهم و پرش را دوست ندارم."
+
+msgid "Training days per week"
+msgstr "روزهای تمرین در هفته"
+
+msgid "Minutes per workout"
+msgstr "دقیقه در هر جلسه"
+
+msgid "Training experience"
+msgstr "سابقهٔ تمرین"
+
+msgid "Beginner"
+msgstr "مبتدی"
+
+msgid "Intermediate"
+msgstr "متوسط"
+
+msgid "Advanced"
+msgstr "پیشرفته"
+
+msgid "Available equipment"
+msgstr "تجهیزات در دسترس"
+
+msgid "Bench or sturdy seat"
+msgstr "نیمکت یا صندلی محکم"
+
+msgid "Pull-up bar"
+msgstr "میلهٔ بارفیکس"
+
+msgid "Dip bars"
+msgstr "میله‌های پارالل"
+
+msgid "Step or exercise box"
+msgstr "پله یا باکس تمرین"
+
+msgid "Squat rack"
+msgstr "رک اسکوات"
+
+msgid "Include my custom exercises"
+msgstr "حرکت‌های شخصی من هم در نظر گرفته شوند"
+
+msgid "Save this routine"
+msgstr "این برنامه ذخیره شود"
+
+msgid "Keep at most 48 sets in one suggested workout."
+msgstr "در هر جلسهٔ پیشنهادی، حداکثر ۴۸ ست نگه دارید."
+
+msgid "A plan was just requested. Wait a moment before generating another."
+msgstr "به‌تازگی درخواست برنامه داده‌اید. پیش از ساخت برنامهٔ بعدی کمی صبر کنید."
+
+msgid ""
+"You have reached today's 20-plan limit. You can still build and edit "
+"routines manually."
+msgstr "به سقف ۲۰ برنامهٔ امروز رسیده‌اید. همچنان می‌توانید برنامه‌ها را دستی بسازید و ویرایش کنید."
+
+msgid "Archive some routines before adding this weekly plan."
+msgstr "پیش از افزودن این برنامهٔ هفتگی، چند برنامه را بایگانی کنید."
+
+msgid "Connect OpenRouter and choose a model in AI settings first."
+msgstr "ابتدا در تنظیمات هوش مصنوعی به OpenRouter متصل شوید و یک مدل انتخاب کنید."
+
+msgid ""
+"No exercises match this equipment. Choose different equipment or add a "
+"custom exercise."
+msgstr "حرکتی مطابق این تجهیزات پیدا نشد. تجهیزات دیگری انتخاب کنید یا حرکت شخصی اضافه کنید."
+
+msgid ""
+"An exercise in this suggestion is no longer available. Generate a fresh plan "
+"with the current library."
+msgstr "یکی از حرکت‌های این پیشنهاد دیگر در دسترس نیست. با فهرست فعلی، برنامهٔ تازه‌ای بسازید."
+
+msgid "The suggestion changed. Reload it before saving."
+msgstr "پیشنهاد تغییر کرده است. پیش از ذخیره، صفحه را دوباره بارگذاری کنید."
+
+msgid "Choose at least one routine to save."
+msgstr "حداقل یک برنامه برای ذخیره انتخاب کنید."
+
+msgid ""
+"Your routines are ready. Open any routine to start training or make changes."
+msgstr "برنامه‌ها آماده‌اند. برای شروع تمرین یا ویرایش، برنامهٔ دلخواه را باز کنید."
+
+msgid "Preparing"
+msgstr "در حال آماده‌سازی"
+
+msgid "Ready to review"
+msgstr "آمادهٔ بررسی"
+
+msgid "Could not prepare"
+msgstr "آماده‌سازی انجام نشد"
+
+msgid "Saved"
+msgstr "ذخیره شد"
+
+msgid "YOUR WEEK. YOUR WAY."
+msgstr "هفتهٔ شما، به شیوهٔ شما."
+
+msgid "Build your training plan"
+msgstr "برنامهٔ تمرینتان را بسازید"
+
+msgid ""
+"Tell us what fits your life. Get routines built from exercises you can "
+"actually do."
+msgstr "بگویید چه چیزی با زندگی شما سازگار است. برنامه‌ای از حرکت‌هایی بگیرید که واقعاً می‌توانید انجام دهید."
+
+msgid "Build manually"
+msgstr "ساخت دستی"
+
+msgid ""
+"Bodyweight exercises are always included. Select everything else you have "
+"access to."
+msgstr "حرکت‌های با وزن بدن همیشه در نظر گرفته می‌شوند. سایر تجهیزات در دسترس را انتخاب کنید."
+
+msgid "Full gym"
+msgstr "باشگاه مجهز"
+
+msgid "Bodyweight only"
+msgstr "فقط وزن بدن"
+
+msgid ""
+"Your description, schedule, equipment, and matching exercise names are sent "
+"to OpenRouter when you generate a plan. This uses your saved AI key and "
+"selected model."
+msgstr "هنگام ساخت برنامه، توضیحات، زمان‌بندی، تجهیزات و نام حرکت‌های مرتبط به OpenRouter فرستاده می‌شوند. از کلید ذخیره‌شده و مدل انتخابی شما استفاده می‌شود."
+
+msgid "Building your plan…"
+msgstr "در حال ساخت برنامهٔ شما…"
+
+msgid "Generate my plan"
+msgstr "ساخت برنامهٔ من"
+
+msgid "Open AI settings"
+msgstr "باز کردن تنظیمات هوش مصنوعی"
+
+msgid "A useful starting point."
+msgstr "یک نقطهٔ شروع کاربردی."
+
+msgid "Share your goal, training days, and available equipment."
+msgstr "هدفتان، روزهای تمرین و تجهیزات در دسترس را مشخص کنید."
+
+msgid "Review exercise pictures, sets, reps, and rest times."
+msgstr "تصویر حرکت‌ها، ست‌ها، تکرارها و زمان استراحت را بررسی کنید."
+
+msgid "Adjust the suggestions and save the routines you want."
+msgstr "پیشنهادها را تنظیم کنید و برنامه‌های دلخواه را ذخیره کنید."
+
+msgid ""
+"Nothing is added to your routines until you save. Starting weights stay "
+"blank so you can choose a comfortable load."
+msgstr "تا زمانی که ذخیره نکنید، چیزی به برنامه‌هایتان اضافه نمی‌شود. وزنهٔ شروع خالی می‌ماند تا مقدار مناسبی انتخاب کنید."
+
+msgid "View last suggestion"
+msgstr "مشاهدهٔ آخرین پیشنهاد"
+
+msgid "MADE FOR YOUR WEEK"
+msgstr "متناسب با هفتهٔ شما"
+
+msgid "Make this plan yours"
+msgstr "این برنامه را برای خودتان تنظیم کنید"
+
+msgid "Check the movements and adjust the targets before saving."
+msgstr "پیش از ذخیره، حرکت‌ها را بررسی و هدف‌ها را تنظیم کنید."
+
+msgid "Try a different plan"
+msgstr "امتحان برنامه‌ای دیگر"
+
+msgid "The idea behind your plan"
+msgstr "منطق برنامهٔ شما"
+
+msgid "Your weekly rhythm"
+msgstr "ریتم هفتگی شما"
+
+msgid ""
+"Only selected routines and exercises will be added. Your current routines "
+"stay as they are."
+msgstr "فقط برنامه‌ها و حرکت‌های انتخاب‌شده اضافه می‌شوند. برنامه‌های فعلی شما تغییر نمی‌کنند."
+
+msgid "Saving routines…"
+msgstr "در حال ذخیرهٔ برنامه‌ها…"
+
+msgid "Save selected routines"
+msgstr "ذخیرهٔ برنامه‌های انتخاب‌شده"
+
+msgid "Original request and AI model"
+msgstr "درخواست اصلی و مدل هوش مصنوعی"
+
+msgid "Your week is ready"
+msgstr "هفتهٔ شما آماده است"
+
+msgid ""
+"Your saved routines are below. You can change exercises and targets any time."
+msgstr "برنامه‌های ذخیره‌شده در ادامه آمده‌اند. هر زمان می‌توانید حرکت‌ها و هدف‌ها را تغییر دهید."
+
+msgid "Open routine"
+msgstr "باز کردن برنامه"
+
+msgid "These routines have been deleted. You can generate another plan."
+msgstr "این برنامه‌ها حذف شده‌اند. می‌توانید برنامهٔ دیگری بسازید."
+
+msgid "Your plan is being prepared"
+msgstr "برنامهٔ شما در حال آماده‌سازی است"
+
+msgid "Your request is saved"
+msgstr "درخواست شما ذخیره شده است"
+
+msgid ""
+"The request is already running. Refresh this page in a moment to review it."
+msgstr "این درخواست در حال پردازش است. کمی بعد صفحه را تازه کنید تا نتیجه را بررسی کنید."
+
+msgid ""
+"The model could not prepare this plan. Your original details will be filled "
+"in when you try again."
+msgstr "مدل نتوانست این برنامه را آماده کند. هنگام تلاش دوباره، اطلاعات اصلی شما از قبل وارد می‌شوند."
+
+msgid "Back to plan builder"
+msgstr "بازگشت به ساخت برنامه"
+
+msgid "Build with AI"
+msgstr "ساخت با هوش مصنوعی"
+
+msgid "Want a starting point? Describe your week and build with AI."
+msgstr "یک نقطهٔ شروع می‌خواهید؟ هفته‌تان را توصیف کنید و با هوش مصنوعی برنامه بسازید."
+
+msgid "View AI plan and original request"
+msgstr "مشاهدهٔ برنامهٔ هوش مصنوعی و درخواست اصلی"
+
+msgid ""
+"This model or provider could not accept structured responses. Choose another "
+"model."
+msgstr "این مدل یا ارائه‌دهنده پاسخ ساختاریافته را نپذیرفت. مدل دیگری انتخاب کنید."
+
+msgid ""
+"The model could not finish the suggestion. Your details are kept; try again "
+"or choose another model."
+msgstr "مدل نتوانست پیشنهاد را کامل کند. اطلاعات شما حفظ شده است؛ دوباره تلاش کنید یا مدل دیگری انتخاب کنید."

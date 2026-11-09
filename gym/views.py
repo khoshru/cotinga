@@ -407,6 +407,10 @@ def routine_action(request: HttpRequest, pk: int, action: str) -> HttpResponse:
                 duplicate = Routine.objects.create(
                     user=user,
                     name=f"{routine.name[:85]} · {gettext('copy')}",
+                    name_fa=routine.name_fa,
+                    name_ka=routine.name_ka,
+                    notes_fa=routine.notes_fa,
+                    notes_ka=routine.notes_ka,
                     notes=routine.notes,
                 )
                 fields = (
