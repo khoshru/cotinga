@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 22:51+0400\n"
+"POT-Creation-Date: 2026-11-09 13:30+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -68,3 +68,50 @@ msgstr ""
 msgid "Your description is full. Shorten it before adding another portion."
 msgstr ""
 "توضیحات به حداکثر طول رسیده است. پیش از افزودن غذای دیگر، آن را کوتاه کنید."
+
+msgid "Added"
+msgstr "اضافه شد"
+
+msgid "Could not add this exercise. Please try again."
+msgstr "افزودن حرکت ممکن نشد. لطفاً دوباره تلاش کنید."
+
+msgid "Exercise added. Keep choosing, or return to your plan."
+msgstr "حرکت اضافه شد. حرکت دیگری انتخاب کنید یا به برنامه برگردید."
+
+msgid "Searching…"
+msgstr "در حال جست‌وجو…"
+
+msgid "Search is unavailable. Press Search to try again."
+msgstr "جست‌وجو در دسترس نیست. برای تلاش دوباره، جست‌وجو را بزنید."
+
+msgid "Saving…"
+msgstr "در حال ذخیره…"
+
+msgid "Connection interrupted. Your edits are still here. Retry saving."
+msgstr "ارتباط قطع شد. تغییراتتان همین‌جا هستند. ذخیره را دوباره امتحان کنید."
+
+msgid "Could not save this change. Please try again."
+msgstr "ذخیرهٔ این تغییر ممکن نشد. لطفاً دوباره تلاش کنید."
+
+msgid "Reload latest workout"
+msgstr "بارگذاری آخرین نسخهٔ تمرین"
+
+msgid "Retry saving"
+msgstr "تلاش دوباره برای ذخیره"
+
+msgid "Some changes need attention. Check the message beside your set."
+msgstr "برخی تغییرات نیاز به بررسی دارند. پیام کنار ست را بخوانید."
+
+msgid "All changes saved"
+msgstr "همهٔ تغییرات ذخیره شد"
+
+msgid "Review unsaved set edits"
+msgstr "بررسی تغییرات ذخیره‌نشدهٔ ست‌ها"
+
+msgid "Recovered edits are ready to review. Save each set you want to keep."
+msgstr ""
+"تغییرات بازیابی‌شده آمادهٔ بررسی‌اند. هر ستی را که می‌خواهید نگه دارید ذخیره "
+"کنید."
+
+msgid "Rest complete. Ready for your next set."
+msgstr "استراحت تمام شد. آمادهٔ ست بعدی هستید."

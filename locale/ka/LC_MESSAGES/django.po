@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cotinga\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 22:51+0400\n"
+"POT-Creation-Date: 2026-11-09 13:34+0400\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2148,3 +2148,922 @@ msgstr "მაგ. საშუალო, მოხარშული; ან �
 
 msgid "optional"
 msgstr "არასავალდებულო"
+
+msgid ""
+"Enter minutes:seconds, such as 02:30, or a number of seconds (up to 24 "
+"hours)."
+msgstr ""
+"ჩაწერეთ წუთი:წამი, მაგალითად 02:30, ან წამების რაოდენობა (მაქსიმუმ 24 საათი)."
+
+msgid "Exercise name"
+msgstr "სავარჯიშოს სახელი"
+
+msgid "Primary muscle"
+msgstr "ძირითადი კუნთი"
+
+msgid "Equipment"
+msgstr "აღჭურვილობა"
+
+msgid "What to track"
+msgstr "რა უნდა ჩაიწეროს"
+
+msgid "Your exercise notes"
+msgstr "თქვენი შენიშვნები სავარჯიშოზე"
+
+msgid ""
+"This exercise already has workout history. Create a separate exercise to use "
+"different tracking rules."
+msgstr ""
+"ამ სავარჯიშოს უკვე აქვს ისტორია. სხვა საზომებით ჩასაწერად ცალკე სავარჯიშო "
+"შექმენით."
+
+msgid "Routine name"
+msgstr "პროგრამის სახელი"
+
+msgid "Routine notes"
+msgstr "პროგრამის შენიშვნები"
+
+msgid "Time (mm:ss)"
+msgstr "დრო (წუთი:წამი)"
+
+msgid "Sets"
+msgstr "სეტები"
+
+msgid "Target reps"
+msgstr "სამიზნე გამეორებები"
+
+msgid "Distance (km)"
+msgstr "მანძილი (კმ)"
+
+msgid "Rest (seconds)"
+msgstr "დასვენება (წამი)"
+
+msgid "Superset"
+msgstr "სუპერსეტი"
+
+msgid "Exercise notes"
+msgstr "სავარჯიშოს შენიშვნები"
+
+msgid "Assistance (kg)"
+msgstr "დახმარება (კგ)"
+
+msgid "Added weight (kg)"
+msgstr "დამატებითი წონა (კგ)"
+
+msgid "Set complete"
+msgstr "სეტი დასრულებულია"
+
+msgid "Set type"
+msgstr "სეტის ტიპი"
+
+msgid "Reps"
+msgstr "გამეორებები"
+
+msgid "km"
+msgstr "კმ"
+
+msgid "Effort / RPE (1–10)"
+msgstr "დატვირთვა / RPE (1–10)"
+
+msgid "Assistance kg"
+msgstr "დახმარება კგ"
+
+msgid "Added kg"
+msgstr "დამატებითი კგ"
+
+msgid "Add your session bodyweight before completing this set."
+msgstr "ამ სეტის დასრულებამდე ჩაწერეთ სხეულის წონა ამ სესიისთვის."
+
+msgid "Enter a value before completing this set."
+msgstr "სეტის დასრულებამდე ჩაწერეთ მნიშვნელობა."
+
+msgid "Assistance cannot exceed your session bodyweight."
+msgstr "დახმარება ამ სესიის სხეულის წონას ვერ გადააჭარბებს."
+
+msgid "Workout name"
+msgstr "ვარჯიშის სახელი"
+
+msgid "Workout date"
+msgstr "ვარჯიშის თარიღი"
+
+msgid "Choose today or an earlier date."
+msgstr "აირჩიეთ დღევანდელი ან უფრო ადრინდელი თარიღი."
+
+msgid "Correct duration (mm:ss)"
+msgstr "ხანგრძლივობის შესწორება (წუთი:წამი)"
+
+msgid "Workout notes"
+msgstr "ვარჯიშის შენიშვნები"
+
+msgid "Also save this to my weight journal"
+msgstr "ჩაიწეროს წონის დღიურშიც"
+
+msgid "Bodyweight for this workout (kg)"
+msgstr "სხეულის წონა ამ ვარჯიშისთვის (კგ)"
+
+msgid "Workouts per week"
+msgstr "ვარჯიშები კვირაში"
+
+msgid "Chest"
+msgstr "მკერდი"
+
+msgid "Back"
+msgstr "ზურგი"
+
+msgid "Shoulders"
+msgstr "მხრები"
+
+msgid "Biceps"
+msgstr "ბიცეფსი"
+
+msgid "Triceps"
+msgstr "ტრიცეფსი"
+
+msgid "Forearms"
+msgstr "წინამხრები"
+
+msgid "Quadriceps"
+msgstr "ბარძაყის წინა კუნთები"
+
+msgid "Hamstrings"
+msgstr "ბარძაყის უკანა კუნთები"
+
+msgid "Glutes"
+msgstr "დუნდულები"
+
+msgid "Calves"
+msgstr "წვივები"
+
+msgid "Core"
+msgstr "კორპუსი"
+
+msgid "Full body"
+msgstr "მთელი სხეული"
+
+msgid "Cardio"
+msgstr "კარდიო"
+
+msgid "Barbell"
+msgstr "შტანგა"
+
+msgid "Dumbbell"
+msgstr "ჰანტელი"
+
+msgid "Machine"
+msgstr "ტრენაჟორი"
+
+msgid "Cable"
+msgstr "ბლოკი"
+
+msgid "Bodyweight"
+msgstr "სხეულის წონა"
+
+msgid "Kettlebell"
+msgstr "გირი"
+
+msgid "Resistance band"
+msgstr "რეზინის ლენტი"
+
+msgid "Other equipment"
+msgstr "სხვა აღჭურვილობა"
+
+msgid "Weight and reps"
+msgstr "წონა და გამეორებები"
+
+msgid "Bodyweight and reps"
+msgstr "სხეულის წონა და გამეორებები"
+
+msgid "Assistance and reps"
+msgstr "დახმარება და გამეორებები"
+
+msgid "Reps only"
+msgstr "მხოლოდ გამეორებები"
+
+msgid "Time only"
+msgstr "მხოლოდ დრო"
+
+msgid "Distance and time"
+msgstr "მანძილი და დრო"
+
+msgid "No superset"
+msgstr "სუპერსეტის გარეშე"
+
+msgid "In progress"
+msgstr "მიმდინარე"
+
+msgid "Finished"
+msgstr "დასრულებული"
+
+msgid "Working set"
+msgstr "სამუშაო სეტი"
+
+msgid "Warm-up"
+msgstr "გასახურებელი"
+
+msgid "Drop set"
+msgstr "დროპ სეტი"
+
+msgid "To failure"
+msgstr "მარცხამდე"
+
+msgid "A workout can contain up to 40 exercises."
+msgstr "ერთ ვარჯიშში შეიძლება იყოს მაქსიმუმ 40 სავარჯიშო."
+
+msgid "My workout"
+msgstr "ჩემი ვარჯიში"
+
+msgid "Rest time must be between 1 and 1800 seconds."
+msgstr "დასვენება უნდა იყოს 1-დან 1800 წამამდე."
+
+msgid "Choose a valid timer action."
+msgstr "აირჩიეთ ტაიმერის სწორი მოქმედება."
+
+msgid "reps"
+msgstr "გამეორება"
+
+msgid "assistance kg"
+msgstr "კგ დახმარება"
+
+msgid "added kg"
+msgstr "დამატებითი კგ"
+
+msgid "Best weight (kg)"
+msgstr "საუკეთესო წონა (კგ)"
+
+msgid "Assistance kg · lower is better"
+msgstr "დახმარება კგ · ნაკლები უკეთესია"
+
+msgid "Best time (seconds)"
+msgstr "საუკეთესო დრო (წამი)"
+
+msgid "Best distance (km)"
+msgstr "საუკეთესო მანძილი (კმ)"
+
+msgid "Archive a routine before creating more than 100."
+msgstr "100-ზე მეტი პროგრამის შექმნამდე ერთი დააარქივეთ."
+
+msgid "A routine can contain up to 40 exercises."
+msgstr "ერთ პროგრამაში შეიძლება იყოს მაქსიმუმ 40 სავარჯიშო."
+
+msgid "Restore this routine before editing it."
+msgstr "რედაქტირებამდე აღადგინეთ ეს პროგრამა."
+
+msgid "copy"
+msgstr "ასლი"
+
+msgid ""
+"This workout changed in another tab. Reload it before saving more changes."
+msgstr ""
+"ეს ვარჯიში სხვა ჩანართში შეიცვალა. ახალი ცვლილებების შენახვამდე განაახლეთ "
+"გვერდი."
+
+msgid "Keep one completed set, or archive this workout instead."
+msgstr "დატოვეთ ერთი დასრულებული სეტი, ან დააარქივეთ ეს ვარჯიში."
+
+msgid "An exercise can contain up to 30 sets."
+msgstr "ერთ სავარჯიშოში შეიძლება იყოს მაქსიმუმ 30 სეტი."
+
+msgid ""
+"A completed assisted set has more assistance than this bodyweight. Correct "
+"that set first."
+msgstr "დასრულებულ სეტში დახმარება ამ წონას აჭარბებს. ჯერ ის სეტი შეასწორეთ."
+
+msgid "This workout is already finished."
+msgstr "ეს ვარჯიში უკვე დასრულებულია."
+
+msgid "Complete at least one set before finishing your workout."
+msgstr "ვარჯიშის დასრულებამდე შეასრულეთ მინიმუმ ერთი სეტი."
+
+msgid ""
+"Some sets are unfinished. Complete them, or confirm that you want to finish "
+"without them."
+msgstr ""
+"ზოგი სეტი დაუსრულებელია. შეასრულეთ ისინი ან დაადასტურეთ მათ გარეშე დასრულება."
+
+msgid "Finish your current workout before restoring this one."
+msgstr "ამის აღდგენამდე დაასრულეთ მიმდინარე ვარჯიში."
+
+msgid "Gym"
+msgstr "დარბაზი"
+
+msgid "SHOW UP. BUILD YOUR STRONG."
+msgstr "მოდი. გახდი უფრო ძლიერი."
+
+msgid "Cotinga training"
+msgstr "Cotinga ვარჯიში"
+
+msgid "Training navigation"
+msgstr "ვარჯიშის ნავიგაცია"
+
+msgid "Training"
+msgstr "ვარჯიში"
+
+msgid "Exercises"
+msgstr "სავარჯიშოები"
+
+msgid "History"
+msgstr "ისტორია"
+
+msgid "Progress"
+msgstr "პროგრესი"
+
+msgid "exercises found"
+msgstr "სავარჯიშო მოიძებნა"
+
+msgid "Yours"
+msgstr "თქვენი"
+
+msgid "Add exercise"
+msgstr "სავარჯიშოს დამატება"
+
+msgid "View progress"
+msgstr "პროგრესის ნახვა"
+
+msgid "Make room for your movement."
+msgstr "იპოვეთ თქვენი სავარჯიშო."
+
+msgid "Try another search, clear a filter, or create your own exercise."
+msgstr "სცადეთ სხვა ძებნა, გაასუფთავეთ ფილტრი ან შექმენით საკუთარი სავარჯიშო."
+
+msgid "Create custom exercise"
+msgstr "საკუთარი სავარჯიშოს შექმნა"
+
+msgid "Your exercise"
+msgstr "თქვენი სავარჯიშო"
+
+msgid "Make it your own"
+msgstr "შექმენით საკუთარი"
+
+msgid ""
+"Custom exercises are private to you. Choose the measurements that fit the "
+"movement."
+msgstr ""
+"საკუთარი სავარჯიშოები მხოლოდ თქვენთვისაა. აირჩიეთ მოძრაობისთვის შესაფერისი "
+"საზომები."
+
+msgid "Save exercise"
+msgstr "სავარჯიშოს შენახვა"
+
+msgid "Restore exercise"
+msgstr "სავარჯიშოს აღდგენა"
+
+msgid "Archive exercise"
+msgstr "სავარჯიშოს დაარქივება"
+
+msgid ""
+"Archiving hides it from the library. Your workout history stays available."
+msgstr "დაარქივება სავარჯიშოს ბიბლიოთეკიდან მალავს. ვარჯიშების ისტორია რჩება."
+
+msgid "Archived"
+msgstr "დაარქივებული"
+
+msgid "Edit exercise"
+msgstr "სავარჯიშოს რედაქტირება"
+
+msgid "YOUR BEST LOGGED SET"
+msgstr "თქვენი საუკეთესო ჩაწერილი სეტი"
+
+msgid "SESSIONS LOGGED"
+msgstr "ჩაწერილი სესიები"
+
+msgid "Completed workouts with working sets"
+msgstr "დასრულებული ვარჯიშები სამუშაო სეტებით"
+
+msgid "Up to 30 recent sessions"
+msgstr "ბოლო 30 სესიამდე"
+
+msgid "Give your progress a starting point."
+msgstr "მიეცით პროგრესს საწყისი წერტილი."
+
+msgid "Complete a working set in a finished workout to see your history here."
+msgstr "ისტორიის სანახავად ჩაწერეთ სამუშაო სეტი დასრულებულ ვარჯიშში."
+
+msgid "Start workout"
+msgstr "ვარჯიშის დაწყება"
+
+msgid "SET HISTORY"
+msgstr "სეტების ისტორია"
+
+msgid "BW"
+msgstr "სხეულის წონა"
+
+msgid "Archived workouts"
+msgstr "დაარქივებული ვარჯიშები"
+
+msgid "The work you put in"
+msgstr "თქვენი შესრულებული სამუშაო"
+
+msgid "Every finished session, with the numbers you actually logged."
+msgstr "ყველა დასრულებული სესია, თქვენი ჩაწერილი შედეგებით."
+
+msgid "Export workouts"
+msgstr "ვარჯიშების ჩამოტვირთვა"
+
+msgid "Search workouts"
+msgstr "ვარჯიშების ძებნა"
+
+msgid "Search"
+msgstr "ძებნა"
+
+msgid "No workouts here yet."
+msgstr "აქ ჯერ ვარჯიშები არ არის."
+
+msgid ""
+"Your completed sessions will appear here. Archived sessions can be restored."
+msgstr ""
+"დასრულებული სესიები აქ გამოჩნდება. დაარქივებული სესიების აღდგენა "
+"შესაძლებელია."
+
+msgid "Back to training"
+msgstr "ვარჯიშზე დაბრუნება"
+
+msgid "View finished workouts"
+msgstr "დასრულებული ვარჯიშების ნახვა"
+
+msgid "exercises"
+msgstr "სავარჯიშო"
+
+msgid "kg bodyweight"
+msgstr "კგ სხეულის წონა"
+
+msgid "Restore"
+msgstr "აღდგენა"
+
+msgid "Open workout"
+msgstr "ვარჯიშის გახსნა"
+
+msgid "YOUR NEXT REP STARTS HERE"
+msgstr "შემდეგი გამეორება აქ იწყება"
+
+msgid "A little stronger."
+msgstr "ცოტა უფრო ძლიერი."
+
+msgid "Every time you show up."
+msgstr "ყოველ ჯერზე, როცა მოდიხართ."
+
+msgid ""
+"Your routines, your numbers, your progress. One place for the work you put "
+"in."
+msgstr "თქვენი პროგრამები, შედეგები და პროგრესი. ყველაფერი ერთ სივრცეში."
+
+msgid "Continue workout"
+msgstr "ვარჯიშის გაგრძელება"
+
+msgid "Start empty workout"
+msgstr "ცარიელი ვარჯიშის დაწყება"
+
+msgid "Create a routine"
+msgstr "პროგრამის შექმნა"
+
+msgid "THIS WEEK"
+msgstr "ამ კვირაში"
+
+msgid "workouts completed"
+msgstr "დასრულებული ვარჯიში"
+
+msgid "Weekly workout goal"
+msgstr "ვარჯიშის კვირის მიზანი"
+
+msgid "Set weekly goal"
+msgstr "კვირის მიზნის დაყენება"
+
+msgid "Your workout is waiting. Pick up where you left off."
+msgstr "ვარჯიში გელოდებათ. გააგრძელეთ იქიდან, სადაც შეჩერდით."
+
+msgid "ARCHIVED ROUTINES"
+msgstr "დაარქივებული პროგრამები"
+
+msgid "YOUR ROUTINES"
+msgstr "თქვენი პროგრამები"
+
+msgid "New routine"
+msgstr "ახალი პროგრამა"
+
+msgid "Start routine"
+msgstr "პროგრამის დაწყება"
+
+msgid "Edit"
+msgstr "რედაქტირება"
+
+msgid "Make a plan you want to return to."
+msgstr "შექმენით პროგრამა, რომელთანაც დაბრუნება მოგინდებათ."
+
+msgid ""
+"Choose exercises, sets, target reps, and rest times. Your previous numbers "
+"will be ready for your next session."
+msgstr ""
+"აირჩიეთ სავარჯიშოები, სეტები, სამიზნე გამეორებები და დასვენება. წინა "
+"შედეგები შემდეგ სესიაზე დაგხვდებათ."
+
+msgid "Create my first routine"
+msgstr "ჩემი პირველი პროგრამის შექმნა"
+
+msgid "Back to routines"
+msgstr "პროგრამებზე დაბრუნება"
+
+msgid "Archived routines"
+msgstr "დაარქივებული პროგრამები"
+
+msgid "RECENT WORKOUTS"
+msgstr "ბოლო ვარჯიშები"
+
+msgid "View history"
+msgstr "ისტორიის ნახვა"
+
+msgid "Your first workout starts the story."
+msgstr "ისტორია პირველი ვარჯიშით იწყება."
+
+msgid "Log your first set and build from there."
+msgstr "ჩაწერეთ პირველი სეტი და განაგრძეთ იქიდან."
+
+msgid "Find your movement"
+msgstr "იპოვეთ თქვენი სავარჯიშო"
+
+#, python-format
+msgid ""
+"%(catalog_count)s built-in exercises, plus anything you create yourself."
+msgstr "%(catalog_count)s მზა სავარჯიშო და ყველაფერი, რასაც თავად შექმნით."
+
+msgid "Custom exercise"
+msgstr "საკუთარი სავარჯიშო"
+
+msgid "Back to routine"
+msgstr "პროგრამაზე დაბრუნება"
+
+msgid "Add several exercises, then return to your plan."
+msgstr "დაამატეთ რამდენიმე სავარჯიშო და შემდეგ დაბრუნდით პროგრამაზე."
+
+msgid "Back to workout"
+msgstr "ვარჯიშზე დაბრუნება"
+
+msgid "Add several exercises, then return to your session."
+msgstr "დაამატეთ რამდენიმე სავარჯიშო და შემდეგ დაბრუნდით სესიაზე."
+
+msgid "Search exercises"
+msgstr "სავარჯიშოების ძებნა"
+
+msgid "Name a movement in English, Farsi, or Georgian"
+msgstr "მოძებნეთ ინგლისურად, სპარსულად ან ქართულად"
+
+msgid "Muscle group"
+msgstr "კუნთების ჯგუფი"
+
+msgid "All muscles"
+msgstr "ყველა კუნთი"
+
+msgid "All equipment"
+msgstr "ყველა აღჭურვილობა"
+
+msgid "Tracking"
+msgstr "ჩაწერის ტიპი"
+
+msgid "All tracking types"
+msgstr "ჩაწერის ყველა ტიპი"
+
+msgid "My custom exercises"
+msgstr "ჩემი საკუთარი სავარჯიშოები"
+
+msgid "Back to exercise library"
+msgstr "სავარჯიშოების ბიბლიოთეკაში დაბრუნება"
+
+msgid "Archived custom exercises"
+msgstr "დაარქივებული საკუთარი სავარჯიშოები"
+
+msgid "Pages"
+msgstr "გვერდები"
+
+msgid "Previous"
+msgstr "წინა"
+
+msgid "Next"
+msgstr "შემდეგი"
+
+msgid "Your effort adds up"
+msgstr "თქვენი ძალისხმევა გროვდება"
+
+msgid "See your consistency, working sets, and the movements getting stronger."
+msgstr "ნახეთ სტაბილურობა, სამუშაო სეტები და წინსვლა სავარჯიშოებში."
+
+msgid "Last 4 weeks"
+msgstr "ბოლო 4 კვირა"
+
+msgid "Last 12 weeks"
+msgstr "ბოლო 12 კვირა"
+
+msgid "Update"
+msgstr "განახლება"
+
+msgid "SHOWING UP"
+msgstr "სტაბილურობა"
+
+msgid "Weekly workout counts"
+msgstr "ვარჯიშების რაოდენობა კვირაში"
+
+msgid "WHERE THE WORK WENT"
+msgstr "სად წავიდა ძალისხმევა"
+
+msgid "sets"
+msgstr "სეტი"
+
+msgid "Finish a workout to see your muscle-group breakdown."
+msgstr "კუნთების ჯგუფების სანახავად დაასრულეთ ვარჯიში."
+
+msgid ""
+"Working sets are grouped by primary muscle. Secondary muscles are not "
+"counted twice."
+msgstr ""
+"სამუშაო სეტები დაჯგუფებულია ძირითადი კუნთის მიხედვით. მეორეული კუნთები ორჯერ "
+"არ ითვლება."
+
+msgid ""
+"Volume is logged kg × reps for external-weight working sets only. Warm-ups, "
+"bodyweight, and assisted sets are excluded. Dumbbell volume uses the weight "
+"entered per dumbbell."
+msgstr ""
+"მოცულობაა ჩაწერილი კგ × გამეორებები, მხოლოდ გარე წონით სამუშაო სეტებისთვის. "
+"გასახურებელი, სხეულის წონით და დახმარებით სეტები არ შედის. ჰანტელის მოცულობა "
+"იყენებს ერთი ჰანტელის ჩაწერილ წონას."
+
+msgid "YOUR EXERCISE PROGRESS"
+msgstr "თქვენი პროგრესი სავარჯიშოებში"
+
+msgid "See sets and personal best"
+msgstr "სეტებისა და პირადი რეკორდის ნახვა"
+
+msgid "The first step is a logged set."
+msgstr "პირველი ნაბიჯი ჩაწერილი სეტია."
+
+msgid "Complete a workout, then return to explore each exercise over time."
+msgstr "დაასრულეთ ვარჯიში და დაბრუნდით თითოეული სავარჯიშოს დროში სანახავად."
+
+msgid "Rest timer"
+msgstr "დასვენების ტაიმერი"
+
+msgid "REST TIMER"
+msgstr "დასვენების ტაიმერი"
+
+msgid "Remove 30 seconds"
+msgstr "30 წამის გამოკლება"
+
+msgid "Add 30 seconds"
+msgstr "30 წამის დამატება"
+
+msgid "Pause"
+msgstr "პაუზა"
+
+msgid "Resume"
+msgstr "გაგრძელება"
+
+msgid "Skip"
+msgstr "გამოტოვება"
+
+msgid "Timer options"
+msgstr "ტაიმერის პარამეტრები"
+
+msgid "Seconds"
+msgstr "წამი"
+
+msgid "Start timer"
+msgstr "ტაიმერის დაწყება"
+
+msgid "Sound when rest ends"
+msgstr "ხმა დასვენების დასრულებისას"
+
+msgid "Keep screen awake"
+msgstr "ეკრანი ჩართული დარჩეს"
+
+msgid "Build your routine"
+msgstr "შეადგინეთ თქვენი პროგრამა"
+
+msgid ""
+"A repeatable plan. Your next workout will bring back your last completed "
+"numbers."
+msgstr ""
+"პროგრამა განმეორებისთვის. შემდეგ ვარჯიშში ბოლო დასრულებული შედეგები "
+"დაგხვდებათ."
+
+msgid "Save routine"
+msgstr "პროგრამის შენახვა"
+
+msgid "THE PLAN"
+msgstr "პროგრამა"
+
+msgid "Add exercises"
+msgstr "სავარჯიშოების დამატება"
+
+msgid "Move exercise up"
+msgstr "სავარჯიშოს ზემოთ გადატანა"
+
+msgid "Move exercise down"
+msgstr "სავარჯიშოს ქვემოთ გადატანა"
+
+msgid "Save exercise targets"
+msgstr "სავარჯიშოს მიზნების შენახვა"
+
+msgid "Remove from routine"
+msgstr "პროგრამიდან ამოღება"
+
+msgid "What are we training?"
+msgstr "რას ვავარჯიშებთ?"
+
+msgid ""
+"Add exercises from the library, or create your own. Set targets and rest "
+"times for each movement."
+msgstr ""
+"დაამატეთ სავარჯიშოები ბიბლიოთეკიდან ან შექმენით საკუთარი. თითოეულს მიუთითეთ "
+"მიზნები და დასვენება."
+
+msgid "Choose exercises"
+msgstr "სავარჯიშოების არჩევა"
+
+msgid ""
+"Use the same superset letter for movements you want to pair. Set rest to 0 "
+"for movements you want to move between without a timer."
+msgstr ""
+"დაწყვილებულ სავარჯიშოებს სუპერსეტის ერთი ასო მიანიჭეთ. ტაიმერის გარეშე "
+"გადასასვლელად დასვენება 0-ზე დააყენეთ."
+
+msgid "Duplicate routine"
+msgstr "პროგრამის ასლის შექმნა"
+
+msgid "Restore routine"
+msgstr "პროგრამის აღდგენა"
+
+msgid "Archive routine"
+msgstr "პროგრამის დაარქივება"
+
+msgid "Ready when you are"
+msgstr "როცა მზად იქნებით"
+
+msgid "Start with a blank session. Add movements as you go."
+msgstr "დაიწყეთ ცარიელი სესიით. გზადაგზა დაამატეთ სავარჯიშოები."
+
+msgid ""
+"Your latest weigh-in on or before this date becomes this session's "
+"bodyweight. You can change it inside the workout."
+msgstr ""
+"ამ თარიღზე ან მანამდე ბოლო აწონვა სესიის სხეულის წონა გახდება. მისი შეცვლა "
+"ვარჯიშში შეგიძლიათ."
+
+msgid "Workouts"
+msgstr "ვარჯიშები"
+
+msgid "In the selected period"
+msgstr "არჩეულ პერიოდში"
+
+msgid "Working sets"
+msgstr "სამუშაო სეტები"
+
+msgid "Warm-ups excluded"
+msgstr "გასახურებელი სეტების გარეშე"
+
+msgid "Logged volume"
+msgstr "ჩაწერილი მოცულობა"
+
+msgid "External weight × reps"
+msgstr "გარე წონა × გამეორებები"
+
+msgid "Time training"
+msgstr "ვარჯიშის დრო"
+
+msgid "min"
+msgstr "წთ"
+
+msgid "Paused time excluded"
+msgstr "პაუზის გარეშე"
+
+msgid "One set at a time. Your numbers save as you go."
+msgstr "თითო სეტი. შედეგები ვარჯიშისას ინახება."
+
+msgid "Work logged. Take a moment to see what you built."
+msgstr "ვარჯიში ჩაწერილია. შეხედეთ, რას მიაღწიეთ."
+
+msgid "All changes saved"
+msgstr "ყველა ცვლილება შენახულია"
+
+msgid "Retry saving"
+msgstr "შენახვის ხელახლა ცდა"
+
+msgid "sets complete"
+msgstr "სეტი დასრულებულია"
+
+msgid "kg logged volume"
+msgstr "კგ ჩაწერილი მოცულობა"
+
+msgid "Session bodyweight"
+msgstr "სხეულის წონა სესიაში"
+
+msgid "Add session bodyweight"
+msgstr "სესიის სხეულის წონის დამატება"
+
+#, python-format
+msgid ""
+"Bodyweight snapshot from %(day)s. Later weigh-ins will not change this "
+"workout."
+msgstr ""
+"სხეულის წონა აღებულია %(day)s-დან. შემდგომი აწონვები ამ ვარჯიშს არ შეცვლის."
+
+msgid "Workout details and notes"
+msgstr "ვარჯიშის დეტალები და შენიშვნები"
+
+msgid "Save workout details"
+msgstr "ვარჯიშის დეტალების შენახვა"
+
+msgid ""
+"Barbell weight includes the bar. Dumbbell weight is per dumbbell. For "
+"bodyweight movements, enter only additional weight; for assisted movements, "
+"enter the assistance."
+msgstr ""
+"შტანგის წონაში ღერძიც შედის. ჰანტელის წონა ჩაწერეთ თითო ჰანტელზე. სხეულის "
+"წონით მოძრაობებში ჩაწერეთ მხოლოდ დამატებითი წონა, დახმარებით მოძრაობებში კი "
+"დახმარება."
+
+msgid "Set"
+msgstr "სეტი"
+
+msgid "Effort / RPE"
+msgstr "დატვირთვა / RPE"
+
+msgid "Optional: 10 means no more reps were possible."
+msgstr "არასავალდებულო: 10 ნიშნავს, რომ მეტი გამეორება ვეღარ შეგეძლოთ."
+
+msgid "Save set"
+msgstr "სეტის შენახვა"
+
+msgid "Remove this set?"
+msgstr "ამოვიღოთ ეს სეტი?"
+
+msgid "Remove set"
+msgstr "სეტის ამოღება"
+
+msgid "Add set"
+msgstr "სეტის დამატება"
+
+msgid "s rest"
+msgstr "წმ დასვენება"
+
+msgid "Rest, superset, and exercise notes"
+msgstr "დასვენება, სუპერსეტი და შენიშვნები"
+
+msgid "Save exercise options"
+msgstr "სავარჯიშოს პარამეტრების შენახვა"
+
+msgid "Remove this exercise and its sets from this workout?"
+msgstr "ამოვიღოთ ეს სავარჯიშო და მისი სეტები ამ ვარჯიშიდან?"
+
+msgid "Remove exercise"
+msgstr "სავარჯიშოს ამოღება"
+
+msgid ""
+"Choose your first exercise. The rest timer starts when you complete a set."
+msgstr ""
+"აირჩიეთ პირველი სავარჯიშო. დასვენების ტაიმერი სეტის დასრულებისას იწყება."
+
+msgid "Call it a good session."
+msgstr "დაასრულეთ კარგი სესია."
+
+msgid ""
+"Only completed sets appear in your progress. You can review and edit this "
+"workout later."
+msgstr ""
+"პროგრესში მხოლოდ დასრულებული სეტები შედის. ამ ვარჯიშის ნახვა და რედაქტირება "
+"მოგვიანებითაც შეგიძლიათ."
+
+msgid "Finish without the remaining unfinished sets"
+msgstr "დასრულება დარჩენილი დაუსრულებელი სეტების გარეშე"
+
+msgid "Finish workout"
+msgstr "ვარჯიშის დასრულება"
+
+msgid "Save as a new routine"
+msgstr "ახალ პროგრამად შენახვა"
+
+msgid "Archive this workout? You can restore it from history."
+msgstr "დააარქივოთ ეს ვარჯიში? ისტორიიდან მისი აღდგენა შეგიძლიათ."
+
+msgid "Archive workout"
+msgstr "ვარჯიშის დაარქივება"
+
+msgid ""
+"Used for bodyweight and assisted exercises. This value stays with this "
+"workout."
+msgstr ""
+"გამოიყენება სხეულის წონითა და დახმარებით სავარჯიშოებისთვის. მნიშვნელობა ამ "
+"ვარჯიშთან რჩება."
+
+msgid "Save bodyweight"
+msgstr "სხეულის წონის შენახვა"
+
+msgid "Your weight, for this session"
+msgstr "თქვენი წონა ამ სესიისთვის"
+
+msgid "Close"
+msgstr "დახურვა"
+
+msgid "Open weight journal"
+msgstr "წონის დღიურის გახსნა"
+
+msgid ""
+"Nothing is logged yet. Review your description, then estimate your meals."
+msgstr ""
+"ჯერ არაფერი ჩაწერილა დღიურში. შეამოწმეთ აღწერა და შემდეგ შეაფასეთ კვება."

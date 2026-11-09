@@ -1,0 +1,5 @@
+{% load i18n gym_tags %}
+<article class="panel"><span>{% translate "Workouts" %}</span><strong>{{ summary.count }}</strong><small>{% translate "In the selected period" %}</small></article>
+<article class="panel"><span>{% translate "Working sets" %}</span><strong>{{ summary.sets }}</strong><small>{% translate "Warm-ups excluded" %}</small></article>
+<article class="panel"><span>{% translate "Logged volume" %}</span><strong>{{ summary.volume|short_number }}<small>{% translate "kg" %}</small></strong><small>{% translate "External weight × reps" %}</small></article>
+<article class="panel"><span>{% translate "Time training" %}</span><strong>{{ summary.minutes }}<small>{% translate "min" %}</small></strong><small>{% translate "Paused time excluded" %}</small></article>

@@ -14,6 +14,7 @@ INSTALLED_APPS = [
     "axes",
     "accounts",
     "tracker",
+    "gym",
 ]
 
 MIDDLEWARE = [

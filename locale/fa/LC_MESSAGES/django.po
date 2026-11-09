@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-08 22:51+0400\n"
+"POT-Creation-Date: 2026-11-09 13:34+0400\n"
 "PO-Revision-Date: 2026-10-14 00:00+0400\n"
 "Last-Translator: Cotinga\n"
 "Language-Team: Persian\n"
@@ -2129,3 +2129,920 @@ msgstr "مثلاً متوسط، آب‌پز؛ یا وزن پس از پخت"
 
 msgid "optional"
 msgstr "اختیاری"
+
+msgid ""
+"Enter minutes:seconds, such as 02:30, or a number of seconds (up to 24 "
+"hours)."
+msgstr ""
+"زمان را به‌صورت دقیقه:ثانیه مثل 02:30 یا تعداد ثانیه وارد کنید (حداکثر ۲۴ "
+"ساعت)."
+
+msgid "Exercise name"
+msgstr "نام حرکت"
+
+msgid "Primary muscle"
+msgstr "عضلهٔ اصلی"
+
+msgid "Equipment"
+msgstr "تجهیزات"
+
+msgid "What to track"
+msgstr "چه چیزی ثبت شود"
+
+msgid "Your exercise notes"
+msgstr "یادداشت‌های حرکت"
+
+msgid ""
+"This exercise already has workout history. Create a separate exercise to use "
+"different tracking rules."
+msgstr ""
+"این حرکت سابقهٔ تمرین دارد. برای ثبت با معیارهای متفاوت، حرکت جداگانه‌ای "
+"بسازید."
+
+msgid "Routine name"
+msgstr "نام برنامهٔ تمرینی"
+
+msgid "Routine notes"
+msgstr "یادداشت‌های برنامه"
+
+msgid "Time (mm:ss)"
+msgstr "زمان (دقیقه:ثانیه)"
+
+msgid "Sets"
+msgstr "ست‌ها"
+
+msgid "Target reps"
+msgstr "تکرار هدف"
+
+msgid "Distance (km)"
+msgstr "مسافت (کیلومتر)"
+
+msgid "Rest (seconds)"
+msgstr "استراحت (ثانیه)"
+
+msgid "Superset"
+msgstr "سوپرست"
+
+msgid "Exercise notes"
+msgstr "یادداشت حرکت"
+
+msgid "Assistance (kg)"
+msgstr "مقدار کمک (کیلوگرم)"
+
+msgid "Added weight (kg)"
+msgstr "وزنهٔ اضافه (کیلوگرم)"
+
+msgid "Set complete"
+msgstr "ست انجام شد"
+
+msgid "Set type"
+msgstr "نوع ست"
+
+msgid "Reps"
+msgstr "تکرار"
+
+msgid "km"
+msgstr "کیلومتر"
+
+msgid "Effort / RPE (1–10)"
+msgstr "شدت تلاش / RPE (۱ تا ۱۰)"
+
+msgid "Assistance kg"
+msgstr "کمک، کیلوگرم"
+
+msgid "Added kg"
+msgstr "وزنهٔ اضافه، کیلوگرم"
+
+msgid "Add your session bodyweight before completing this set."
+msgstr "پیش از ثبت این ست، وزن بدن در این جلسه را وارد کنید."
+
+msgid "Enter a value before completing this set."
+msgstr "پیش از ثبت ست، مقدار را وارد کنید."
+
+msgid "Assistance cannot exceed your session bodyweight."
+msgstr "مقدار کمک نمی‌تواند از وزن بدن در این جلسه بیشتر باشد."
+
+msgid "Workout name"
+msgstr "نام جلسهٔ تمرین"
+
+msgid "Workout date"
+msgstr "تاریخ تمرین"
+
+msgid "Choose today or an earlier date."
+msgstr "امروز یا تاریخی پیش از امروز را انتخاب کنید."
+
+msgid "Correct duration (mm:ss)"
+msgstr "اصلاح مدت زمان (دقیقه:ثانیه)"
+
+msgid "Workout notes"
+msgstr "یادداشت‌های جلسه"
+
+msgid "Also save this to my weight journal"
+msgstr "در دفتر وزن من هم ذخیره شود"
+
+msgid "Bodyweight for this workout (kg)"
+msgstr "وزن بدن در این تمرین (کیلوگرم)"
+
+msgid "Workouts per week"
+msgstr "جلسات تمرین در هفته"
+
+msgid "Chest"
+msgstr "سینه"
+
+msgid "Back"
+msgstr "پشت"
+
+msgid "Shoulders"
+msgstr "سرشانه"
+
+msgid "Biceps"
+msgstr "جلو بازو"
+
+msgid "Triceps"
+msgstr "پشت بازو"
+
+msgid "Forearms"
+msgstr "ساعد"
+
+msgid "Quadriceps"
+msgstr "جلو ران"
+
+msgid "Hamstrings"
+msgstr "پشت ران"
+
+msgid "Glutes"
+msgstr "باسن"
+
+msgid "Calves"
+msgstr "ساق پا"
+
+msgid "Core"
+msgstr "میان‌تنه"
+
+msgid "Full body"
+msgstr "تمام بدن"
+
+msgid "Cardio"
+msgstr "هوازی"
+
+msgid "Barbell"
+msgstr "هالتر"
+
+msgid "Dumbbell"
+msgstr "دمبل"
+
+msgid "Machine"
+msgstr "دستگاه"
+
+msgid "Cable"
+msgstr "سیم‌کش"
+
+msgid "Bodyweight"
+msgstr "وزن بدن"
+
+msgid "Kettlebell"
+msgstr "کتل‌بل"
+
+msgid "Resistance band"
+msgstr "کش مقاومتی"
+
+msgid "Other equipment"
+msgstr "سایر تجهیزات"
+
+msgid "Weight and reps"
+msgstr "وزنه و تکرار"
+
+msgid "Bodyweight and reps"
+msgstr "وزن بدن و تکرار"
+
+msgid "Assistance and reps"
+msgstr "مقدار کمک و تکرار"
+
+msgid "Reps only"
+msgstr "فقط تکرار"
+
+msgid "Time only"
+msgstr "فقط زمان"
+
+msgid "Distance and time"
+msgstr "مسافت و زمان"
+
+msgid "No superset"
+msgstr "بدون سوپرست"
+
+msgid "In progress"
+msgstr "در حال انجام"
+
+msgid "Finished"
+msgstr "تمام‌شده"
+
+msgid "Working set"
+msgstr "ست اصلی"
+
+msgid "Warm-up"
+msgstr "گرم‌کردن"
+
+msgid "Drop set"
+msgstr "دراپ ست"
+
+msgid "To failure"
+msgstr "تا ناتوانی"
+
+msgid "A workout can contain up to 40 exercises."
+msgstr "هر جلسه می‌تواند حداکثر ۴۰ حرکت داشته باشد."
+
+msgid "My workout"
+msgstr "تمرین من"
+
+msgid "Rest time must be between 1 and 1800 seconds."
+msgstr "زمان استراحت باید بین ۱ تا ۱۸۰۰ ثانیه باشد."
+
+msgid "Choose a valid timer action."
+msgstr "یک گزینهٔ معتبر برای زمان‌سنج انتخاب کنید."
+
+msgid "reps"
+msgstr "تکرار"
+
+msgid "assistance kg"
+msgstr "کیلوگرم کمک"
+
+msgid "added kg"
+msgstr "کیلوگرم اضافه"
+
+msgid "Best weight (kg)"
+msgstr "بیشترین وزنه (کیلوگرم)"
+
+msgid "Assistance kg · lower is better"
+msgstr "کمک به کیلوگرم · کمتر بهتر است"
+
+msgid "Best time (seconds)"
+msgstr "بیشترین زمان (ثانیه)"
+
+msgid "Best distance (km)"
+msgstr "بیشترین مسافت (کیلومتر)"
+
+msgid "Archive a routine before creating more than 100."
+msgstr "برای ساخت بیش از ۱۰۰ برنامه، ابتدا یکی از برنامه‌ها را بایگانی کنید."
+
+msgid "A routine can contain up to 40 exercises."
+msgstr "هر برنامه می‌تواند حداکثر ۴۰ حرکت داشته باشد."
+
+msgid "Restore this routine before editing it."
+msgstr "پیش از ویرایش، این برنامه را بازیابی کنید."
+
+msgid "copy"
+msgstr "کپی"
+
+msgid ""
+"This workout changed in another tab. Reload it before saving more changes."
+msgstr ""
+"این تمرین در برگهٔ دیگری تغییر کرده است. پیش از ذخیرهٔ تغییرات بعدی، صفحه را "
+"دوباره بارگذاری کنید."
+
+msgid "Keep one completed set, or archive this workout instead."
+msgstr "حداقل یک ست انجام‌شده را نگه دارید، یا این جلسه را بایگانی کنید."
+
+msgid "An exercise can contain up to 30 sets."
+msgstr "هر حرکت می‌تواند حداکثر ۳۰ ست داشته باشد."
+
+msgid ""
+"A completed assisted set has more assistance than this bodyweight. Correct "
+"that set first."
+msgstr ""
+"مقدار کمک در یکی از ست‌های ثبت‌شده از این وزن بدن بیشتر است. ابتدا آن ست را "
+"اصلاح کنید."
+
+msgid "This workout is already finished."
+msgstr "این تمرین قبلاً تمام شده است."
+
+msgid "Complete at least one set before finishing your workout."
+msgstr "پیش از پایان جلسه، حداقل یک ست را ثبت کنید."
+
+msgid ""
+"Some sets are unfinished. Complete them, or confirm that you want to finish "
+"without them."
+msgstr ""
+"بعضی ست‌ها انجام نشده‌اند. آن‌ها را انجام دهید یا پایان جلسه بدون آن‌ها را تأیید "
+"کنید."
+
+msgid "Finish your current workout before restoring this one."
+msgstr "پیش از بازیابی این جلسه، تمرین فعلی را تمام کنید."
+
+msgid "Gym"
+msgstr "باشگاه"
+
+msgid "SHOW UP. BUILD YOUR STRONG."
+msgstr "حاضر شو. قوی‌تر شو."
+
+msgid "Cotinga training"
+msgstr "تمرین با کوتینگا"
+
+msgid "Training navigation"
+msgstr "منوی تمرین"
+
+msgid "Training"
+msgstr "تمرین"
+
+msgid "Exercises"
+msgstr "حرکت‌ها"
+
+msgid "History"
+msgstr "سابقه"
+
+msgid "Progress"
+msgstr "پیشرفت"
+
+msgid "exercises found"
+msgstr "حرکت پیدا شد"
+
+msgid "Yours"
+msgstr "شخصی"
+
+msgid "Add exercise"
+msgstr "افزودن حرکت"
+
+msgid "View progress"
+msgstr "مشاهدهٔ پیشرفت"
+
+msgid "Make room for your movement."
+msgstr "حرکت دلخواهتان را پیدا کنید."
+
+msgid "Try another search, clear a filter, or create your own exercise."
+msgstr ""
+"عبارت دیگری جست‌وجو کنید، فیلترها را پاک کنید یا حرکت دلخواهتان را بسازید."
+
+msgid "Create custom exercise"
+msgstr "ساخت حرکت شخصی"
+
+msgid "Your exercise"
+msgstr "حرکت شما"
+
+msgid "Make it your own"
+msgstr "حرکت خودتان را بسازید"
+
+msgid ""
+"Custom exercises are private to you. Choose the measurements that fit the "
+"movement."
+msgstr ""
+"حرکت‌های شخصی فقط برای شما هستند. معیارهای مناسب هر حرکت را انتخاب کنید."
+
+msgid "Save exercise"
+msgstr "ذخیرهٔ حرکت"
+
+msgid "Restore exercise"
+msgstr "بازیابی حرکت"
+
+msgid "Archive exercise"
+msgstr "بایگانی حرکت"
+
+msgid ""
+"Archiving hides it from the library. Your workout history stays available."
+msgstr "بایگانی، حرکت را از کتابخانه پنهان می‌کند. سابقهٔ تمرینتان باقی می‌ماند."
+
+msgid "Archived"
+msgstr "بایگانی‌شده"
+
+msgid "Edit exercise"
+msgstr "ویرایش حرکت"
+
+msgid "YOUR BEST LOGGED SET"
+msgstr "بهترین ست ثبت‌شدهٔ شما"
+
+msgid "SESSIONS LOGGED"
+msgstr "جلسات ثبت‌شده"
+
+msgid "Completed workouts with working sets"
+msgstr "تمرین‌های تمام‌شده دارای ست اصلی"
+
+msgid "Up to 30 recent sessions"
+msgstr "تا ۳۰ جلسهٔ اخیر"
+
+msgid "Give your progress a starting point."
+msgstr "برای پیشرفتتان نقطهٔ شروع بسازید."
+
+msgid "Complete a working set in a finished workout to see your history here."
+msgstr "برای دیدن سابقه در اینجا، یک ست اصلی را در جلسه‌ای تمام‌شده ثبت کنید."
+
+msgid "Start workout"
+msgstr "شروع تمرین"
+
+msgid "SET HISTORY"
+msgstr "سابقهٔ ست‌ها"
+
+msgid "BW"
+msgstr "وزن بدن"
+
+msgid "Archived workouts"
+msgstr "تمرین‌های بایگانی‌شده"
+
+msgid "The work you put in"
+msgstr "تلاشی که کرده‌اید"
+
+msgid "Every finished session, with the numbers you actually logged."
+msgstr "تمام جلسات پایان‌یافته، با اعدادی که واقعاً ثبت کرده‌اید."
+
+msgid "Export workouts"
+msgstr "دریافت فایل تمرین‌ها"
+
+msgid "Search workouts"
+msgstr "جست‌وجوی تمرین‌ها"
+
+msgid "Search"
+msgstr "جست‌وجو"
+
+msgid "No workouts here yet."
+msgstr "هنوز تمرینی اینجا نیست."
+
+msgid ""
+"Your completed sessions will appear here. Archived sessions can be restored."
+msgstr ""
+"جلسات تمام‌شده اینجا نمایش داده می‌شوند. جلسات بایگانی‌شده قابل بازیابی‌اند."
+
+msgid "Back to training"
+msgstr "بازگشت به تمرین"
+
+msgid "View finished workouts"
+msgstr "نمایش تمرین‌های تمام‌شده"
+
+msgid "exercises"
+msgstr "حرکت"
+
+msgid "kg bodyweight"
+msgstr "کیلوگرم وزن بدن"
+
+msgid "Restore"
+msgstr "بازیابی"
+
+msgid "Open workout"
+msgstr "باز کردن تمرین"
+
+msgid "YOUR NEXT REP STARTS HERE"
+msgstr "تکرار بعدی از اینجا شروع می‌شود"
+
+msgid "A little stronger."
+msgstr "کمی قوی‌تر."
+
+msgid "Every time you show up."
+msgstr "هر بار که حاضر می‌شوید."
+
+msgid ""
+"Your routines, your numbers, your progress. One place for the work you put "
+"in."
+msgstr "برنامه‌ها، اعداد و پیشرفت شما. یک‌جا برای تمام تلاشتان."
+
+msgid "Continue workout"
+msgstr "ادامهٔ تمرین"
+
+msgid "Start empty workout"
+msgstr "شروع تمرین خالی"
+
+msgid "Create a routine"
+msgstr "ساخت برنامهٔ تمرینی"
+
+msgid "THIS WEEK"
+msgstr "این هفته"
+
+msgid "workouts completed"
+msgstr "جلسهٔ انجام‌شده"
+
+msgid "Weekly workout goal"
+msgstr "هدف هفتگی تمرین"
+
+msgid "Set weekly goal"
+msgstr "تنظیم هدف هفتگی"
+
+msgid "Your workout is waiting. Pick up where you left off."
+msgstr "تمرینتان منتظر شماست. از جایی که بودید ادامه دهید."
+
+msgid "ARCHIVED ROUTINES"
+msgstr "برنامه‌های بایگانی‌شده"
+
+msgid "YOUR ROUTINES"
+msgstr "برنامه‌های شما"
+
+msgid "New routine"
+msgstr "برنامهٔ جدید"
+
+msgid "Start routine"
+msgstr "شروع برنامه"
+
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "Make a plan you want to return to."
+msgstr "برنامه‌ای بسازید که دوست دارید به آن برگردید."
+
+msgid ""
+"Choose exercises, sets, target reps, and rest times. Your previous numbers "
+"will be ready for your next session."
+msgstr ""
+"حرکت‌ها، ست‌ها، تکرار هدف و زمان استراحت را مشخص کنید. اعداد قبلی برای جلسهٔ "
+"بعد آماده‌اند."
+
+msgid "Create my first routine"
+msgstr "ساخت اولین برنامه‌ام"
+
+msgid "Back to routines"
+msgstr "بازگشت به برنامه‌ها"
+
+msgid "Archived routines"
+msgstr "برنامه‌های بایگانی‌شده"
+
+msgid "RECENT WORKOUTS"
+msgstr "تمرین‌های اخیر"
+
+msgid "View history"
+msgstr "مشاهدهٔ سابقه"
+
+msgid "Your first workout starts the story."
+msgstr "داستان از اولین تمرینتان شروع می‌شود."
+
+msgid "Log your first set and build from there."
+msgstr "اولین ست را ثبت کنید و از همان‌جا پیش بروید."
+
+msgid "Find your movement"
+msgstr "حرکتتان را پیدا کنید"
+
+#, python-format
+msgid ""
+"%(catalog_count)s built-in exercises, plus anything you create yourself."
+msgstr "%(catalog_count)s حرکت آماده، به‌اضافهٔ هر حرکتی که خودتان بسازید."
+
+msgid "Custom exercise"
+msgstr "حرکت شخصی"
+
+msgid "Back to routine"
+msgstr "بازگشت به برنامه"
+
+msgid "Add several exercises, then return to your plan."
+msgstr "چند حرکت اضافه کنید، سپس به برنامه برگردید."
+
+msgid "Back to workout"
+msgstr "بازگشت به تمرین"
+
+msgid "Add several exercises, then return to your session."
+msgstr "چند حرکت اضافه کنید، سپس به جلسه برگردید."
+
+msgid "Search exercises"
+msgstr "جست‌وجوی حرکت‌ها"
+
+msgid "Name a movement in English, Farsi, or Georgian"
+msgstr "نام حرکت به انگلیسی، فارسی یا گرجی"
+
+msgid "Muscle group"
+msgstr "گروه عضلانی"
+
+msgid "All muscles"
+msgstr "همهٔ عضلات"
+
+msgid "All equipment"
+msgstr "همهٔ تجهیزات"
+
+msgid "Tracking"
+msgstr "نوع ثبت"
+
+msgid "All tracking types"
+msgstr "همهٔ انواع ثبت"
+
+msgid "My custom exercises"
+msgstr "حرکت‌های شخصی من"
+
+msgid "Back to exercise library"
+msgstr "بازگشت به کتابخانهٔ حرکت‌ها"
+
+msgid "Archived custom exercises"
+msgstr "حرکت‌های شخصی بایگانی‌شده"
+
+msgid "Pages"
+msgstr "صفحه‌ها"
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Your effort adds up"
+msgstr "تلاشتان نتیجه می‌دهد"
+
+msgid "See your consistency, working sets, and the movements getting stronger."
+msgstr "پیوستگی تمرین، ست‌های اصلی و پیشرفت حرکت‌ها را ببینید."
+
+msgid "Last 4 weeks"
+msgstr "۴ هفتهٔ اخیر"
+
+msgid "Last 12 weeks"
+msgstr "۱۲ هفتهٔ اخیر"
+
+msgid "Update"
+msgstr "به‌روزرسانی"
+
+msgid "SHOWING UP"
+msgstr "پیوستگی تمرین"
+
+msgid "Weekly workout counts"
+msgstr "تعداد جلسات هفتگی"
+
+msgid "WHERE THE WORK WENT"
+msgstr "سهم هر عضله از تمرین"
+
+msgid "sets"
+msgstr "ست"
+
+msgid "Finish a workout to see your muscle-group breakdown."
+msgstr "برای دیدن سهم گروه‌های عضلانی، یک جلسه را تمام کنید."
+
+msgid ""
+"Working sets are grouped by primary muscle. Secondary muscles are not "
+"counted twice."
+msgstr ""
+"ست‌های اصلی بر اساس عضلهٔ اصلی گروه‌بندی می‌شوند. عضلات فرعی دوباره شمرده "
+"نمی‌شوند."
+
+msgid ""
+"Volume is logged kg × reps for external-weight working sets only. Warm-ups, "
+"bodyweight, and assisted sets are excluded. Dumbbell volume uses the weight "
+"entered per dumbbell."
+msgstr ""
+"حجم تمرین برابر وزنهٔ ثبت‌شده × تکرار و فقط برای ست‌های اصلی با وزنه است. ست‌های "
+"گرم‌کردن، وزن بدن و کمکی حساب نمی‌شوند. حجم دمبل با وزن واردشده برای هر دمبل "
+"محاسبه می‌شود."
+
+msgid "YOUR EXERCISE PROGRESS"
+msgstr "پیشرفت حرکت‌های شما"
+
+msgid "See sets and personal best"
+msgstr "مشاهدهٔ ست‌ها و رکورد شخصی"
+
+msgid "The first step is a logged set."
+msgstr "اولین قدم، یک ست ثبت‌شده است."
+
+msgid "Complete a workout, then return to explore each exercise over time."
+msgstr "یک جلسه را تمام کنید، سپس روند هر حرکت را در گذر زمان بررسی کنید."
+
+msgid "Rest timer"
+msgstr "زمان‌سنج استراحت"
+
+msgid "REST TIMER"
+msgstr "زمان‌سنج استراحت"
+
+msgid "Remove 30 seconds"
+msgstr "۳۰ ثانیه کم کن"
+
+msgid "Add 30 seconds"
+msgstr "۳۰ ثانیه اضافه کن"
+
+msgid "Pause"
+msgstr "توقف موقت"
+
+msgid "Resume"
+msgstr "ادامه"
+
+msgid "Skip"
+msgstr "رد کردن"
+
+msgid "Timer options"
+msgstr "تنظیمات زمان‌سنج"
+
+msgid "Seconds"
+msgstr "ثانیه"
+
+msgid "Start timer"
+msgstr "شروع زمان‌سنج"
+
+msgid "Sound when rest ends"
+msgstr "صدا در پایان استراحت"
+
+msgid "Keep screen awake"
+msgstr "صفحه روشن بماند"
+
+msgid "Build your routine"
+msgstr "برنامه‌تان را بسازید"
+
+msgid ""
+"A repeatable plan. Your next workout will bring back your last completed "
+"numbers."
+msgstr "برنامه‌ای برای تکرار. اعداد آخرین جلسه در تمرین بعدی آماده‌اند."
+
+msgid "Save routine"
+msgstr "ذخیرهٔ برنامه"
+
+msgid "THE PLAN"
+msgstr "برنامه"
+
+msgid "Add exercises"
+msgstr "افزودن حرکت‌ها"
+
+msgid "Move exercise up"
+msgstr "حرکت به بالا"
+
+msgid "Move exercise down"
+msgstr "حرکت به پایین"
+
+msgid "Save exercise targets"
+msgstr "ذخیرهٔ هدف‌های حرکت"
+
+msgid "Remove from routine"
+msgstr "حذف از برنامه"
+
+msgid "What are we training?"
+msgstr "امروز چه تمرینی داریم؟"
+
+msgid ""
+"Add exercises from the library, or create your own. Set targets and rest "
+"times for each movement."
+msgstr ""
+"از کتابخانه حرکت اضافه کنید یا حرکت خودتان را بسازید. برای هر حرکت، هدف و "
+"زمان استراحت تعیین کنید."
+
+msgid "Choose exercises"
+msgstr "انتخاب حرکت‌ها"
+
+msgid ""
+"Use the same superset letter for movements you want to pair. Set rest to 0 "
+"for movements you want to move between without a timer."
+msgstr ""
+"برای حرکت‌های یک سوپرست، حرف یکسان انتخاب کنید. برای رفتن به حرکت بعدی بدون "
+"زمان‌سنج، استراحت را ۰ بگذارید."
+
+msgid "Duplicate routine"
+msgstr "کپی برنامه"
+
+msgid "Restore routine"
+msgstr "بازیابی برنامه"
+
+msgid "Archive routine"
+msgstr "بایگانی برنامه"
+
+msgid "Ready when you are"
+msgstr "هر وقت آماده‌اید"
+
+msgid "Start with a blank session. Add movements as you go."
+msgstr "با یک جلسهٔ خالی شروع کنید و حرکت‌ها را به‌تدریج اضافه کنید."
+
+msgid ""
+"Your latest weigh-in on or before this date becomes this session's "
+"bodyweight. You can change it inside the workout."
+msgstr ""
+"آخرین وزن ثبت‌شده در این تاریخ یا پیش از آن، وزن بدن این جلسه می‌شود. می‌توانید "
+"آن را داخل جلسه تغییر دهید."
+
+msgid "Workouts"
+msgstr "جلسات تمرین"
+
+msgid "In the selected period"
+msgstr "در بازهٔ انتخاب‌شده"
+
+msgid "Working sets"
+msgstr "ست‌های اصلی"
+
+msgid "Warm-ups excluded"
+msgstr "بدون ست‌های گرم‌کردن"
+
+msgid "Logged volume"
+msgstr "حجم ثبت‌شده"
+
+msgid "External weight × reps"
+msgstr "وزنه × تکرار"
+
+msgid "Time training"
+msgstr "زمان تمرین"
+
+msgid "min"
+msgstr "دقیقه"
+
+msgid "Paused time excluded"
+msgstr "بدون زمان توقف"
+
+msgid "One set at a time. Your numbers save as you go."
+msgstr "هر بار یک ست. اعدادتان هنگام تمرین ذخیره می‌شوند."
+
+msgid "Work logged. Take a moment to see what you built."
+msgstr "تمرین ثبت شد. لحظه‌ای نتیجهٔ تلاشتان را ببینید."
+
+msgid "All changes saved"
+msgstr "همهٔ تغییرات ذخیره شد"
+
+msgid "Retry saving"
+msgstr "تلاش دوباره برای ذخیره"
+
+msgid "sets complete"
+msgstr "ست انجام‌شده"
+
+msgid "kg logged volume"
+msgstr "کیلوگرم حجم ثبت‌شده"
+
+msgid "Session bodyweight"
+msgstr "وزن بدن این جلسه"
+
+msgid "Add session bodyweight"
+msgstr "افزودن وزن بدن این جلسه"
+
+#, python-format
+msgid ""
+"Bodyweight snapshot from %(day)s. Later weigh-ins will not change this "
+"workout."
+msgstr ""
+"وزن بدن از %(day)s ثبت شده است. وزن‌کشی‌های بعدی این جلسه را تغییر نمی‌دهند."
+
+msgid "Workout details and notes"
+msgstr "جزئیات و یادداشت‌های تمرین"
+
+msgid "Save workout details"
+msgstr "ذخیرهٔ جزئیات تمرین"
+
+msgid ""
+"Barbell weight includes the bar. Dumbbell weight is per dumbbell. For "
+"bodyweight movements, enter only additional weight; for assisted movements, "
+"enter the assistance."
+msgstr ""
+"وزن هالتر شامل میله است. وزن دمبل را برای هر دمبل وارد کنید. در حرکت‌های وزن "
+"بدن فقط وزنهٔ اضافه و در حرکت‌های کمکی مقدار کمک را وارد کنید."
+
+msgid "Set"
+msgstr "ست"
+
+msgid "Effort / RPE"
+msgstr "شدت تلاش / RPE"
+
+msgid "Optional: 10 means no more reps were possible."
+msgstr "اختیاری: ۱۰ یعنی تکرار بیشتری ممکن نبوده است."
+
+msgid "Save set"
+msgstr "ذخیرهٔ ست"
+
+msgid "Remove this set?"
+msgstr "این ست حذف شود؟"
+
+msgid "Remove set"
+msgstr "حذف ست"
+
+msgid "Add set"
+msgstr "افزودن ست"
+
+msgid "s rest"
+msgstr "ثانیه استراحت"
+
+msgid "Rest, superset, and exercise notes"
+msgstr "استراحت، سوپرست و یادداشت حرکت"
+
+msgid "Save exercise options"
+msgstr "ذخیرهٔ تنظیمات حرکت"
+
+msgid "Remove this exercise and its sets from this workout?"
+msgstr "این حرکت و ست‌های آن از این جلسه حذف شوند؟"
+
+msgid "Remove exercise"
+msgstr "حذف حرکت"
+
+msgid ""
+"Choose your first exercise. The rest timer starts when you complete a set."
+msgstr "اولین حرکت را انتخاب کنید. زمان‌سنج استراحت با ثبت هر ست شروع می‌شود."
+
+msgid "Call it a good session."
+msgstr "یک جلسهٔ خوب را تمام کنید."
+
+msgid ""
+"Only completed sets appear in your progress. You can review and edit this "
+"workout later."
+msgstr ""
+"فقط ست‌های انجام‌شده در پیشرفتتان حساب می‌شوند. می‌توانید بعداً این جلسه را بررسی "
+"و ویرایش کنید."
+
+msgid "Finish without the remaining unfinished sets"
+msgstr "پایان جلسه بدون ست‌های باقی‌مانده"
+
+msgid "Finish workout"
+msgstr "پایان تمرین"
+
+msgid "Save as a new routine"
+msgstr "ذخیره به‌عنوان برنامهٔ جدید"
+
+msgid "Archive this workout? You can restore it from history."
+msgstr "این تمرین بایگانی شود؟ می‌توانید از سابقه آن را بازیابی کنید."
+
+msgid "Archive workout"
+msgstr "بایگانی تمرین"
+
+msgid ""
+"Used for bodyweight and assisted exercises. This value stays with this "
+"workout."
+msgstr ""
+"برای حرکت‌های وزن بدن و کمکی استفاده می‌شود. این مقدار همراه همین جلسه می‌ماند."
+
+msgid "Save bodyweight"
+msgstr "ذخیرهٔ وزن بدن"
+
+msgid "Your weight, for this session"
+msgstr "وزن شما برای این جلسه"
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "Open weight journal"
+msgstr "باز کردن دفتر وزن"
+
+msgid ""
+"Nothing is logged yet. Review your description, then estimate your meals."
+msgstr ""
+"هنوز چیزی ثبت نشده است. توضیحاتتان را بررسی کنید، سپس وعده‌ها را تخمین بزنید."

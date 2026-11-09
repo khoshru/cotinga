@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% load static i18n %}
+{% block title %}{% translate "Gym" %}{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/gym.css' %}">
+<div class="gym-space" data-gym>
+  <div class="page-topline"><span class="eyebrow">{% translate "SHOW UP. BUILD YOUR STRONG." %}</span><span class="journal-label"><span></span>{% translate "Cotinga training" %}</span></div>
+  <nav class="gym-tabs" aria-label="{% translate 'Training navigation' %}">
+    <a href="{% url 'gym:home' %}" {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'routine' %}aria-current="page"{% endif %}>{% translate "Training" %}</a>
+    <a href="{% url 'gym:library' %}" {% if request.resolver_match.url_name == 'library' %}aria-current="page"{% endif %}>{% translate "Exercises" %}</a>
+    <a href="{% url 'gym:history' %}" {% if request.resolver_match.url_name == 'history' %}aria-current="page"{% endif %}>{% translate "History" %}</a>
+    <a href="{% url 'gym:progress' %}" {% if request.resolver_match.url_name == 'progress' %}aria-current="page"{% endif %}>{% translate "Progress" %}</a>
+  </nav>
+  {% block gym_content %}{% endblock %}
+</div>
+<script src="{% static 'js/gym.js' %}" defer></script>
+{% endblock %}
