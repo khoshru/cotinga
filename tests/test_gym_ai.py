@@ -650,3 +650,18 @@ def test_localized_routine_edit_keeps_english_source(
     routine.refresh_from_db()
     assert routine.name == "Full body A" and routine.name_fa == "تمرین من"
     assert routine.notes == "Warm up first." and routine.notes_fa == "آرام شروع کنید."
+
+
+def test_previous_release_can_insert_routines_after_schema_update(owner: User) -> None:
+    from django.db import connection
+
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "INSERT INTO gym_routine (user_id, name, notes, archived, updated_at) VALUES (%s,%s,%s,%s,%s)",
+            [owner.pk, "Older application write", "Preserved", False, timezone.now()],
+        )
+    routine = Routine.objects.get(name="Older application write")
+    assert (
+        routine.name_fa == routine.name_ka == routine.notes_fa == routine.notes_ka == ""
+    )
+    assert routine.ai_suggestion_id is None

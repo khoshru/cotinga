@@ -100,10 +100,10 @@ class Routine(models.Model):
         blank=True,
         related_name="routines",
     )
-    name_fa = models.CharField(max_length=100, blank=True)
-    name_ka = models.CharField(max_length=100, blank=True)
-    notes_fa = models.TextField(max_length=1000, blank=True)
-    notes_ka = models.TextField(max_length=1000, blank=True)
+    name_fa = models.CharField(max_length=100, blank=True, default="", db_default="")
+    name_ka = models.CharField(max_length=100, blank=True, default="", db_default="")
+    notes_fa = models.TextField(max_length=1000, blank=True, default="", db_default="")
+    notes_ka = models.TextField(max_length=1000, blank=True, default="", db_default="")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     notes = models.TextField(max_length=1000, blank=True)
