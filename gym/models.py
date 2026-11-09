@@ -9,6 +9,8 @@ from django.utils.translation import gettext_lazy as _
 
 from tracker.localization import localized_text
 
+from .media import exercise_media
+
 
 class Exercise(models.Model):
     class Muscle(models.TextChoices):
@@ -72,6 +74,12 @@ class Exercise(models.Model):
     @property
     def display_name(self) -> str:
         return localized_text(self.name, self.name_fa, self.name_ka)
+
+    @property
+    def media(self) -> dict[str, object]:
+        return (
+            exercise_media().get(self.slug or "", {}) if self.owner_id is None else {}
+        )
 
 
 class GymPreferences(models.Model):

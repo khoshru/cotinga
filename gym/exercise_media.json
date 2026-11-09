@@ -1,0 +1,2111 @@
+{
+  "barbell-bench-press": {
+    "name": "Barbell Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/bench-press-peak.webp"
+    ]
+  },
+  "dumbbell-bench-press": {
+    "name": "Dumbbell Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/db-bench-press-peak.webp"
+    ]
+  },
+  "machine-bench-press": {
+    "name": "Machine Chest Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/chest-press-machine-start.webp",
+      "gym/exercises/repdb/images/flat/chest-press-machine-peak.webp"
+    ]
+  },
+  "barbell-incline-bench-press": {
+    "name": "Incline Barbell Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/incline-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/incline-bench-press-peak.webp"
+    ]
+  },
+  "dumbbell-incline-bench-press": {
+    "name": "Incline Dumbbell Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/incline-db-press-start.webp",
+      "gym/exercises/repdb/images/flat/incline-db-press-peak.webp"
+    ]
+  },
+  "machine-incline-bench-press": {
+    "name": "Smith Machine Incline Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/smith-machine-incline-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/smith-machine-incline-bench-press-peak.webp"
+    ]
+  },
+  "barbell-decline-bench-press": {
+    "name": "Decline Barbell Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/decline-bench-press-barbell-start.webp",
+      "gym/exercises/repdb/images/flat/decline-bench-press-barbell-peak.webp"
+    ]
+  },
+  "dumbbell-decline-bench-press": {
+    "name": "Decline Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/decline-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/decline-bench-press-peak.webp"
+    ]
+  },
+  "machine-decline-bench-press": {
+    "name": "Smith Machine Decline Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/smith-machine-decline-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/smith-machine-decline-bench-press-peak.webp"
+    ]
+  },
+  "dumbbell-chest-fly": {
+    "name": "Dumbbell Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-fly-start.webp",
+      "gym/exercises/repdb/images/flat/db-fly-peak.webp"
+    ]
+  },
+  "cable-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "machine-chest-fly": {
+    "name": "Machine Chest Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-chest-fly-start.webp",
+      "gym/exercises/repdb/images/flat/machine-chest-fly-peak.webp"
+    ]
+  },
+  "band-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "dumbbell-incline-chest-fly": {
+    "name": "Incline Dumbbell Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/incline-dumbbell-fly-start.webp",
+      "gym/exercises/repdb/images/flat/incline-dumbbell-fly-peak.webp"
+    ]
+  },
+  "cable-incline-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "dumbbell-pullover": {
+    "name": "Dumbbell Pullover",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-pullover-start.webp",
+      "gym/exercises/repdb/images/flat/db-pullover-peak.webp"
+    ]
+  },
+  "cable-pullover": {
+    "name": "Straight-Arm Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-peak.webp"
+    ]
+  },
+  "barbell-close-grip-bench-press": {
+    "name": "Close-Grip Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/close-grip-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/close-grip-bench-press-peak.webp"
+    ]
+  },
+  "dumbbell-close-grip-bench-press": {
+    "name": "Close-Grip Dumbbell Bench Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/close-grip-db-bench-press-start.webp",
+      "gym/exercises/repdb/images/flat/close-grip-db-bench-press-peak.webp"
+    ]
+  },
+  "barbell-floor-press": {
+    "name": "Floor Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/floor-press-start.webp",
+      "gym/exercises/repdb/images/flat/floor-press-peak.webp"
+    ]
+  },
+  "dumbbell-floor-press": {
+    "name": "Dumbbell Floor Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-floor-press-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-floor-press-peak.webp"
+    ]
+  },
+  "kettlebell-floor-press": {
+    "name": "Kettlebell Floor Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-floor-press-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-floor-press-peak.webp"
+    ]
+  },
+  "cable-low-to-high-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "band-low-to-high-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "cable-high-to-low-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "band-high-to-low-chest-fly": {
+    "name": "Cable Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-fly-peak.webp"
+    ]
+  },
+  "barbell-bent-over-row": {
+    "name": "Bent-Over Barbell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-row-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-row-peak.webp"
+    ]
+  },
+  "dumbbell-bent-over-row": {
+    "name": "Bent-Over Dumbbell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bent-over-db-row-start.webp",
+      "gym/exercises/repdb/images/flat/bent-over-db-row-peak.webp"
+    ]
+  },
+  "kettlebell-bent-over-row": {
+    "name": "Double Kettlebell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/double-kettlebell-row-start.webp",
+      "gym/exercises/repdb/images/flat/double-kettlebell-row-peak.webp"
+    ]
+  },
+  "dumbbell-single-arm-row": {
+    "name": "Single-Arm Dumbbell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-arm-db-row-start.webp",
+      "gym/exercises/repdb/images/flat/single-arm-db-row-peak.webp"
+    ]
+  },
+  "cable-single-arm-row": {
+    "name": "One-Arm Seated Cable Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-seated-cable-row-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-seated-cable-row-peak.webp"
+    ]
+  },
+  "kettlebell-single-arm-row": {
+    "name": "One Arm Kettlebell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-kettlebell-row-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-kettlebell-row-peak.webp"
+    ]
+  },
+  "cable-seated-row": {
+    "name": "Seated Cable Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-cable-row-start.webp",
+      "gym/exercises/repdb/images/flat/seated-cable-row-peak.webp"
+    ]
+  },
+  "machine-seated-row": {
+    "name": "Chest-Supported Machine Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/chest-supported-machine-row-start.webp",
+      "gym/exercises/repdb/images/flat/chest-supported-machine-row-peak.webp"
+    ]
+  },
+  "band-seated-row": {
+    "name": "Seated Cable Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-cable-row-start.webp",
+      "gym/exercises/repdb/images/flat/seated-cable-row-peak.webp"
+    ]
+  },
+  "dumbbell-chest-supported-row": {
+    "name": "Chest-Supported Dumbbell Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/chest-supported-db-row-start.webp",
+      "gym/exercises/repdb/images/flat/chest-supported-db-row-peak.webp"
+    ]
+  },
+  "machine-chest-supported-row": {
+    "name": "Chest-Supported Machine Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/chest-supported-machine-row-start.webp",
+      "gym/exercises/repdb/images/flat/chest-supported-machine-row-peak.webp"
+    ]
+  },
+  "barbell-t-bar-row": {
+    "name": "T-Bar Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/t-bar-row-start.webp",
+      "gym/exercises/repdb/images/flat/t-bar-row-peak.webp"
+    ]
+  },
+  "machine-t-bar-row": {
+    "name": "T-Bar Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/t-bar-row-start.webp",
+      "gym/exercises/repdb/images/flat/t-bar-row-peak.webp"
+    ]
+  },
+  "barbell-pendlay-row": {
+    "name": "Pendlay Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/pendlay-row-start.webp",
+      "gym/exercises/repdb/images/flat/pendlay-row-peak.webp"
+    ]
+  },
+  "barbell-meadows-row": {
+    "name": "One-Arm Long Bar Row",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/One-Arm_Long_Bar_Row/0.jpg",
+      "gym/exercises/free-exercise-db/One-Arm_Long_Bar_Row/1.jpg"
+    ]
+  },
+  "cable-lat-pulldown": {
+    "name": "Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/lat-pulldown-peak.webp"
+    ]
+  },
+  "machine-lat-pulldown": {
+    "name": "Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/lat-pulldown-peak.webp"
+    ]
+  },
+  "band-lat-pulldown": {
+    "name": "Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/lat-pulldown-peak.webp"
+    ]
+  },
+  "cable-close-grip-pulldown": {
+    "name": "Close Grip Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/close-grip-lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/close-grip-lat-pulldown-peak.webp"
+    ]
+  },
+  "machine-close-grip-pulldown": {
+    "name": "Close Grip Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/close-grip-lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/close-grip-lat-pulldown-peak.webp"
+    ]
+  },
+  "cable-reverse-grip-pulldown": {
+    "name": "Reverse Grip Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/reverse-grip-lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/reverse-grip-lat-pulldown-peak.webp"
+    ]
+  },
+  "machine-reverse-grip-pulldown": {
+    "name": "Reverse Grip Lat Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/reverse-grip-lat-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/reverse-grip-lat-pulldown-peak.webp"
+    ]
+  },
+  "cable-straight-arm-pulldown": {
+    "name": "Straight-Arm Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-peak.webp"
+    ]
+  },
+  "band-straight-arm-pulldown": {
+    "name": "Straight-Arm Pulldown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-start.webp",
+      "gym/exercises/repdb/images/flat/straight-arm-pulldown-peak.webp"
+    ]
+  },
+  "cable-face-pull": {
+    "name": "Cable Face Pull",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/face-pull-start.webp",
+      "gym/exercises/repdb/images/flat/face-pull-peak.webp"
+    ]
+  },
+  "band-face-pull": {
+    "name": "Cable Face Pull",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/face-pull-start.webp",
+      "gym/exercises/repdb/images/flat/face-pull-peak.webp"
+    ]
+  },
+  "barbell-shrug": {
+    "name": "Barbell Shrug",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/shrug-start.webp",
+      "gym/exercises/repdb/images/flat/shrug-peak.webp"
+    ]
+  },
+  "dumbbell-shrug": {
+    "name": "Dumbbell Shrug",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-shrug-start.webp",
+      "gym/exercises/repdb/images/flat/db-shrug-peak.webp"
+    ]
+  },
+  "machine-shrug": {
+    "name": "Plate-Loaded Shrug",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/plate-loaded-shrug-start.webp",
+      "gym/exercises/repdb/images/flat/plate-loaded-shrug-peak.webp"
+    ]
+  },
+  "cable-shrug": {
+    "name": "Cable Shrugs",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Cable_Shrugs/0.jpg",
+      "gym/exercises/free-exercise-db/Cable_Shrugs/1.jpg"
+    ]
+  },
+  "barbell-deadlift": {
+    "name": "Barbell Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/deadlift-peak.webp"
+    ]
+  },
+  "dumbbell-deadlift": {
+    "name": "Dumbbell Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-deadlift-peak.webp"
+    ]
+  },
+  "kettlebell-deadlift": {
+    "name": "Kettlebell Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-deadlift-peak.webp"
+    ]
+  },
+  "barbell-sumo-deadlift": {
+    "name": "Sumo Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/sumo-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/sumo-deadlift-peak.webp"
+    ]
+  },
+  "kettlebell-sumo-deadlift": {
+    "name": "Kettlebell Sumo Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-sumo-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-sumo-deadlift-peak.webp"
+    ]
+  },
+  "barbell-rack-pull": {
+    "name": "Rack Pull",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/rack-pull-start.webp",
+      "gym/exercises/repdb/images/flat/rack-pull-peak.webp"
+    ]
+  },
+  "barbell-overhead-press": {
+    "name": "Barbell Overhead Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/ohp-start.webp",
+      "gym/exercises/repdb/images/flat/ohp-peak.webp"
+    ]
+  },
+  "dumbbell-overhead-press": {
+    "name": "Dumbbell Shoulder Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-shoulder-press-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-shoulder-press-peak.webp"
+    ]
+  },
+  "kettlebell-overhead-press": {
+    "name": "Double Kettlebell Overhead Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/double-kettlebell-overhead-press-start.webp",
+      "gym/exercises/repdb/images/flat/double-kettlebell-overhead-press-peak.webp"
+    ]
+  },
+  "machine-overhead-press": {
+    "name": "Machine Shoulder Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-shoulder-press-start.webp",
+      "gym/exercises/repdb/images/flat/machine-shoulder-press-peak.webp"
+    ]
+  },
+  "barbell-seated-shoulder-press": {
+    "name": "Seated Barbell Overhead Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-barbell-overhead-press-start.webp",
+      "gym/exercises/repdb/images/flat/seated-barbell-overhead-press-peak.webp"
+    ]
+  },
+  "dumbbell-seated-shoulder-press": {
+    "name": "Seated Dumbbell Shoulder Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-db-press-start.webp",
+      "gym/exercises/repdb/images/flat/seated-db-press-peak.webp"
+    ]
+  },
+  "machine-seated-shoulder-press": {
+    "name": "Machine Shoulder Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-shoulder-press-start.webp",
+      "gym/exercises/repdb/images/flat/machine-shoulder-press-peak.webp"
+    ]
+  },
+  "dumbbell-arnold-press": {
+    "name": "Arnold Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/arnold-press-start.webp",
+      "gym/exercises/repdb/images/flat/arnold-press-peak.webp"
+    ]
+  },
+  "dumbbell-lateral-raise": {
+    "name": "Dumbbell Lateral Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lateral-raise-start.webp",
+      "gym/exercises/repdb/images/flat/lateral-raise-peak.webp"
+    ]
+  },
+  "cable-lateral-raise": {
+    "name": "Cable Lateral Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-lateral-raise-start.webp",
+      "gym/exercises/repdb/images/flat/cable-lateral-raise-peak.webp"
+    ]
+  },
+  "machine-lateral-raise": {
+    "name": "Plate-Loaded Lateral Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/plate-loaded-lateral-raise-start.webp",
+      "gym/exercises/repdb/images/flat/plate-loaded-lateral-raise-peak.webp"
+    ]
+  },
+  "band-lateral-raise": {
+    "name": "Lateral Raise - With Bands",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Lateral_Raise_-_With_Bands/0.jpg",
+      "gym/exercises/free-exercise-db/Lateral_Raise_-_With_Bands/1.jpg"
+    ]
+  },
+  "barbell-front-raise": {
+    "name": "Barbell Front Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-front-raise-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-front-raise-peak.webp"
+    ]
+  },
+  "dumbbell-front-raise": {
+    "name": "Dumbbell Front Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-front-raise-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-front-raise-peak.webp"
+    ]
+  },
+  "cable-front-raise": {
+    "name": "Cable Front Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-front-raise-start.webp",
+      "gym/exercises/repdb/images/flat/cable-front-raise-peak.webp"
+    ]
+  },
+  "band-front-raise": {
+    "name": "Cable Front Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-front-raise-start.webp",
+      "gym/exercises/repdb/images/flat/cable-front-raise-peak.webp"
+    ]
+  },
+  "dumbbell-reverse-fly": {
+    "name": "Dumbbell Reverse Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-reverse-fly-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-reverse-fly-peak.webp"
+    ]
+  },
+  "cable-reverse-fly": {
+    "name": "Cable Reverse Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-reverse-fly-start.webp",
+      "gym/exercises/repdb/images/flat/cable-reverse-fly-peak.webp"
+    ]
+  },
+  "machine-reverse-fly": {
+    "name": "Machine Reverse Fly",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-reverse-fly-start.webp",
+      "gym/exercises/repdb/images/flat/machine-reverse-fly-peak.webp"
+    ]
+  },
+  "band-reverse-fly": {
+    "name": "Back Flyes - With Bands",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Back_Flyes_-_With_Bands/0.jpg",
+      "gym/exercises/free-exercise-db/Back_Flyes_-_With_Bands/1.jpg"
+    ]
+  },
+  "barbell-upright-row": {
+    "name": "Barbell Upright Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/upright-row-start.webp",
+      "gym/exercises/repdb/images/flat/upright-row-peak.webp"
+    ]
+  },
+  "dumbbell-upright-row": {
+    "name": "Dumbbell Upright Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-upright-row-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-upright-row-peak.webp"
+    ]
+  },
+  "cable-upright-row": {
+    "name": "Cable Upright Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-upright-row-start.webp",
+      "gym/exercises/repdb/images/flat/cable-upright-row-peak.webp"
+    ]
+  },
+  "barbell-landmine-press": {
+    "name": "Landmine Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/landmine-press-start.webp",
+      "gym/exercises/repdb/images/flat/landmine-press-peak.webp"
+    ]
+  },
+  "barbell-push-press": {
+    "name": "Push Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/push-press-start.webp",
+      "gym/exercises/repdb/images/flat/push-press-peak.webp"
+    ]
+  },
+  "dumbbell-push-press": {
+    "name": "Dumbbell Push Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-push-press-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-push-press-peak.webp"
+    ]
+  },
+  "kettlebell-push-press": {
+    "name": "Double Kettlebell Push Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/double-kettlebell-push-press-start.webp",
+      "gym/exercises/repdb/images/flat/double-kettlebell-push-press-peak.webp"
+    ]
+  },
+  "barbell-biceps-curl": {
+    "name": "Barbell Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-curl-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-curl-peak.webp"
+    ]
+  },
+  "dumbbell-biceps-curl": {
+    "name": "Dumbbell Bicep Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bicep-curl-start.webp",
+      "gym/exercises/repdb/images/flat/bicep-curl-peak.webp"
+    ]
+  },
+  "cable-biceps-curl": {
+    "name": "Cable Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-curl-start.webp",
+      "gym/exercises/repdb/images/flat/cable-curl-peak.webp"
+    ]
+  },
+  "machine-biceps-curl": {
+    "name": "Machine Bicep Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-bicep-curl-start.webp",
+      "gym/exercises/repdb/images/flat/machine-bicep-curl-peak.webp"
+    ]
+  },
+  "band-biceps-curl": {
+    "name": "Close-Grip EZ-Bar Curl with Band",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Close-Grip_EZ-Bar_Curl_with_Band/0.jpg",
+      "gym/exercises/free-exercise-db/Close-Grip_EZ-Bar_Curl_with_Band/1.jpg"
+    ]
+  },
+  "dumbbell-hammer-curl": {
+    "name": "Dumbbell Hammer Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hammer-curl-start.webp",
+      "gym/exercises/repdb/images/flat/hammer-curl-peak.webp"
+    ]
+  },
+  "cable-hammer-curl": {
+    "name": "Cable Hammer Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-hammer-curl-start.webp",
+      "gym/exercises/repdb/images/flat/cable-hammer-curl-peak.webp"
+    ]
+  },
+  "band-hammer-curl": {
+    "name": "Cable Hammer Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-hammer-curl-start.webp",
+      "gym/exercises/repdb/images/flat/cable-hammer-curl-peak.webp"
+    ]
+  },
+  "barbell-preacher-curl": {
+    "name": "Barbell Preacher Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-preacher-curl-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-preacher-curl-peak.webp"
+    ]
+  },
+  "dumbbell-preacher-curl": {
+    "name": "Dumbbell Preacher Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-preacher-curl-start.webp",
+      "gym/exercises/repdb/images/flat/db-preacher-curl-peak.webp"
+    ]
+  },
+  "machine-preacher-curl": {
+    "name": "Machine Preacher Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-preacher-curl-start.webp",
+      "gym/exercises/repdb/images/flat/machine-preacher-curl-peak.webp"
+    ]
+  },
+  "cable-preacher-curl": {
+    "name": "Cable Preacher Curl",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Cable_Preacher_Curl/0.jpg",
+      "gym/exercises/free-exercise-db/Cable_Preacher_Curl/1.jpg"
+    ]
+  },
+  "dumbbell-incline-curl": {
+    "name": "Incline Dumbbell Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/incline-db-curl-start.webp",
+      "gym/exercises/repdb/images/flat/incline-db-curl-peak.webp"
+    ]
+  },
+  "dumbbell-concentration-curl": {
+    "name": "Concentration Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/concentration-curl-start.webp",
+      "gym/exercises/repdb/images/flat/concentration-curl-peak.webp"
+    ]
+  },
+  "barbell-reverse-curl": {
+    "name": "Reverse Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/reverse-curl-start.webp",
+      "gym/exercises/repdb/images/flat/reverse-curl-peak.webp"
+    ]
+  },
+  "dumbbell-reverse-curl": {
+    "name": "Dumbbell Reverse Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-reverse-curl-start.webp",
+      "gym/exercises/repdb/images/flat/db-reverse-curl-peak.webp"
+    ]
+  },
+  "cable-reverse-curl": {
+    "name": "Reverse Cable Curl",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Reverse_Cable_Curl/0.jpg",
+      "gym/exercises/free-exercise-db/Reverse_Cable_Curl/1.jpg"
+    ]
+  },
+  "barbell-spider-curl": {
+    "name": "Spider Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/spider-curl-start.webp",
+      "gym/exercises/repdb/images/flat/spider-curl-peak.webp"
+    ]
+  },
+  "dumbbell-spider-curl": {
+    "name": "Spider Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/spider-curl-start.webp",
+      "gym/exercises/repdb/images/flat/spider-curl-peak.webp"
+    ]
+  },
+  "cable-triceps-pushdown": {
+    "name": "Cable Tricep Pushdown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/tricep-pushdown-start.webp",
+      "gym/exercises/repdb/images/flat/tricep-pushdown-peak.webp"
+    ]
+  },
+  "band-triceps-pushdown": {
+    "name": "Cable Tricep Pushdown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/tricep-pushdown-start.webp",
+      "gym/exercises/repdb/images/flat/tricep-pushdown-peak.webp"
+    ]
+  },
+  "dumbbell-overhead-triceps-extension": {
+    "name": "Overhead Tricep Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/overhead-tricep-extension-start.webp",
+      "gym/exercises/repdb/images/flat/overhead-tricep-extension-peak.webp"
+    ]
+  },
+  "cable-overhead-triceps-extension": {
+    "name": "Cable Overhead Tricep Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-overhead-tricep-extension-start.webp",
+      "gym/exercises/repdb/images/flat/cable-overhead-tricep-extension-peak.webp"
+    ]
+  },
+  "barbell-overhead-triceps-extension": {
+    "name": "Barbell Overhead Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-overhead-extension-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-overhead-extension-peak.webp"
+    ]
+  },
+  "band-overhead-triceps-extension": {
+    "name": "Cable Overhead Tricep Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-overhead-tricep-extension-start.webp",
+      "gym/exercises/repdb/images/flat/cable-overhead-tricep-extension-peak.webp"
+    ]
+  },
+  "barbell-lying-triceps-extension": {
+    "name": "Lying Tricep Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lying-tricep-extension-start.webp",
+      "gym/exercises/repdb/images/flat/lying-tricep-extension-peak.webp"
+    ]
+  },
+  "dumbbell-lying-triceps-extension": {
+    "name": "Dumbbell Skull Crusher",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-skull-crusher-start.webp",
+      "gym/exercises/repdb/images/flat/db-skull-crusher-peak.webp"
+    ]
+  },
+  "cable-lying-triceps-extension": {
+    "name": "Cable Lying Triceps Extension",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Cable_Lying_Triceps_Extension/0.jpg",
+      "gym/exercises/free-exercise-db/Cable_Lying_Triceps_Extension/1.jpg"
+    ]
+  },
+  "dumbbell-triceps-kickback": {
+    "name": "Dumbbell Tricep Kickback",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/tricep-kickback-start.webp",
+      "gym/exercises/repdb/images/flat/tricep-kickback-peak.webp"
+    ]
+  },
+  "cable-triceps-kickback": {
+    "name": "Cable Tricep Kickback",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-tricep-kickback-start.webp",
+      "gym/exercises/repdb/images/flat/cable-tricep-kickback-peak.webp"
+    ]
+  },
+  "cable-single-arm-triceps-pushdown": {
+    "name": "Single Arm Tricep Pushdown",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-arm-tricep-pushdown-start.webp",
+      "gym/exercises/repdb/images/flat/single-arm-tricep-pushdown-peak.webp"
+    ]
+  },
+  "barbell-wrist-curl": {
+    "name": "Barbell Wrist Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-wrist-curl-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-wrist-curl-peak.webp"
+    ]
+  },
+  "dumbbell-wrist-curl": {
+    "name": "Dumbbell Wrist Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-wrist-curl-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-wrist-curl-peak.webp"
+    ]
+  },
+  "cable-wrist-curl": {
+    "name": "Cable Wrist Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-wrist-curl-start.webp",
+      "gym/exercises/repdb/images/flat/cable-wrist-curl-peak.webp"
+    ]
+  },
+  "barbell-reverse-wrist-curl": {
+    "name": "Seated Palms-Down Barbell Wrist Curl",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Seated_Palms-Down_Barbell_Wrist_Curl/0.jpg",
+      "gym/exercises/free-exercise-db/Seated_Palms-Down_Barbell_Wrist_Curl/1.jpg"
+    ]
+  },
+  "dumbbell-reverse-wrist-curl": {
+    "name": "Dumbbell Reverse Wrist Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-reverse-wrist-curl-start.webp",
+      "gym/exercises/repdb/images/flat/db-reverse-wrist-curl-peak.webp"
+    ]
+  },
+  "barbell-back-squat": {
+    "name": "Barbell Back Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/squat-start.webp",
+      "gym/exercises/repdb/images/flat/squat-peak.webp"
+    ]
+  },
+  "barbell-front-squat": {
+    "name": "Front Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/front-squat-start.webp",
+      "gym/exercises/repdb/images/flat/front-squat-peak.webp"
+    ]
+  },
+  "dumbbell-front-squat": {
+    "name": "Dumbbell Front Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-front-squat-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-front-squat-peak.webp"
+    ]
+  },
+  "kettlebell-front-squat": {
+    "name": "One Arm Kettlebell Front Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-kettlebell-front-squat-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-kettlebell-front-squat-peak.webp"
+    ]
+  },
+  "dumbbell-goblet-squat": {
+    "name": "Dumbbell Goblet Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-goblet-squat-start.webp",
+      "gym/exercises/repdb/images/flat/db-goblet-squat-peak.webp"
+    ]
+  },
+  "kettlebell-goblet-squat": {
+    "name": "Goblet Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/goblet-squat-start.webp",
+      "gym/exercises/repdb/images/flat/goblet-squat-peak.webp"
+    ]
+  },
+  "machine-hack-squat": {
+    "name": "Hack Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hack-squat-start.webp",
+      "gym/exercises/repdb/images/flat/hack-squat-peak.webp"
+    ]
+  },
+  "barbell-hack-squat": {
+    "name": "Barbell Hack Squat",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Barbell_Hack_Squat/0.jpg",
+      "gym/exercises/free-exercise-db/Barbell_Hack_Squat/1.jpg"
+    ]
+  },
+  "barbell-split-squat": {
+    "name": "Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/split-squat-peak.webp"
+    ]
+  },
+  "dumbbell-split-squat": {
+    "name": "Dumbbell Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-split-squat-peak.webp"
+    ]
+  },
+  "kettlebell-split-squat": {
+    "name": "Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/split-squat-peak.webp"
+    ]
+  },
+  "barbell-bulgarian-split-squat": {
+    "name": "Barbell Bulgarian Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-bulgarian-split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-bulgarian-split-squat-peak.webp"
+    ]
+  },
+  "dumbbell-bulgarian-split-squat": {
+    "name": "Bulgarian Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bulgarian-split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/bulgarian-split-squat-peak.webp"
+    ]
+  },
+  "kettlebell-bulgarian-split-squat": {
+    "name": "Kettlebell Bulgarian Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-bulgarian-split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-bulgarian-split-squat-peak.webp"
+    ]
+  },
+  "barbell-walking-lunge": {
+    "name": "Walking Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/walking-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/walking-lunge-peak.webp"
+    ]
+  },
+  "dumbbell-walking-lunge": {
+    "name": "Dumbbell Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/db-lunge-peak.webp"
+    ]
+  },
+  "kettlebell-walking-lunge": {
+    "name": "Kettlebell Goblet Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-goblet-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-goblet-lunge-peak.webp"
+    ]
+  },
+  "barbell-reverse-lunge": {
+    "name": "Barbell Reverse Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-reverse-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-reverse-lunge-peak.webp"
+    ]
+  },
+  "dumbbell-reverse-lunge": {
+    "name": "Reverse Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/reverse-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/reverse-lunge-peak.webp"
+    ]
+  },
+  "kettlebell-reverse-lunge": {
+    "name": "Kettlebell Reverse Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-reverse-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-reverse-lunge-peak.webp"
+    ]
+  },
+  "dumbbell-lateral-lunge": {
+    "name": "Side Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/side-lunge-peak.webp"
+    ]
+  },
+  "kettlebell-lateral-lunge": {
+    "name": "Side Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/side-lunge-peak.webp"
+    ]
+  },
+  "barbell-step-up": {
+    "name": "Step Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/step-ups-start.webp",
+      "gym/exercises/repdb/images/flat/step-ups-peak.webp"
+    ]
+  },
+  "dumbbell-step-up": {
+    "name": "Dumbbell Step-Up to Balance",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/db-step-up-to-balance-start.webp",
+      "gym/exercises/repdb/images/flat/db-step-up-to-balance-peak.webp"
+    ]
+  },
+  "kettlebell-step-up": {
+    "name": "Kettlebell Step-Up to Balance",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kb-step-up-to-balance-start.webp",
+      "gym/exercises/repdb/images/flat/kb-step-up-to-balance-peak.webp"
+    ]
+  },
+  "machine-leg-press": {
+    "name": "Leg Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/leg-press-start.webp",
+      "gym/exercises/repdb/images/flat/leg-press-peak.webp"
+    ]
+  },
+  "machine-single-leg-press": {
+    "name": "Single Leg Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-leg-press-start.webp",
+      "gym/exercises/repdb/images/flat/single-leg-press-peak.webp"
+    ]
+  },
+  "machine-leg-extension": {
+    "name": "Leg Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/leg-extension-start.webp",
+      "gym/exercises/repdb/images/flat/leg-extension-peak.webp"
+    ]
+  },
+  "barbell-romanian-deadlift": {
+    "name": "Romanian Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/romanian-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/romanian-deadlift-peak.webp"
+    ]
+  },
+  "dumbbell-romanian-deadlift": {
+    "name": "Dumbbell Romanian Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-romanian-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-romanian-deadlift-peak.webp"
+    ]
+  },
+  "dumbbell-single-leg-romanian-deadlift": {
+    "name": "One-Arm Single-Leg Dumbbell Romanian Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-single-leg-dumbbell-romanian-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-single-leg-dumbbell-romanian-deadlift-peak.webp"
+    ]
+  },
+  "kettlebell-single-leg-romanian-deadlift": {
+    "name": "One-Arm Single-Leg Kettlebell Romanian Deadlift",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-single-leg-kettlebell-romanian-deadlift-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-single-leg-kettlebell-romanian-deadlift-peak.webp"
+    ]
+  },
+  "barbell-good-morning": {
+    "name": "Good Morning",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/good-morning-start.webp",
+      "gym/exercises/repdb/images/flat/good-morning-peak.webp"
+    ]
+  },
+  "band-good-morning": {
+    "name": "Banded Good Morning",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-good-morning-start.webp",
+      "gym/exercises/repdb/images/flat/banded-good-morning-peak.webp"
+    ]
+  },
+  "machine-seated-leg-curl": {
+    "name": "Seated Leg Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-leg-curl-start.webp",
+      "gym/exercises/repdb/images/flat/seated-leg-curl-peak.webp"
+    ]
+  },
+  "machine-lying-leg-curl": {
+    "name": "Lying Leg Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/leg-curl-start.webp",
+      "gym/exercises/repdb/images/flat/leg-curl-peak.webp"
+    ]
+  },
+  "machine-standing-leg-curl": {
+    "name": "Standing Leg Curl",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Standing_Leg_Curl/0.jpg",
+      "gym/exercises/free-exercise-db/Standing_Leg_Curl/1.jpg"
+    ]
+  },
+  "barbell-hip-thrust": {
+    "name": "Barbell Hip Thrust",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hip-thrust-start.webp",
+      "gym/exercises/repdb/images/flat/hip-thrust-peak.webp"
+    ]
+  },
+  "dumbbell-hip-thrust": {
+    "name": "Dumbbell Hip Thrust",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-hip-thrust-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-hip-thrust-peak.webp"
+    ]
+  },
+  "machine-hip-thrust": {
+    "name": "Plate-Loaded Glute Drive",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/plate-loaded-glute-drive-start.webp",
+      "gym/exercises/repdb/images/flat/plate-loaded-glute-drive-peak.webp"
+    ]
+  },
+  "barbell-glute-bridge": {
+    "name": "Barbell Glute Bridge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-glute-bridge-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-glute-bridge-peak.webp"
+    ]
+  },
+  "dumbbell-glute-bridge": {
+    "name": "Glute Bridge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/glute-bridge-start.webp",
+      "gym/exercises/repdb/images/flat/glute-bridge-peak.webp"
+    ]
+  },
+  "band-glute-bridge": {
+    "name": "Banded Glute Bridge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-glute-bridge-start.webp",
+      "gym/exercises/repdb/images/flat/banded-glute-bridge-peak.webp"
+    ]
+  },
+  "cable-glute-kickback": {
+    "name": "Cable Glute Kickback",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-kickback-start.webp",
+      "gym/exercises/repdb/images/flat/cable-kickback-peak.webp"
+    ]
+  },
+  "machine-glute-kickback": {
+    "name": "Glute Kickback",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/glute-kickback-start.webp",
+      "gym/exercises/repdb/images/flat/glute-kickback-peak.webp"
+    ]
+  },
+  "band-glute-kickback": {
+    "name": "Glute Kickback",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/glute-kickback-start.webp",
+      "gym/exercises/repdb/images/flat/glute-kickback-peak.webp"
+    ]
+  },
+  "machine-hip-abduction": {
+    "name": "Machine Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/hip-abduction-peak.webp"
+    ]
+  },
+  "cable-hip-abduction": {
+    "name": "Standing Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/standing-hip-abduction-peak.webp"
+    ]
+  },
+  "band-hip-abduction": {
+    "name": "Banded Standing Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-standing-hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/banded-standing-hip-abduction-peak.webp"
+    ]
+  },
+  "machine-hip-adduction": {
+    "name": "Hip Adduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hip-adduction-start.webp",
+      "gym/exercises/repdb/images/flat/hip-adduction-peak.webp"
+    ]
+  },
+  "cable-hip-adduction": {
+    "name": "Cable Hip Adduction",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Cable_Hip_Adduction/0.jpg",
+      "gym/exercises/free-exercise-db/Cable_Hip_Adduction/1.jpg"
+    ]
+  },
+  "cable-pull-through": {
+    "name": "Cable Pull-Through",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-pull-through-start.webp",
+      "gym/exercises/repdb/images/flat/cable-pull-through-peak.webp"
+    ]
+  },
+  "band-pull-through": {
+    "name": "Cable Pull-Through",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-pull-through-start.webp",
+      "gym/exercises/repdb/images/flat/cable-pull-through-peak.webp"
+    ]
+  },
+  "machine-standing-calf-raise": {
+    "name": "Standing Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/standing-calf-raise-peak.webp"
+    ]
+  },
+  "barbell-standing-calf-raise": {
+    "name": "Barbell Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/barbell-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/barbell-calf-raise-peak.webp"
+    ]
+  },
+  "dumbbell-standing-calf-raise": {
+    "name": "Dumbbell Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-calf-raise-peak.webp"
+    ]
+  },
+  "machine-seated-calf-raise": {
+    "name": "Seated Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/seated-calf-raise-peak.webp"
+    ]
+  },
+  "dumbbell-seated-calf-raise": {
+    "name": "Seated Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/seated-calf-raise-peak.webp"
+    ]
+  },
+  "dumbbell-single-leg-calf-raise": {
+    "name": "Single Leg Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-leg-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/single-leg-calf-raise-peak.webp"
+    ]
+  },
+  "machine-calf-press": {
+    "name": "Calf Press On The Leg Press Machine",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Calf_Press_On_The_Leg_Press_Machine/0.jpg",
+      "gym/exercises/free-exercise-db/Calf_Press_On_The_Leg_Press_Machine/1.jpg"
+    ]
+  },
+  "cable-crunch": {
+    "name": "Cable Crunch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-crunch-start.webp",
+      "gym/exercises/repdb/images/flat/cable-crunch-peak.webp"
+    ]
+  },
+  "machine-crunch": {
+    "name": "Machine Seated Crunch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/machine-seated-crunch-start.webp",
+      "gym/exercises/repdb/images/flat/machine-seated-crunch-peak.webp"
+    ]
+  },
+  "cable-woodchop": {
+    "name": "Standing Cable Wood Chop",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Standing_Cable_Wood_Chop/0.jpg",
+      "gym/exercises/free-exercise-db/Standing_Cable_Wood_Chop/1.jpg"
+    ]
+  },
+  "band-woodchop": {
+    "name": "Standing Cable Wood Chop",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Standing_Cable_Wood_Chop/0.jpg",
+      "gym/exercises/free-exercise-db/Standing_Cable_Wood_Chop/1.jpg"
+    ]
+  },
+  "dumbbell-russian-twist": {
+    "name": "Russian Twist",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/russian-twist-start.webp",
+      "gym/exercises/repdb/images/flat/russian-twist-peak.webp"
+    ]
+  },
+  "kettlebell-russian-twist": {
+    "name": "Kettlebell Russian Twist",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-russian-twist-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-russian-twist-peak.webp"
+    ]
+  },
+  "cable-pallof-press": {
+    "name": "Cable Pallof Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-pallof-press-start.webp",
+      "gym/exercises/repdb/images/flat/cable-pallof-press-peak.webp"
+    ]
+  },
+  "band-pallof-press": {
+    "name": "Cable Pallof Press",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cable-pallof-press-start.webp",
+      "gym/exercises/repdb/images/flat/cable-pallof-press-peak.webp"
+    ]
+  },
+  "barbell-clean": {
+    "name": "Clean",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/clean-start.webp",
+      "gym/exercises/repdb/images/flat/clean-peak.webp"
+    ]
+  },
+  "dumbbell-clean": {
+    "name": "Dumbbell Clean",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Dumbbell_Clean/0.jpg",
+      "gym/exercises/free-exercise-db/Dumbbell_Clean/1.jpg"
+    ]
+  },
+  "kettlebell-clean": {
+    "name": "Kettlebell Swing Clean",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-swing-clean-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-swing-clean-peak.webp"
+    ]
+  },
+  "barbell-snatch": {
+    "name": "Snatch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/snatch-start.webp",
+      "gym/exercises/repdb/images/flat/snatch-peak.webp"
+    ]
+  },
+  "dumbbell-snatch": {
+    "name": "Dumbbell Snatch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-snatch-start.webp",
+      "gym/exercises/repdb/images/flat/dumbbell-snatch-peak.webp"
+    ]
+  },
+  "kettlebell-snatch": {
+    "name": "One-Arm Kettlebell Snatch",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/One-Arm_Kettlebell_Snatch/0.jpg",
+      "gym/exercises/free-exercise-db/One-Arm_Kettlebell_Snatch/1.jpg"
+    ]
+  },
+  "barbell-thruster": {
+    "name": "Thruster",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/thruster-start.webp",
+      "gym/exercises/repdb/images/flat/thruster-peak.webp"
+    ]
+  },
+  "dumbbell-thruster": {
+    "name": "Thruster",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/thruster-start.webp",
+      "gym/exercises/repdb/images/flat/thruster-peak.webp"
+    ]
+  },
+  "kettlebell-thruster": {
+    "name": "Kettlebell Thruster",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Kettlebell_Thruster/0.jpg",
+      "gym/exercises/free-exercise-db/Kettlebell_Thruster/1.jpg"
+    ]
+  },
+  "kettlebell-swing": {
+    "name": "Kettlebell Swing",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-swing-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-swing-peak.webp"
+    ]
+  },
+  "dumbbell-swing": {
+    "name": "One-Arm Dumbbell Swing",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/one-arm-dumbbell-swing-start.webp",
+      "gym/exercises/repdb/images/flat/one-arm-dumbbell-swing-peak.webp"
+    ]
+  },
+  "kettlebell-turkish-get-up": {
+    "name": "Kettlebell Turkish Get Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-turkish-get-ups-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-turkish-get-ups-peak.webp"
+    ]
+  },
+  "dumbbell-turkish-get-up": {
+    "name": "Kettlebell Turkish Get Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kettlebell-turkish-get-ups-start.webp",
+      "gym/exercises/repdb/images/flat/kettlebell-turkish-get-ups-peak.webp"
+    ]
+  },
+  "push-up": {
+    "name": "Push-Up",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/push-up-start.webp",
+      "gym/exercises/repdb/images/flat/push-up-peak.webp"
+    ]
+  },
+  "incline-push-up": {
+    "name": "Incline Push-Up",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/incline-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/incline-push-ups-peak.webp"
+    ]
+  },
+  "decline-push-up": {
+    "name": "Decline Push-Up",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/decline-push-up-start.webp",
+      "gym/exercises/repdb/images/flat/decline-push-up-peak.webp"
+    ]
+  },
+  "diamond-push-up": {
+    "name": "Diamond Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/diamond-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/diamond-push-ups-peak.webp"
+    ]
+  },
+  "wide-grip-push-up": {
+    "name": "Wide Grip Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/wide-grip-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/wide-grip-push-ups-peak.webp"
+    ]
+  },
+  "knee-push-up": {
+    "name": "Knee Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/knee-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/knee-push-ups-peak.webp"
+    ]
+  },
+  "pike-push-up": {
+    "name": "Pike Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/pike-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/pike-push-ups-peak.webp"
+    ]
+  },
+  "handstand-push-up": {
+    "name": "Handstand Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/handstand-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/handstand-push-ups-peak.webp"
+    ]
+  },
+  "pull-up": {
+    "name": "Pull-Up",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/pull-up-start.webp",
+      "gym/exercises/repdb/images/flat/pull-up-peak.webp"
+    ]
+  },
+  "chin-up": {
+    "name": "Chin-Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/chin-ups-start.webp",
+      "gym/exercises/repdb/images/flat/chin-ups-peak.webp"
+    ]
+  },
+  "neutral-grip-pull-up": {
+    "name": "Neutral Grip Pull Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/neutral-grip-pull-ups-start.webp",
+      "gym/exercises/repdb/images/flat/neutral-grip-pull-ups-peak.webp"
+    ]
+  },
+  "inverted-row": {
+    "name": "Inverted Row",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/inverted-row-start.webp",
+      "gym/exercises/repdb/images/flat/inverted-row-peak.webp"
+    ]
+  },
+  "dip": {
+    "name": "Dips - Triceps Version",
+    "provider": "free-exercise-db",
+    "images": [
+      "gym/exercises/free-exercise-db/Dips_-_Triceps_Version/0.jpg",
+      "gym/exercises/free-exercise-db/Dips_-_Triceps_Version/1.jpg"
+    ]
+  },
+  "chest-dip": {
+    "name": "Chest Dips",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dips-start.webp",
+      "gym/exercises/repdb/images/flat/dips-peak.webp"
+    ]
+  },
+  "bench-dip": {
+    "name": "Bench Dips",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bench-dips-start.webp",
+      "gym/exercises/repdb/images/flat/bench-dips-peak.webp"
+    ]
+  },
+  "air-squat": {
+    "name": "Bodyweight Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bodyweight-squat-start.webp",
+      "gym/exercises/repdb/images/flat/bodyweight-squat-peak.webp"
+    ]
+  },
+  "jump-squat": {
+    "name": "Jump Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/jump-squat-start.webp",
+      "gym/exercises/repdb/images/flat/jump-squat-peak.webp"
+    ]
+  },
+  "pistol-squat": {
+    "name": "Pistol Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/pistol-squat-start.webp",
+      "gym/exercises/repdb/images/flat/pistol-squat-peak.webp"
+    ]
+  },
+  "bodyweight-lunge": {
+    "name": "Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lunge-start.webp",
+      "gym/exercises/repdb/images/flat/lunge-peak.webp"
+    ]
+  },
+  "bodyweight-glute-bridge": {
+    "name": "Glute Bridge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/glute-bridge-start.webp",
+      "gym/exercises/repdb/images/flat/glute-bridge-peak.webp"
+    ]
+  },
+  "nordic-curl": {
+    "name": "Nordic Hamstring Curl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/nordic-hamstring-curl-start.webp",
+      "gym/exercises/repdb/images/flat/nordic-hamstring-curl-peak.webp"
+    ]
+  },
+  "back-extension": {
+    "name": "Back Extension",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/back-extension-start.webp",
+      "gym/exercises/repdb/images/flat/back-extension-peak.webp"
+    ]
+  },
+  "crunch": {
+    "name": "Crunches",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/crunches-start.webp",
+      "gym/exercises/repdb/images/flat/crunches-peak.webp"
+    ]
+  },
+  "sit-up": {
+    "name": "Sit-Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/sit-ups-start.webp",
+      "gym/exercises/repdb/images/flat/sit-ups-peak.webp"
+    ]
+  },
+  "bicycle-crunch": {
+    "name": "Bicycle Crunch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bicycle-crunch-start.webp",
+      "gym/exercises/repdb/images/flat/bicycle-crunch-peak.webp"
+    ]
+  },
+  "reverse-crunch": {
+    "name": "Reverse Crunches",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/reverse-crunches-start.webp",
+      "gym/exercises/repdb/images/flat/reverse-crunches-peak.webp"
+    ]
+  },
+  "hanging-leg-raise": {
+    "name": "Hanging Leg Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hanging-leg-raise-start.webp",
+      "gym/exercises/repdb/images/flat/hanging-leg-raise-peak.webp"
+    ]
+  },
+  "hanging-knee-raise": {
+    "name": "Hanging Knee Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hanging-knee-raise-start.webp",
+      "gym/exercises/repdb/images/flat/hanging-knee-raise-peak.webp"
+    ]
+  },
+  "lying-leg-raise": {
+    "name": "Lying Leg Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lying-leg-raise-start.webp",
+      "gym/exercises/repdb/images/flat/lying-leg-raise-peak.webp"
+    ]
+  },
+  "v-up": {
+    "name": "V Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/v-ups-start.webp",
+      "gym/exercises/repdb/images/flat/v-ups-peak.webp"
+    ]
+  },
+  "mountain-climber": {
+    "name": "Mountain Climbers",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/mountain-climbers-start.webp",
+      "gym/exercises/repdb/images/flat/mountain-climbers-peak.webp"
+    ]
+  },
+  "dead-bug": {
+    "name": "Dead Bug",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dead-bug-start.webp",
+      "gym/exercises/repdb/images/flat/dead-bug-peak.webp"
+    ]
+  },
+  "bird-dog": {
+    "name": "Bird-Dog",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bird-dog-start.webp",
+      "gym/exercises/repdb/images/flat/bird-dog-peak.webp"
+    ]
+  },
+  "ab-wheel-rollout": {
+    "name": "Ab Wheel Rollout",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/ab-wheel-rollout-start.webp",
+      "gym/exercises/repdb/images/flat/ab-wheel-rollout-peak.webp"
+    ]
+  },
+  "burpee": {
+    "name": "Burpees",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/burpees-main.webp"
+    ]
+  },
+  "box-jump": {
+    "name": "Box Jump",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/box-jump-start.webp",
+      "gym/exercises/repdb/images/flat/box-jump-peak.webp"
+    ]
+  },
+  "jumping-jack": {
+    "name": "Jumping Jacks",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/jumping-jacks-start.webp",
+      "gym/exercises/repdb/images/flat/jumping-jacks-peak.webp"
+    ]
+  },
+  "plank": {
+    "name": "Plank",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/plank-main.webp"
+    ]
+  },
+  "side-plank": {
+    "name": "Side Plank",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-plank-main.webp"
+    ]
+  },
+  "hollow-hold": {
+    "name": "Hollow Body Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/hollow-body-hold-main.webp"
+    ]
+  },
+  "dead-hang": {
+    "name": "Dead Hang",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dead-hang-main.webp"
+    ]
+  },
+  "wall-sit": {
+    "name": "Wall Sit",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/wall-sit-main.webp"
+    ]
+  },
+  "handstand-hold": {
+    "name": "Handstand Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/handstand-hold-main.webp"
+    ]
+  },
+  "jump-rope": {
+    "name": "Jump Rope",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/jump-rope-main.webp"
+    ]
+  },
+  "battle-ropes": {
+    "name": "Battle Ropes",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/battle-ropes-main.webp"
+    ]
+  },
+  "machine-assisted-pull-up": {
+    "name": "Assisted Pull Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/assisted-pull-ups-start.webp",
+      "gym/exercises/repdb/images/flat/assisted-pull-ups-peak.webp"
+    ]
+  },
+  "machine-assisted-chin-up": {
+    "name": "Assisted Pull Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/assisted-pull-ups-start.webp",
+      "gym/exercises/repdb/images/flat/assisted-pull-ups-peak.webp"
+    ]
+  },
+  "machine-assisted-dip": {
+    "name": "Machine Assisted Dips",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/assisted-dips-start.webp",
+      "gym/exercises/repdb/images/flat/assisted-dips-peak.webp"
+    ]
+  },
+  "running": {
+    "name": "Running",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/running-main.webp"
+    ]
+  },
+  "treadmill": {
+    "name": "Treadmill Running",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/treadmill-running-main.webp"
+    ]
+  },
+  "walking": {
+    "name": "Walking",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/walking-main.webp"
+    ]
+  },
+  "cycling": {
+    "name": "Cycling",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cycling-main.webp"
+    ]
+  },
+  "stationary-bike": {
+    "name": "Stationary Bike",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/stationary-bike-main.webp"
+    ]
+  },
+  "rowing": {
+    "name": "Rowing Machine",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/rowing-machine-start.webp",
+      "gym/exercises/repdb/images/flat/rowing-machine-peak.webp"
+    ]
+  },
+  "elliptical": {
+    "name": "Elliptical Trainer",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/elliptical-trainer-main.webp"
+    ]
+  },
+  "stair-climber": {
+    "name": "Stair Climber",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/stair-climber-main.webp"
+    ]
+  },
+  "ski-erg": {
+    "name": "SkiErg",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/ski-erg-start.webp",
+      "gym/exercises/repdb/images/flat/ski-erg-peak.webp"
+    ]
+  },
+  "air-bike": {
+    "name": "Air Bike",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/air-bike-main.webp"
+    ]
+  },
+  "sled-push": {
+    "name": "Sled Push",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/sled-push-main.webp"
+    ]
+  },
+  "farmer-carry": {
+    "name": "Dumbbell Farmer's Walk",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dumbbell-farmers-walk-main.webp"
+    ]
+  }
+}

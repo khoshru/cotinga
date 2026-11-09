@@ -11,6 +11,7 @@
     <a href="{% url 'gym:progress' %}" {% if request.resolver_match.url_name == 'progress' %}aria-current="page"{% endif %}>{% translate "Progress" %}</a>
   </nav>
   {% block gym_content %}{% endblock %}
+  <p class="gym-image-credit">{% translate "Exercise illustrations" %}: <a href="https://repdb.co" target="_blank" rel="noopener">Exercise data by RepDB (repdb.co)</a> · <a href="https://github.com/yuhonas/free-exercise-db" target="_blank" rel="noopener">Free Exercise DB</a></p>
 </div>
 <script src="{% static 'js/gym.js' %}" defer></script>
 {% endblock %}
