@@ -3394,9 +3394,9 @@ msgid "View AI plan and original request"
 msgstr "AI-ის გეგმისა და საწყისი მოთხოვნის ნახვა"
 
 msgid ""
-"This model or provider could not accept structured responses. Choose another "
-"model."
-msgstr "ამ მოდელმა ან პროვაიდერმა სტრუქტურირებული პასუხი ვერ მიიღო. აირჩიეთ სხვა მოდელი."
+"OpenRouter could not accept this request. Your details are kept; please try "
+"again shortly."
+msgstr "OpenRouter-მა მოთხოვნა ვერ მიიღო. თქვენი მონაცემები შენახულია; გთხოვთ, ცოტა ხანში სცადოთ ხელახლა."
 
 msgid ""
 "The model could not finish the suggestion. Your details are kept; try again "

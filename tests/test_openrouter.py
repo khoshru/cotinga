@@ -84,6 +84,64 @@ def test_http_failures_never_echo_provider_response_or_key(status: int) -> None:
 
 
 @pytest.mark.parametrize(
+    "error",
+    [
+        {"message": "The response_format is not supported."},
+        {"message": "This endpoint does not support structured outputs."},
+        {
+            "message": "Provider returned error",
+            "metadata": {
+                "raw": '{"error":{"message":"response_schema is too complex"}}'
+            },
+        },
+    ],
+)
+def test_schema_rejections_allow_safe_compatibility_retry(
+    error: dict[str, Any],
+) -> None:
+    error["private_detail"] = KEY
+    with patch("tracker.openrouter.HTTPSConnection") as constructor:
+        response = constructor.return_value.getresponse.return_value
+        response.status = 400
+        response.read.return_value = json.dumps({"error": error}).encode()
+        with pytest.raises(openrouter.StructuredOutputError) as raised:
+            openrouter.structured_response(
+                KEY, MODEL, messages=[], schema={}, name="test"
+            )
+    assert KEY not in str(raised.value)
+    assert "Choose another model" not in str(raised.value)
+    response.read.assert_called_once_with(16_385)
+    constructor.return_value.close.assert_called_once()
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        b"invalid-json",
+        b"\xff",
+        b"[" * 1200 + b"]" * 1200,
+        b"[]",
+        b'{"error":"response_schema"}',
+        b'{"error":{"message":"Invalid maximum token count"}}',
+        b'{"error":{"metadata":[]}}',
+        b'{"error":{"message":null,"metadata":{"raw":{}}}}',
+        b'{"error":{"message":"schema"}}' + b" " * 16_384,
+    ],
+)
+def test_unrelated_or_invalid_errors_do_not_enable_schema_retry(body: bytes) -> None:
+    with patch("tracker.openrouter.HTTPSConnection") as constructor:
+        response = constructor.return_value.getresponse.return_value
+        response.status = 400
+        response.read.return_value = body
+        with pytest.raises(openrouter.OpenRouterError) as raised:
+            openrouter.structured_response(
+                KEY, MODEL, messages=[], schema={}, name="test"
+            )
+    assert not isinstance(raised.value, openrouter.StructuredOutputError)
+    response.read.assert_called_once_with(16_385)
+
+
+@pytest.mark.parametrize(
     "body",
     [
         b"invalid-json",

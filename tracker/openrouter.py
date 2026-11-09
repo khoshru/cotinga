@@ -32,6 +32,41 @@ class OpenRouterError(Exception):
     pass
 
 
+class StructuredOutputError(OpenRouterError):
+    """The provider explicitly rejected the requested output schema."""
+
+
+@sensitive_variables()
+def _schema_rejection(body: bytes) -> bool:
+    """Classify bounded error details without exposing provider data."""
+    if len(body) > 16_384:
+        return False
+    try:
+        value = json.loads(body)
+    except ValueError, RecursionError:
+        return False
+    error = value.get("error") if isinstance(value, dict) else None
+    if not isinstance(error, dict):
+        return False
+    metadata = error.get("metadata")
+    details = [error.get("message")]
+    if isinstance(metadata, dict):
+        details.append(metadata.get("raw"))
+    markers = (
+        "schema",
+        "structured output",
+        "structured_output",
+        "response_format",
+        "responseformat",
+    )
+    return any(
+        marker in detail.lower()
+        for detail in details
+        if isinstance(detail, str)
+        for marker in markers
+    )
+
+
 class MealOutputError(OpenRouterError):
     """Validation rules only; no diary text or credentials in diagnostics."""
 
@@ -114,9 +149,16 @@ def _request(
                     "OpenRouter is busy or your request limit was reached. Try again later."
                 ),
                 400: gettext(
-                    "This model or provider could not accept structured responses. Choose another model."
+                    "OpenRouter could not accept this request. Your details are kept; please try again shortly."
                 ),
             }
+            if (
+                response.status == 400
+                and payload is not None
+                and payload.get("response_format", {}).get("type") == "json_schema"
+                and _schema_rejection(response.read(16_385))
+            ):
+                raise StructuredOutputError(messages[400])
             raise OpenRouterError(
                 messages.get(
                     response.status,
@@ -694,6 +736,7 @@ def structured_response(
     name: str,
     max_tokens: int = 6000,
     timeout: float = 35,
+    json_mode: bool = False,
 ) -> dict[str, Any]:
     """Request bounded JSON from a configured structured-output model."""
     payload: dict[str, Any] = {
@@ -711,6 +754,16 @@ def structured_response(
             },
         },
     }
+    if json_mode:
+        payload["response_format"] = {"type": "json_object"}
+        payload["messages"] = [
+            {
+                "role": "system",
+                "content": "Return only a JSON object matching the following schema. Follow every field description and the task instructions. No Markdown or prose outside JSON. Schema: "
+                + json.dumps(schema),
+            },
+            *messages,
+        ]
     if model.temperature:
         payload["temperature"] = 0.2
     if model.reasoning:

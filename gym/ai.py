@@ -83,7 +83,8 @@ def _object(properties: dict[str, Any]) -> dict[str, Any]:
 
 def _text_fields(names: dict[str, int], language: str) -> dict[str, Any]:
     result = {
-        name: {"type": "string", "maxLength": limit} for name, limit in names.items()
+        name: {"type": "string", "description": f"At most {limit} characters."}
+        for name, limit in names.items()
     }
     if language in ("fa", "ka"):
         result.update(
@@ -92,33 +93,45 @@ def _text_fields(names: dict[str, int], language: str) -> dict[str, Any]:
     return result
 
 
-def schema(catalog: list[Exercise], days: int, language: str) -> dict[str, Any]:
+def schema(days: int, language: str) -> dict[str, Any]:
+    # Nested bounded arrays and hundreds of enum IDs can exceed Gemini's schema
+    # compiler limits. Keep the grammar small; validate every rule locally.
     movement = _object(
         {
             "exercise_id": {
                 "type": "integer",
-                "enum": [exercise.pk for exercise in catalog],
+                "description": "An exercise_id from allowed_catalog only.",
             },
-            "sets": {"type": "integer", "minimum": 1, "maximum": 6},
-            "reps": {"type": ["integer", "null"], "minimum": 1, "maximum": 50},
-            "seconds": {"type": ["integer", "null"], "minimum": 1, "maximum": 3600},
+            "sets": {"type": "integer", "description": "1 to 6 sets."},
+            "reps": {
+                "type": ["integer", "null"],
+                "description": "1 to 50 reps, or null when not used by this mode.",
+            },
+            "seconds": {
+                "type": ["integer", "null"],
+                "description": "1 to 3600 seconds, or null when not used by this mode.",
+            },
             "distance": {
                 "type": ["number", "null"],
-                "exclusiveMinimum": 0,
-                "maximum": 100,
+                "description": "0.01 to 100 km, at most 2 decimals; null when not used by this mode.",
             },
-            "rest_seconds": {"type": "integer", "minimum": 0, "maximum": 600},
+            "rest_seconds": {
+                "type": "integer",
+                "description": "0 to 600 seconds between sets.",
+            },
             **_text_fields({"notes": 200}, language),
         }
     )
     routine = _object(
         {
             **_text_fields({"name": 100, "notes": 1000}, language),
-            "estimated_minutes": {"type": "integer", "minimum": 5, "maximum": 120},
+            "estimated_minutes": {
+                "type": "integer",
+                "description": "At least 5 minutes, within the requested session time.",
+            },
             "exercises": {
                 "type": "array",
-                "minItems": 1,
-                "maxItems": 10,
+                "description": "1 to 10 distinct exercises from allowed_catalog.",
                 "items": movement,
             },
         }
@@ -128,8 +141,7 @@ def schema(catalog: list[Exercise], days: int, language: str) -> dict[str, Any]:
             **_text_fields({"summary": 1400, "schedule": 700}, language),
             "routines": {
                 "type": "array",
-                "minItems": days,
-                "maxItems": days,
+                "description": f"Exactly {days} routines, one per requested training day.",
                 "items": routine,
             },
         }
@@ -294,19 +306,29 @@ def suggest_plan(
         },
     ]
     deadline = monotonic() + 40
+    json_mode = False
     for attempt in range(2):
         remaining = deadline - monotonic()
         if remaining < 3:
             raise RoutineOutputError
-        value = openrouter.structured_response(
-            api_key,
-            model,
-            messages=messages,
-            schema=schema(catalog, preferences["days"], language),
-            name="weekly_training_plan",
-            max_tokens=9000 if language in ("fa", "ka") else 6000,
-            timeout=min(35, remaining),
-        )
+        try:
+            value = openrouter.structured_response(
+                api_key,
+                model,
+                messages=messages,
+                schema=schema(preferences["days"], language),
+                name="weekly_training_plan",
+                max_tokens=9000 if language in ("fa", "ka") else 6000,
+                timeout=min(35, remaining),
+                json_mode=json_mode,
+            )
+        except openrouter.StructuredOutputError:
+            if attempt:
+                raise
+            # Retry the same model using JSON mode; keep the two-call budget
+            # shared with validation repairs, and validate before review or save.
+            json_mode = True
+            continue
         try:
             return validate_plan(value, catalog, preferences, language)
         except RoutineOutputError:

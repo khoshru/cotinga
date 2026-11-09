@@ -3373,9 +3373,9 @@ msgid "View AI plan and original request"
 msgstr "مشاهدهٔ برنامهٔ هوش مصنوعی و درخواست اصلی"
 
 msgid ""
-"This model or provider could not accept structured responses. Choose another "
-"model."
-msgstr "این مدل یا ارائه‌دهنده پاسخ ساختاریافته را نپذیرفت. مدل دیگری انتخاب کنید."
+"OpenRouter could not accept this request. Your details are kept; please try "
+"again shortly."
+msgstr "اوپن‌روتر نتوانست این درخواست را بپذیرد. اطلاعات شما حفظ شده است؛ لطفاً کمی بعد دوباره تلاش کنید."
 
 msgid ""
 "The model could not finish the suggestion. Your details are kept; try again "

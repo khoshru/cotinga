@@ -5,7 +5,7 @@ from datetime import timedelta
 from decimal import Decimal
 from importlib import import_module
 from typing import Any
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import pytest
 from django.conf import settings
@@ -382,6 +382,159 @@ def test_structured_payload_is_catalog_constrained(owner: User) -> None:
     }
     assert "fictional-gym-test-key" not in json.dumps(payload)
     assert call.call_args.kwargs["timeout"] <= 35
+    # Grammar size must not grow with the catalog or expand nested array bounds.
+    grammar = json.dumps(payload["response_format"]["json_schema"]["schema"])
+    for keyword in ('"enum"', '"minItems"', '"maxItems"', '"exclusiveMinimum"'):
+        assert keyword not in grammar
+
+
+@pytest.mark.parametrize("language", ["en", "fa", "ka"])
+def test_argon_schema_rejection_recovers_without_switching_models(
+    client: Client, owner: User, language: str
+) -> None:
+    client.cookies[settings.LANGUAGE_COOKIE_NAME] = language
+    rejected = Mock(status=400)
+    rejected.read.return_value = json.dumps(
+        {
+            "error": {
+                "message": "Provider returned error",
+                "metadata": {
+                    "raw": "INVALID_ARGUMENT: generation_config.response_schema is too complex; fictional-gym-test-key"
+                },
+            }
+        }
+    ).encode()
+    accepted = Mock(status=200)
+    accepted.read.return_value = json.dumps(
+        {
+            "choices": [
+                {
+                    "finish_reason": "stop",
+                    "message": {"content": json.dumps(result(language))},
+                }
+            ]
+        }
+    ).encode()
+    with (
+        translation.override(language),
+        patch("tracker.openrouter.find_model", return_value=MODEL),
+        patch("tracker.openrouter.HTTPSConnection") as constructor,
+    ):
+        constructor.return_value.getresponse.side_effect = [rejected, accepted]
+        response = client.post("/gym/ai/", {**INPUT, "submission": str(uuid.uuid4())})
+    assert response.status_code == 302
+    draft = RoutineSuggestion.objects.get(user=owner)
+    assert draft.status == RoutineSuggestion.Status.READY
+    assert draft.result["routines"] and draft.model == MODEL.id
+    assert draft.original_input == INPUT and not Routine.objects.exists()
+    payloads = [
+        json.loads(call.kwargs["body"])
+        for call in constructor.return_value.request.call_args_list
+    ]
+    assert len(payloads) == 2
+    assert [p["response_format"]["type"] for p in payloads] == [
+        "json_schema",
+        "json_object",
+    ]
+    for payload in payloads:
+        assert payload["model"] == MODEL.id
+        assert payload["provider"]["require_parameters"]
+        assert "fictional-gym-test-key" not in json.dumps(payload)
+    assert "exercise_id" in payloads[1]["messages"][0]["content"]
+    if language != "en":
+        assert draft.result[f"summary_{language}"]
+        assert f"notes_{language}" in payloads[1]["messages"][0]["content"]
+    rejected.read.assert_called_once_with(16_385)
+    accepted.read.assert_called_once_with(2_000_001)
+    assert constructor.return_value.close.call_count == 2
+    with translation.override(language):
+        saved = client.post(f"/gym/ai/{draft.pk}/", review_payload(draft))
+    assert saved.status_code == 302 and Routine.objects.filter(user=owner).count() == 3
+
+
+@pytest.mark.parametrize(
+    "mutation", ["unknown_exercise", "too_many_sets", "wrong_days"]
+)
+def test_json_compatibility_still_validates_and_shares_two_call_limit(
+    owner: User, mutation: str
+) -> None:
+    value = result()
+    if mutation == "unknown_exercise":
+        value["routines"][0]["exercises"][0]["exercise_id"] = 999999
+    elif mutation == "too_many_sets":
+        value["routines"][0]["exercises"][0]["sets"] = 7
+    else:
+        value["routines"].pop()
+    with (
+        patch(
+            "tracker.openrouter._request",
+            side_effect=[
+                openrouter.StructuredOutputError("Schema rejected"),
+                {
+                    "choices": [
+                        {
+                            "finish_reason": "stop",
+                            "message": {"content": json.dumps(value)},
+                        }
+                    ]
+                },
+            ],
+        ) as call,
+        pytest.raises(ai.RoutineOutputError),
+    ):
+        ai.suggest_plan(
+            "fake-key", MODEL, INPUT, available_exercises(owner, INPUT), "en"
+        )
+    assert call.call_count == 2 and not Routine.objects.exists()
+
+
+@pytest.mark.parametrize("status", [400, 401, 402, 403, 429, 500])
+def test_unrelated_provider_errors_do_not_trigger_gym_retries(
+    owner: User, status: int
+) -> None:
+    with patch("tracker.openrouter.HTTPSConnection") as constructor:
+        response = constructor.return_value.getresponse.return_value
+        response.status = status
+        response.read.return_value = b'{"error":{"message":"Invalid token count"}}'
+        with pytest.raises(openrouter.OpenRouterError):
+            ai.suggest_plan(
+                "fake-key", MODEL, INPUT, available_exercises(owner, INPUT), "en"
+            )
+    assert constructor.call_count == 1 and not Routine.objects.exists()
+
+
+def test_schema_fallback_stops_when_request_budget_is_used(owner: User) -> None:
+    with (
+        patch("gym.ai.monotonic", side_effect=[0, 1, 39]),
+        patch(
+            "tracker.openrouter.structured_response",
+            side_effect=openrouter.StructuredOutputError("Schema rejected"),
+        ) as call,
+        pytest.raises(ai.RoutineOutputError),
+    ):
+        ai.suggest_plan(
+            "fake-key", MODEL, INPUT, available_exercises(owner, INPUT), "en"
+        )
+    assert call.call_count == 1
+
+
+def test_schema_rejection_after_validation_repair_does_not_make_a_third_call(
+    owner: User,
+) -> None:
+    with (
+        patch(
+            "tracker.openrouter.structured_response",
+            side_effect=[
+                {"bad": "data"},
+                openrouter.StructuredOutputError("Schema rejected"),
+            ],
+        ) as call,
+        pytest.raises(openrouter.StructuredOutputError),
+    ):
+        ai.suggest_plan(
+            "fake-key", MODEL, INPUT, available_exercises(owner, INPUT), "en"
+        )
+    assert call.call_count == 2
 
 
 @pytest.mark.parametrize(
