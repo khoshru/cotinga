@@ -186,6 +186,7 @@
   function applyState(next) {
     state = next;
     clockAnchor = Date.now();
+    restTimer.update(state);
     workout.querySelectorAll('input[name=version]').forEach((input) => { input.value = state.version; });
     workout.querySelector('[data-completed-count]').textContent = state.totals.completed;
     workout.querySelector('[data-set-count]').textContent = state.totals.total;
@@ -387,46 +388,57 @@
   } catch { /* A blocked storage API does not prevent server-backed logging. */ }
 
   workout.querySelector('[data-open-rest]')?.addEventListener('click', () => { manualRestOpen = true; renderClocks(); });
-  let hadRunningRest = Boolean(state.rest_ends_at && Date.parse(state.rest_ends_at) > Date.parse(state.server_time));
-  const soundToggle = workout.querySelector('[data-timer-sound]');
-  let audio;
-  soundToggle?.addEventListener('change', () => {
-    if (soundToggle.checked && window.AudioContext) { audio ||= new AudioContext(); audio.resume().catch(() => {}); }
-  });
-  function chime() {
-    if (!soundToggle?.checked || !audio) return;
-    [0, .22].forEach((delay) => {
-      const oscillator = audio.createOscillator();
-      const gain = audio.createGain();
-      oscillator.type = 'sine'; oscillator.frequency.value = 660;
-      gain.gain.setValueAtTime(0, audio.currentTime + delay);
-      gain.gain.linearRampToValueAtTime(.12, audio.currentTime + delay + .02);
-      gain.gain.exponentialRampToValueAtTime(.001, audio.currentTime + delay + .17);
-      oscillator.connect(gain); gain.connect(audio.destination);
-      oscillator.start(audio.currentTime + delay); oscillator.stop(audio.currentTime + delay + .18);
-    });
+  const soundButton = workout.querySelector('[data-timer-sound]');
+  const testSoundButton = workout.querySelector('[data-timer-test-sound]');
+  const originalTitle = document.title;
+  const restTimer = new window.CotingaRestTimer({onSoundChange: renderSound});
+  const soundStorageKey = 'cotinga:gym:rest-sound';
+  function renderSound() {
+    if (!soundButton) return;
+    soundButton.disabled = !restTimer.supported;
+    soundButton.setAttribute('aria-pressed', String(restTimer.soundReady));
+    workout.querySelector('[data-timer-sound-label]').textContent = !restTimer.supported
+      ? gettext('Sound unavailable') : restTimer.soundReady ? gettext('Sound on') : gettext('Enable sound');
+    if (testSoundButton) testSoundButton.disabled = !restTimer.enabled;
   }
+  try { restTimer.setEnabled(localStorage.getItem(soundStorageKey) === '1'); } catch { /* Sound still works without storage. */ }
+  renderSound();
+  soundButton?.addEventListener('click', () => {
+    restTimer.setEnabled(!restTimer.soundReady);
+    try { localStorage.setItem(soundStorageKey, restTimer.enabled ? '1' : '0'); } catch { /* Device preferences are optional. */ }
+    if (restTimer.enabled) restTimer.testSound();
+  });
+  testSoundButton?.addEventListener('click', () => restTimer.testSound());
+  // Browsers require a user gesture to unlock audio, including after a reload.
+  const unlockSound = (event) => { if (!soundButton?.contains(event.target)) restTimer.activateSound(); };
+  document.addEventListener('pointerdown', unlockSound);
+  document.addEventListener('keydown', unlockSound);
   function renderClocks() {
     const elapsed = state.elapsed + (state.active && !state.paused ? Math.max(0, Date.now() - clockAnchor) / 1000 : 0);
     workout.querySelector('[data-session-clock]').textContent = clock(elapsed);
     const timer = workout.querySelector('[data-rest-clock]');
     if (!timer) return;
-    const remaining = state.rest_ends_at ? Math.max(0, Math.ceil((Date.parse(state.rest_ends_at) - Date.parse(state.server_time) - (Date.now() - clockAnchor)) / 1000)) : (state.rest_remaining || 0);
-    if (remaining) manualRestOpen = true;
+    const {remaining, paused, complete} = restTimer.snapshot();
+    if (remaining || complete) manualRestOpen = true;
     const restPanel = workout.querySelector('[data-rest-panel]');
-    if (restPanel) restPanel.hidden = !manualRestOpen;
+    if (restPanel) { restPanel.hidden = !manualRestOpen; restPanel.classList.toggle('is-ready', complete); }
     timer.textContent = clock(remaining);
-    const paused = !state.rest_ends_at && Boolean(state.rest_remaining);
     workout.querySelector('[data-timer-pause]').hidden = paused || !remaining;
     workout.querySelector('[data-timer-resume]').hidden = !paused;
-    if (state.rest_ends_at && remaining) hadRunningRest = true;
-    if (hadRunningRest && state.rest_ends_at && !remaining) {
-      hadRunningRest = false;
-      workout.querySelector('[data-timer-announcement]').textContent = gettext('Rest complete. Ready for your next set.');
-      chime();
-    }
-    if (!state.rest_ends_at) hadRunningRest = false;
+    const message = complete ? gettext('Rest complete. Ready for your next set.') : '';
+    const announcement = workout.querySelector('[data-timer-announcement]');
+    if (announcement.textContent !== message) announcement.textContent = message;
+    document.title = complete ? `${gettext('Rest complete')} · Cotinga` : remaining && !paused ? `${clock(remaining)} · ${gettext('Rest timer')} · Cotinga` : originalTitle;
   }
+  // Reconcile immediately after tab switches and back/forward-cache restores.
+  document.addEventListener('visibilitychange', () => {
+    renderClocks();
+    if (document.visibilityState === 'visible') restTimer.activateSound();
+  });
+  window.addEventListener('focus', renderClocks);
+  window.addEventListener('pageshow', () => { restTimer.setPageActive(true); renderClocks(); restTimer.activateSound(); });
+  window.addEventListener('pagehide', () => { restTimer.setPageActive(false); document.title = originalTitle; });
+  restTimer.update(state);
   if ('wakeLock' in navigator) {
     const toggle = workout.querySelector('[data-keep-awake]');
     let lock;

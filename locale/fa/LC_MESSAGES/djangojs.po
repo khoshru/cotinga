@@ -144,3 +144,18 @@ msgstr "با دکمهٔ تیک، حداقل یک ست را انجام‌شده �
 
 msgid "Save or review your recovered set edits before finishing."
 msgstr "پیش از پایان، ویرایش‌های بازیابی‌شدهٔ ست‌ها را بررسی یا ذخیره کنید."
+
+msgid "Enable sound"
+msgstr "فعال کردن صدا"
+
+msgid "Sound unavailable"
+msgstr "صدا در دسترس نیست"
+
+msgid "Sound on"
+msgstr "صدا روشن است"
+
+msgid "Rest complete"
+msgstr "استراحت تمام شد"
+
+msgid "Rest timer"
+msgstr "تایمر استراحت"

@@ -131,3 +131,18 @@ msgstr "მონიშნეთ სულ მცირე ერთი სე�
 
 msgid "Save or review your recovered set edits before finishing."
 msgstr "დასრულებამდე შეამოწმეთ ან შეინახეთ აღდგენილი ცვლილებები."
+
+msgid "Enable sound"
+msgstr "ხმის ჩართვა"
+
+msgid "Sound unavailable"
+msgstr "ხმა მიუწვდომელია"
+
+msgid "Sound on"
+msgstr "ხმა ჩართულია"
+
+msgid "Rest complete"
+msgstr "დასვენება დასრულდა"
+
+msgid "Rest timer"
+msgstr "დასვენების ტაიმერი"

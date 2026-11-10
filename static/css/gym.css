@@ -522,3 +522,17 @@
     .gym-delete-confirm .button { width: 100%; justify-content: center; }
   }
 }
+
+@layer components {
+  .gym-rest.is-ready { border-color: #91c29a; box-shadow: 0 10px 35px #0008, 0 0 0 1px #83b18b55; }
+  .gym-rest-sound { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+  .gym-rest-sound .button { gap: 7px; font-size: 11px; padding: 8px 12px; min-height: 40px; flex: none; }
+  .gym-rest-sound .button[aria-pressed=true] { border-color: #77b99a; background: #264f3a; }
+  .gym-rest-sound .icon { width: 16px; height: 16px; }
+  .gym-rest-sound > span { font-size: 10px; line-height: 1.7; color: #aac6b4; }
+  .gym-rest-announcement { color: #d6f1dd; font-size: 12px; line-height: 1.8; margin-top: 10px; }
+  .gym-rest-announcement:empty { display: none; }
+  .gym-rest-background-note { font-size: 11px; line-height: 1.9; color: #b1c8ba; margin-top: 15px; }
+  .gym-rest-options .gym-test-sound { margin-block: 14px 6px; }
+  @media (max-width: 420px) { .gym-rest-sound { gap: 9px; } .gym-rest-sound .button { font-size: 10px; padding-inline: 10px; } .gym-rest-sound > span { font-size: 9px; } }
+}

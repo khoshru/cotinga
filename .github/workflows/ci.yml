@@ -30,6 +30,8 @@ jobs:
         run: uv run pre-commit run --all-files
       - name: Run Django checks
         run: uv run python manage.py check --settings=config.settings.test
+      - name: Test workout timers
+        run: node tests/js/rest-timer.test.cjs
       - name: Check migrations
         run: uv run python manage.py makemigrations --check --dry-run --settings=config.settings.test
       - name: Check deployment settings

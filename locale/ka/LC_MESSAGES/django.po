@@ -3749,3 +3749,15 @@ msgid "Your best: %(weeks)s week"
 msgid_plural "Your best: %(weeks)s weeks"
 msgstr[0] "თქვენი საუკეთესო: %(weeks)s კვირა"
 msgstr[1] "თქვენი საუკეთესო: %(weeks)s კვირა"
+
+msgid "Enable sound"
+msgstr "ხმის ჩართვა"
+
+msgid "Test sound"
+msgstr "ხმის შემოწმება"
+
+msgid "Remembers your choice on this device"
+msgstr "თქვენი არჩევანი ამ მოწყობილობაზე ინახება"
+
+msgid "The countdown keeps going when you switch tabs. Sound may be delayed if your device sleeps or suspends the browser. Keep this workout tab open."
+msgstr "ათვლა სხვა ჩანართზე გადასვლისას გრძელდება. თუ მოწყობილობა ძილის რეჟიმში გადავა ან ბრაუზერს შეაჩერებს, ხმამ შეიძლება დაიგვიანოს. ამ ვარჯიშის ჩანართი ღია დატოვეთ."
