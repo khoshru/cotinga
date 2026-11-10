@@ -3605,3 +3605,126 @@ msgstr[1] "%(counter)s رکورد شخصی"
 
 msgid "Compare old and new records"
 msgstr "مقایسهٔ رکوردهای قبلی و جدید"
+
+msgid "ARCHIVED WORKOUT"
+msgstr "جلسهٔ بایگانی‌شده"
+
+msgid "Archived workout permanently deleted."
+msgstr "جلسهٔ بایگانی‌شده برای همیشه حذف شد."
+
+msgid "Clear search"
+msgstr "پاک کردن جستجو"
+
+msgid "Completed sets"
+msgstr "ست‌های انجام‌شده"
+
+msgid "Consecutive weeks with a finished workout. Rest days belong here."
+msgstr "هفته‌های پی‌درپی با حداقل یک جلسهٔ تمام‌شده. روزهای استراحت هم بخشی از مسیرند."
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete permanently"
+msgstr "حذف برای همیشه"
+
+msgid "Delete this workout permanently?"
+msgstr "این جلسه برای همیشه حذف شود؟"
+
+msgid "Every session counts."
+msgstr "هر جلسه ارزش دارد."
+
+msgid "Export archived sets"
+msgstr "دانلود ست‌های بایگانی‌شده"
+
+msgid "Finished workouts, all time"
+msgstr "مجموع جلسه‌های تمام‌شده"
+
+msgid "KEEP SHOWING UP"
+msgstr "ادامه بدهید"
+
+msgid "Keep workout"
+msgstr "نگه داشتن جلسه"
+
+msgid "Lifetime workout milestone"
+msgstr "نقطهٔ عطف تعداد کل جلسه‌ها"
+
+msgid "MILESTONE REACHED"
+msgstr "به نقطهٔ عطف رسیدید"
+
+msgid "No matching workouts."
+msgstr "جلسه‌ای با این نام پیدا نشد."
+
+msgid "Restore a session or permanently remove one you no longer need. Archived workouts do not count towards progress."
+msgstr "جلسه‌ای را برگردانید یا اگر دیگر نمی‌خواهید برای همیشه حذفش کنید. جلسه‌های بایگانی‌شده در پیشرفت محاسبه نمی‌شوند."
+
+msgid "SMALL WINS. REAL MOMENTUM."
+msgstr "موفقیت‌های کوچک. پیشرفت واقعی."
+
+msgid "This removes this workout, all its sets, and its notes. It cannot be undone. Your routines, exercises, and other workouts are kept."
+msgstr "این جلسه، همهٔ ست‌ها و یادداشت‌هایش حذف می‌شوند. این کار قابل بازگشت نیست. برنامه‌ها، حرکت‌ها و جلسه‌های دیگر شما باقی می‌مانند."
+
+msgid "This week’s training days"
+msgstr "روزهای تمرین این هفته"
+
+msgid "This workout changed. Review it again before deleting."
+msgstr "این جلسه تغییر کرده است. پیش از حذف دوباره بررسی‌اش کنید."
+
+msgid "Try a different name or clear your search."
+msgstr "نام دیگری را امتحان کنید یا جستجو را پاک کنید."
+
+msgid "Want to keep the numbers? Export your archived sets before deleting."
+msgstr "می‌خواهید عددها را نگه دارید؟ قبل از حذف، ست‌های بایگانی‌شده را دانلود کنید."
+
+msgid "Weekly goal reached. Make room for recovery, too."
+msgstr "به هدف هفتگی رسیدید. برای ریکاوری هم وقت بگذارید."
+
+msgid "Workout history"
+msgstr "تاریخچهٔ تمرین"
+
+msgid "Workouts you archive will appear here. You can restore them or delete them permanently."
+msgstr "جلسه‌هایی که بایگانی می‌کنید اینجا نمایش داده می‌شوند. می‌توانید آن‌ها را برگردانید یا برای همیشه حذف کنید."
+
+msgid "YOUR NEXT MILESTONE"
+msgstr "نقطهٔ عطف بعدی شما"
+
+msgid "Your archive is clear."
+msgstr "بایگانی شما خالی است."
+
+msgid "A fresh start is progress."
+msgstr "شروع دوباره هم پیشرفت است."
+
+#, python-format
+msgid "%(count)s workout"
+msgid_plural "%(count)s workouts"
+msgstr[0] "%(count)s جلسه"
+msgstr[1] "%(count)s جلسه"
+
+#, python-format
+msgid "%(remaining)s more workout to your next milestone."
+msgid_plural "%(remaining)s more workouts to your next milestone."
+msgstr[0] "%(remaining)s جلسهٔ دیگر تا نقطهٔ عطف بعدی."
+msgstr[1] "%(remaining)s جلسهٔ دیگر تا نقطهٔ عطف بعدی."
+
+#, python-format
+msgid "%(remaining)s more workout to your weekly goal."
+msgid_plural "%(remaining)s more workouts to your weekly goal."
+msgstr[0] "%(remaining)s جلسهٔ دیگر تا هدف هفتگی."
+msgstr[1] "%(remaining)s جلسهٔ دیگر تا هدف هفتگی."
+
+#, python-format
+msgid "%(total)s workout finished. Look how far you’ve come."
+msgid_plural "%(total)s workouts finished. Look how far you’ve come."
+msgstr[0] "%(total)s جلسه تمام شد. ببینید چقدر جلو آمده‌اید."
+msgstr[1] "%(total)s جلسه تمام شد. ببینید چقدر جلو آمده‌اید."
+
+#, python-format
+msgid "%(weeks)s week of consistency"
+msgid_plural "%(weeks)s weeks of consistency"
+msgstr[0] "%(weeks)s هفته تمرین پیوسته"
+msgstr[1] "%(weeks)s هفته تمرین پیوسته"
+
+#, python-format
+msgid "Your best: %(weeks)s week"
+msgid_plural "Your best: %(weeks)s weeks"
+msgstr[0] "بهترین شما: %(weeks)s هفته"
+msgstr[1] "بهترین شما: %(weeks)s هفته"

@@ -7,7 +7,7 @@
   <nav class="gym-tabs" aria-label="{% translate 'Training navigation' %}">
     <a href="{% url 'gym:home' %}" {% if request.resolver_match.url_name == 'home' or request.resolver_match.url_name == 'routine' %}aria-current="page"{% endif %}>{% translate "Training" %}</a>
     <a href="{% url 'gym:library' %}" {% if request.resolver_match.url_name == 'library' %}aria-current="page"{% endif %}>{% translate "Exercises" %}</a>
-    <a href="{% url 'gym:history' %}" {% if request.resolver_match.url_name == 'history' %}aria-current="page"{% endif %}>{% translate "History" %}</a>
+    <a href="{% url 'gym:history' %}" {% if request.resolver_match.url_name == 'history' or request.resolver_match.url_name == 'workout-delete' %}aria-current="page"{% endif %}>{% translate "History" %}</a>
     <a href="{% url 'gym:progress' %}" {% if request.resolver_match.url_name == 'progress' %}aria-current="page"{% endif %}>{% translate "Progress" %}</a>
     <a href="{% url 'gym:records' %}" {% if request.resolver_match.url_name == 'records' %}aria-current="page"{% endif %}>{% translate "Records" %}</a>
   </nav>

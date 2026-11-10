@@ -1,0 +1,29 @@
+{% load i18n l10n %}
+<section class="panel gym-momentum" aria-labelledby="momentum-heading">
+  <div class="section-heading"><h2 id="momentum-heading">{% translate "SMALL WINS. REAL MOMENTUM." %}</h2><a class="text-link" href="{% url 'gym:records' %}">{% include 'icon.html' with name='trophy' %}{% translate "Your personal records" %}</a></div>
+  <div class="gym-momentum-grid">
+    <div class="gym-momentum-week">
+      <h3>{% translate "Every session counts." %}</h3>
+      <p>{% if weekly_remaining %}{% blocktranslate count remaining=weekly_remaining %}{{ remaining }} more workout to your weekly goal.{% plural %}{{ remaining }} more workouts to your weekly goal.{% endblocktranslate %}{% else %}{% translate "Weekly goal reached. Make room for recovery, too." %}{% endif %}</p>
+      <ol class="gym-day-strip" aria-label="{% translate 'This week’s training days' %}">
+        {% for day in momentum.days %}<li class="{% if day.count %}is-trained{% endif %}{% if day.future %} is-future{% endif %}" {% if day.today %}aria-current="date"{% endif %} title="{{ day.date|date:'l, j M' }}">
+          <span aria-hidden="true">{% if LANGUAGE_CODE == 'fa' %}{{ day.date|date:'D'|slice:':1' }}{% else %}{{ day.date|date:'D' }}{% endif %}</span><b aria-hidden="true">{% if day.count %}{% include 'icon.html' with name='check' %}{% else %}{{ day.date|date:'j' }}{% endif %}</b>
+          <span class="sr-only">{{ day.date|date:'DATE_FORMAT' }}: {% blocktranslate count count=day.count %}{{ count }} workout{% plural %}{{ count }} workouts{% endblocktranslate %}</span>
+        </li>{% endfor %}
+      </ol>
+    </div>
+    <div class="gym-momentum-consistency">
+      <span class="eyebrow">{% translate "KEEP SHOWING UP" %}</span>
+      <h3>{% if momentum.streak %}{% blocktranslate count weeks=momentum.streak %}{{ weeks }} week of consistency{% plural %}{{ weeks }} weeks of consistency{% endblocktranslate %}{% else %}{% translate "A fresh start is progress." %}{% endif %}</h3>
+      <p>{% translate "Consecutive weeks with a finished workout. Rest days belong here." %}</p>
+      {% if momentum.longest %}<span class="gym-momentum-best">{% blocktranslate count weeks=momentum.longest %}Your best: {{ weeks }} week{% plural %}Your best: {{ weeks }} weeks{% endblocktranslate %}</span>{% endif %}
+    </div>
+    <div class="gym-momentum-milestone">
+      <span class="eyebrow">{% if momentum.reached %}{% translate "MILESTONE REACHED" %}{% else %}{% translate "YOUR NEXT MILESTONE" %}{% endif %}</span>
+      <h3><bdi dir="ltr">{{ momentum.total }} <span>/ {{ momentum.next }}</span></bdi></h3>
+      <p>{% if momentum.reached %}{% blocktranslate count total=momentum.total %}{{ total }} workout finished. Look how far you’ve come.{% plural %}{{ total }} workouts finished. Look how far you’ve come.{% endblocktranslate %}{% else %}{% blocktranslate count remaining=momentum.remaining %}{{ remaining }} more workout to your next milestone.{% plural %}{{ remaining }} more workouts to your next milestone.{% endblocktranslate %}{% endif %}</p>
+      <div class="gym-meter" role="progressbar" aria-label="{% translate 'Lifetime workout milestone' %}" aria-valuenow="{{ momentum.total }}" aria-valuemin="0" aria-valuemax="{{ momentum.next }}"><span style="width:{{ momentum.percent|unlocalize }}%"></span></div>
+      <span class="gym-momentum-best">{% translate "Finished workouts, all time" %}</span>
+    </div>
+  </div>
+</section>

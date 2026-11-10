@@ -1,1 +1,30 @@
-{% extends 'gym/base.html' %}{% load i18n %}{% block gym_content %}<div class="page-heading"><div><h1>{% if archived %}{% translate "Archived workouts" %}{% else %}{% translate "The work you put in" %}{% endif %}<span class="heading-dot">.</span></h1><p class="subtitle">{% translate "Every finished session, with the numbers you actually logged." %}</p></div><a class="button subtle" href="{% url 'gym:export' %}">{% include 'icon.html' with name='download' %}{% translate "Export workouts" %}</a></div><form method="get" class="gym-history-search"><label class="sr-only" for="history-query">{% translate "Search workouts" %}</label><input type="search" name="q" id="history-query" value="{{ query }}" placeholder="{% translate 'Search workouts' %}">{% if archived %}<input type="hidden" name="archived" value="1">{% endif %}<button class="button subtle">{% translate "Search" %}</button></form><div class="gym-section">{% for session in page %}{% include 'gym/history_card.html' %}{% empty %}<div class="panel gym-empty"><h2>{% translate "No workouts here yet." %}</h2><p>{% translate "Your completed sessions will appear here. Archived sessions can be restored." %}</p><a class="button subtle" href="{% url 'gym:home' %}">{% translate "Back to training" %}</a></div>{% endfor %}</div>{% include 'gym/pagination.html' %}<p class="help-text"><a class="text-link" href="{% url 'gym:history' %}{% if not archived %}?archived=1{% endif %}">{% if archived %}{% translate "View finished workouts" %}{% else %}{% translate "Archived workouts" %}{% endif %}</a></p>{% endblock %}
+{% extends 'gym/base.html' %}{% load i18n %}
+{% block gym_content %}
+<div class="page-heading">
+  <div>
+    <h1>{% if archived %}{% translate "Archived workouts" %}{% else %}{% translate "The work you put in" %}{% endif %}<span class="heading-dot">.</span></h1>
+    <p class="subtitle">{% if archived %}{% translate "Restore a session or permanently remove one you no longer need. Archived workouts do not count towards progress." %}{% else %}{% translate "Every finished session, with the numbers you actually logged." %}{% endif %}</p>
+  </div>
+  <a class="button subtle" href="{% url 'gym:export' %}{% if archived %}?archived=1{% endif %}">{% include 'icon.html' with name='download' %}{% if archived %}{% translate "Export archived sets" %}{% else %}{% translate "Export workouts" %}{% endif %}</a>
+</div>
+<nav class="gym-history-tabs" aria-label="{% translate 'Workout history' %}">
+  <a href="{% url 'gym:history' %}" {% if not archived %}aria-current="page"{% endif %}>{% translate "Finished" %}<span>{{ counts.finished }}</span></a>
+  <a href="{% url 'gym:history' %}?archived=1" {% if archived %}aria-current="page"{% endif %}>{% translate "Archived workouts" %}<span>{{ counts.archived }}</span></a>
+</nav>
+<form method="get" class="gym-history-search">
+  <label class="sr-only" for="history-query">{% translate "Search workouts" %}</label>
+  <input type="search" name="q" id="history-query" value="{{ query }}" placeholder="{% translate 'Search workouts' %}">
+  {% if archived %}<input type="hidden" name="archived" value="1">{% endif %}
+  <button class="button subtle">{% translate "Search" %}</button>
+</form>
+<div class="gym-section">
+  {% for session in page %}{% include 'gym/history_card.html' %}{% empty %}
+    <div class="panel gym-empty">
+      {% if query %}<h2>{% translate "No matching workouts." %}</h2><p>{% translate "Try a different name or clear your search." %}</p><a class="button subtle" href="{% url 'gym:history' %}{% if archived %}?archived=1{% endif %}">{% translate "Clear search" %}</a>
+      {% elif archived %}<h2>{% translate "Your archive is clear." %}</h2><p>{% translate "Workouts you archive will appear here. You can restore them or delete them permanently." %}</p><a class="button subtle" href="{% url 'gym:history' %}">{% translate "View finished workouts" %}</a>
+      {% else %}<h2>{% translate "No workouts here yet." %}</h2><p>{% translate "Your completed sessions will appear here. Archived sessions can be restored." %}</p><a class="button subtle" href="{% url 'gym:home' %}">{% translate "Back to training" %}</a>{% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% include 'gym/pagination.html' %}
+{% endblock %}

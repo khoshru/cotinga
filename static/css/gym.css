@@ -457,3 +457,68 @@
   .gym-ai-day[open] > summary::after { content: '−'; }
   .gym-ai-day > summary:focus-visible { outline: 2px solid var(--mint); outline-offset: 7px; border-radius: 7px; }
 }
+
+@layer components {
+  .gym-momentum { margin-top: 24px; padding: 25px; background: linear-gradient(120deg, #1b3628, #162b22); border-color: #43634e; }
+  .gym-momentum > .section-heading { gap: 14px; flex-wrap: wrap; margin-bottom: 23px; }
+  .gym-momentum .section-heading .text-link { display: inline-flex; gap: 7px; align-items: center; font-size: 11px; }
+  .gym-momentum .section-heading .icon { width: 17px; height: 17px; flex: none; }
+  .gym-momentum-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; }
+  .gym-momentum-grid > div { min-width: 0; }
+  .gym-momentum-grid > div + div { border-inline-start: 1px solid #3e5c47; padding-inline-start: 24px; }
+  .gym-momentum h3 { font-size: 19px; line-height: 1.5; margin: 5px 0 8px; }
+  .gym-momentum p { color: #b4c9bb; font-size: 12px; line-height: 1.8; margin: 0 0 16px; }
+  .gym-momentum .eyebrow { font-size: 9px; line-height: 1.7; color: #9eb6a6; letter-spacing: .8px; }
+  .gym-momentum-best { display: block; color: #a4c8b1; font-size: 11px; line-height: 1.8; margin-top: 12px; }
+  .gym-momentum-milestone h3 { font-size: 31px; color: #cce9d4; }
+  .gym-momentum-milestone h3 span { font-size: 18px; color: #99b5a2; font-weight: 400; }
+  .gym-day-strip { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; padding: 0; margin: 19px 0 0; }
+  .gym-day-strip li { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #a7bfae; min-width: 0; }
+  .gym-day-strip li > span:not(.sr-only) { font-size: 9px; line-height: 1.8; max-width: 100%; overflow: hidden; }
+  .gym-day-strip b { display: grid; place-items: center; width: 29px; height: 29px; border: 1px solid #4a6350; border-radius: 50%; font-size: 11px; font-weight: 500; }
+  .gym-day-strip .icon { display: block; width: 17px; height: 17px; }
+  .gym-day-strip .is-trained b { color: #e0f9e9; border-color: #75b694; background: #2c6046; }
+  .gym-day-strip [aria-current] b { outline: 2px solid #92d7ba; outline-offset: 3px; }
+  .gym-day-strip .is-future { color: #849c8c; }
+  .gym-summary-heading { margin-top: 30px; }
+  .gym-summary-heading + .gym-stats { margin-top: 14px; }
+  .gym-history-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .gym-history-tabs a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 14px; border: 1px solid #46624f; border-radius: 10px; color: #bfd4c6; font-size: 12px; }
+  .gym-history-tabs a[aria-current] { border-color: #77b99a; background: #264f3a; color: #e1f8e9; }
+  .gym-history-tabs span { background: #142a20; border-radius: 6px; padding: 3px 7px; color: #b9d5c4; font-variant-numeric: tabular-nums; }
+  .gym-history-search input { min-width: 0; flex: 1; }
+  .gym-history-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
+  .gym-history-actions .button { min-height: 44px; gap: 7px; font-size: 12px; }
+  .gym-history-actions .icon { width: 16px; height: 16px; }
+  .gym-delete-confirm h1 { margin-top: 12px; }
+  .gym-delete-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; margin-block: 24px; border-block: 1px solid #42634f; padding-block: 18px; }
+  .gym-delete-facts dt { color: #a8c2b2; font-size: 11px; line-height: 1.8; }
+  .gym-delete-facts dd { font-size: 18px; margin: 7px 0 0; overflow-wrap: anywhere; }
+  .gym-delete-confirm .form-actions { flex-wrap: wrap; }
+  @media (max-width: 1000px) {
+    .gym-momentum-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gym-momentum-week { grid-column: 1 / -1; }
+    .gym-momentum-grid > .gym-momentum-consistency { padding-inline-start: 0; border-inline-start: 0; }
+    .gym-day-strip { max-width: 420px; }
+  }
+  @media (max-width: 600px) {
+    .gym-momentum { padding: 20px; }
+    .gym-momentum h3 { font-size: 18px; }
+    .gym-momentum-grid { gap: 20px; }
+    .gym-momentum-grid > .gym-momentum-milestone { padding-inline-start: 16px; }
+    .gym-momentum-milestone h3 { font-size: 27px; }
+    .gym-momentum p { font-size: 11px; }
+    .gym-history-card:has(.gym-history-actions) { align-items: stretch; flex-direction: column; gap: 14px; padding: 20px; }
+    .gym-history-actions { border-top: 1px solid #42634f; padding-top: 14px; }
+    .gym-delete-facts { gap: 10px; }
+    .gym-delete-facts dd { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .gym-momentum-grid { grid-template-columns: minmax(0, 1fr); }
+    .gym-momentum-grid > .gym-momentum-milestone { border-inline-start: 0; border-top: 1px solid #3e5c47; padding: 18px 0 0; }
+    .gym-day-strip { gap: 3px; }
+    .gym-day-strip b { width: 26px; height: 26px; }
+    .gym-delete-confirm { padding: 20px; }
+    .gym-delete-confirm .button { width: 100%; justify-content: center; }
+  }
+}

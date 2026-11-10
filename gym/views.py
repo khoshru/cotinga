@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db import transaction
-from django.db.models import Q, prefetch_related_objects
+from django.db.models import Count, Q, prefetch_related_objects
 from django.http import (
     Http404,
     HttpRequest,
@@ -48,6 +48,7 @@ from .models import (
     WorkoutExercise,
     WorkoutSet,
 )
+from .momentum import training_momentum
 from .record_views import record_fragments, workout_record_context
 from .records import record_book
 from .services import (
@@ -128,10 +129,13 @@ def home(request: HttpRequest) -> HttpResponse:
             "params": urlencode({"archived": "1" if archived_routines else "0"}),
             "recent": finished.prefetch_related("exercises__sets")[:4],
             "weekly_count": count,
+            "weekly_remaining": max(0, saved_goal - count),
             "goal": saved_goal,
             "goal_percent": min(100, count / saved_goal * 100),
             "preferences_form": form,
             "summary": training_summary(user),
+            "momentum": training_momentum(user),
+            "record_counts": _record_counts(user),
             "start_form": StartForm(user=user),
         },
     )
@@ -909,9 +913,51 @@ def workout_action(request: HttpRequest, pk: UUID) -> HttpResponse:
 
 @login_required
 @never_cache
+@require_http_methods(["GET", "POST"])
+def workout_delete(request: HttpRequest, pk: UUID) -> HttpResponse:
+    user = cast(User, request.user)
+    status = 200
+    with transaction.atomic():
+        if request.method == "POST":
+            # Use the same lock as restore/edit, so a restored workout cannot be deleted.
+            User.objects.select_for_update().only("pk").get(pk=user.pk)
+        session = get_object_or_404(
+            Workout, pk=pk, user=user, archived_at__isnull=False
+        )
+        if request.method == "POST" and request.POST.get("confirm") == "on":
+            try:
+                version = integer(request.POST.get("version"), minimum=0)
+            except forms.ValidationError:
+                version = -1
+            if version == session.version:
+                session.delete()
+                messages.success(
+                    request, gettext("Archived workout permanently deleted.")
+                )
+                return redirect(reverse("gym:history") + "?archived=1")
+            status = 409
+            messages.error(
+                request,
+                gettext("This workout changed. Review it again before deleting."),
+            )
+        totals = workout_totals(session)
+        return render(
+            request,
+            "gym/workout_delete.html",
+            {"session": session, "totals": totals},
+            status=status,
+        )
+
+
+@login_required
+@never_cache
 @require_GET
 def history(request: HttpRequest) -> HttpResponse:
     archived = request.GET.get("archived") == "1"
+    counts = Workout.objects.filter(user=cast(User, request.user)).aggregate(
+        finished=Count("pk", filter=Q(status="finished", archived_at__isnull=True)),
+        archived=Count("pk", filter=Q(archived_at__isnull=False)),
+    )
     queryset = Workout.objects.filter(
         user=cast(User, request.user), archived_at__isnull=not archived
     ).prefetch_related("exercises__sets")
@@ -926,6 +972,7 @@ def history(request: HttpRequest) -> HttpResponse:
         {
             "page": Paginator(queryset, 20).get_page(request.GET.get("page")),
             "archived": archived,
+            "counts": counts,
             "query": query,
             "params": urlencode({"q": query, "archived": "1" if archived else "0"}),
             "record_counts": _record_counts(cast(User, request.user))
@@ -971,11 +1018,11 @@ def export(request: HttpRequest) -> StreamingHttpResponse:
             return value
 
     writer = csv.writer(Echo())
+    archived = request.GET.get("archived") == "1"
     queryset = (
         WorkoutSet.objects.filter(
             workout_exercise__workout__user=cast(User, request.user),
-            workout_exercise__workout__status="finished",
-            workout_exercise__workout__archived_at__isnull=True,
+            workout_exercise__workout__archived_at__isnull=not archived,
             completed_at__isnull=False,
         )
         .select_related("workout_exercise__workout")
@@ -986,6 +1033,8 @@ def export(request: HttpRequest) -> StreamingHttpResponse:
             "position",
         )
     )
+    if not archived:
+        queryset = queryset.filter(workout_exercise__workout__status="finished")
 
     def clean_cell(value: Any) -> Any:
         return (
@@ -1029,5 +1078,6 @@ def export(request: HttpRequest) -> StreamingHttpResponse:
             yield writer.writerow([clean_cell(value) for value in values])
 
     response = StreamingHttpResponse(content(), content_type="text/csv; charset=utf-8")
-    response["Content-Disposition"] = 'attachment; filename="cotinga-workouts.csv"'
+    filename = "cotinga-archived-workouts.csv" if archived else "cotinga-workouts.csv"
+    response["Content-Disposition"] = f'attachment; filename="{filename}"'
     return response

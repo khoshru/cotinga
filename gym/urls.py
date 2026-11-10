@@ -20,6 +20,7 @@ urlpatterns = [
     path("start/", views.start, name="start"),
     path("workouts/<uuid:pk>/", views.workout, name="workout"),
     path("workouts/<uuid:pk>/action/", views.workout_action, name="workout-action"),
+    path("workouts/<uuid:pk>/delete/", views.workout_delete, name="workout-delete"),
     path("history/", views.history, name="history"),
     path("progress/", views.progress, name="progress"),
     path("records/", record_views.records, name="records"),

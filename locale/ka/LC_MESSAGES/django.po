@@ -3626,3 +3626,126 @@ msgstr[1] "%(counter)s პირადი რეკორდი"
 
 msgid "Compare old and new records"
 msgstr "ძველი და ახალი რეკორდების შედარება"
+
+msgid "ARCHIVED WORKOUT"
+msgstr "დაარქივებული ვარჯიში"
+
+msgid "Archived workout permanently deleted."
+msgstr "დაარქივებული ვარჯიში სამუდამოდ წაიშალა."
+
+msgid "Clear search"
+msgstr "ძებნის გასუფთავება"
+
+msgid "Completed sets"
+msgstr "შესრულებული სეტები"
+
+msgid "Consecutive weeks with a finished workout. Rest days belong here."
+msgstr "ზედიზედ კვირები დასრულებული ვარჯიშით. დასვენების დღეებიც ამ გზის ნაწილია."
+
+msgid "Delete"
+msgstr "წაშლა"
+
+msgid "Delete permanently"
+msgstr "სამუდამოდ წაშლა"
+
+msgid "Delete this workout permanently?"
+msgstr "სამუდამოდ წაიშალოს ეს ვარჯიში?"
+
+msgid "Every session counts."
+msgstr "ყველა ვარჯიშს აქვს მნიშვნელობა."
+
+msgid "Export archived sets"
+msgstr "დაარქივებული სეტების ჩამოტვირთვა"
+
+msgid "Finished workouts, all time"
+msgstr "სულ დასრულებული ვარჯიშები"
+
+msgid "KEEP SHOWING UP"
+msgstr "გააგრძელეთ ვარჯიში"
+
+msgid "Keep workout"
+msgstr "ვარჯიშის შენარჩუნება"
+
+msgid "Lifetime workout milestone"
+msgstr "ვარჯიშების საერთო რაოდენობის ეტაპი"
+
+msgid "MILESTONE REACHED"
+msgstr "ახალი ეტაპი მიღწეულია"
+
+msgid "No matching workouts."
+msgstr "შესაბამისი ვარჯიში ვერ მოიძებნა."
+
+msgid "Restore a session or permanently remove one you no longer need. Archived workouts do not count towards progress."
+msgstr "აღადგინეთ ვარჯიში ან სამუდამოდ წაშალეთ ის, რომელიც აღარ გჭირდებათ. დაარქივებული ვარჯიშები პროგრესში არ ითვლება."
+
+msgid "SMALL WINS. REAL MOMENTUM."
+msgstr "პატარა მიღწევები. ნამდვილი წინსვლა."
+
+msgid "This removes this workout, all its sets, and its notes. It cannot be undone. Your routines, exercises, and other workouts are kept."
+msgstr "ეს წაშლის ამ ვარჯიშს, მის ყველა სეტსა და შენიშვნას. აღდგენა შეუძლებელი იქნება. თქვენი პროგრამები, სავარჯიშოები და სხვა ვარჯიშები შენარჩუნდება."
+
+msgid "This week’s training days"
+msgstr "ამ კვირის ვარჯიშის დღეები"
+
+msgid "This workout changed. Review it again before deleting."
+msgstr "ვარჯიში შეიცვალა. წაშლამდე ხელახლა გადაამოწმეთ."
+
+msgid "Try a different name or clear your search."
+msgstr "სცადეთ სხვა სახელი ან გაასუფთავეთ ძებნა."
+
+msgid "Want to keep the numbers? Export your archived sets before deleting."
+msgstr "გსურთ შედეგების შენახვა? წაშლამდე ჩამოტვირთეთ დაარქივებული სეტები."
+
+msgid "Weekly goal reached. Make room for recovery, too."
+msgstr "კვირის მიზანი მიღწეულია. აღდგენისთვისაც გამოყავით დრო."
+
+msgid "Workout history"
+msgstr "ვარჯიშის ისტორია"
+
+msgid "Workouts you archive will appear here. You can restore them or delete them permanently."
+msgstr "დაარქივებული ვარჯიშები აქ გამოჩნდება. შეგიძლიათ აღადგინოთ ან სამუდამოდ წაშალოთ."
+
+msgid "YOUR NEXT MILESTONE"
+msgstr "თქვენი შემდეგი ეტაპი"
+
+msgid "Your archive is clear."
+msgstr "არქივი ცარიელია."
+
+msgid "A fresh start is progress."
+msgstr "ახალი დასაწყისიც წინსვლაა."
+
+#, python-format
+msgid "%(count)s workout"
+msgid_plural "%(count)s workouts"
+msgstr[0] "%(count)s ვარჯიში"
+msgstr[1] "%(count)s ვარჯიში"
+
+#, python-format
+msgid "%(remaining)s more workout to your next milestone."
+msgid_plural "%(remaining)s more workouts to your next milestone."
+msgstr[0] "შემდეგ ეტაპამდე დარჩა %(remaining)s ვარჯიში."
+msgstr[1] "შემდეგ ეტაპამდე დარჩა %(remaining)s ვარჯიში."
+
+#, python-format
+msgid "%(remaining)s more workout to your weekly goal."
+msgid_plural "%(remaining)s more workouts to your weekly goal."
+msgstr[0] "კვირის მიზნამდე დარჩა %(remaining)s ვარჯიში."
+msgstr[1] "კვირის მიზნამდე დარჩა %(remaining)s ვარჯიში."
+
+#, python-format
+msgid "%(total)s workout finished. Look how far you’ve come."
+msgid_plural "%(total)s workouts finished. Look how far you’ve come."
+msgstr[0] "%(total)s ვარჯიში დასრულებულია. ნახეთ, რამდენი გაიარეთ."
+msgstr[1] "%(total)s ვარჯიში დასრულებულია. ნახეთ, რამდენი გაიარეთ."
+
+#, python-format
+msgid "%(weeks)s week of consistency"
+msgid_plural "%(weeks)s weeks of consistency"
+msgstr[0] "%(weeks)s კვირა უწყვეტი ვარჯიშით"
+msgstr[1] "%(weeks)s კვირა უწყვეტი ვარჯიშით"
+
+#, python-format
+msgid "Your best: %(weeks)s week"
+msgid_plural "Your best: %(weeks)s weeks"
+msgstr[0] "თქვენი საუკეთესო: %(weeks)s კვირა"
+msgstr[1] "თქვენი საუკეთესო: %(weeks)s კვირა"
