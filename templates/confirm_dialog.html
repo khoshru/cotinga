@@ -1,0 +1,6 @@
+{% load i18n %}
+<dialog class="confirm-dialog" data-confirm-dialog aria-labelledby="confirm-title" aria-describedby="confirm-message">
+  <div class="confirm-dialog-heading"><h2 id="confirm-title">{% translate "Are you sure?" %}</h2><button type="button" class="icon-button" data-confirm-cancel aria-label="{% translate 'Close' %}">{% include 'icon.html' with name='close' %}</button></div>
+  <p id="confirm-message" data-confirm-message></p>
+  <div class="confirm-dialog-actions"><button type="button" class="button subtle" data-confirm-cancel autofocus>{% translate "Cancel" %}</button><button type="button" class="button primary" data-confirm-approve>{% translate "Confirm" %}</button></div>
+</dialog>

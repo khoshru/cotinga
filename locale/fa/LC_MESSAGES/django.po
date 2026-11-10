@@ -2810,9 +2810,6 @@ msgstr "ثانیه"
 msgid "Start timer"
 msgstr "شروع زمان‌سنج"
 
-msgid "Sound when rest ends"
-msgstr "صدا در پایان استراحت"
-
 msgid "Keep screen awake"
 msgstr "صفحه روشن بماند"
 
@@ -3729,14 +3726,17 @@ msgid_plural "Your best: %(weeks)s weeks"
 msgstr[0] "بهترین شما: %(weeks)s هفته"
 msgstr[1] "بهترین شما: %(weeks)s هفته"
 
-msgid "Enable sound"
-msgstr "فعال کردن صدا"
+msgid "Are you sure?"
+msgstr "مطمئن هستید؟"
 
-msgid "Test sound"
-msgstr "آزمایش صدا"
+msgid "Confirm"
+msgstr "تأیید"
 
-msgid "Remembers your choice on this device"
-msgstr "انتخاب شما در این دستگاه ذخیره می‌شود"
+msgid "Archive workout?"
+msgstr "این جلسه بایگانی شود؟"
 
-msgid "The countdown keeps going when you switch tabs. Sound may be delayed if your device sleeps or suspends the browser. Keep this workout tab open."
-msgstr "با عوض کردن تب، شمارش معکوس ادامه دارد. اگر دستگاه به خواب برود یا مرورگر را معلق کند، ممکن است صدا با تأخیر پخش شود. تب این تمرین را باز نگه دارید."
+msgid "The countdown keeps going when you switch tabs."
+msgstr "با عوض کردن تب، شمارش معکوس ادامه دارد."
+
+msgid "Exercise order"
+msgstr "ترتیب حرکت‌ها"

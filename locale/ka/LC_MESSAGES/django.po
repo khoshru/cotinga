@@ -2826,9 +2826,6 @@ msgstr "წამი"
 msgid "Start timer"
 msgstr "ტაიმერის დაწყება"
 
-msgid "Sound when rest ends"
-msgstr "ხმა დასვენების დასრულებისას"
-
 msgid "Keep screen awake"
 msgstr "ეკრანი ჩართული დარჩეს"
 
@@ -3750,14 +3747,17 @@ msgid_plural "Your best: %(weeks)s weeks"
 msgstr[0] "თქვენი საუკეთესო: %(weeks)s კვირა"
 msgstr[1] "თქვენი საუკეთესო: %(weeks)s კვირა"
 
-msgid "Enable sound"
-msgstr "ხმის ჩართვა"
+msgid "Are you sure?"
+msgstr "დარწმუნებული ხართ?"
 
-msgid "Test sound"
-msgstr "ხმის შემოწმება"
+msgid "Confirm"
+msgstr "დადასტურება"
 
-msgid "Remembers your choice on this device"
-msgstr "თქვენი არჩევანი ამ მოწყობილობაზე ინახება"
+msgid "Archive workout?"
+msgstr "დაარქივდეს ვარჯიში?"
 
-msgid "The countdown keeps going when you switch tabs. Sound may be delayed if your device sleeps or suspends the browser. Keep this workout tab open."
-msgstr "ათვლა სხვა ჩანართზე გადასვლისას გრძელდება. თუ მოწყობილობა ძილის რეჟიმში გადავა ან ბრაუზერს შეაჩერებს, ხმამ შეიძლება დაიგვიანოს. ამ ვარჯიშის ჩანართი ღია დატოვეთ."
+msgid "The countdown keeps going when you switch tabs."
+msgstr "ათვლა სხვა ჩანართზე გადასვლისას გრძელდება."
+
+msgid "Exercise order"
+msgstr "სავარჯიშოების თანმიმდევრობა"

@@ -33,11 +33,42 @@ document.querySelectorAll('[data-profile-dialog]').forEach((dialog) => {
     }
   });
 });
-document.querySelectorAll('[data-confirm]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    if (!window.confirm(form.dataset.confirm)) event.preventDefault();
+(() => {
+  const dialog = document.querySelector('[data-confirm-dialog]');
+  if (!dialog) return;
+  let pending = null;
+  let approved = null;
+  const close = () => {
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+    pending = null;
+  };
+  dialog.querySelectorAll('[data-confirm-cancel]').forEach((button) => button.addEventListener('click', close));
+  dialog.addEventListener('close', () => { pending = null; });
+  dialog.addEventListener('cancel', () => { pending = null; });
+  dialog.querySelector('[data-confirm-approve]').addEventListener('click', () => {
+    const action = pending;
+    close();
+    if (!action?.form.isConnected) return;
+    approved = action;
+    // Resubmit through the normal validation and gym save queue, keeping the
+    // original button's action (including buttons outside their owning form).
+    try { action.form.requestSubmit(action.submitter || undefined); }
+    finally { approved = null; }
   });
-});
+  document.querySelectorAll('[data-confirm]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (event.defaultPrevented || approved?.form === form) return;
+      event.preventDefault();
+      pending = {form, submitter:event.submitter};
+      dialog.querySelector('#confirm-title').textContent = form.dataset.confirmTitle || gettext('Are you sure?');
+      dialog.querySelector('[data-confirm-message]').textContent = form.dataset.confirm;
+      dialog.querySelector('[data-confirm-approve]').textContent = event.submitter?.textContent.trim() || gettext('Remove');
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else { dialog.setAttribute('open', ''); dialog.querySelector('[autofocus]').focus(); }
+    });
+  });
+})();
 
 document.querySelectorAll('[data-password-toggle]').forEach((button) => {
   button.addEventListener('click', () => {

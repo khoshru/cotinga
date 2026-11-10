@@ -387,32 +387,13 @@
     }
   } catch { /* A blocked storage API does not prevent server-backed logging. */ }
 
-  workout.querySelector('[data-open-rest]')?.addEventListener('click', () => { manualRestOpen = true; renderClocks(); });
-  const soundButton = workout.querySelector('[data-timer-sound]');
-  const testSoundButton = workout.querySelector('[data-timer-test-sound]');
-  const originalTitle = document.title;
-  const restTimer = new window.CotingaRestTimer({onSoundChange: renderSound});
-  const soundStorageKey = 'cotinga:gym:rest-sound';
-  function renderSound() {
-    if (!soundButton) return;
-    soundButton.disabled = !restTimer.supported;
-    soundButton.setAttribute('aria-pressed', String(restTimer.soundReady));
-    workout.querySelector('[data-timer-sound-label]').textContent = !restTimer.supported
-      ? gettext('Sound unavailable') : restTimer.soundReady ? gettext('Sound on') : gettext('Enable sound');
-    if (testSoundButton) testSoundButton.disabled = !restTimer.enabled;
-  }
-  try { restTimer.setEnabled(localStorage.getItem(soundStorageKey) === '1'); } catch { /* Sound still works without storage. */ }
-  renderSound();
-  soundButton?.addEventListener('click', () => {
-    restTimer.setEnabled(!restTimer.soundReady);
-    try { localStorage.setItem(soundStorageKey, restTimer.enabled ? '1' : '0'); } catch { /* Device preferences are optional. */ }
-    if (restTimer.enabled) restTimer.testSound();
+  workout.querySelector('[data-open-rest]')?.addEventListener('click', () => {
+    manualRestOpen = true;
+    renderClocks();
+    workout.querySelector('[data-rest-panel]')?.scrollIntoView({block:'nearest'});
   });
-  testSoundButton?.addEventListener('click', () => restTimer.testSound());
-  // Browsers require a user gesture to unlock audio, including after a reload.
-  const unlockSound = (event) => { if (!soundButton?.contains(event.target)) restTimer.activateSound(); };
-  document.addEventListener('pointerdown', unlockSound);
-  document.addEventListener('keydown', unlockSound);
+  const originalTitle = document.title;
+  const restTimer = new window.CotingaRestTimer();
   function renderClocks() {
     const elapsed = state.elapsed + (state.active && !state.paused ? Math.max(0, Date.now() - clockAnchor) / 1000 : 0);
     workout.querySelector('[data-session-clock]').textContent = clock(elapsed);
@@ -431,13 +412,10 @@
     document.title = complete ? `${gettext('Rest complete')} · Cotinga` : remaining && !paused ? `${clock(remaining)} · ${gettext('Rest timer')} · Cotinga` : originalTitle;
   }
   // Reconcile immediately after tab switches and back/forward-cache restores.
-  document.addEventListener('visibilitychange', () => {
-    renderClocks();
-    if (document.visibilityState === 'visible') restTimer.activateSound();
-  });
+  document.addEventListener('visibilitychange', renderClocks);
   window.addEventListener('focus', renderClocks);
-  window.addEventListener('pageshow', () => { restTimer.setPageActive(true); renderClocks(); restTimer.activateSound(); });
-  window.addEventListener('pagehide', () => { restTimer.setPageActive(false); document.title = originalTitle; });
+  window.addEventListener('pageshow', renderClocks);
+  window.addEventListener('pagehide', () => { document.title = originalTitle; });
   restTimer.update(state);
   if ('wakeLock' in navigator) {
     const toggle = workout.querySelector('[data-keep-awake]');

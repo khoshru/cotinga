@@ -714,3 +714,17 @@
     .portion-layout:has(.portion-builder:not([hidden])) .estimate-guide { grid-template-columns: 1fr; }
   }
 }
+
+@layer components {
+  .confirm-dialog { width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); overflow-y: auto; border: 1px solid #52735e; border-radius: 20px; padding: 25px; background: #192e25; color: var(--text); margin: auto; box-shadow: 0 20px 70px #0006; }
+  .confirm-dialog::backdrop { background: #06100dcc; backdrop-filter: blur(5px); }
+  .confirm-dialog-heading { display: flex; align-items: start; gap: 16px; justify-content: space-between; }
+  .confirm-dialog h2 { font-size: 23px; line-height: 1.45; overflow-wrap: anywhere; }
+  .confirm-dialog-heading .icon-button { flex: none; width: 40px; height: 40px; margin-top: -5px; }
+  .confirm-dialog > p { font-size: 14px; line-height: 1.8; color: #b7cfc1; margin-block: 15px 25px; }
+  .confirm-dialog-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .confirm-dialog-actions .button { justify-content: center; min-height: 46px; padding: 10px; font-size: 13px; white-space: normal; text-align: center; }
+}
+@layer responsive {
+  @media (max-width: 700px) { .confirm-dialog { padding: 22px; } .confirm-dialog h2 { font-size: 21px; } }
+}

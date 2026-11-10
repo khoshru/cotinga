@@ -9,14 +9,12 @@
     </div>
   </div>
   <p class="gym-rest-announcement" data-timer-announcement role="status"></p>
-  <div class="gym-rest-sound gym-js-only"><button type="button" class="button subtle" data-timer-sound aria-pressed="false" aria-describedby="rest-background-note">{% include 'icon.html' with name='sound' %}<span data-timer-sound-label>{% translate "Enable sound" %}</span></button><span>{% translate "Remembers your choice on this device" %}</span></div>
   <details>
     <summary>{% translate "Timer options" %}</summary>
     <div class="gym-rest-options">
       <form method="post" action="{% url 'gym:workout-action' session.pk %}" data-gym-save>{% csrf_token %}<input type="hidden" name="version" value="{{ session.version }}"><input type="hidden" name="action" value="timer"><input type="hidden" name="command" value="start"><label for="rest-seconds">{% translate "Seconds" %}</label><input id="rest-seconds" type="number" name="seconds" value="90" min="1" max="1800"><button class="button subtle">{% translate "Start timer" %}</button></form>
-      <button type="button" class="button subtle gym-test-sound" data-timer-test-sound disabled>{% translate "Test sound" %}</button>
       <label class="check-label" data-wake-label hidden><input type="checkbox" data-keep-awake>{% translate "Keep screen awake" %}</label>
-      <p id="rest-background-note" class="gym-rest-background-note">{% translate "The countdown keeps going when you switch tabs. Sound may be delayed if your device sleeps or suspends the browser. Keep this workout tab open." %}</p>
+      <p id="rest-background-note" class="gym-rest-background-note">{% translate "The countdown keeps going when you switch tabs." %}</p>
     </div>
   </details>
 </aside>
