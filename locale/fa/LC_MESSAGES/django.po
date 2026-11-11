@@ -3740,3 +3740,123 @@ msgstr "با عوض کردن تب، شمارش معکوس ادامه دارد."
 
 msgid "Exercise order"
 msgstr "ترتیب حرکت‌ها"
+
+msgid "A better starting point first"
+msgstr "اول یک شروع مناسب‌تر"
+
+msgid "Ab wheel"
+msgstr "چرخ شکم"
+
+msgid "Also needs"
+msgstr "همچنین نیاز دارد به"
+
+msgid "Anywhere"
+msgstr "هر جا"
+
+msgid "Arms"
+msgstr "بازوها"
+
+msgid "Ask a clinician which activities are suitable before requesting a plan for pain or an injury. Include their restrictions; AI cannot assess pain or provide rehabilitation."
+msgstr "پیش از درخواست برنامه برای درد یا آسیب، از پزشک یا فیزیوتراپیست بپرسید چه فعالیت‌هایی مناسب‌اند. محدودیت‌های تعیین‌شده را بنویسید؛ هوش مصنوعی نمی‌تواند درد را ارزیابی کند یا برنامه توان‌بخشی بدهد."
+
+msgid "At home"
+msgstr "در خانه"
+
+msgid "Back mobility"
+msgstr "تحرک پشت"
+
+msgid "Back pain guidance"
+msgstr "راهنمای کمردرد و درد پشت"
+
+msgid "Balance"
+msgstr "تعادل"
+
+msgid "Exercise bench or sturdy seat"
+msgstr "نیمکت ورزشی یا نشیمن محکم"
+
+msgid "Hips & glutes"
+msgstr "لگن و باسن"
+
+msgid "Hips & hamstrings"
+msgstr "باسن و پشت ران"
+
+msgid "Legs"
+msgstr "پاها"
+
+msgid "Let’s adjust the request"
+msgstr "بیایید درخواست را اصلاح کنیم"
+
+msgid "Lower back"
+msgstr "پایین کمر"
+
+msgid "Mobility"
+msgstr "تحرک"
+
+msgid "Move within a comfortable range. Stop if pain increases; these references are not a rehabilitation plan."
+msgstr "در دامنه راحت حرکت کنید. اگر درد بیشتر شد توقف کنید؛ این راهنماها برنامه توان‌بخشی نیستند."
+
+msgid "Next steps"
+msgstr "گام‌های بعدی"
+
+msgid "No equipment"
+msgstr "بدون تجهیزات"
+
+msgid "No routines were created. Update your request with suitable activity guidance or change the equipment and goal."
+msgstr "هیچ روتینی ساخته نشد. درخواست را با راهنمایی مناسب درباره فعالیت اصلاح کنید، یا تجهیزات و هدف را تغییر دهید."
+
+msgid "Nordic curl foot anchor"
+msgstr "مهار پا برای نوردیک کرل"
+
+msgid "Position reference"
+msgstr "نمای وضعیت حرکت"
+
+msgid "Secure resistance-band anchor"
+msgstr "مهار ایمن کش تمرینی"
+
+msgid "Shoulder blade control"
+msgstr "کنترل کتف"
+
+msgid "Spine mobility"
+msgstr "تحرک ستون فقرات"
+
+msgid "Stable exercise step"
+msgstr "پله ورزشی ثابت"
+
+msgid "Strength"
+msgstr "قدرتی"
+
+msgid "Training at home? Choose Bodyweight only, then add only the equipment you have. Your plan can include home strength, mobility, and balance movements."
+msgstr "در خانه تمرین می‌کنید؟ «فقط وزن بدن» را انتخاب کنید و فقط تجهیزاتی را که دارید اضافه کنید. برنامه می‌تواند شامل حرکات قدرتی، تحرکی و تعادلی خانگی باشد."
+
+msgid "Unmodified illustrations"
+msgstr "تصاویر بدون تغییر"
+
+msgid "Update my request"
+msgstr "ویرایش درخواست من"
+
+msgid "Upper & middle back"
+msgstr "بخش بالایی و میانی پشت"
+
+msgid "Where to train"
+msgstr "محل تمرین"
+
+msgid "Why there isn’t a plan yet"
+msgstr "چرا هنوز برنامه‌ای آماده نیست"
+
+msgid "Working around pain?"
+msgstr "با وجود درد تمرین می‌کنید؟"
+
+msgid "Your request is saved. Review what is needed before planning."
+msgstr "درخواست شما ذخیره شده است. پیش از برنامه‌ریزی موارد لازم را بررسی کنید."
+
+msgid "Illustrations by"
+msgstr "تصویرساز"
+
+msgid "Back extension bench"
+msgstr "نیمکت مخصوص فیله کمر"
+
+msgid "Battle ropes and secure anchor"
+msgstr "طناب بتل روپ و مهار ایمن"
+
+msgid "Jump rope"
+msgstr "طناب زدن"

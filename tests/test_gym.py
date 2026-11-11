@@ -46,7 +46,10 @@ JSON: dict[str, Any] = {"HTTP_ACCEPT": "application/json"}
 def training(client: Client, owner: User) -> None:
     client.force_login(owner)
     if not Exercise.objects.filter(owner__isnull=True).exists():
-        data = import_module("gym.migrations.0002_exercise_library").EXERCISES
+        data = (
+            import_module("gym.migrations.0002_exercise_library").EXERCISES
+            + import_module("gym.migrations.0006_home_exercises").EXERCISES
+        )
         Exercise.objects.bulk_create([Exercise(**row) for row in data])
 
 
@@ -95,7 +98,7 @@ def finish(client: Client, session: Workout) -> Any:
 
 
 def test_catalog_search_is_local_multilingual_and_filterable(client: Client) -> None:
-    assert Exercise.objects.filter(owner__isnull=True).count() == 273
+    assert Exercise.objects.filter(owner__isnull=True).count() == 332
     for query in ("Barbell bench", "پرس سینه", "წოლჭიმი"):
         response = client.get("/gym/exercises/", {"q": query})
         assert response.status_code == 200 and response.context["page"].paginator.count
@@ -858,7 +861,7 @@ def test_deleting_owner_removes_private_training_data_without_catalog_loss(
         not Workout.objects.exists()
         and not Exercise.objects.filter(owner__isnull=False).exists()
     )
-    assert Exercise.objects.filter(owner__isnull=True).count() == 273
+    assert Exercise.objects.filter(owner__isnull=True).count() == 332
 
 
 def test_routine_creation_selects_private_exercises_in_chosen_order(
@@ -992,7 +995,11 @@ def test_exercise_references_are_local_and_private_exercises_cannot_impersonate_
     media = exercise_media()
     assert len(media) >= 260
     for item in media.values():
-        assert item["name"] and item["provider"] in {"repdb", "free-exercise-db"}
+        assert item["name"] and item["provider"] in {
+            "repdb",
+            "free-exercise-db",
+            "workout-guide",
+        }
         assert len(item["images"]) >= 1
         for path in item["images"]:
             assert path.startswith("gym/exercises/")

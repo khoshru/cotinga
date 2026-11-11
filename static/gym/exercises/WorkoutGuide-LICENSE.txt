@@ -1,0 +1,17 @@
+Workout Guide visual assets are licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International license (CC BY-SA 4.0).
+
+Copyright (c) 2026 Bryl Lim, except where ATTRIBUTION.md identifies an
+upstream source.
+
+You may share and adapt these assets for any purpose, including commercially,
+provided that you give appropriate credit, link to the license, indicate
+changes, and distribute adaptations under the same license.
+
+License text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by-sa/4.0/
+
+Included SVGs: prone-y-raise, prone-t-raise, reverse-snow-angel, scapular-push-up; frames 1 and 2.
+Source: https://github.com/bryllim/workout-guide/tree/aac599224bb9780305239607ef98540b7e0ce389
+Artwork by Bryl Lim; these frames have no upstream Everkinetic attribution in the source manifest.
+Assets are unmodified. CC BY-SA 4.0 applies to the illustrations.

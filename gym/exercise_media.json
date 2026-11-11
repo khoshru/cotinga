@@ -1975,7 +1975,8 @@
     "provider": "repdb",
     "images": [
       "gym/exercises/repdb/images/flat/wall-sit-main.webp"
-    ]
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
   },
   "handstand-hold": {
     "name": "Handstand Hold",
@@ -2107,5 +2108,534 @@
     "images": [
       "gym/exercises/repdb/images/flat/dumbbell-farmers-walk-main.webp"
     ]
+  },
+  "prone-y-raise": {
+    "name": "Prone Y Raise",
+    "provider": "workout-guide",
+    "images": [
+      "gym/exercises/workout-guide/prone-y-raise/frame-1.svg",
+      "gym/exercises/workout-guide/prone-y-raise/frame-2.svg"
+    ],
+    "source": "https://github.com/bryllim/workout-guide/tree/aac599224bb9780305239607ef98540b7e0ce389/packages/workout-guide/assets/prone-y-raise",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "prone-t-raise": {
+    "name": "Prone T Raise",
+    "provider": "workout-guide",
+    "images": [
+      "gym/exercises/workout-guide/prone-t-raise/frame-1.svg",
+      "gym/exercises/workout-guide/prone-t-raise/frame-2.svg"
+    ],
+    "source": "https://github.com/bryllim/workout-guide/tree/aac599224bb9780305239607ef98540b7e0ce389/packages/workout-guide/assets/prone-t-raise",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "reverse-snow-angel": {
+    "name": "Reverse Snow Angel",
+    "provider": "workout-guide",
+    "images": [
+      "gym/exercises/workout-guide/reverse-snow-angel/frame-1.svg",
+      "gym/exercises/workout-guide/reverse-snow-angel/frame-2.svg"
+    ],
+    "source": "https://github.com/bryllim/workout-guide/tree/aac599224bb9780305239607ef98540b7e0ce389/packages/workout-guide/assets/reverse-snow-angel",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "scapular-push-up": {
+    "name": "Scapular Push-up",
+    "provider": "workout-guide",
+    "images": [
+      "gym/exercises/workout-guide/scapular-push-up/frame-1.svg",
+      "gym/exercises/workout-guide/scapular-push-up/frame-2.svg"
+    ],
+    "source": "https://github.com/bryllim/workout-guide/tree/aac599224bb9780305239607ef98540b7e0ce389/packages/workout-guide/assets/scapular-push-up",
+    "attribution": {
+      "creator": "Bryl Lim",
+      "creatorUrl": "https://bryllim.com",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "wall-push-ups": {
+    "name": "Wall Push Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/wall-push-ups-start.webp",
+      "gym/exercises/repdb/images/flat/wall-push-ups-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bodyweight-reverse-lunge": {
+    "name": "Bodyweight Reverse Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bodyweight-reverse-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/bodyweight-reverse-lunge-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "split-squat": {
+    "name": "Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/split-squat-start.webp",
+      "gym/exercises/repdb/images/flat/split-squat-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "side-lunge": {
+    "name": "Side Lunge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-lunge-start.webp",
+      "gym/exercises/repdb/images/flat/side-lunge-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "squat-pulse": {
+    "name": "Squat Pulse",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/squat-pulse-start.webp",
+      "gym/exercises/repdb/images/flat/squat-pulse-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "isometric-split-squat": {
+    "name": "Isometric Split Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/isometric-split-squat-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bodyweight-calf-raise": {
+    "name": "Bodyweight Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bodyweight-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/bodyweight-calf-raise-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "single-leg-calf-raise": {
+    "name": "Single Leg Calf Raise",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-leg-calf-raise-start.webp",
+      "gym/exercises/repdb/images/flat/single-leg-calf-raise-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "calf-raise-hold": {
+    "name": "Calf Raise Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/calf-raise-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "glute-bridge-hold": {
+    "name": "Glute Bridge Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/glute-bridge-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "single-leg-glute-bridge": {
+    "name": "Single Leg Glute Bridge",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/single-leg-glute-bridge-start.webp",
+      "gym/exercises/repdb/images/flat/single-leg-glute-bridge-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "clamshells": {
+    "name": "Clamshells",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/clamshells-start.webp",
+      "gym/exercises/repdb/images/flat/clamshells-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "fire-hydrant": {
+    "name": "Fire Hydrant",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/fire-hydrant-start.webp",
+      "gym/exercises/repdb/images/flat/fire-hydrant-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "side-lying-hip-abduction": {
+    "name": "Side-Lying Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-lying-hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/side-lying-hip-abduction-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "side-lying-hip-adduction": {
+    "name": "Side Lying Hip Adduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/side-lying-hip-adduction-start.webp",
+      "gym/exercises/repdb/images/flat/side-lying-hip-adduction-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "standing-hip-abduction": {
+    "name": "Standing Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/standing-hip-abduction-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bodyweight-good-morning": {
+    "name": "Bodyweight Good Morning",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bodyweight-good-morning-start.webp",
+      "gym/exercises/repdb/images/flat/bodyweight-good-morning-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bear-plank-hold": {
+    "name": "Bear Plank Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bear-plank-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bird-dog-hold": {
+    "name": "Bird Dog Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bird-dog-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "dead-bug-hold": {
+    "name": "Dead Bug Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/dead-bug-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "heel-touches": {
+    "name": "Heel Touches",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/heel-touches-start.webp",
+      "gym/exercises/repdb/images/flat/heel-touches-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "flutter-kicks": {
+    "name": "Flutter Kicks",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/flutter-kicks-start.webp",
+      "gym/exercises/repdb/images/flat/flutter-kicks-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "bear-crawl": {
+    "name": "Bear Crawl",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/bear-crawl-start.webp",
+      "gym/exercises/repdb/images/flat/bear-crawl-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "inchworm": {
+    "name": "Inchworm",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/inchworm-start.webp",
+      "gym/exercises/repdb/images/flat/inchworm-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "cat-cow": {
+    "name": "Cat-Cow",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cat-cow-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "thread-the-needle": {
+    "name": "Thread the Needle",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/thread-the-needle-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "thread-the-needle-flow": {
+    "name": "Thread the Needle Flow",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/thread-the-needle-flow-start.webp",
+      "gym/exercises/repdb/images/flat/thread-the-needle-flow-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "childs-pose": {
+    "name": "Child's Pose",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/childs-pose-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "puppy-pose": {
+    "name": "Puppy Pose",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/puppy-pose-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "cross-body-shoulder-stretch": {
+    "name": "Cross-Body Shoulder Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/cross-body-shoulder-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "doorway-chest-stretch": {
+    "name": "Doorway Chest Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/doorway-chest-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "overhead-triceps-stretch": {
+    "name": "Overhead Triceps Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/overhead-triceps-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "kneeling-wrist-stretch": {
+    "name": "Kneeling Wrist Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kneeling-wrist-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "90-90-hold": {
+    "name": "90/90 Hold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/90-90-hold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "90-90-switch": {
+    "name": "90/90 Switch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/90-90-switch-start.webp",
+      "gym/exercises/repdb/images/flat/90-90-switch-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "butterfly-stretch": {
+    "name": "Butterfly Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/butterfly-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "kneeling-hip-flexor-stretch": {
+    "name": "Kneeling Hip Flexor Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/kneeling-hip-flexor-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "half-kneeling-hip-flexor-rock": {
+    "name": "Half-Kneeling Hip Flexor Rock",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/half-kneeling-hip-flexor-rock-start.webp",
+      "gym/exercises/repdb/images/flat/half-kneeling-hip-flexor-rock-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "seated-forward-fold": {
+    "name": "Seated Forward Fold",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/seated-forward-fold-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "lying-quad-stretch": {
+    "name": "Lying Quad Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/lying-quad-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "standing-quad-stretch": {
+    "name": "Standing Quad Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-quad-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "standing-calf-stretch": {
+    "name": "Standing Calf Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-calf-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "wall-hamstring-stretch": {
+    "name": "Wall Hamstring Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/wall-hamstring-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "standing-adductor-stretch": {
+    "name": "Standing Adductor Stretch",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/standing-adductor-stretch-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "supported-single-leg-stand": {
+    "name": "Supported Single-Leg Stand",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/supported-single-leg-stand-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "tandem-stance": {
+    "name": "Tandem Stance",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/tandem-stance-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "heel-to-toe-walk": {
+    "name": "Heel-to-Toe Walk",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/heel-to-toe-walk-main.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "step-ups": {
+    "name": "Step Ups",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/step-ups-start.webp",
+      "gym/exercises/repdb/images/flat/step-ups-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "band-pull-apart": {
+    "name": "Band Pull Apart",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/band-pull-apart-start.webp",
+      "gym/exercises/repdb/images/flat/band-pull-apart-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-clamshell": {
+    "name": "Banded Clamshell",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-clamshell-start.webp",
+      "gym/exercises/repdb/images/flat/banded-clamshell-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-fire-hydrant": {
+    "name": "Banded Fire Hydrant",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-fire-hydrant-start.webp",
+      "gym/exercises/repdb/images/flat/banded-fire-hydrant-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-lateral-walk": {
+    "name": "Banded Lateral Walk",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-lateral-walk-start.webp",
+      "gym/exercises/repdb/images/flat/banded-lateral-walk-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-seated-hip-abduction": {
+    "name": "Banded Seated Hip Abduction",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-seated-hip-abduction-start.webp",
+      "gym/exercises/repdb/images/flat/banded-seated-hip-abduction-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-squat": {
+    "name": "Banded Squat",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-squat-start.webp",
+      "gym/exercises/repdb/images/flat/banded-squat-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
+  },
+  "banded-kneeling-hip-thrust": {
+    "name": "Banded Kneeling Hip Thrust",
+    "provider": "repdb",
+    "images": [
+      "gym/exercises/repdb/images/flat/banded-kneeling-hip-thrust-start.webp",
+      "gym/exercises/repdb/images/flat/banded-kneeling-hip-thrust-peak.webp"
+    ],
+    "source": "https://github.com/RepDB/exercise-dataset/tree/acdc4bba90c42aaa34dd8cbeb490e51586a438e4"
   }
 }

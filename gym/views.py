@@ -28,6 +28,7 @@ from django.views.decorators.http import require_GET, require_http_methods, requ
 from accounts.models import User
 from tracker.models import WeightEntry
 
+from .catalog import equipment_requirements, matching_movements, movement_details
 from .forms import (
     BodyweightForm,
     ExerciseForm,
@@ -153,16 +154,41 @@ def library(request: HttpRequest) -> HttpResponse:
         else exercises_for(user).filter(archived=False)
     )
     query = request.GET.get("q", "")[:120].strip()
-    for term in query.split()[:8]:
+    details = movement_details()
+    for term in query.replace("-", " ").split()[:8]:
         queryset = queryset.filter(
             Q(name__icontains=term)
             | Q(name_fa__icontains=term)
             | Q(name_ka__icontains=term)
+            | Q(owner__isnull=True, slug__in=matching_movements(term))
         )
     for field in ("muscle", "equipment", "mode"):
         value = request.GET.get(field, "")
-        if value:
+        if field == "muscle" and value == "upper_back":
+            queryset = queryset.filter(
+                owner__isnull=True,
+                slug__in=[
+                    slug
+                    for slug, item in details.items()
+                    if item.get("focus") == "upper_back"
+                ],
+            )
+        elif value:
             queryset = queryset.filter(**{field: value[:20]})
+    setting = request.GET.get("setting", "")
+    if setting == "home":
+        queryset = queryset.filter(
+            owner__isnull=True,
+            slug__in=[slug for slug, item in details.items() if item.get("home")],
+        )
+    elif setting == "none":
+        queryset = queryset.filter(
+            pk__in=[
+                e.pk
+                for e in queryset.filter(owner__isnull=True, equipment="bodyweight")
+                if not equipment_requirements(e)
+            ]
+        )
     if request.GET.get("custom"):
         queryset = queryset.filter(owner=user)
     routine = session = None
@@ -185,7 +211,10 @@ def library(request: HttpRequest) -> HttpResponse:
         "page": Paginator(queryset, 24).get_page(request.GET.get("page")),
         "query": query,
         "filters": request.GET,
-        "muscles": Exercise.Muscle.choices,
+        "muscles": [
+            ("upper_back", gettext("Upper & middle back")),
+            *Exercise.Muscle.choices,
+        ],
         "equipment": Exercise.Equipment.choices,
         "modes": Exercise.Mode.choices,
         "routine": routine,

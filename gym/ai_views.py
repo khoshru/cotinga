@@ -53,7 +53,7 @@ def available_exercises(user: User, data: dict[str, Any]) -> list[Exercise]:
         queryset = queryset.filter(owner__isnull=True)
     return [
         exercise
-        for exercise in queryset[:500]
+        for exercise in queryset
         if ai.equipment_requirements(exercise).issubset(set(allowed_equipment))
     ]
 
@@ -114,7 +114,7 @@ def generate(request: HttpRequest) -> HttpResponse:
     user = cast(User, request.user)
     preferences = OpenRouterSettings.objects.filter(user=user).first()
     latest = RoutineSuggestion.objects.filter(user=user).first()
-    initial = dict(latest.original_input) if latest else {"equipment": ["dumbbell"]}
+    initial = dict(latest.original_input) if latest else {"equipment": []}
     initial["submission"] = uuid.uuid4()
     form = RoutineRequestForm(
         request.POST if request.method == "POST" else None, initial=initial

@@ -1,0 +1,1543 @@
+{
+  "prone-y-raise": {
+    "focus": "upper_back",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie face down, lift your arms in a Y with thumbs up, and lower slowly without lifting your chest.",
+    "cue_fa": "دمر بخوابید، دست‌ها را با شست رو به بالا به شکل Y کمی بلند کنید و بدون بلند کردن سینه آرام پایین بیاورید.",
+    "cue_ka": "დაწექით მუცელზე, ხელები ცერებით ზემოთ Y ფორმით ოდნავ ასწიეთ და მკერდის აწევის გარეშე ნელა დაუშვით.",
+    "difficulty": "intermediate"
+  },
+  "prone-t-raise": {
+    "focus": "upper_back",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie face down with arms out in a T. Lift the arms slightly, drawing shoulder blades together; lower with control.",
+    "cue_fa": "دمر بخوابید و دست‌ها را به شکل T باز کنید. با نزدیک کردن کتف‌ها دست‌ها را کمی بالا ببرید و آرام پایین بیاورید.",
+    "cue_ka": "მუცელზე წოლით ხელები T ფორმით გაშალეთ. ბეჭები ერთმანეთს მიუახლოვეთ, ხელები ოდნავ ასწიეთ და ნელა დაუშვით.",
+    "difficulty": "intermediate"
+  },
+  "reverse-snow-angel": {
+    "focus": "upper_back",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie face down and sweep your arms slowly from your sides toward overhead within a comfortable range. Keep your neck relaxed.",
+    "cue_fa": "دمر بخوابید و دست‌ها را آرام از کنار بدن به سمت بالای سر حرکت دهید. دامنه راحت باشد و گردن را رها نگه دارید.",
+    "cue_ka": "მუცელზე წოლით ხელები გვერდებიდან თავისკენ ნელა ამოძრავეთ კომფორტულ დიაპაზონში. კისერი მოადუნეთ.",
+    "difficulty": "intermediate"
+  },
+  "scapular-push-up": {
+    "focus": "shoulder_blades",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "In a high plank keep elbows straight. Let the shoulder blades move together, then push the floor away. This trains serratus control, not a rowing movement.",
+    "cue_fa": "در حالت پلانک بلند آرنج‌ها را صاف نگه دارید. کتف‌ها را نزدیک کنید، سپس زمین را دور کنید. این حرکت کنترل کتف است، نه جایگزین قایقی.",
+    "cue_ka": "მაღალ პლანკში იდაყვები გამართული დატოვეთ. ბეჭები შეაერთეთ, შემდეგ იატაკს მიაწექით. ეს ბეჭების კონტროლია და არა მოზიდვის შემცვლელი.",
+    "difficulty": "intermediate"
+  },
+  "wall-push-ups": {
+    "focus": "chest",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Place palms on a solid wall, step back, bend your elbows toward the wall, then press away with your body straight.",
+    "cue_fa": "کف دست‌ها را روی دیوار محکم بگذارید، کمی عقب بروید، آرنج‌ها را خم کنید و با بدن صاف به عقب فشار دهید.",
+    "cue_ka": "ხელისგულები მყარ კედელს მიადეთ, უკან გადადგით, იდაყვები მოხარეთ და სწორი ტანით კედელს მოშორდით.",
+    "difficulty": "beginner"
+  },
+  "bodyweight-reverse-lunge": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Step one foot back, bend both knees within a comfortable range, then return. Repeat on both sides.",
+    "cue_fa": "یک پا را عقب بگذارید، هر دو زانو را در دامنه راحت خم کنید و برگردید. هر دو طرف را انجام دهید.",
+    "cue_ka": "ერთი ფეხი უკან გადადგით, ორივე მუხლი კომფორტულად მოხარეთ და დაბრუნდით. ორივე მხარეს შეასრულეთ.",
+    "difficulty": "beginner"
+  },
+  "split-squat": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Use a staggered stance. Lower straight down by bending both knees, then rise; keep feet planted and repeat both sides.",
+    "cue_fa": "با پاهای جلو و عقب بایستید. هر دو زانو را خم کنید و مستقیم پایین بروید، سپس بالا بیایید؛ هر دو طرف.",
+    "cue_ka": "დადგით ფეხები წინ და უკან. ორივე მუხლი მოხარეთ, ვერტიკალურად დაეშვით და აიწიეთ; გაიმეორეთ ორივე მხარეს.",
+    "difficulty": "intermediate"
+  },
+  "side-lunge": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Step to the side, sit your hips back over the bent leg, then return. Keep the other leg comfortably straight.",
+    "cue_fa": "به کنار قدم بگذارید و لگن را روی پای خم‌شده عقب ببرید، سپس برگردید. پای دیگر راحت و صاف بماند.",
+    "cue_ka": "გვერდზე გადადგით და მენჯი მოხრილი ფეხისკენ უკან წაიღეთ, შემდეგ დაბრუნდით. მეორე ფეხი კომფორტულად გამართული დატოვეთ.",
+    "difficulty": "intermediate"
+  },
+  "squat-pulse": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Hold a comfortable squat depth and make small, controlled up-and-down movements without bouncing.",
+    "cue_fa": "در عمق راحت اسکوات بمانید و حرکت‌های کوچک و کنترل‌شده بالا و پایین انجام دهید، بدون جهش.",
+    "cue_ka": "ჩაჯდომის კომფორტულ სიღრმეზე მცირე, კონტროლირებული მოძრაობები შეასრულეთ ხტუნვის გარეშე.",
+    "difficulty": "beginner"
+  },
+  "isometric-split-squat": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lower into a split squat and hold a comfortable position while breathing. Repeat with the other leg forward.",
+    "cue_fa": "در اسپلیت اسکوات پایین بروید و در وضعیت راحت با تنفس عادی بمانید. پای جلو را عوض کنید.",
+    "cue_ka": "გაყოფილ ჩაჯდომაში კომფორტული პოზა სუნთქვის შეკავების გარეშე დაიჭირეთ. შემდეგ წინა ფეხი შეცვალეთ.",
+    "difficulty": "intermediate"
+  },
+  "bodyweight-calf-raise": {
+    "focus": "calves",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Rise onto the balls of both feet, pause, and lower your heels slowly. Use a wall for balance if needed.",
+    "cue_fa": "روی پنجه هر دو پا بالا بروید، مکث کنید و پاشنه‌ها را آرام پایین بیاورید. در صورت نیاز برای تعادل از دیوار کمک بگیرید.",
+    "cue_ka": "ორივე ტერფის წინა ნაწილზე აიწიეთ, შეჩერდით და ქუსლები ნელა დაუშვით. წონასწორობისთვის საჭიროებისას კედელს დაეყრდენით.",
+    "difficulty": "beginner"
+  },
+  "single-leg-calf-raise": {
+    "focus": "calves",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Raise one heel while standing on that leg, using a wall for balance. Lower slowly and repeat on both sides.",
+    "cue_fa": "روی یک پا بایستید و با کمک دیوار برای تعادل، پاشنه را بالا ببرید. آرام پایین بیایید و هر دو طرف را انجام دهید.",
+    "cue_ka": "ცალ ფეხზე დგომით ქუსლი ასწიეთ, წონასწორობისთვის კედელს დაეყრდენით. ნელა დაუშვით და ორივე მხარეს გაიმეორეთ.",
+    "difficulty": "beginner"
+  },
+  "calf-raise-hold": {
+    "focus": "calves",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Rise onto both forefeet and hold with steady breathing; touch a wall if you need balance support.",
+    "cue_fa": "روی پنجه هر دو پا بالا بروید و با تنفس عادی نگه دارید؛ برای تعادل در صورت نیاز دیوار را بگیرید.",
+    "cue_ka": "ტერფების წინა ნაწილზე აიწიეთ და მშვიდად სუნთქვით დაიჭირეთ; წონასწორობისთვის კედელს შეეხეთ.",
+    "difficulty": "beginner"
+  },
+  "glute-bridge-hold": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lift your hips from a bent-knee lying position and hold, keeping ribs down and breathing normally.",
+    "cue_fa": "با زانوهای خم لگن را بالا ببرید و با دنده‌های پایین و تنفس عادی نگه دارید.",
+    "cue_ka": "მოხრილი მუხლებით მენჯი ასწიეთ და ნეკნების დაწევით, ჩვეულებრივი სუნთქვით დაიჭირეთ.",
+    "difficulty": "beginner"
+  },
+  "single-leg-glute-bridge": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Keep one foot planted and lift your hips without twisting. Lower with control and repeat on the other side.",
+    "cue_fa": "یک پا روی زمین بماند و لگن را بدون چرخش بالا ببرید. آرام پایین بیایید و سمت دیگر را انجام دهید.",
+    "cue_ka": "ერთი ტერფი იატაკზე დატოვეთ და მენჯი შემობრუნების გარეშე ასწიეთ. ნელა დაუშვით და მეორე მხარეს გაიმეორეთ.",
+    "difficulty": "intermediate"
+  },
+  "clamshells": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your side with bent knees and feet together. Open the top knee without rolling your pelvis back.",
+    "cue_fa": "به پهلو با زانوهای خم و پاهای کنار هم بخوابید. زانوی بالا را بدون چرخاندن لگن به عقب باز کنید.",
+    "cue_ka": "გვერდზე დაწექით მოხრილი მუხლებით და შეერთებული ტერფებით. ზედა მუხლი მენჯის უკან გადატრიალების გარეშე გახსენით.",
+    "difficulty": "intermediate"
+  },
+  "fire-hydrant": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "On all fours lift one bent knee out to the side while keeping your trunk steady. Lower and change sides.",
+    "cue_fa": "چهاردست‌وپا، یک زانوی خم را به کنار بالا ببرید و تنه را ثابت نگه دارید. پایین بیاورید و طرف را عوض کنید.",
+    "cue_ka": "ოთხზე დგომით მოხრილი მუხლი გვერდზე ასწიეთ და ტანი უძრავად შეინარჩუნეთ. დაუშვით და მხარე შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "side-lying-hip-abduction": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your side, lift the straight top leg without rolling backward, and lower slowly; repeat on both sides.",
+    "cue_fa": "به پهلو بخوابید، پای بالایی صاف را بدون چرخش به عقب بالا ببرید و آرام پایین بیاورید؛ هر دو طرف.",
+    "cue_ka": "გვერდზე წოლით ზედა გამართული ფეხი უკან გადატრიალების გარეშე ასწიეთ და ნელა დაუშვით; ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "side-lying-hip-adduction": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your side with the top foot planted in front. Lift and lower the straight bottom leg under control.",
+    "cue_fa": "به پهلو بخوابید و پای بالایی را جلو روی زمین بگذارید. پای پایینی صاف را آرام بالا و پایین ببرید.",
+    "cue_ka": "გვერდზე დაწექით და ზედა ტერფი წინ იატაკზე დადგით. ქვედა გამართული ფეხი ნელა ასწიეთ და დაუშვით.",
+    "difficulty": "intermediate"
+  },
+  "standing-hip-abduction": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Stand tall beside a wall, move one leg out to the side without leaning, then return and change sides.",
+    "cue_fa": "کنار دیوار صاف بایستید، یک پا را بدون خم شدن تنه به کنار ببرید و برگردانید؛ طرف را عوض کنید.",
+    "cue_ka": "კედელთან სწორად დადექით, ერთი ფეხი ტანის გადახრის გარეშე გვერდზე გასწიეთ და დააბრუნეთ; მხარე შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "bodyweight-good-morning": {
+    "focus": "posterior_chain",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "With soft knees, move hips back and hinge forward with a steady trunk, then stand. This is a hip hinge, not upper-back isolation.",
+    "cue_fa": "با زانوهای کمی خم، لگن را عقب ببرید و از مفصل ران خم شوید، سپس بایستید. این حرکت مفصل ران است، نه تمرین اختصاصی بالای پشت.",
+    "cue_ka": "ოდნავ მოხრილი მუხლებით მენჯი უკან წაიღეთ და წინ გადაიხარეთ, შემდეგ გასწორდით. ეს მენჯიდან დახრაა და არა ზედა ზურგის იზოლაცია.",
+    "difficulty": "beginner"
+  },
+  "bear-plank-hold": {
+    "focus": "core",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "On hands and knees lift your knees a little off the floor, hold your back steady, and breathe.",
+    "cue_fa": "روی دست و زانو، زانوها را کمی از زمین بلند کنید، پشت را ثابت نگه دارید و نفس بکشید.",
+    "cue_ka": "ხელებსა და მუხლებზე დგომით მუხლები იატაკს ოდნავ მოაშორეთ, ზურგი სტაბილურად დაიჭირეთ და ისუნთქეთ.",
+    "difficulty": "beginner"
+  },
+  "bird-dog-hold": {
+    "focus": "core",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "On all fours extend opposite arm and leg, hold without twisting, and repeat on the other side.",
+    "cue_fa": "چهاردست‌وپا دست و پای مخالف را باز کنید، بدون چرخش نگه دارید و سمت دیگر را انجام دهید.",
+    "cue_ka": "ოთხზე დგომით საპირისპირო ხელი და ფეხი გაშალეთ, შემობრუნების გარეშე დაიჭირეთ და მხარე შეცვალეთ.",
+    "difficulty": "intermediate"
+  },
+  "dead-bug-hold": {
+    "focus": "core",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your back, brace gently, and hold opposite arm and leg extended only as far as your trunk stays steady.",
+    "cue_fa": "به پشت بخوابید، شکم را ملایم سفت کنید و دست و پای مخالف را فقط تا جایی باز نگه دارید که تنه ثابت بماند.",
+    "cue_ka": "ზურგზე დაწექით, მუცელი მსუბუქად დაჭიმეთ და საპირისპირო ხელი და ფეხი მხოლოდ ტანის სტაბილურობის შენარჩუნებით გაშალეთ.",
+    "difficulty": "beginner"
+  },
+  "heel-touches": {
+    "focus": "core",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie with knees bent and reach from side to side toward your heels without pulling your neck.",
+    "cue_fa": "با زانوهای خم بخوابید و بدون کشیدن گردن، از یک طرف به طرف دیگر به سمت پاشنه‌ها دست ببرید.",
+    "cue_ka": "მოხრილი მუხლებით დაწექით და კისრის დაჭიმვის გარეშე ხელები მონაცვლეობით ქუსლებისკენ გასწიეთ.",
+    "difficulty": "intermediate"
+  },
+  "flutter-kicks": {
+    "focus": "core",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your back and make small alternating leg lifts. Keep the range small enough to control your lower back.",
+    "cue_fa": "به پشت بخوابید و پاها را یکی‌درمیان کمی بالا ببرید. دامنه را طوری نگه دارید که کمر کنترل شود.",
+    "cue_ka": "ზურგზე წოლით ფეხები მონაცვლეობით ოდნავ ასწიეთ. დიაპაზონი წელის კონტროლისთვის მცირე დატოვეთ.",
+    "difficulty": "intermediate"
+  },
+  "bear-crawl": {
+    "focus": "full_body",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "With knees hovering, take small opposite-hand and foot steps while keeping your hips steady.",
+    "cue_fa": "با زانوهای کمی بالاتر از زمین، دست و پای مخالف را با قدم‌های کوچک حرکت دهید و لگن را ثابت نگه دارید.",
+    "cue_ka": "მუხლების იატაკიდან ოდნავ აწევით საპირისპირო ხელითა და ფეხით მცირე ნაბიჯები გადადგით; მენჯი უძრავად დატოვეთ.",
+    "difficulty": "beginner"
+  },
+  "inchworm": {
+    "focus": "full_body",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Hinge forward, walk your hands into a comfortable plank, then walk back and stand. Bend knees as needed.",
+    "cue_fa": "از ران خم شوید، با دست‌ها تا پلانک راحت جلو بروید و سپس برگردید و بایستید. در صورت نیاز زانوها را خم کنید.",
+    "cue_ka": "მენჯიდან გადაიხარეთ, ხელებით კომფორტულ პლანკამდე წინ გადით, შემდეგ უკან დაბრუნდით და გასწორდით. საჭიროებისას მუხლები მოხარეთ.",
+    "difficulty": "beginner"
+  },
+  "wall-sit": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Slide down a solid wall to a comfortable seated depth, keep feet planted, and hold while breathing.",
+    "cue_fa": "به دیوار محکم تکیه دهید و تا عمق راحت پایین بروید، پاها روی زمین بمانند و با تنفس عادی نگه دارید.",
+    "cue_ka": "მყარ კედელს მიეყრდენით და ჯდომის კომფორტულ სიღრმემდე ჩადით; ტერფები იატაკზე დატოვეთ და ისუნთქეთ.",
+    "difficulty": "beginner"
+  },
+  "cat-cow": {
+    "focus": "spine_mobility",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "On all fours slowly round and release your back within a comfortable range. Do not force the end position.",
+    "cue_fa": "چهاردست‌وپا پشت را آرام در دامنه راحت گرد و رها کنید. انتهای دامنه را به زور نروید.",
+    "cue_ka": "ოთხზე დგომით ზურგი კომფორტულ დიაპაზონში ნელა მოამრგვალეთ და გაასწორეთ. უკიდურეს პოზიციას ძალით ნუ მიაღწევთ.",
+    "difficulty": "beginner"
+  },
+  "thread-the-needle": {
+    "focus": "upper_back",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "On all fours slide one arm under the other, gently turning your upper trunk. Hold a comfortable range and repeat both sides.",
+    "cue_fa": "چهاردست‌وپا یک دست را زیر دست دیگر ببرید و بالای تنه را ملایم بچرخانید. در دامنه راحت نگه دارید؛ هر دو طرف.",
+    "cue_ka": "ოთხზე დგომით ერთი ხელი მეორის ქვეშ გააცურეთ და ტანის ზედა ნაწილი მსუბუქად შეატრიალეთ. კომფორტულ პოზაში დაიჭირეთ; ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "thread-the-needle-flow": {
+    "focus": "upper_back",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "From all fours reach one arm underneath, then gently open it toward the ceiling. Move slowly and change sides.",
+    "cue_fa": "چهاردست‌وپا یک دست را زیر تنه ببرید و سپس آرام به سمت سقف باز کنید. آهسته حرکت کنید و طرف را عوض کنید.",
+    "cue_ka": "ოთხზე დგომით ერთი ხელი ტანის ქვეშ გასწიეთ, შემდეგ ჭერისკენ ნელა გახსენით. მხარე შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "childs-pose": {
+    "focus": "back_mobility",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "From kneeling sit hips back toward heels and reach forward only as far as comfortable; breathe gently.",
+    "cue_fa": "از حالت زانو، لگن را به سمت پاشنه‌ها عقب ببرید و تا حد راحت دست‌ها را جلو بکشید؛ آرام نفس بکشید.",
+    "cue_ka": "მუხლებზე დგომიდან მენჯი ქუსლებისკენ წაიღეთ და ხელები კომფორტულად წინ გასწიეთ; მშვიდად ისუნთქეთ.",
+    "difficulty": "beginner"
+  },
+  "puppy-pose": {
+    "focus": "back_mobility",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "From all fours walk hands forward and lower your chest only within a comfortable shoulder range, keeping hips over knees.",
+    "cue_fa": "چهاردست‌وپا دست‌ها را جلو ببرید و سینه را فقط در دامنه راحت شانه پایین بیاورید؛ لگن بالای زانوها بماند.",
+    "cue_ka": "ოთხზე დგომით ხელები წინ გასწიეთ და მკერდი მხრებისთვის კომფორტულ დიაპაზონში დაუშვით; მენჯი მუხლების ზემოთ დატოვეთ.",
+    "difficulty": "beginner"
+  },
+  "cross-body-shoulder-stretch": {
+    "focus": "shoulders",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Bring one arm across your chest and support it with the other arm without forcing or shrugging.",
+    "cue_fa": "یک دست را جلوی سینه بیاورید و با دست دیگر حمایت کنید، بدون فشار زیاد یا بالا کشیدن شانه.",
+    "cue_ka": "ერთი ხელი მკერდის გასწვრივ გადაიტანეთ და მეორით მსუბუქად დაიჭირეთ, მხრის აწევისა და ძალდატანების გარეშე.",
+    "difficulty": "beginner"
+  },
+  "doorway-chest-stretch": {
+    "focus": "chest",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Rest forearms on a sturdy doorway and shift forward a little until you feel a comfortable chest stretch.",
+    "cue_fa": "ساعدها را روی چارچوب محکم بگذارید و کمی جلو بروید تا کشش راحتی در سینه حس کنید.",
+    "cue_ka": "წინამხრები მყარ კარის ჩარჩოს მიადეთ და ოდნავ წინ გადაიხარეთ, სანამ მკერდის კომფორტულ გაჭიმვას იგრძნობთ.",
+    "difficulty": "beginner"
+  },
+  "overhead-triceps-stretch": {
+    "focus": "arms",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Bend one elbow overhead and gently guide it with the other hand, keeping your neck relaxed.",
+    "cue_fa": "یک آرنج را بالای سر خم کنید و با دست دیگر آرام هدایت کنید؛ گردن رها بماند.",
+    "cue_ka": "ერთი იდაყვი თავს ზემოთ მოხარეთ და მეორე ხელით მსუბუქად დაიჭირეთ; კისერი მოადუნეთ.",
+    "difficulty": "beginner"
+  },
+  "kneeling-wrist-stretch": {
+    "focus": "arms",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Place palms on the floor from kneeling and gently shift weight within a comfortable wrist range.",
+    "cue_fa": "از حالت زانو کف دست‌ها را روی زمین بگذارید و وزن را فقط در دامنه راحت مچ آرام جابه‌جا کنید.",
+    "cue_ka": "მუხლებზე დგომით ხელისგულები იატაკზე დადეთ და წონა მაჯებისთვის კომფორტულ დიაპაზონში მსუბუქად გადაიტანეთ.",
+    "difficulty": "beginner"
+  },
+  "90-90-hold": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Sit with both knees bent about 90 degrees and stay upright using your hands for support. Do not force the knees down.",
+    "cue_fa": "بنشینید و هر دو زانو را حدود ۹۰ درجه خم کنید؛ با کمک دست‌ها صاف بمانید. زانوها را به زور پایین نبرید.",
+    "cue_ka": "ორივე მუხლი დაახლოებით 90 გრადუსით მოხარეთ და ხელებზე დაყრდნობით სწორად იჯექით. მუხლებს ძალით ნუ დააწვებით.",
+    "difficulty": "beginner"
+  },
+  "90-90-switch": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Sit with bent knees, rotate both knees gently from one side to the other, and use hands for balance.",
+    "cue_fa": "با زانوهای خم بنشینید و هر دو زانو را آرام از یک طرف به طرف دیگر بچرخانید؛ برای تعادل از دست‌ها کمک بگیرید.",
+    "cue_ka": "მოხრილი მუხლებით დაჯექით და ორივე მუხლი ერთი მხრიდან მეორეზე მსუბუქად გადაიტანეთ; ხელებით წონასწორობა შეინარჩუნეთ.",
+    "difficulty": "intermediate"
+  },
+  "butterfly-stretch": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Sit with soles together, sit tall, and allow knees to relax outward without pressing them down.",
+    "cue_fa": "با کف پاهای چسبیده بنشینید، صاف بمانید و بگذارید زانوها بدون فشار به بیرون رها شوند.",
+    "cue_ka": "ტერფები ერთმანეთს მიადეთ, სწორად დაჯექით და მუხლები დაწოლის გარეშე გვერდებზე მოადუნეთ.",
+    "difficulty": "beginner"
+  },
+  "kneeling-hip-flexor-stretch": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "From half kneeling gently move hips forward without arching your lower back; repeat both sides.",
+    "cue_fa": "در حالت یک زانو، لگن را بدون گود کردن کمر آرام جلو ببرید؛ هر دو طرف را انجام دهید.",
+    "cue_ka": "ცალ მუხლზე დგომით მენჯი წინ მსუბუქად წაიღეთ, წელის ზედმეტი მოხრის გარეშე; ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "half-kneeling-hip-flexor-rock": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "From half kneeling gently rock hips forward and back with a steady trunk; avoid forcing the range.",
+    "cue_fa": "در حالت یک زانو لگن را با تنه ثابت آرام جلو و عقب ببرید؛ دامنه را به زور بیشتر نکنید.",
+    "cue_ka": "ცალ მუხლზე დგომით მენჯი სტაბილური ტანით ნელა წინ და უკან ამოძრავეთ; დიაპაზონს ძალით ნუ გაზრდით.",
+    "difficulty": "beginner"
+  },
+  "seated-forward-fold": {
+    "focus": "legs",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Sit with legs extended and hinge forward only as far as comfortable. Bend knees if needed and do not pull yourself down.",
+    "cue_fa": "با پاهای باز بنشینید و فقط تا حد راحت از ران به جلو خم شوید. در صورت نیاز زانوها را خم کنید و خود را پایین نکشید.",
+    "cue_ka": "გამართული ფეხებით დაჯექით და მენჯიდან კომფორტულად წინ გადაიხარეთ. საჭიროებისას მუხლები მოხარეთ და ტანს ძალით ნუ მოქაჩავთ.",
+    "difficulty": "beginner"
+  },
+  "lying-quad-stretch": {
+    "focus": "legs",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your side, gently bring the top heel toward the hip and keep the knees near each other; repeat both sides.",
+    "cue_fa": "به پهلو بخوابید و پاشنه بالایی را آرام به باسن نزدیک کنید؛ زانوها نزدیک هم بمانند و هر دو طرف را انجام دهید.",
+    "cue_ka": "გვერდზე დაწექით, ზედა ქუსლი დუნდულისკენ მსუბუქად მიიტანეთ და მუხლები ახლოს დატოვეთ; ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "standing-quad-stretch": {
+    "focus": "legs",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Stand beside a wall, bring one heel gently toward your hip, and keep the thighs aligned. Repeat on both sides.",
+    "cue_fa": "کنار دیوار بایستید، یک پاشنه را آرام به باسن نزدیک کنید و ران‌ها را هم‌راستا نگه دارید؛ هر دو طرف.",
+    "cue_ka": "კედელთან დადექით, ერთი ქუსლი დუნდულისკენ მსუბუქად მიიტანეთ და ბარძაყები ერთ ხაზზე დატოვეთ; ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "standing-calf-stretch": {
+    "focus": "calves",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Step one leg back, keep the heel down, and gently bend the front knee; repeat with the other leg.",
+    "cue_fa": "یک پا را عقب بگذارید، پاشنه را پایین نگه دارید و زانوی جلو را ملایم خم کنید؛ پای دیگر را هم انجام دهید.",
+    "cue_ka": "ერთი ფეხი უკან გადადგით, ქუსლი იატაკზე დატოვეთ და წინა მუხლი მსუბუქად მოხარეთ; ფეხი შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "wall-hamstring-stretch": {
+    "focus": "legs",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Lie near a wall with one leg supported up the wall and keep a comfortable knee bend; change sides.",
+    "cue_fa": "نزدیک دیوار بخوابید و یک پا را روی دیوار بالا ببرید؛ زانو راحت و کمی خم باشد. طرف را عوض کنید.",
+    "cue_ka": "კედელთან დაწექით და ერთი ფეხი კედელს ზემოთ მიაყრდენით; მუხლი კომფორტულად მოხრილი დატოვეთ. მხარე შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "standing-adductor-stretch": {
+    "focus": "hips",
+    "kind": "mobility",
+    "home": true,
+    "requires": [],
+    "cue": "Take a wide stance, bend one knee and shift gently toward it while the other leg stays straight; repeat both sides.",
+    "cue_fa": "پاها را باز کنید، یک زانو را خم کنید و آرام به آن سمت بروید؛ پای دیگر صاف بماند. هر دو طرف.",
+    "cue_ka": "ფართოდ დადექით, ერთი მუხლი მოხარეთ და წონა მსუბუქად მისკენ გადაიტანეთ; მეორე ფეხი გამართული დატოვეთ. ორივე მხარეს.",
+    "difficulty": "beginner"
+  },
+  "supported-single-leg-stand": {
+    "focus": "balance",
+    "kind": "balance",
+    "home": true,
+    "requires": [],
+    "cue": "Stand beside a solid wall, lift one foot and hold with light hand support. Switch legs; stay within reach of support.",
+    "cue_fa": "کنار دیوار محکم بایستید، یک پا را بلند کنید و با کمک سبک دست تعادل را حفظ کنید. پاها را عوض کنید و نزدیک تکیه‌گاه بمانید.",
+    "cue_ka": "მყარ კედელთან დადექით, ერთი ტერფი ასწიეთ და ხელის მსუბუქი დაყრდნობით დაიჭირეთ. ფეხი შეცვალეთ და საყრდენთან დარჩით.",
+    "difficulty": "beginner"
+  },
+  "tandem-stance": {
+    "focus": "balance",
+    "kind": "balance",
+    "home": true,
+    "requires": [],
+    "cue": "Stand with one foot directly in front of the other near a wall; hold steady and change the front foot.",
+    "cue_fa": "نزدیک دیوار، یک پا را مستقیم جلوی پای دیگر بگذارید؛ تعادل را حفظ کنید و پای جلو را عوض کنید.",
+    "cue_ka": "კედელთან ერთი ტერფი პირდაპირ მეორის წინ დადგით; სტაბილურად დაიჭირეთ და წინა ფეხი შეცვალეთ.",
+    "difficulty": "beginner"
+  },
+  "heel-to-toe-walk": {
+    "focus": "balance",
+    "kind": "balance",
+    "home": true,
+    "requires": [],
+    "cue": "Walk slowly along a wall, placing each heel close to the toes of the other foot. Use the wall if needed.",
+    "cue_fa": "کنار دیوار آهسته راه بروید و هر پاشنه را نزدیک پنجه پای دیگر بگذارید. در صورت نیاز از دیوار کمک بگیرید.",
+    "cue_ka": "კედლის გასწვრივ ნელა იარეთ, ქუსლი მეორე ტერფის თითებთან ახლოს დადგით. საჭიროებისას კედელს დაეყრდენით.",
+    "difficulty": "beginner"
+  },
+  "step-ups": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [
+      "box"
+    ],
+    "cue": "Use a stable exercise step, plant your whole foot, stand up, then step down under control. Do not use an unstable chair.",
+    "cue_fa": "از پله ورزشی ثابت استفاده کنید، کل پا را روی آن بگذارید، بالا بروید و آرام پایین بیایید. از صندلی ناپایدار استفاده نکنید.",
+    "cue_ka": "მყარ სავარჯიშო საფეხურზე მთელი ტერფი დადგით, აიწიეთ და კონტროლით ჩამოდით. არ გამოიყენოთ არამდგრადი სკამი.",
+    "difficulty": "intermediate"
+  },
+  "band-pull-apart": {
+    "focus": "upper_back",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Hold a light band in front of your chest, spread straight arms outward, then return slowly without shrugging.",
+    "cue_fa": "کش سبک را جلوی سینه نگه دارید، دست‌های صاف را باز کنید و بدون بالا کشیدن شانه‌ها آرام برگردانید.",
+    "cue_ka": "მსუბუქი რეზინი მკერდის წინ დაიჭირეთ, გამართული ხელები განზე გაშალეთ და მხრების აწევის გარეშე ნელა დააბრუნეთ.",
+    "difficulty": "beginner"
+  },
+  "banded-clamshell": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Place a loop band above bent knees, lie on your side and open the top knee without rolling backward.",
+    "cue_fa": "کش حلقه‌ای را بالای زانوهای خم بگذارید، به پهلو بخوابید و زانوی بالا را بدون چرخش به عقب باز کنید.",
+    "cue_ka": "მოხრილი მუხლების ზემოთ მარყუჟიანი რეზინი მოათავსეთ, გვერდზე დაწექით და ზედა მუხლი უკან გადატრიალების გარეშე გახსენით.",
+    "difficulty": "beginner"
+  },
+  "banded-fire-hydrant": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "With a loop band above knees, lift one bent knee outward from all fours while keeping your trunk steady.",
+    "cue_fa": "کش حلقه‌ای بالای زانوها باشد؛ چهاردست‌وپا یک زانوی خم را به کنار ببرید و تنه را ثابت نگه دارید.",
+    "cue_ka": "რეზინი მუხლების ზემოთ მოათავსეთ; ოთხზე დგომით ერთი მოხრილი მუხლი გვერდზე ასწიეთ და ტანი უძრავად დატოვეთ.",
+    "difficulty": "beginner"
+  },
+  "banded-lateral-walk": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Place a loop band above knees, soften knees and take small sideways steps, keeping band tension.",
+    "cue_fa": "کش حلقه‌ای را بالای زانوها بگذارید، زانوها را کمی خم کنید و با حفظ کشش قدم‌های کوچک به کنار بردارید.",
+    "cue_ka": "მარყუჟიანი რეზინი მუხლების ზემოთ მოათავსეთ, მუხლები ოდნავ მოხარეთ და დაჭიმულობის შენარჩუნებით გვერდზე მცირე ნაბიჯები გადადგით.",
+    "difficulty": "beginner"
+  },
+  "banded-seated-hip-abduction": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [
+      "bench"
+    ],
+    "cue": "Sit on a sturdy seat with a loop band above knees, spread knees apart without leaning, and return slowly.",
+    "cue_fa": "روی نشیمن محکم با کش بالای زانوها بنشینید، زانوها را بدون خم شدن تنه باز کنید و آرام برگردانید.",
+    "cue_ka": "მყარ დასაჯდომზე რეზინით მუხლების ზემოთ დაჯექით, მუხლები ტანის გადახრის გარეშე გაშალეთ და ნელა დააბრუნეთ.",
+    "difficulty": "beginner"
+  },
+  "banded-squat": {
+    "focus": "legs",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Place a loop band above knees and squat to a comfortable depth, keeping knees aligned with feet.",
+    "cue_fa": "کش حلقه‌ای را بالای زانوها بگذارید و تا عمق راحت اسکوات کنید؛ زانوها در راستای پاها بمانند.",
+    "cue_ka": "მარყუჟიანი რეზინი მუხლების ზემოთ მოათავსეთ და კომფორტულად ჩაიჯექით; მუხლები ტერფების მიმართულებით დატოვეთ.",
+    "difficulty": "beginner"
+  },
+  "banded-kneeling-hip-thrust": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ],
+    "cue": "With a band secured behind your hips to a purpose-made anchor, move from sitting toward heels to tall kneeling. Do not improvise an anchor.",
+    "cue_fa": "کش را پشت لگن به مهار مخصوص محکم کنید؛ از نزدیکی پاشنه‌ها به زانوزدن صاف بروید. از مهار دست‌ساز استفاده نکنید.",
+    "cue_ka": "რეზინი მენჯის უკან სპეციალურ სამაგრზე დაამაგრეთ; ქუსლებთან ჯდომიდან მუხლებზე გამართულ დგომამდე აიწიეთ. თვითნაკეთი სამაგრი არ გამოიყენოთ.",
+    "difficulty": "beginner"
+  },
+  "barbell-bench-press": {
+    "home": false
+  },
+  "dumbbell-bench-press": {
+    "home": true
+  },
+  "machine-bench-press": {
+    "home": false
+  },
+  "barbell-incline-bench-press": {
+    "home": false
+  },
+  "dumbbell-incline-bench-press": {
+    "home": true
+  },
+  "machine-incline-bench-press": {
+    "home": false
+  },
+  "barbell-decline-bench-press": {
+    "home": false
+  },
+  "dumbbell-decline-bench-press": {
+    "home": true
+  },
+  "machine-decline-bench-press": {
+    "home": false
+  },
+  "dumbbell-chest-fly": {
+    "home": true
+  },
+  "cable-chest-fly": {
+    "home": false
+  },
+  "machine-chest-fly": {
+    "home": false
+  },
+  "band-chest-fly": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "dumbbell-incline-chest-fly": {
+    "home": true
+  },
+  "cable-incline-chest-fly": {
+    "home": false
+  },
+  "dumbbell-pullover": {
+    "home": true
+  },
+  "cable-pullover": {
+    "home": false
+  },
+  "machine-pullover": {
+    "home": false
+  },
+  "barbell-close-grip-bench-press": {
+    "home": false
+  },
+  "dumbbell-close-grip-bench-press": {
+    "home": true
+  },
+  "barbell-floor-press": {
+    "home": false
+  },
+  "dumbbell-floor-press": {
+    "home": true
+  },
+  "kettlebell-floor-press": {
+    "home": true
+  },
+  "cable-low-to-high-chest-fly": {
+    "home": false
+  },
+  "band-low-to-high-chest-fly": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "cable-high-to-low-chest-fly": {
+    "home": false
+  },
+  "band-high-to-low-chest-fly": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "barbell-bent-over-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "dumbbell-bent-over-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "kettlebell-bent-over-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "dumbbell-single-arm-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "cable-single-arm-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "kettlebell-single-arm-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "cable-seated-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "machine-seated-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "band-seated-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "dumbbell-chest-supported-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "machine-chest-supported-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "barbell-t-bar-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "machine-t-bar-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "barbell-pendlay-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "barbell-meadows-row": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "cable-lat-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "machine-lat-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "band-lat-pulldown": {
+    "home": true,
+    "focus": "back",
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "cable-close-grip-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "machine-close-grip-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "cable-reverse-grip-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "machine-reverse-grip-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "cable-straight-arm-pulldown": {
+    "home": false,
+    "focus": "back"
+  },
+  "band-straight-arm-pulldown": {
+    "home": true,
+    "focus": "back",
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "cable-face-pull": {
+    "home": false
+  },
+  "band-face-pull": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "barbell-shrug": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "dumbbell-shrug": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "machine-shrug": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "cable-shrug": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "barbell-deadlift": {
+    "home": false,
+    "focus": "back"
+  },
+  "dumbbell-deadlift": {
+    "home": true,
+    "focus": "back"
+  },
+  "kettlebell-deadlift": {
+    "home": true,
+    "focus": "back"
+  },
+  "barbell-sumo-deadlift": {
+    "home": false
+  },
+  "dumbbell-sumo-deadlift": {
+    "home": true
+  },
+  "kettlebell-sumo-deadlift": {
+    "home": true
+  },
+  "barbell-rack-pull": {
+    "home": false,
+    "focus": "back"
+  },
+  "barbell-overhead-press": {
+    "home": false
+  },
+  "dumbbell-overhead-press": {
+    "home": true
+  },
+  "kettlebell-overhead-press": {
+    "home": true
+  },
+  "machine-overhead-press": {
+    "home": false
+  },
+  "barbell-seated-shoulder-press": {
+    "home": false
+  },
+  "dumbbell-seated-shoulder-press": {
+    "home": true
+  },
+  "machine-seated-shoulder-press": {
+    "home": false
+  },
+  "dumbbell-arnold-press": {
+    "home": true
+  },
+  "dumbbell-lateral-raise": {
+    "home": true
+  },
+  "cable-lateral-raise": {
+    "home": false
+  },
+  "machine-lateral-raise": {
+    "home": false
+  },
+  "band-lateral-raise": {
+    "home": true
+  },
+  "barbell-front-raise": {
+    "home": false
+  },
+  "dumbbell-front-raise": {
+    "home": true
+  },
+  "cable-front-raise": {
+    "home": false
+  },
+  "band-front-raise": {
+    "home": true
+  },
+  "dumbbell-reverse-fly": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "cable-reverse-fly": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "machine-reverse-fly": {
+    "home": false,
+    "focus": "upper_back"
+  },
+  "band-reverse-fly": {
+    "home": true,
+    "focus": "upper_back",
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "barbell-upright-row": {
+    "home": false
+  },
+  "dumbbell-upright-row": {
+    "home": true
+  },
+  "cable-upright-row": {
+    "home": false
+  },
+  "barbell-landmine-press": {
+    "home": false
+  },
+  "barbell-push-press": {
+    "home": false
+  },
+  "dumbbell-push-press": {
+    "home": true
+  },
+  "kettlebell-push-press": {
+    "home": true
+  },
+  "barbell-biceps-curl": {
+    "home": false
+  },
+  "dumbbell-biceps-curl": {
+    "home": true
+  },
+  "cable-biceps-curl": {
+    "home": false
+  },
+  "machine-biceps-curl": {
+    "home": false
+  },
+  "band-biceps-curl": {
+    "home": true
+  },
+  "dumbbell-hammer-curl": {
+    "home": true
+  },
+  "cable-hammer-curl": {
+    "home": false
+  },
+  "band-hammer-curl": {
+    "home": true
+  },
+  "barbell-preacher-curl": {
+    "home": false
+  },
+  "dumbbell-preacher-curl": {
+    "home": true
+  },
+  "machine-preacher-curl": {
+    "home": false
+  },
+  "cable-preacher-curl": {
+    "home": false
+  },
+  "dumbbell-incline-curl": {
+    "home": true
+  },
+  "dumbbell-concentration-curl": {
+    "home": true
+  },
+  "barbell-reverse-curl": {
+    "home": false
+  },
+  "dumbbell-reverse-curl": {
+    "home": true
+  },
+  "cable-reverse-curl": {
+    "home": false
+  },
+  "barbell-spider-curl": {
+    "home": false
+  },
+  "dumbbell-spider-curl": {
+    "home": true
+  },
+  "cable-bayesian-curl": {
+    "home": false
+  },
+  "cable-triceps-pushdown": {
+    "home": false
+  },
+  "band-triceps-pushdown": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "dumbbell-overhead-triceps-extension": {
+    "home": true
+  },
+  "cable-overhead-triceps-extension": {
+    "home": false
+  },
+  "barbell-overhead-triceps-extension": {
+    "home": false
+  },
+  "band-overhead-triceps-extension": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "barbell-lying-triceps-extension": {
+    "home": false
+  },
+  "dumbbell-lying-triceps-extension": {
+    "home": true
+  },
+  "cable-lying-triceps-extension": {
+    "home": false
+  },
+  "dumbbell-triceps-kickback": {
+    "home": true
+  },
+  "cable-triceps-kickback": {
+    "home": false
+  },
+  "cable-single-arm-triceps-pushdown": {
+    "home": false
+  },
+  "barbell-wrist-curl": {
+    "home": false
+  },
+  "dumbbell-wrist-curl": {
+    "home": true
+  },
+  "cable-wrist-curl": {
+    "home": false
+  },
+  "barbell-reverse-wrist-curl": {
+    "home": false
+  },
+  "dumbbell-reverse-wrist-curl": {
+    "home": true
+  },
+  "barbell-back-squat": {
+    "home": false
+  },
+  "barbell-front-squat": {
+    "home": false
+  },
+  "dumbbell-front-squat": {
+    "home": true
+  },
+  "kettlebell-front-squat": {
+    "home": true
+  },
+  "dumbbell-goblet-squat": {
+    "home": true
+  },
+  "kettlebell-goblet-squat": {
+    "home": true
+  },
+  "machine-hack-squat": {
+    "home": false
+  },
+  "barbell-hack-squat": {
+    "home": false
+  },
+  "barbell-split-squat": {
+    "home": false
+  },
+  "dumbbell-split-squat": {
+    "home": true
+  },
+  "kettlebell-split-squat": {
+    "home": true
+  },
+  "barbell-bulgarian-split-squat": {
+    "home": false
+  },
+  "dumbbell-bulgarian-split-squat": {
+    "home": true
+  },
+  "kettlebell-bulgarian-split-squat": {
+    "home": true
+  },
+  "barbell-walking-lunge": {
+    "home": false
+  },
+  "dumbbell-walking-lunge": {
+    "home": true
+  },
+  "kettlebell-walking-lunge": {
+    "home": true
+  },
+  "barbell-reverse-lunge": {
+    "home": false
+  },
+  "dumbbell-reverse-lunge": {
+    "home": true
+  },
+  "kettlebell-reverse-lunge": {
+    "home": true
+  },
+  "dumbbell-lateral-lunge": {
+    "home": true
+  },
+  "kettlebell-lateral-lunge": {
+    "home": true
+  },
+  "barbell-step-up": {
+    "home": false
+  },
+  "dumbbell-step-up": {
+    "home": true
+  },
+  "kettlebell-step-up": {
+    "home": true
+  },
+  "machine-leg-press": {
+    "home": false
+  },
+  "machine-single-leg-press": {
+    "home": false
+  },
+  "machine-leg-extension": {
+    "home": false
+  },
+  "barbell-romanian-deadlift": {
+    "home": false
+  },
+  "dumbbell-romanian-deadlift": {
+    "home": true
+  },
+  "kettlebell-romanian-deadlift": {
+    "home": true
+  },
+  "dumbbell-single-leg-romanian-deadlift": {
+    "home": true
+  },
+  "kettlebell-single-leg-romanian-deadlift": {
+    "home": true
+  },
+  "barbell-good-morning": {
+    "home": false
+  },
+  "band-good-morning": {
+    "home": true
+  },
+  "machine-seated-leg-curl": {
+    "home": false
+  },
+  "machine-lying-leg-curl": {
+    "home": false
+  },
+  "machine-standing-leg-curl": {
+    "home": false
+  },
+  "cable-standing-leg-curl": {
+    "home": false
+  },
+  "barbell-hip-thrust": {
+    "home": false
+  },
+  "dumbbell-hip-thrust": {
+    "home": true
+  },
+  "machine-hip-thrust": {
+    "home": false
+  },
+  "barbell-glute-bridge": {
+    "home": false
+  },
+  "dumbbell-glute-bridge": {
+    "home": true
+  },
+  "band-glute-bridge": {
+    "home": true
+  },
+  "cable-glute-kickback": {
+    "home": false
+  },
+  "machine-glute-kickback": {
+    "home": false
+  },
+  "band-glute-kickback": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "machine-hip-abduction": {
+    "home": false
+  },
+  "cable-hip-abduction": {
+    "home": false
+  },
+  "band-hip-abduction": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Place a loop band around both legs, stand near a wall and move one leg outward without tilting your trunk.",
+    "cue_fa": "کش حلقه‌ای را دور دو پا بگذارید، کنار دیوار بایستید و یک پا را بدون کج کردن تنه به کنار ببرید.",
+    "cue_ka": "რეზინი ორივე ფეხს შემოახვიეთ, კედელთან დადექით და ერთი ფეხი ტანის გადახრის გარეშე გვერდზე გასწიეთ.",
+    "difficulty": "beginner"
+  },
+  "machine-hip-adduction": {
+    "home": false
+  },
+  "cable-hip-adduction": {
+    "home": false
+  },
+  "cable-pull-through": {
+    "home": false
+  },
+  "band-pull-through": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "machine-standing-calf-raise": {
+    "home": false
+  },
+  "barbell-standing-calf-raise": {
+    "home": false
+  },
+  "dumbbell-standing-calf-raise": {
+    "home": true
+  },
+  "machine-seated-calf-raise": {
+    "home": false
+  },
+  "dumbbell-seated-calf-raise": {
+    "home": true
+  },
+  "dumbbell-single-leg-calf-raise": {
+    "home": true
+  },
+  "machine-calf-press": {
+    "home": false
+  },
+  "cable-crunch": {
+    "home": false
+  },
+  "machine-crunch": {
+    "home": false
+  },
+  "cable-woodchop": {
+    "home": false
+  },
+  "band-woodchop": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "dumbbell-russian-twist": {
+    "home": true
+  },
+  "kettlebell-russian-twist": {
+    "home": true
+  },
+  "cable-pallof-press": {
+    "home": false
+  },
+  "band-pallof-press": {
+    "home": true,
+    "requires": [
+      "band_anchor"
+    ]
+  },
+  "barbell-clean": {
+    "home": false
+  },
+  "dumbbell-clean": {
+    "home": true
+  },
+  "kettlebell-clean": {
+    "home": true
+  },
+  "barbell-snatch": {
+    "home": false
+  },
+  "dumbbell-snatch": {
+    "home": true
+  },
+  "kettlebell-snatch": {
+    "home": true
+  },
+  "barbell-thruster": {
+    "home": false
+  },
+  "dumbbell-thruster": {
+    "home": true
+  },
+  "kettlebell-thruster": {
+    "home": true
+  },
+  "kettlebell-swing": {
+    "home": true
+  },
+  "dumbbell-swing": {
+    "home": true
+  },
+  "kettlebell-turkish-get-up": {
+    "home": true
+  },
+  "dumbbell-turkish-get-up": {
+    "home": true
+  },
+  "push-up": {
+    "home": true
+  },
+  "incline-push-up": {
+    "home": true
+  },
+  "decline-push-up": {
+    "home": true
+  },
+  "diamond-push-up": {
+    "home": true
+  },
+  "wide-grip-push-up": {
+    "home": true
+  },
+  "knee-push-up": {
+    "home": true
+  },
+  "pike-push-up": {
+    "home": true
+  },
+  "handstand-push-up": {
+    "home": false
+  },
+  "pull-up": {
+    "home": true,
+    "focus": "back"
+  },
+  "chin-up": {
+    "home": true,
+    "focus": "back"
+  },
+  "neutral-grip-pull-up": {
+    "home": true,
+    "focus": "back"
+  },
+  "inverted-row": {
+    "home": true,
+    "focus": "upper_back"
+  },
+  "dip": {
+    "home": true
+  },
+  "chest-dip": {
+    "home": true
+  },
+  "bench-dip": {
+    "home": true
+  },
+  "air-squat": {
+    "home": true
+  },
+  "jump-squat": {
+    "home": true
+  },
+  "pistol-squat": {
+    "home": true
+  },
+  "bodyweight-lunge": {
+    "home": true
+  },
+  "bodyweight-glute-bridge": {
+    "focus": "hips",
+    "kind": "strength",
+    "home": true,
+    "requires": [],
+    "cue": "Lie on your back with knees bent, press through your feet to lift your hips, then lower without arching your back.",
+    "cue_fa": "به پشت با زانوهای خم بخوابید، با فشار پاها لگن را بالا ببرید و بدون گود کردن کمر پایین بیاورید.",
+    "cue_ka": "ზურგზე დაწექით, მუხლები მოხარეთ და ტერფებით მიწოლით მენჯი ასწიეთ; წელის ზედმეტი მოხრის გარეშე დაუშვით.",
+    "difficulty": "beginner"
+  },
+  "nordic-curl": {
+    "home": true,
+    "requires": [
+      "foot_anchor"
+    ]
+  },
+  "back-extension": {
+    "home": true,
+    "focus": "lower_back",
+    "kind": "strength",
+    "requires": [
+      "back_extension_bench"
+    ]
+  },
+  "crunch": {
+    "home": true
+  },
+  "sit-up": {
+    "home": true
+  },
+  "bicycle-crunch": {
+    "home": true
+  },
+  "reverse-crunch": {
+    "home": true
+  },
+  "hanging-leg-raise": {
+    "home": true
+  },
+  "hanging-knee-raise": {
+    "home": true
+  },
+  "lying-leg-raise": {
+    "home": true
+  },
+  "v-up": {
+    "home": true
+  },
+  "mountain-climber": {
+    "home": true
+  },
+  "dead-bug": {
+    "home": true
+  },
+  "bird-dog": {
+    "home": true
+  },
+  "ab-wheel-rollout": {
+    "home": true,
+    "requires": [
+      "ab_wheel"
+    ]
+  },
+  "burpee": {
+    "home": true
+  },
+  "box-jump": {
+    "home": true
+  },
+  "jumping-jack": {
+    "home": true
+  },
+  "plank": {
+    "home": true
+  },
+  "side-plank": {
+    "home": true
+  },
+  "hollow-hold": {
+    "home": true
+  },
+  "dead-hang": {
+    "home": true,
+    "focus": "back"
+  },
+  "handstand-hold": {
+    "home": false
+  },
+  "jump-rope": {
+    "home": true,
+    "requires": [
+      "jump_rope"
+    ],
+    "kind": "cardio"
+  },
+  "battle-ropes": {
+    "home": false,
+    "requires": [
+      "battle_ropes"
+    ],
+    "kind": "cardio"
+  },
+  "machine-assisted-pull-up": {
+    "home": false,
+    "focus": "back"
+  },
+  "machine-assisted-chin-up": {
+    "home": false,
+    "focus": "back"
+  },
+  "machine-assisted-dip": {
+    "home": false
+  },
+  "running": {
+    "home": false,
+    "kind": "cardio"
+  },
+  "treadmill": {
+    "home": false
+  },
+  "walking": {
+    "home": false,
+    "kind": "cardio"
+  },
+  "cycling": {
+    "home": false,
+    "kind": "cardio"
+  },
+  "stationary-bike": {
+    "home": false
+  },
+  "rowing": {
+    "home": false,
+    "kind": "cardio"
+  },
+  "elliptical": {
+    "home": false
+  },
+  "stair-climber": {
+    "home": false
+  },
+  "swimming": {
+    "home": false
+  },
+  "hiking": {
+    "home": false
+  },
+  "ski-erg": {
+    "home": false
+  },
+  "air-bike": {
+    "home": false
+  },
+  "sled-push": {
+    "home": false
+  },
+  "farmer-carry": {
+    "home": false
+  }
+}

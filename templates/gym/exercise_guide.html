@@ -1,2 +1,13 @@
 {% load i18n static %}
-{% if exercise.media %}<section class="panel gym-guide"><div class="section-heading"><h2>{% translate "MOVEMENT REFERENCE" %}</h2></div><p class="help-text">{% translate "Reference variation" %}: <bdi>{{ exercise.media.name }}</bdi></p><div class="gym-guide-images">{% for image in exercise.media.images %}<figure><img src="{% static image %}" alt="{{ exercise.media.name }} · {{ forloop.counter }}" width="512" height="512" loading="lazy" decoding="async"><figcaption>{% if forloop.first %}{% translate "Start position" %}{% else %}{% translate "Movement position" %}{% endif %}</figcaption></figure>{% endfor %}</div></section>{% endif %}
+{% if exercise.media %}
+<section class="panel gym-guide">
+  <div class="section-heading"><h2>{% translate "MOVEMENT REFERENCE" %}</h2>{% if exercise.kind_label %}<span class="gym-movement-kind">{{ exercise.kind_label }}</span>{% endif %}</div>
+  {% if exercise.focus_label %}<p class="gym-focus-label">{{ exercise.focus_label }}</p>{% endif %}
+  {% if exercise.display_cue %}<p class="gym-coaching-cue">{{ exercise.display_cue }}</p>{% endif %}
+  {% if exercise.fixtures %}<p class="help-text">{% translate "Also needs" %}: {{ exercise.fixtures|join:", " }}</p>{% endif %}
+  <p class="help-text">{% translate "Reference variation" %}: <bdi>{{ exercise.media.name }}</bdi></p>
+  <div class="gym-guide-images">{% for image in exercise.media.images %}<figure><img src="{% static image %}" alt="{{ exercise.media.name }} · {{ forloop.counter }}" width="512" height="512" loading="lazy" decoding="async"><figcaption>{% if exercise.media.images|length == 1 %}{% translate "Position reference" %}{% elif forloop.first %}{% translate "Start position" %}{% else %}{% translate "Movement position" %}{% endif %}</figcaption></figure>{% endfor %}</div>
+  {% if exercise.media.provider == 'workout-guide' %}<p class="gym-reference-caption">{% translate "Illustrations by" %} <a href="https://bryllim.com" target="_blank" rel="noopener">Bryl Lim</a> · <a href="{{ exercise.media.source }}" target="_blank" rel="noopener">Workout Guide</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · {% translate "Unmodified illustrations" %}</p>{% endif %}
+  {% if exercise.display_cue %}<p class="gym-reference-caption">{% translate "Move within a comfortable range. Stop if pain increases; these references are not a rehabilitation plan." %}</p>{% endif %}
+</section>
+{% endif %}

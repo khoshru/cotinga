@@ -9,6 +9,13 @@ from django.utils.translation import gettext_lazy as _
 
 from tracker.localization import localized_text
 
+from .catalog import (
+    FIXTURE_LABELS,
+    FOCUS_LABELS,
+    KIND_LABELS,
+    equipment_requirements,
+    movement_details,
+)
 from .media import exercise_media
 
 
@@ -80,6 +87,34 @@ class Exercise(models.Model):
         return (
             exercise_media().get(self.slug or "", {}) if self.owner_id is None else {}
         )
+
+    @property
+    def details(self) -> dict[str, object]:
+        return (
+            dict(movement_details().get(self.slug or "", {}))
+            if self.owner_id is None
+            else {}
+        )
+
+    @property
+    def focus_label(self) -> str:
+        return str(FOCUS_LABELS.get(str(self.details.get("focus", "")), ""))
+
+    @property
+    def kind_label(self) -> str:
+        return str(KIND_LABELS.get(str(self.details.get("kind", "")), ""))
+
+    @property
+    def display_cue(self) -> str:
+        return localized_text(
+            *[str(self.details.get(field, "")) for field in ("cue", "cue_fa", "cue_ka")]
+        )
+
+    @property
+    def fixtures(self) -> list[str]:
+        return [
+            str(FIXTURE_LABELS[key]) for key in sorted(equipment_requirements(self))
+        ]
 
 
 class GymPreferences(models.Model):

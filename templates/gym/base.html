@@ -12,7 +12,7 @@
     <a href="{% url 'gym:records' %}" {% if request.resolver_match.url_name == 'records' %}aria-current="page"{% endif %}>{% translate "Records" %}</a>
   </nav>
   {% block gym_content %}{% endblock %}
-  <p class="gym-image-credit">{% translate "Exercise illustrations" %}: <a href="https://repdb.co" target="_blank" rel="noopener">Exercise data by RepDB (repdb.co)</a> · <a href="https://github.com/yuhonas/free-exercise-db" target="_blank" rel="noopener">Free Exercise DB</a></p>
+  <p class="gym-image-credit">{% translate "Exercise illustrations" %}: <a href="https://repdb.co" target="_blank" rel="noopener">Exercise data by RepDB (repdb.co)</a> · <a href="https://github.com/yuhonas/free-exercise-db" target="_blank" rel="noopener">Free Exercise DB</a> · <a href="https://bryllim.github.io/workout-guide/" target="_blank" rel="noopener">Workout Guide · Bryl Lim</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>)</p>
 </div>
 <script src="{% static 'js/rest-timer.js' %}" defer></script>
 <script src="{% static 'js/gym.js' %}" defer></script>

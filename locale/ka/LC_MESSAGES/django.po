@@ -3761,3 +3761,123 @@ msgstr "ათვლა სხვა ჩანართზე გადასვ
 
 msgid "Exercise order"
 msgstr "სავარჯიშოების თანმიმდევრობა"
+
+msgid "A better starting point first"
+msgstr "ჯერ უკეთესი საწყისი ნაბიჯი"
+
+msgid "Ab wheel"
+msgstr "მუცლის სავარჯიშო ბორბალი"
+
+msgid "Also needs"
+msgstr "ასევე სჭირდება"
+
+msgid "Anywhere"
+msgstr "ყველგან"
+
+msgid "Arms"
+msgstr "ხელები"
+
+msgid "Ask a clinician which activities are suitable before requesting a plan for pain or an injury. Include their restrictions; AI cannot assess pain or provide rehabilitation."
+msgstr "ტკივილის ან ტრავმისთვის გეგმის მოთხოვნამდე სპეციალისტს ჰკითხეთ, რომელი აქტივობებია შესაფერისი. მიუთითეთ მისი შეზღუდვები; AI ვერ შეაფასებს ტკივილს და ვერ დაგინიშნავთ რეაბილიტაციას."
+
+msgid "At home"
+msgstr "სახლში"
+
+msgid "Back mobility"
+msgstr "ზურგის მობილობა"
+
+msgid "Back pain guidance"
+msgstr "ზურგის ტკივილის შესახებ"
+
+msgid "Balance"
+msgstr "წონასწორობა"
+
+msgid "Exercise bench or sturdy seat"
+msgstr "სავარჯიშო სკამი ან მყარი დასაჯდომი"
+
+msgid "Hips & glutes"
+msgstr "მენჯი და დუნდულები"
+
+msgid "Hips & hamstrings"
+msgstr "დუნდულები და ბარძაყის უკანა კუნთები"
+
+msgid "Legs"
+msgstr "ფეხები"
+
+msgid "Let’s adjust the request"
+msgstr "მოდით, მოთხოვნა შევცვალოთ"
+
+msgid "Lower back"
+msgstr "ზურგის ქვედა ნაწილი"
+
+msgid "Mobility"
+msgstr "მობილობა"
+
+msgid "Move within a comfortable range. Stop if pain increases; these references are not a rehabilitation plan."
+msgstr "იმოძრავეთ კომფორტულ დიაპაზონში. ტკივილის გაძლიერებისას შეჩერდით; ეს ნიმუშები რეაბილიტაციის გეგმა არ არის."
+
+msgid "Next steps"
+msgstr "შემდეგი ნაბიჯები"
+
+msgid "No equipment"
+msgstr "აღჭურვილობის გარეშე"
+
+msgid "No routines were created. Update your request with suitable activity guidance or change the equipment and goal."
+msgstr "რუტინები არ შექმნილა. მოთხოვნას დაუმატეთ შესაბამისი მითითებები დასაშვები აქტივობის შესახებ, ან შეცვალეთ აღჭურვილობა და მიზანი."
+
+msgid "Nordic curl foot anchor"
+msgstr "ნორდიკული მოხრის ფეხის სამაგრი"
+
+msgid "Position reference"
+msgstr "პოზის ნიმუში"
+
+msgid "Secure resistance-band anchor"
+msgstr "რეზინის უსაფრთხო სამაგრი"
+
+msgid "Shoulder blade control"
+msgstr "ბეჭების კონტროლი"
+
+msgid "Spine mobility"
+msgstr "ხერხემლის მობილობა"
+
+msgid "Stable exercise step"
+msgstr "მყარი სავარჯიშო საფეხური"
+
+msgid "Strength"
+msgstr "ძალა"
+
+msgid "Training at home? Choose Bodyweight only, then add only the equipment you have. Your plan can include home strength, mobility, and balance movements."
+msgstr "სახლში ვარჯიშობთ? აირჩიეთ მხოლოდ საკუთარი წონა, შემდეგ მონიშნეთ მხოლოდ თქვენი აღჭურვილობა. გეგმა შეიძლება მოიცავდეს სახლში ძალის, მობილობისა და წონასწორობის ვარჯიშებს."
+
+msgid "Unmodified illustrations"
+msgstr "უცვლელი ილუსტრაციები"
+
+msgid "Update my request"
+msgstr "მოთხოვნის განახლება"
+
+msgid "Upper & middle back"
+msgstr "ზურგის ზედა და შუა ნაწილი"
+
+msgid "Where to train"
+msgstr "სავარჯიშო ადგილი"
+
+msgid "Why there isn’t a plan yet"
+msgstr "რატომ არ არის გეგმა მზად"
+
+msgid "Working around pain?"
+msgstr "ტკივილის გათვალისწინებით ვარჯიშობთ?"
+
+msgid "Your request is saved. Review what is needed before planning."
+msgstr "თქვენი მოთხოვნა შენახულია. დაგეგმვამდე გადახედეთ საჭირო ინფორმაციას."
+
+msgid "Illustrations by"
+msgstr "ილუსტრაციების ავტორი"
+
+msgid "Back extension bench"
+msgstr "ზურგის გაშლის სპეციალური სკამი"
+
+msgid "Battle ropes and secure anchor"
+msgstr "სავარჯიშო თოკები და უსაფრთხო სამაგრი"
+
+msgid "Jump rope"
+msgstr "სახტუნაო თოკი"

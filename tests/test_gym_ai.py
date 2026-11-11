@@ -50,6 +50,7 @@ def setup(client: Client, owner: User) -> Any:
                 for row in import_module(
                     "gym.migrations.0002_exercise_library"
                 ).EXERCISES
+                + import_module("gym.migrations.0006_home_exercises").EXERCISES
             ]
         )
     OpenRouterSettings.objects.create(
